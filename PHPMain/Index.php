@@ -1,5 +1,7 @@
 <?php
 
-	echo "Test";
+$x = 1;
+
+echo ++$x;
 
 ?>
