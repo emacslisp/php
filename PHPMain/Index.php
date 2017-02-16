@@ -1,5 +1,10 @@
 <?php
 
+//@example: php constant using string
+define("CONSTANT", "Hello world.");
+
+echo CONSTANT;
+
 $x = 1;
 
 echo ++$x;
