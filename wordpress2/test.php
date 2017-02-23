@@ -36,8 +36,9 @@ $value =  apply_filters("test", 'arg1','arg2','arg3');
  
  add_action("test_action","test_func2",10,3);
  echo '<br> do_action test: ';
- echo do_action("test_action",'arg1','arg2','arg3')
+ echo do_action("test_action",'arg1','arg2','arg3');
  
+ //wp_redirect("http://www.google.com.au");
  
  
 ?>    
