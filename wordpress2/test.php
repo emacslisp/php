@@ -2,7 +2,26 @@
 
 require( dirname(__FILE__) . '/wp-load.php' );
 
+?>
 
+<?php
+
+$isFrontPage = is_front_page();
+
+echo $isFrontPage;
+
+exit;
+?>
+
+<?php 
+
+//@example: php wordpress - get_userdata
+ $user_info = get_userdata( 1);
+ echo 'Username: ' . $user_info-> user_login . "\ n"; 
+ echo 'User roles: ' . implode(', ', $user_info-> roles) . "\ n"; echo 'User ID: ' . $user_info-> ID . "\ n";
+
+
+ exit;
 
 ?>
 
@@ -39,6 +58,6 @@ $value =  apply_filters("test", 'arg1','arg2','arg3');
  echo do_action("test_action",'arg1','arg2','arg3');
  
  //wp_redirect("http://www.google.com.au");
- 
+
  
 ?>    
