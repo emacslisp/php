@@ -6,11 +6,13 @@ require( dirname(__FILE__) . '/wp-load.php' );
 
 <?php
 
+echo 'xxx';
+
 $isFrontPage = is_front_page();
 
 echo $isFrontPage;
 
-exit;
+//exit;
 ?>
 
 <?php 
@@ -21,7 +23,7 @@ exit;
  echo 'User roles: ' . implode(', ', $user_info-> roles) . "\ n"; echo 'User ID: ' . $user_info-> ID . "\ n";
 
 
- exit;
+ //exit;
 
 ?>
 
@@ -48,7 +50,7 @@ function test_func2( $text, $var1, $var2 ){
 //@example: php - wordpress - add_filter, apply_filters, add_action, do_action example
 add_filter("test", "test_func", 10, 3);
 
-$value =  apply_filters("test", 'arg1','arg2','arg3'); 
+$value =  apply_filters("test",'arg1','arg2','arg3'); 
  echo $value;
  
  echo '<br> it is working xxx ';

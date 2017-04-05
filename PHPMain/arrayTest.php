@@ -2,7 +2,7 @@
 
 // @example: wordpress core - simulate add_doaction and apply_doaction
 function test() {
-	echo 'hello world';
+	echo 'hello world xxxx !!!!';
 }
 
 $priority = 0;
