@@ -6,7 +6,21 @@ require( dirname(__FILE__) . '/wp-load.php' );
 
 <?php
 
-echo 'xxx';
+
+function print_filters_for( $hook = '' ) {
+	global $wp_filter;
+	if( empty( $hook ) || !isset( $wp_filter[$hook] ) )
+		return 'temp define';
+
+		print '<pre>';
+		print_r( $wp_filter[$hook] );
+		print '</pre>';
+}
+
+print_filters_for( 'wp_head' );
+
+
+printf( __( 'Proudly powered by %s', 'twentyseventeen' ), 'WordPress' );
 
 $isFrontPage = is_front_page();
 
