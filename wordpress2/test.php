@@ -1,10 +1,24 @@
 <?php
 
-require( dirname(__FILE__) . '/wp-load.php' );
+require( './wp-load.php' );
 
 ?>
 
 <?php
+
+echo('wp-load.php');
+
+echo '__DIR__'.__DIR__;
+
+echo '<br/>';
+
+echo 'dirname(__FILE__)'.dirname(__FILE__);
+
+$post = $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE ID = %d LIMIT 1", 4 );
+//$post = WP_POST::get_instance(4);
+
+$post_final = $wpdb->get_row($post);
+
 
 
 function print_filters_for( $hook = '' ) {
@@ -17,7 +31,7 @@ function print_filters_for( $hook = '' ) {
 		print '</pre>';
 }
 
-print_filters_for( 'wp_head' );
+print_filters_for( 'template_redirect' );
 
 
 printf( __( 'Proudly powered by %s', 'twentyseventeen' ), 'WordPress' );
