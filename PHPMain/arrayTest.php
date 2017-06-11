@@ -8,6 +8,7 @@ function test() {
 $priority = 0;
 $function_to_add='test';
 $idx = $function_to_add;
+$accepted_args= '';
 
 $callbacks = array();
 
