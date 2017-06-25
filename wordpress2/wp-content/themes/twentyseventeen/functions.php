@@ -377,6 +377,15 @@ function twentyseventeen_javascript_detection() {
 }
 add_action( 'wp_head', 'twentyseventeen_javascript_detection', 0 );
 
+
+function add_google_adsense() {
+   echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>  (adsbygoogle = window.adsbygoogle || []).push({    google_ad_client: "ca-pub-1491245661992771",    enable_page_level_ads: true  });</script>';
+}
+
+
+add_action('wp_head', 'add_google_adsense',0 );
+
+
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
