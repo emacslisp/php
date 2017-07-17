@@ -9,6 +9,29 @@ function _e($text, $domain='default') {
 	echo $text;
 }
 
+$step = isset( $_GET['step'] ) ? (int) $_GET['step'] : -1;
+
+?>
+
+
+
+<p>
+<?php 
+
+/* translators: %s: wp-config.php */
+printf( __( 'We&#8217;re going to use this information to create a %s file.' ),
+'<code>wp-config.php</code>'
+			);
+
+
+switch($step) {
+	case -1:
+		// $step = -1, but we don't break here.
+	case 0:
+		$step_1 = 'setup-config.php?step=1';
+		
+}
+
 ?>
 
 <h1 class="screen-reader-text"><?php _e( 'Before getting started' ) ?></h1>
@@ -20,5 +43,4 @@ function _e($text, $domain='default') {
 	<li><?php _e( 'Database host' ); ?></li>
 	<li><?php _e( 'Table prefix (if you want to run more than one WordPress in a single database)' ); ?></li>
 </ol>
-
-
+<p>
