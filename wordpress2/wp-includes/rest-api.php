@@ -29,7 +29,7 @@ define( 'REST_API_VERSION', '2.0' );
  *                          false merges (with newer overriding if duplicate keys exist). Default false.
  * @return bool True on success, false on error.
  */
-function register_rest_route( $namespace, $route, $args = array(), $override = false ) {
+function register_rest_route( $namespace, $route, $args = array(), $override = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/** @var WP_REST_Server $wp_rest_server */
 	global $wp_rest_server;
 
@@ -102,7 +102,7 @@ function register_rest_route( $namespace, $route, $args = array(), $override = f
  *                                              this field. Default is 'null', no schema entry will be returned.
  * }
  */
-function register_rest_field( $object_type, $attribute, $args = array() ) {
+function register_rest_field( $object_type, $attribute, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'get_callback'    => null,
 		'update_callback' => null,
@@ -128,7 +128,7 @@ function register_rest_field( $object_type, $attribute, $args = array() ) {
  * @see rest_api_register_rewrites()
  * @global WP $wp Current WordPress environment instance.
  */
-function rest_api_init() {
+function rest_api_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	rest_api_register_rewrites();
 
 	global $wp;
@@ -143,7 +143,7 @@ function rest_api_init() {
  * @see add_rewrite_rule()
  * @global WP_Rewrite $wp_rewrite
  */
-function rest_api_register_rewrites() {
+function rest_api_register_rewrites() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_rewrite;
 
 	add_rewrite_rule( '^' . rest_get_url_prefix() . '/?$','index.php?rest_route=/','top' );
@@ -160,7 +160,7 @@ function rest_api_register_rewrites() {
  *
  * @since 4.4.0
  */
-function rest_api_default_filters() {
+function rest_api_default_filters() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Deprecated reporting.
 	add_action( 'deprecated_function_run', 'rest_handle_deprecated_function', 10, 3 );
 	add_filter( 'deprecated_function_trigger_error', '__return_false' );
@@ -179,7 +179,7 @@ function rest_api_default_filters() {
  *
  * @since 4.7.0
  */
-function create_initial_rest_routes() {
+function create_initial_rest_routes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	foreach ( get_post_types( array( 'show_in_rest' => true ), 'objects' ) as $post_type ) {
 		$class = ! empty( $post_type->rest_controller_class ) ? $post_type->rest_controller_class : 'WP_REST_Posts_Controller';
 
@@ -247,7 +247,7 @@ function create_initial_rest_routes() {
  * @global WP             $wp             Current WordPress environment instance.
  * @global WP_REST_Server $wp_rest_server ResponseHandler instance (usually WP_REST_Server).
  */
-function rest_api_loaded() {
+function rest_api_loaded() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $GLOBALS['wp']->query_vars['rest_route'] ) ) {
 		return;
 	}
@@ -277,7 +277,7 @@ function rest_api_loaded() {
  *
  * @return string Prefix.
  */
-function rest_get_url_prefix() {
+function rest_get_url_prefix() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the REST URL prefix.
 	 *
@@ -303,7 +303,7 @@ function rest_get_url_prefix() {
  * @param string $scheme  Optional. Sanitization scheme. Default 'rest'.
  * @return string Full URL to the endpoint.
  */
-function get_rest_url( $blog_id = null, $path = '/', $scheme = 'rest' ) {
+function get_rest_url( $blog_id = null, $path = '/', $scheme = 'rest' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $path ) ) {
 		$path = '/';
 	}
@@ -359,7 +359,7 @@ function get_rest_url( $blog_id = null, $path = '/', $scheme = 'rest' ) {
  * @param string $scheme Optional. Sanitization scheme. Default 'json'.
  * @return string Full URL to the endpoint.
  */
-function rest_url( $path = '', $scheme = 'json' ) {
+function rest_url( $path = '', $scheme = 'json' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return get_rest_url( null, $path, $scheme );
 }
 
@@ -375,7 +375,7 @@ function rest_url( $path = '', $scheme = 'json' ) {
  * @param WP_REST_Request|string $request Request.
  * @return WP_REST_Response REST response.
  */
-function rest_do_request( $request ) {
+function rest_do_request( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$request = rest_ensure_request( $request );
 	return rest_get_server()->dispatch( $request );
 }
@@ -391,7 +391,7 @@ function rest_do_request( $request ) {
  *
  * @return WP_REST_Server REST server instance.
  */
-function rest_get_server() {
+function rest_get_server() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/* @var WP_REST_Server $wp_rest_server */
 	global $wp_rest_server;
 
@@ -433,7 +433,7 @@ function rest_get_server() {
  * @param array|WP_REST_Request $request Request to check.
  * @return WP_REST_Request REST request instance.
  */
-function rest_ensure_request( $request ) {
+function rest_ensure_request( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $request instanceof WP_REST_Request ) {
 		return $request;
 	}
@@ -455,7 +455,7 @@ function rest_ensure_request( $request ) {
  *                                is already an instance, WP_HTTP_Response, otherwise
  *                                returns a new WP_REST_Response instance.
  */
-function rest_ensure_response( $response ) {
+function rest_ensure_response( $response ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_wp_error( $response ) ) {
 		return $response;
 	}
@@ -476,7 +476,7 @@ function rest_ensure_response( $response ) {
  * @param string $replacement The function that should have been called.
  * @param string $version     Version.
  */
-function rest_handle_deprecated_function( $function, $replacement, $version ) {
+function rest_handle_deprecated_function( $function, $replacement, $version ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $replacement ) ) {
 		/* translators: 1: function name, 2: WordPress version number, 3: new function name */
 		$string = sprintf( __( '%1$s (since %2$s; use %3$s instead)' ), $function, $version, $replacement );
@@ -497,7 +497,7 @@ function rest_handle_deprecated_function( $function, $replacement, $version ) {
  * @param string $message     A message regarding the change.
  * @param string $version     Version.
  */
-function rest_handle_deprecated_argument( $function, $message, $version ) {
+function rest_handle_deprecated_argument( $function, $message, $version ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $message ) ) {
 		/* translators: 1: function name, 2: WordPress version number, 3: error message */
 		$string = sprintf( __( '%1$s (since %2$s; %3$s)' ), $function, $version, $message );
@@ -517,7 +517,7 @@ function rest_handle_deprecated_argument( $function, $message, $version ) {
  * @param mixed $value Response data.
  * @return mixed Response data.
  */
-function rest_send_cors_headers( $value ) {
+function rest_send_cors_headers( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$origin = get_http_origin();
 
 	if ( $origin ) {
@@ -543,7 +543,7 @@ function rest_send_cors_headers( $value ) {
  * @param WP_REST_Request $request  The request that was used to make current response.
  * @return WP_REST_Response Modified response, either response or `null` to indicate pass-through.
  */
-function rest_handle_options_request( $response, $handler, $request ) {
+function rest_handle_options_request( $response, $handler, $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $response ) || $request->get_method() !== 'OPTIONS' ) {
 		return $response;
 	}
@@ -577,7 +577,7 @@ function rest_handle_options_request( $response, $handler, $request ) {
  * @param WP_REST_Request  $request  The request that was used to make current response.
  * @return WP_REST_Response Response to be served, with "Allow" header if route has allowed methods.
  */
-function rest_send_allow_header( $response, $server, $request ) {
+function rest_send_allow_header( $response, $server, $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$matched_route = $response->get_matched_route();
 
 	if ( ! $matched_route ) {
@@ -620,7 +620,7 @@ function rest_send_allow_header( $response, $server, $request ) {
  *
  * @see get_rest_url()
  */
-function rest_output_rsd() {
+function rest_output_rsd() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$api_root = get_rest_url();
 
 	if ( empty( $api_root ) ) {
@@ -638,7 +638,7 @@ function rest_output_rsd() {
  *
  * @see get_rest_url()
  */
-function rest_output_link_wp_head() {
+function rest_output_link_wp_head() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$api_root = get_rest_url();
 
 	if ( empty( $api_root ) ) {
@@ -653,7 +653,7 @@ function rest_output_link_wp_head() {
  *
  * @since 4.4.0
  */
-function rest_output_link_header() {
+function rest_output_link_header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( headers_sent() ) {
 		return;
 	}
@@ -684,7 +684,7 @@ function rest_output_link_header() {
  *                               if not.
  * @return WP_Error|mixed|bool WP_Error if the cookie is invalid, the $result, otherwise true.
  */
-function rest_cookie_check_errors( $result ) {
+function rest_cookie_check_errors( $result ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $result ) ) {
 		return $result;
 	}
@@ -738,7 +738,7 @@ function rest_cookie_check_errors( $result ) {
  * @see current_action()
  * @global mixed $wp_rest_auth_cookie
  */
-function rest_cookie_collect_status() {
+function rest_cookie_collect_status() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_rest_auth_cookie;
 
 	$status_type = current_action();
@@ -761,7 +761,7 @@ function rest_cookie_collect_status() {
  *                          the timestamp's timezone. Default false.
  * @return int Unix timestamp.
  */
-function rest_parse_date( $date, $force_utc = false ) {
+function rest_parse_date( $date, $force_utc = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $force_utc ) {
 		$date = preg_replace( '/[+-]\d+:?\d+$/', '+00:00', $date );
 	}
@@ -787,7 +787,7 @@ function rest_parse_date( $date, $force_utc = false ) {
  * @return array|null Local and UTC datetime strings, in MySQL datetime format (Y-m-d H:i:s),
  *                    null on failure.
  */
-function rest_get_date_with_gmt( $date, $force_utc = false ) {
+function rest_get_date_with_gmt( $date, $force_utc = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$date = rest_parse_date( $date, $force_utc );
 
 	if ( empty( $date ) ) {
@@ -807,7 +807,7 @@ function rest_get_date_with_gmt( $date, $force_utc = false ) {
  *
  * @return integer 401 if the user is not logged in, 403 if the user is logged in.
  */
-function rest_authorization_required_code() {
+function rest_authorization_required_code() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return is_user_logged_in() ? 403 : 401;
 }
 
@@ -821,7 +821,7 @@ function rest_authorization_required_code() {
  * @param  string           $param
  * @return WP_Error|boolean
  */
-function rest_validate_request_arg( $value, $request, $param ) {
+function rest_validate_request_arg( $value, $request, $param ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$attributes = $request->get_attributes();
 	if ( ! isset( $attributes['args'][ $param ] ) || ! is_array( $attributes['args'][ $param ] ) ) {
 		return true;
@@ -841,7 +841,7 @@ function rest_validate_request_arg( $value, $request, $param ) {
  * @param  string           $param
  * @return mixed
  */
-function rest_sanitize_request_arg( $value, $request, $param ) {
+function rest_sanitize_request_arg( $value, $request, $param ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$attributes = $request->get_attributes();
 	if ( ! isset( $attributes['args'][ $param ] ) || ! is_array( $attributes['args'][ $param ] ) ) {
 		return $value;
@@ -864,7 +864,7 @@ function rest_sanitize_request_arg( $value, $request, $param ) {
  * @param  string           $param
  * @return mixed
  */
-function rest_parse_request_arg( $value, $request, $param ) {
+function rest_parse_request_arg( $value, $request, $param ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$is_valid = rest_validate_request_arg( $value, $request, $param );
 
 	if ( is_wp_error( $is_valid ) ) {
@@ -886,7 +886,7 @@ function rest_parse_request_arg( $value, $request, $param ) {
  * @param  string $ip IP address.
  * @return string|false The valid IP address, otherwise false.
  */
-function rest_is_ip_address( $ip ) {
+function rest_is_ip_address( $ip ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$ipv4_pattern = '/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/';
 
 	if ( ! preg_match( $ipv4_pattern, $ip ) && ! Requests_IPv6::check_ipv6( $ip ) ) {
@@ -904,7 +904,7 @@ function rest_is_ip_address( $ip ) {
  * @param bool|string|int $value The value being evaluated.
  * @return boolean Returns the proper associated boolean value.
  */
-function rest_sanitize_boolean( $value ) {
+function rest_sanitize_boolean( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// String values are translated to `true`; make sure 'false' is false.
 	if ( is_string( $value )  ) {
 		$value = strtolower( $value );
@@ -925,7 +925,7 @@ function rest_sanitize_boolean( $value ) {
  * @param bool|string $maybe_bool The value being evaluated.
  * @return boolean True if a boolean, otherwise false.
  */
-function rest_is_boolean( $maybe_bool ) {
+function rest_is_boolean( $maybe_bool ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_bool( $maybe_bool ) ) {
 		return true;
 	}
@@ -960,7 +960,7 @@ function rest_is_boolean( $maybe_bool ) {
  * @param string $email Email address.
  * @return array $urls Gravatar url for each size.
  */
-function rest_get_avatar_urls( $email ) {
+function rest_get_avatar_urls( $email ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$avatar_sizes = rest_get_avatar_sizes();
 
 	$urls = array();
@@ -978,7 +978,7 @@ function rest_get_avatar_urls( $email ) {
  *
  * @return array List of pixel sizes for avatars. Default `[ 24, 48, 96 ]`.
  */
-function rest_get_avatar_sizes() {
+function rest_get_avatar_sizes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filter the REST avatar sizes.
 	 *
@@ -1001,7 +1001,7 @@ function rest_get_avatar_sizes() {
  * @param string $param The parameter name, used in error messages.
  * @return true|WP_Error
  */
-function rest_validate_value_from_schema( $value, $args, $param = '' ) {
+function rest_validate_value_from_schema( $value, $args, $param = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'array' === $args['type'] ) {
 		if ( ! is_array( $value ) ) {
 			$value = preg_split( '/[\s,]+/', $value );
@@ -1122,7 +1122,7 @@ function rest_validate_value_from_schema( $value, $args, $param = '' ) {
  * @param array $args  Schema array to use for sanitization.
  * @return true|WP_Error
  */
-function rest_sanitize_value_from_schema( $value, $args ) {
+function rest_sanitize_value_from_schema( $value, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'array' === $args['type'] ) {
 		if ( empty( $args['items'] ) ) {
 			return (array) $value;

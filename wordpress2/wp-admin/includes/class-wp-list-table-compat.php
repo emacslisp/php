@@ -16,7 +16,7 @@ class _WP_List_Table_Compat extends WP_List_Table {
 	public $_screen;
 	public $_columns;
 
-	public function __construct( $screen, $columns = array() ) {
+	public function __construct( $screen, $columns = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_string( $screen ) )
 			$screen = convert_to_screen( $screen );
 
@@ -33,7 +33,7 @@ class _WP_List_Table_Compat extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_column_info() {
+	protected function get_column_info() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$columns = get_column_headers( $this->_screen );
 		$hidden = get_hidden_columns( $this->_screen );
 		$sortable = array();
@@ -47,7 +47,7 @@ class _WP_List_Table_Compat extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	public function get_columns() {
+	public function get_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->_columns;
 	}
 }

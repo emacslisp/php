@@ -99,7 +99,7 @@ class WP {
 	 *
 	 * @param string $qv Query variable name.
 	 */
-	public function add_query_var($qv) {
+	public function add_query_var($qv) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !in_array($qv, $this->public_query_vars) )
 			$this->public_query_vars[] = $qv;
 	}
@@ -112,7 +112,7 @@ class WP {
 	 *
 	 * @param string $name Query variable name.
 	 */
-	public function remove_query_var( $name ) {
+	public function remove_query_var( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->public_query_vars = array_diff( $this->public_query_vars, array( $name ) );
 	}
 
@@ -125,7 +125,7 @@ class WP {
 	 * @param string $key Query variable name.
 	 * @param mixed $value Query variable value.
 	 */
-	public function set_query_var($key, $value) {
+	public function set_query_var($key, $value) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_vars[$key] = $value;
 	}
 
@@ -142,7 +142,7 @@ class WP {
 	 *
 	 * @param array|string $extra_query_vars Set the extra query variables.
 	 */
-	public function parse_request($extra_query_vars = '') {
+	public function parse_request($extra_query_vars = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_rewrite;
 
 		/**
@@ -396,7 +396,7 @@ class WP {
 	 * @since 4.4.0 `X-Pingback` header is added conditionally after posts have been queried in handle_404().
 	 * @access public
 	 */
-	public function send_headers() {
+	public function send_headers() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$headers = array();
 		$status = null;
 		$exit_required = false;
@@ -488,7 +488,7 @@ class WP {
 			unset( $headers['Last-Modified'] );
 
 			// In PHP 5.3+, make sure we are not sending a Last-Modified header.
-			if ( function_exists( 'header_remove' ) ) {
+			if ( function_exists( 'header_remove' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				@header_remove( 'Last-Modified' );
 			} else {
 				// In PHP 5.2, send an empty Last-Modified header, but only as a
@@ -527,7 +527,7 @@ class WP {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function build_query_string() {
+	public function build_query_string() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_string = '';
 		foreach ( (array) array_keys($this->query_vars) as $wpvar) {
 			if ( '' != $this->query_vars[$wpvar] ) {
@@ -571,7 +571,7 @@ class WP {
 	 * @global int          $single If single page or post. Only set, if single page or post.
 	 * @global WP_User      $authordata Only set, if author archive.
 	 */
-	public function register_globals() {
+	public function register_globals() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_query;
 
 		// Extract updated query vars back into global namespace.
@@ -599,7 +599,7 @@ class WP {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function init() {
+	public function init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_get_current_user();
 	}
 
@@ -611,7 +611,7 @@ class WP {
 	 *
 	 * @global WP_Query $wp_the_query
 	 */
-	public function query_posts() {
+	public function query_posts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_the_query;
 		$this->build_query_string();
 		$wp_the_query->query($this->query_vars);
@@ -635,7 +635,7 @@ class WP {
 	 *
 	 * @global WP_Query $wp_query
  	 */
-	public function handle_404() {
+	public function handle_404() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_query;
 
 		/**
@@ -728,7 +728,7 @@ class WP {
 	 *
 	 * @param string|array $query_args Passed to parse_request().
 	 */
-	public function main($query_args = '') {
+	public function main($query_args = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->init();
 		$this->parse_request($query_args);
 		$this->send_headers();

@@ -23,7 +23,7 @@ if ( !function_exists('wp_set_current_user') ) :
  * @param string $name User's username
  * @return WP_User Current user User object
  */
-function wp_set_current_user($id, $name = '') {
+function wp_set_current_user($id, $name = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $current_user;
 
 	// If `$id` matches the user who's already current, there's nothing to do.
@@ -65,7 +65,7 @@ if ( !function_exists('wp_get_current_user') ) :
  *
  * @return WP_User Current WP_User instance.
  */
-function wp_get_current_user() {
+function wp_get_current_user() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return _wp_get_current_user();
 }
 endif;
@@ -79,7 +79,7 @@ if ( !function_exists('get_userdata') ) :
  * @param int $user_id User ID
  * @return WP_User|false WP_User object on success, false on failure.
  */
-function get_userdata( $user_id ) {
+function get_userdata( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return get_user_by( 'id', $user_id );
 }
 endif;
@@ -95,7 +95,7 @@ if ( !function_exists('get_user_by') ) :
  * @param int|string $value A value for $field. A user ID, slug, email address, or login name.
  * @return WP_User|false WP_User object on success, false on failure.
  */
-function get_user_by( $field, $value ) {
+function get_user_by( $field, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$userdata = WP_User::get_data_by( $field, $value );
 
 	if ( !$userdata )
@@ -118,7 +118,7 @@ if ( !function_exists('cache_users') ) :
  *
  * @param array $user_ids User ID numbers list
  */
-function cache_users( $user_ids ) {
+function cache_users( $user_ids ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$clean = _get_non_cached_ids( $user_ids, 'users' );
@@ -170,7 +170,7 @@ if ( !function_exists( 'wp_mail' ) ) :
  * @param string|array $attachments Optional. Files to attach.
  * @return bool Whether the email contents were sent successfully.
  */
-function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
+function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Compact the input, apply the filters, and extract them back out
 
 	/**
@@ -501,7 +501,7 @@ if ( !function_exists('wp_authenticate') ) :
  * @return WP_User|WP_Error WP_User object if the credentials are valid,
  *                          otherwise WP_Error.
  */
-function wp_authenticate($username, $password) {
+function wp_authenticate($username, $password) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$username = sanitize_user($username);
 	$password = trim($password);
 
@@ -551,7 +551,7 @@ if ( !function_exists('wp_logout') ) :
  *
  * @since 2.5.0
  */
-function wp_logout() {
+function wp_logout() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_destroy_current_session();
 	wp_clear_auth_cookie();
 
@@ -582,7 +582,7 @@ if ( !function_exists('wp_validate_auth_cookie') ) :
  * @param string $scheme Optional. The cookie scheme to use: auth, secure_auth, or logged_in
  * @return false|int False if invalid cookie, User ID if valid.
  */
-function wp_validate_auth_cookie($cookie = '', $scheme = '') {
+function wp_validate_auth_cookie($cookie = '', $scheme = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $cookie_elements = wp_parse_auth_cookie($cookie, $scheme) ) {
 		/**
 		 * Fires if an authentication cookie is malformed.
@@ -691,7 +691,7 @@ if ( !function_exists('wp_generate_auth_cookie') ) :
  * @param string $token      User's session token to use for this cookie
  * @return string Authentication cookie contents. Empty string if user does not exist.
  */
-function wp_generate_auth_cookie( $user_id, $expiration, $scheme = 'auth', $token = '' ) {
+function wp_generate_auth_cookie( $user_id, $expiration, $scheme = 'auth', $token = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user = get_userdata($user_id);
 	if ( ! $user ) {
 		return '';
@@ -737,7 +737,7 @@ if ( !function_exists('wp_parse_auth_cookie') ) :
  * @param string $scheme Optional. The cookie scheme to use: auth, secure_auth, or logged_in
  * @return array|false Authentication cookie components
  */
-function wp_parse_auth_cookie($cookie = '', $scheme = '') {
+function wp_parse_auth_cookie($cookie = '', $scheme = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty($cookie) ) {
 		switch ($scheme){
 			case 'auth':
@@ -792,7 +792,7 @@ if ( !function_exists('wp_set_auth_cookie') ) :
  *                         Default is_ssl().
  * @param string $token    Optional. User's session token to use for this cookie.
  */
-function wp_set_auth_cookie( $user_id, $remember = false, $secure = '', $token = '' ) {
+function wp_set_auth_cookie( $user_id, $remember = false, $secure = '', $token = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $remember ) {
 		/**
 		 * Filters the duration of the authentication cookie expiration period.
@@ -904,7 +904,7 @@ if ( !function_exists('wp_clear_auth_cookie') ) :
  *
  * @since 2.5.0
  */
-function wp_clear_auth_cookie() {
+function wp_clear_auth_cookie() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires just before the authentication cookies are cleared.
 	 *
@@ -941,7 +941,7 @@ if ( !function_exists('is_user_logged_in') ) :
  *
  * @return bool True if user is logged in, false if not logged in.
  */
-function is_user_logged_in() {
+function is_user_logged_in() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user = wp_get_current_user();
 
 	return $user->exists();
@@ -954,7 +954,7 @@ if ( !function_exists('auth_redirect') ) :
  *
  * @since 1.5.0
  */
-function auth_redirect() {
+function auth_redirect() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Checks if a user is logged in, if not redirects them to the login page
 
 	$secure = ( is_ssl() || force_ssl_admin() );
@@ -1038,7 +1038,7 @@ if ( !function_exists('check_admin_referer') ) :
  * @return false|int False if the nonce is invalid, 1 if the nonce is valid and generated between
  *                   0-12 hours ago, 2 if the nonce is valid and generated between 12-24 hours ago.
  */
-function check_admin_referer( $action = -1, $query_arg = '_wpnonce' ) {
+function check_admin_referer( $action = -1, $query_arg = '_wpnonce' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( -1 == $action )
 		_doing_it_wrong( __FUNCTION__, __( 'You should specify a nonce action to be verified by using the first parameter.' ), '3.2.0' );
 
@@ -1081,7 +1081,7 @@ if ( !function_exists('check_ajax_referer') ) :
  * @return false|int False if the nonce is invalid, 1 if the nonce is valid and generated between
  *                   0-12 hours ago, 2 if the nonce is valid and generated between 12-24 hours ago.
  */
-function check_ajax_referer( $action = -1, $query_arg = false, $die = true ) {
+function check_ajax_referer( $action = -1, $query_arg = false, $die = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( -1 == $action ) {
 		_doing_it_wrong( __FUNCTION__, __( 'You should specify a nonce action to be verified by using the first parameter.' ), '4.7' );
 	}
@@ -1145,7 +1145,7 @@ if ( !function_exists('wp_redirect') ) :
  * @param int    $status   Status code to use.
  * @return bool False if $location is not provided, true otherwise.
  */
-function wp_redirect($location, $status = 302) {
+function wp_redirect($location, $status = 302) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $is_IIS;
 
 	/**
@@ -1191,7 +1191,7 @@ if ( !function_exists('wp_sanitize_redirect') ) :
  * @param string $location The path to redirect to.
  * @return string Redirect-sanitized URL.
  **/
-function wp_sanitize_redirect($location) {
+function wp_sanitize_redirect($location) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$regex = '/
 		(
 			(?: [\xC2-\xDF][\x80-\xBF]        # double-byte sequences   110xxxxx 10xxxxxx
@@ -1225,7 +1225,7 @@ function wp_sanitize_redirect($location) {
  * @param array $matches RegEx matches against the redirect location.
  * @return string URL-encoded version of the first RegEx match.
  */
-function _wp_sanitize_utf8_in_redirect( $matches ) {
+function _wp_sanitize_utf8_in_redirect( $matches ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return urlencode( $matches[0] );
 }
 endif;
@@ -1247,7 +1247,7 @@ if ( !function_exists('wp_safe_redirect') ) :
  * @param string $location The path to redirect to.
  * @param int    $status   Status code to use.
  */
-function wp_safe_redirect($location, $status = 302) {
+function wp_safe_redirect($location, $status = 302) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	// Need to look at the URL the way it will end up in wp_redirect()
 	$location = wp_sanitize_redirect($location);
@@ -1282,7 +1282,7 @@ if ( !function_exists('wp_validate_redirect') ) :
  * @param string $default  The value to return if $location is not allowed
  * @return string redirect-sanitized URL
  **/
-function wp_validate_redirect($location, $default = '') {
+function wp_validate_redirect($location, $default = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$location = trim( $location );
 	// browsers will assume 'http' is your protocol, and will obey a redirect to a URL starting with '//'
 	if ( substr($location, 0, 2) == '//' )
@@ -1343,7 +1343,7 @@ if ( ! function_exists('wp_notify_postauthor') ) :
  * @param string          $deprecated Not used
  * @return bool True on completion. False if no email addresses were specified.
  */
-function wp_notify_postauthor( $comment_id, $deprecated = null ) {
+function wp_notify_postauthor( $comment_id, $deprecated = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( null !== $deprecated ) {
 		_deprecated_argument( __FUNCTION__, '3.8.0' );
 	}
@@ -1549,7 +1549,7 @@ if ( !function_exists('wp_notify_moderator') ) :
  * @param int $comment_id Comment ID.
  * @return true Always returns true.
  */
-function wp_notify_moderator($comment_id) {
+function wp_notify_moderator($comment_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$maybe_notify = get_option( 'moderation_notify' );
@@ -1707,7 +1707,7 @@ if ( !function_exists('wp_password_change_notification') ) :
  *
  * @param WP_User $user User object.
  */
-function wp_password_change_notification( $user ) {
+function wp_password_change_notification( $user ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// send a copy of password change notification to the admin
 	// but check to see if it's the admin whose password we're changing, and skip this
 	if ( 0 !== strcasecmp( $user->user_email, get_option( 'admin_email' ) ) ) {
@@ -1741,7 +1741,7 @@ if ( !function_exists('wp_new_user_notification') ) :
  * @param string $notify     Optional. Type of notification that should happen. Accepts 'admin' or an empty
  *                           string (admin only), 'user', or 'both' (admin and user). Default empty.
  */
-function wp_new_user_notification( $user_id, $deprecated = null, $notify = '' ) {
+function wp_new_user_notification( $user_id, $deprecated = null, $notify = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $deprecated !== null ) {
 		_deprecated_argument( __FUNCTION__, '4.3.1' );
 	}
@@ -1811,7 +1811,7 @@ if ( !function_exists('wp_nonce_tick') ) :
  *
  * @return float Float value rounded up to the next highest integer.
  */
-function wp_nonce_tick() {
+function wp_nonce_tick() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the lifespan of nonces in seconds.
 	 *
@@ -1839,7 +1839,7 @@ if ( !function_exists('wp_verify_nonce') ) :
  * @return false|int False if the nonce is invalid, 1 if the nonce is valid and generated between
  *                   0-12 hours ago, 2 if the nonce is valid and generated between 12-24 hours ago.
  */
-function wp_verify_nonce( $nonce, $action = -1 ) {
+function wp_verify_nonce( $nonce, $action = -1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$nonce = (string) $nonce;
 	$user = wp_get_current_user();
 	$uid = (int) $user->ID;
@@ -1902,7 +1902,7 @@ if ( !function_exists('wp_create_nonce') ) :
  * @param string|int $action Scalar value to add context to the nonce.
  * @return string The token.
  */
-function wp_create_nonce($action = -1) {
+function wp_create_nonce($action = -1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user = wp_get_current_user();
 	$uid = (int) $user->ID;
 	if ( ! $uid ) {
@@ -1953,7 +1953,7 @@ if ( !function_exists('wp_salt') ) :
  * @param string $scheme Authentication scheme (auth, secure_auth, logged_in, nonce)
  * @return string Salt value
  */
-function wp_salt( $scheme = 'auth' ) {
+function wp_salt( $scheme = 'auth' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $cached_salts = array();
 	if ( isset( $cached_salts[ $scheme ] ) ) {
 		/**
@@ -2034,7 +2034,7 @@ if ( !function_exists('wp_hash') ) :
  * @param string $scheme Authentication scheme (auth, secure_auth, logged_in, nonce)
  * @return string Hash of $data
  */
-function wp_hash($data, $scheme = 'auth') {
+function wp_hash($data, $scheme = 'auth') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$salt = wp_salt($scheme);
 
 	return hash_hmac('md5', $data, $salt);
@@ -2055,7 +2055,7 @@ if ( !function_exists('wp_hash_password') ) :
  * @param string $password Plain text user password to hash
  * @return string The hash string of the password
  */
-function wp_hash_password($password) {
+function wp_hash_password($password) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_hasher;
 
 	if ( empty($wp_hasher) ) {
@@ -2090,7 +2090,7 @@ if ( !function_exists('wp_check_password') ) :
  * @param string|int $user_id  Optional. User ID.
  * @return bool False, if the $password does not match the hashed password
  */
-function wp_check_password($password, $hash, $user_id = '') {
+function wp_check_password($password, $hash, $user_id = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_hasher;
 
 	// If the hash is still md5...
@@ -2142,7 +2142,7 @@ if ( !function_exists('wp_generate_password') ) :
  *                                  Used when generating secret keys and salts. Default false.
  * @return string The random password.
  */
-function wp_generate_password( $length = 12, $special_chars = true, $extra_special_chars = false ) {
+function wp_generate_password( $length = 12, $special_chars = true, $extra_special_chars = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 	if ( $special_chars )
 		$chars .= '!@#$%^&*()';
@@ -2180,7 +2180,7 @@ if ( !function_exists('wp_rand') ) :
  * @param int $max Upper limit for the generated number
  * @return int A random number between min and max
  */
-function wp_rand( $min = 0, $max = 0 ) {
+function wp_rand( $min = 0, $max = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $rnd_value;
 
 	// Some misconfigured 32bit environments (Entropy PHP, for example) truncate integers larger than PHP_INT_MAX to PHP_INT_MAX rather than overflowing them to floats.
@@ -2192,7 +2192,7 @@ function wp_rand( $min = 0, $max = 0 ) {
 
 	// Use PHP's CSPRNG, or a compatible method
 	static $use_random_int_functionality = true;
-	if ( $use_random_int_functionality ) {
+	if ( $use_random_int_functionality ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		try {
 			$_max = ( 0 != $max ) ? $max : $max_random_number;
 			// wp_rand() can accept arguments in either order, PHP cannot.
@@ -2261,7 +2261,7 @@ if ( !function_exists('wp_set_password') ) :
  * @param string $password The plaintext new user password
  * @param int    $user_id  User ID
  */
-function wp_set_password( $password, $user_id ) {
+function wp_set_password( $password, $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$hash = wp_hash_password( $password );
@@ -2306,7 +2306,7 @@ if ( !function_exists( 'get_avatar' ) ) :
  * }
  * @return false|string `<img>` tag for the user's avatar. False on failure.
  */
-function get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args = null ) {
+function get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		// get_avatar_data() args.
 		'size'          => 96,
@@ -2448,7 +2448,7 @@ if ( !function_exists( 'wp_text_diff' ) ) :
  * @param string|array $args         Optional. Change 'title', 'title_left', and 'title_right' defaults.
  * @return string Empty string if strings are equivalent or HTML with differences.
  */
-function wp_text_diff( $left_string, $right_string, $args = null ) {
+function wp_text_diff( $left_string, $right_string, $args = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array( 'title' => '', 'title_left' => '', 'title_right' => '' );
 	$args = wp_parse_args( $args, $defaults );
 

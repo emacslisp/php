@@ -19,7 +19,7 @@
  * @return array|bool Associative array of a post's revisioned fields and their diffs.
  *                    Or, false on failure.
  */
-function wp_get_revision_ui_diff( $post, $compare_from, $compare_to ) {
+function wp_get_revision_ui_diff( $post, $compare_from, $compare_to ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $post = get_post( $post ) )
 		return false;
 
@@ -142,7 +142,7 @@ function wp_get_revision_ui_diff( $post, $compare_from, $compare_to ) {
  *
  * @return array An associative array of revision data and related settings.
  */
-function wp_prepare_revisions_for_js( $post, $selected_revision_id, $from = null ) {
+function wp_prepare_revisions_for_js( $post, $selected_revision_id, $from = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $post );
 	$authors = array();
 	$now_gmt = time();
@@ -313,7 +313,7 @@ function wp_prepare_revisions_for_js( $post, $selected_revision_id, $from = null
  *
  * @global WP_Post $post The global `$post` object.
  */
-function wp_print_revision_templates() {
+function wp_print_revision_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $post;
 	?><script id="tmpl-revisions-frame" type="text/html">
 		<div class="revisions-control-frame"></div>
@@ -394,7 +394,7 @@ function wp_print_revision_templates() {
 		<div class="loading-indicator"><span class="spinner"></span></div>
 		<div class="diff-error"><?php _e( 'Sorry, something went wrong. The requested comparison could not be loaded.' ); ?></div>
 		<div class="diff">
-		<# _.each( data.fields, function( field ) { #>
+		<# _.each( data.fields, function( field ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); #>
 			<h3>{{ field.name }}</h3>
 			{{{ field.diff }}}
 		<# }); #>

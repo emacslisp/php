@@ -151,7 +151,7 @@ class WP_Customize_Partial {
 	 *     @type array|string $settings All settings IDs tied to the partial. If undefined, `$id` will be used.
 	 * }
 	 */
-	public function __construct( WP_Customize_Selective_Refresh $component, $id, $args = array() ) {
+	public function __construct( WP_Customize_Selective_Refresh $component, $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$keys = array_keys( get_object_vars( $this ) );
 		foreach ( $keys as $key ) {
 			if ( isset( $args[ $key ] ) ) {
@@ -193,7 +193,7 @@ class WP_Customize_Partial {
 	 *     @type array  $keys Keys for multidimensional array.
 	 * }
 	 */
-	final public function id_data() {
+	final public function id_data() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->id_data;
 	}
 
@@ -208,7 +208,7 @@ class WP_Customize_Partial {
 	 * @return string|array|false The rendered partial as a string, raw data array (for client-side JS template),
 	 *                            or false if no render applied.
 	 */
-	final public function render( $container_context = array() ) {
+	final public function render( $container_context = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$partial  = $this;
 		$rendered = false;
 
@@ -276,7 +276,7 @@ class WP_Customize_Partial {
 	 * @param array                $context Context.
 	 * @return string|array|false
 	 */
-	public function render_callback( WP_Customize_Partial $partial, $context = array() ) {
+	public function render_callback( WP_Customize_Partial $partial, $context = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $partial, $context );
 		return false;
 	}
@@ -289,7 +289,7 @@ class WP_Customize_Partial {
 	 *
 	 * @return array Array of parameters passed to the JavaScript.
 	 */
-	public function json() {
+	public function json() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$exports = array(
 			'settings'           => $this->settings,
 			'primarySetting'     => $this->primary_setting,
@@ -313,7 +313,7 @@ class WP_Customize_Partial {
 	 * @return bool False if user can't edit one one of the related settings,
 	 *                    or if one of the associated settings does not exist.
 	 */
-	final public function check_capabilities() {
+	final public function check_capabilities() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! empty( $this->capability ) && ! current_user_can( $this->capability ) ) {
 			return false;
 		}

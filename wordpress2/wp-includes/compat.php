@@ -8,7 +8,7 @@
 
 // If gettext isn't available
 if ( !function_exists('_') ) {
-	function _($string) {
+	function _($string) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $string;
 	}
 }
@@ -27,7 +27,7 @@ if ( !function_exists('_') ) {
  *             false  : Used for testing - return false for future calls to this function
  *             'reset': Used for testing - restore default behavior of this function
  */
-function _wp_can_use_pcre_u( $set = null ) {
+function _wp_can_use_pcre_u( $set = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $utf8_pcre = 'reset';
 
 	if ( null !== $set ) {
@@ -57,7 +57,7 @@ if ( ! function_exists( 'mb_substr' ) ) :
 	 * @param string|null $encoding Optional. Character encoding to use. Default null.
 	 * @return string Extracted substring.
 	 */
-	function mb_substr( $str, $start, $length = null, $encoding = null ) {
+	function mb_substr( $str, $start, $length = null, $encoding = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return _mb_substr( $str, $start, $length, $encoding );
 	}
 endif;
@@ -79,7 +79,7 @@ endif;
  * @param string|null $encoding Optional. Character encoding to use. Default null.
  * @return string Extracted substring.
  */
-function _mb_substr( $str, $start, $length = null, $encoding = null ) {
+function _mb_substr( $str, $start, $length = null, $encoding = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( null === $encoding ) {
 		$encoding = get_option( 'blog_charset' );
 	}
@@ -144,7 +144,7 @@ if ( ! function_exists( 'mb_strlen' ) ) :
 	 * @param string|null $encoding Optional. Character encoding to use. Default null.
 	 * @return int String length of `$str`.
 	 */
-	function mb_strlen( $str, $encoding = null ) {
+	function mb_strlen( $str, $encoding = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return _mb_strlen( $str, $encoding );
 	}
 endif;
@@ -163,7 +163,7 @@ endif;
  * @param string|null $encoding Optional. Character encoding to use. Default null.
  * @return int String length of `$str`.
  */
-function _mb_strlen( $str, $encoding = null ) {
+function _mb_strlen( $str, $encoding = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( null === $encoding ) {
 		$encoding = get_option( 'blog_charset' );
 	}
@@ -233,7 +233,7 @@ if ( !function_exists('hash_hmac') ):
  * @return string|false The hash in output determined by `$raw_output`. False if `$algo`
  *                      is unknown or invalid.
  */
-function hash_hmac($algo, $data, $key, $raw_output = false) {
+function hash_hmac($algo, $data, $key, $raw_output = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return _hash_hmac($algo, $data, $key, $raw_output);
 }
 endif;
@@ -252,7 +252,7 @@ endif;
  * @return string|false The hash in output determined by `$raw_output`. False if `$algo`
  *                      is unknown or invalid.
  */
-function _hash_hmac($algo, $data, $key, $raw_output = false) {
+function _hash_hmac($algo, $data, $key, $raw_output = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$packs = array('md5' => 'H32', 'sha1' => 'H40');
 
 	if ( !isset($packs[$algo]) )
@@ -275,8 +275,8 @@ function _hash_hmac($algo, $data, $key, $raw_output = false) {
 	return $hmac;
 }
 
-if ( !function_exists('json_encode') ) {
-	function json_encode( $string ) {
+if ( !function_exists('json_encode') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	function json_encode( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_json;
 
 		if ( ! ( $wp_json instanceof Services_JSON ) ) {
@@ -288,14 +288,14 @@ if ( !function_exists('json_encode') ) {
 	}
 }
 
-if ( !function_exists('json_decode') ) {
+if ( !function_exists('json_decode') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * @global Services_JSON $wp_json
 	 * @param string $string
 	 * @param bool   $assoc_array
 	 * @return object|array
 	 */
-	function json_decode( $string, $assoc_array = false ) {
+	function json_decode( $string, $assoc_array = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_json;
 
 		if ( ! ($wp_json instanceof Services_JSON ) ) {
@@ -313,7 +313,7 @@ if ( !function_exists('json_decode') ) {
 	 * @param object $data
 	 * @return array
 	 */
-	function _json_decode_object_helper($data) {
+	function _json_decode_object_helper($data) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_object($data) )
 			$data = get_object_vars($data);
 		return is_array($data) ? array_map(__FUNCTION__, $data) : $data;
@@ -336,7 +336,7 @@ if ( ! function_exists( 'hash_equals' ) ) :
  * @param string $b Actual, user supplied, string.
  * @return bool Whether strings are equal.
  */
-function hash_equals( $a, $b ) {
+function hash_equals( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$a_length = strlen( $a );
 	if ( $a_length !== strlen( $b ) ) {
 		return false;
@@ -369,9 +369,9 @@ if ( ! function_exists( 'json_last_error_msg' ) ) :
 	 * @return bool|string Returns the error message on success, "No Error" if no error has occurred,
 	 *                     or false on failure.
 	 */
-	function json_last_error_msg() {
+	function json_last_error_msg() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// See https://core.trac.wordpress.org/ticket/27799.
-		if ( ! function_exists( 'json_last_error' ) ) {
+		if ( ! function_exists( 'json_last_error' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			return false;
 		}
 
@@ -457,7 +457,7 @@ if ( ! function_exists( 'array_replace_recursive' ) ) :
 	 *
 	 * @return array
 	 */
-	function array_replace_recursive( $base = array(), $replacements = array() ) {
+	function array_replace_recursive( $base = array(), $replacements = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( array_slice( func_get_args(), 1 ) as $replacements ) {
 			$bref_stack = array( &$base );
 			$head_stack = array( $replacements );
@@ -499,7 +499,7 @@ if ( ! function_exists( 'spl_autoload_register' ) ):
 	 *
 	 * @param string $classname Class to attempt autoloading.
 	 */
-	function __autoload( $classname ) {
+	function __autoload( $classname ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $_wp_spl_autoloaders;
 		foreach ( $_wp_spl_autoloaders as $autoloader ) {
 			if ( ! is_callable( $autoloader ) ) {
@@ -527,8 +527,8 @@ if ( ! function_exists( 'spl_autoload_register' ) ):
 	 * @param bool     $prepend           Whether the function should be prepended to the stack.
 	 *                                    Default false.
 	 */
-	function spl_autoload_register( $autoload_function, $throw = true, $prepend = false ) {
-		if ( $throw && ! is_callable( $autoload_function ) ) {
+	function spl_autoload_register( $autoload_function, $throw = true, $prepend = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		if ( $throw && ! is_callable( $autoload_function ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			// String not translated to match PHP core.
 			throw new Exception( 'Function not callable' );
 		}
@@ -536,7 +536,7 @@ if ( ! function_exists( 'spl_autoload_register' ) ):
 		global $_wp_spl_autoloaders;
 
 		// Don't allow multiple registration.
-		if ( in_array( $autoload_function, $_wp_spl_autoloaders ) ) {
+		if ( in_array( $autoload_function, $_wp_spl_autoloaders ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			return;
 		}
 
@@ -555,10 +555,10 @@ if ( ! function_exists( 'spl_autoload_register' ) ):
 	 * @param callable $function The function to unregister.
 	 * @return bool True if the function was unregistered, false if it could not be.
 	 */
-	function spl_autoload_unregister( $function ) {
+	function spl_autoload_unregister( $function ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $_wp_spl_autoloaders;
 		foreach ( $_wp_spl_autoloaders as &$autoloader ) {
-			if ( $autoloader === $function ) {
+			if ( $autoloader === $function ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				unset( $autoloader );
 				return true;
 			}
@@ -574,7 +574,7 @@ if ( ! function_exists( 'spl_autoload_register' ) ):
 	 *
 	 * @return array List of autoloader functions.
 	 */
-	function spl_autoload_functions() {
+	function spl_autoload_functions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $GLOBALS['_wp_spl_autoloaders'];
 	}
 endif;

@@ -38,7 +38,7 @@
  * @param bool $do_redirect Optional. Redirect to the new URL.
  * @return string|void The string of the URL, if redirect needed.
  */
-function redirect_canonical( $requested_url = null, $do_redirect = true ) {
+function redirect_canonical( $requested_url = null, $do_redirect = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_rewrite, $is_IIS, $wp_query, $wpdb, $wp;
 
 	if ( isset( $_SERVER['REQUEST_METHOD'] ) && ! in_array( strtoupper( $_SERVER['REQUEST_METHOD'] ), array( 'GET', 'HEAD' ) ) ) {
@@ -476,7 +476,7 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 
 	// Hex encoded octets are case-insensitive.
 	if ( false !== strpos($requested_url, '%') ) {
-		if ( !function_exists('lowercase_octets') ) {
+		if ( !function_exists('lowercase_octets') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			/**
 			 * Converts the first hex-encoded octet match to lowercase.
 			 *
@@ -486,7 +486,7 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
 			 * @param array $matches Hex-encoded octet matches for the requested URL.
 			 * @return string Lowercased version of the first match.
 			 */
-			function lowercase_octets($matches) {
+			function lowercase_octets($matches) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				return strtolower( $matches[0] );
 			}
 		}
@@ -537,7 +537,7 @@ function redirect_canonical( $requested_url = null, $do_redirect = true ) {
  * @param string $url
  * @return string The altered query string
  */
-function _remove_qs_args_if_not_in_url( $query_string, Array $args_to_check, $url ) {
+function _remove_qs_args_if_not_in_url( $query_string, Array $args_to_check, $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$parsed_url = @parse_url( $url );
 	if ( ! empty( $parsed_url['query'] ) ) {
 		parse_str( $parsed_url['query'], $parsed_query );
@@ -559,7 +559,7 @@ function _remove_qs_args_if_not_in_url( $query_string, Array $args_to_check, $ur
  * @param string $url The URL to strip.
  * @return string The altered URL.
  */
-function strip_fragment_from_url( $url ) {
+function strip_fragment_from_url( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$parsed_url = @parse_url( $url );
 	if ( ! empty( $parsed_url['host'] ) ) {
 		// This mirrors code in redirect_canonical(). It does not handle every case.
@@ -585,7 +585,7 @@ function strip_fragment_from_url( $url ) {
  *
  * @return false|string The correct URL if one is found. False on failure.
  */
-function redirect_guess_404_permalink() {
+function redirect_guess_404_permalink() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( get_query_var('name') ) {
@@ -628,7 +628,7 @@ function redirect_guess_404_permalink() {
  *
  * @global WP_Rewrite $wp_rewrite
  */
-function wp_redirect_admin_locations() {
+function wp_redirect_admin_locations() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_rewrite;
 	if ( ! ( is_404() && $wp_rewrite->using_permalinks() ) )
 		return;

@@ -23,7 +23,7 @@
  *
  * @return WP_Site Current site object.
  */
-function get_dashboard_blog() {
+function get_dashboard_blog() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
     _deprecated_function( __FUNCTION__, '3.1.0' );
     if ( $blog = get_site_option( 'dashboard_blog' ) ) {
 	    return get_site( $blog );
@@ -41,7 +41,7 @@ function get_dashboard_blog() {
  *
  * @param int $len Optional. The length of password to generate. Default 8.
  */
-function generate_random_password( $len = 8 ) {
+function generate_random_password( $len = 8 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'wp_generate_password()' );
 	return wp_generate_password( $len );
 }
@@ -61,7 +61,7 @@ function generate_random_password( $len = 8 ) {
  *
  * @param string $user_login Optional. Username for the user to check. Default empty.
  */
-function is_site_admin( $user_login = '' ) {
+function is_site_admin( $user_login = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'is_super_admin()' );
 
 	if ( empty( $user_login ) ) {
@@ -86,7 +86,7 @@ if ( !function_exists( 'graceful_fail' ) ) :
  * @deprecated 3.0.0 Use wp_die()
  * @see wp_die()
  */
-function graceful_fail( $message ) {
+function graceful_fail( $message ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'wp_die()' );
 	$message = apply_filters( 'graceful_fail', $message );
 	$message_template = apply_filters( 'graceful_fail_template',
@@ -126,7 +126,7 @@ endif;
  *
  * @param string $username Username.
  */
-function get_user_details( $username ) {
+function get_user_details( $username ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'get_user_by()' );
 	return get_user_by('login', $username);
 }
@@ -140,7 +140,7 @@ function get_user_details( $username ) {
  *
  * @param int $post_id Post ID.
  */
-function clear_global_post_cache( $post_id ) {
+function clear_global_post_cache( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'clean_post_cache()' );
 }
 
@@ -151,7 +151,7 @@ function clear_global_post_cache( $post_id ) {
  * @deprecated 3.0.0 Use is_main_site()
  * @see is_main_site()
  */
-function is_main_blog() {
+function is_main_blog() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'is_main_site()' );
 	return is_main_site();
 }
@@ -167,7 +167,7 @@ function is_main_blog() {
  * @param bool   $check_domain Deprecated.
  * @return string|bool Either false or the valid email address.
  */
-function validate_email( $email, $check_domain = true) {
+function validate_email( $email, $check_domain = true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'is_email()' );
 	return is_email( $email, $check_domain );
 }
@@ -183,7 +183,7 @@ function validate_email( $email, $check_domain = true) {
  * @param int    $num        Optional. Number of blogs to list. Default 10.
  * @param string $deprecated Unused.
  */
-function get_blog_list( $start = 0, $num = 10, $deprecated = '' ) {
+function get_blog_list( $start = 0, $num = 10, $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'wp_get_sites()' );
 
 	global $wpdb;
@@ -216,7 +216,7 @@ function get_blog_list( $start = 0, $num = 10, $deprecated = '' ) {
  * @param bool $display Optional. Whether or not to display the most active blogs list. Default true.
  * @return array List of "most active" sites.
  */
-function get_most_active_blogs( $num = 10, $display = true ) {
+function get_most_active_blogs( $num = 10, $display = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0' );
 
 	$blogs = get_blog_list( 0, 'all', false ); // $blog_id -> $details
@@ -267,7 +267,7 @@ function get_most_active_blogs( $num = 10, $display = true ) {
  *
  * @param string $url Optional. Redirect URL. Default empty.
  */
-function wpmu_admin_do_redirect( $url = '' ) {
+function wpmu_admin_do_redirect( $url = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	$ref = '';
@@ -307,7 +307,7 @@ function wpmu_admin_do_redirect( $url = '' ) {
  * @param string $url Optional. Redirect URL. Default empty.
  * @return string
  */
-function wpmu_admin_redirect_add_updated_param( $url = '' ) {
+function wpmu_admin_redirect_add_updated_param( $url = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	if ( strpos( $url, 'updated=true' ) === false ) {
@@ -332,7 +332,7 @@ function wpmu_admin_redirect_add_updated_param( $url = '' ) {
  * @param string $string Either an email address or a login.
  * @return int
  */
-function get_user_id_from_string( $string ) {
+function get_user_id_from_string( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.6.0', 'get_user_by()' );
 
 	if ( is_email( $string ) )
@@ -357,7 +357,7 @@ function get_user_id_from_string( $string ) {
  * @param string $path
  * @return string
  */
-function get_blogaddress_by_domain( $domain, $path ) {
+function get_blogaddress_by_domain( $domain, $path ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.7.0' );
 
 	if ( is_subdomain_install() ) {
@@ -388,7 +388,7 @@ function get_blogaddress_by_domain( $domain, $path ) {
  * @param int    $site_id      Optional. Defaults to 1.
  * @return string|int The ID of the newly created blog
  */
-function create_empty_blog( $domain, $path, $weblog_title, $site_id = 1 ) {
+function create_empty_blog( $domain, $path, $weblog_title, $site_id = 1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.4.0' );
 
 	if ( empty($path) )
@@ -424,7 +424,7 @@ function create_empty_blog( $domain, $path, $weblog_title, $site_id = 1 ) {
  * @param string $path       Optional. Site path.
  * @return array|false The network admins
  */
-function get_admin_users_for_domain( $sitedomain = '', $path = '' ) {
+function get_admin_users_for_domain( $sitedomain = '', $path = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.4.0' );
 
 	global $wpdb;
@@ -467,7 +467,7 @@ function get_admin_users_for_domain( $sitedomain = '', $path = '' ) {
  *               site domain and path, dates registered and modified, and the language ID. Also, boolean
  *               values for whether the site is public, archived, mature, spam, and/or deleted.
  */
-function wp_get_sites( $args = array() ) {
+function wp_get_sites( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	_deprecated_function( __FUNCTION__, '4.6.0', 'get_sites()' );

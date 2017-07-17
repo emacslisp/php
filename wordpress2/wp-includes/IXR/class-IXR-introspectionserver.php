@@ -51,7 +51,7 @@ class IXR_IntrospectionServer extends IXR_Server
 	/**
 	 * PHP4 constructor.
 	 */
-	public function IXR_IntrospectionServer() {
+	public function IXR_IntrospectionServer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct();
 	}
 

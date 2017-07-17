@@ -35,7 +35,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	 *
 	 * @param array $args Options for the upgrader, see WP_Upgrader_Skin::__construct().
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( $args );
 
 		$this->errors = new WP_Error();
@@ -49,7 +49,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	 *
 	 * @return WP_Error Errors during an upgrade.
 	 */
-	public function get_errors() {
+	public function get_errors() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->errors;
 	}
 
@@ -61,7 +61,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	 *
 	 * @return string Error messages during an upgrade.
 	 */
-	public function get_error_messages() {
+	public function get_error_messages() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$messages = array();
 
 		foreach ( $this->errors->get_error_codes() as $error_code ) {
@@ -83,7 +83,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	 *
 	 * @param string|WP_Error $errors Errors.
 	 */
-	public function error( $errors ) {
+	public function error( $errors ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_string( $errors ) ) {
 			$string = $errors;
 			if ( ! empty( $this->upgrader->strings[ $string ] ) ) {
@@ -119,7 +119,7 @@ class WP_Ajax_Upgrader_Skin extends Automatic_Upgrader_Skin {
 	 *
 	 * @param string|array|WP_Error $data Log entry data.
 	 */
-	public function feedback( $data ) {
+	public function feedback( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_wp_error( $data ) ) {
 			foreach ( $data->get_error_codes() as $error_code ) {
 				$this->errors->add( $error_code, $data->get_error_message( $error_code ), $data->get_error_data( $error_code ) );

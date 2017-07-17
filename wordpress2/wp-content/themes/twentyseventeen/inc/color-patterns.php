@@ -10,7 +10,7 @@
 /**
  * Generate the CSS for the current custom color scheme.
  */
-function twentyseventeen_custom_colors_css() {
+function twentyseventeen_custom_colors_css() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$hue = absint( get_theme_mod( 'colorscheme_hue', 250 ) );
 
 	/**

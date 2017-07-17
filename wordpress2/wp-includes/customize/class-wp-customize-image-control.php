@@ -28,7 +28,7 @@ class WP_Customize_Image_Control extends WP_Customize_Upload_Control {
 	 * @param string               $id      Control ID.
 	 * @param array                $args    Optional. Arguments to override class property defaults.
 	 */
-	public function __construct( $manager, $id, $args = array() ) {
+	public function __construct( $manager, $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( $manager, $id, $args );
 
 		$this->button_labels = wp_parse_args( $this->button_labels, array(
@@ -46,7 +46,7 @@ class WP_Customize_Image_Control extends WP_Customize_Upload_Control {
 	 * @since 3.4.2
 	 * @deprecated 4.1.0
 	 */
-	public function prepare_control() {}
+	public function prepare_control() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * @since 3.4.0
@@ -56,7 +56,7 @@ class WP_Customize_Image_Control extends WP_Customize_Upload_Control {
 	 * @param string $label
 	 * @param mixed $callback
 	 */
-	public function add_tab( $id, $label, $callback ) {}
+	public function add_tab( $id, $label, $callback ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * @since 3.4.0
@@ -64,7 +64,7 @@ class WP_Customize_Image_Control extends WP_Customize_Upload_Control {
 	 *
 	 * @param string $id
 	 */
-	public function remove_tab( $id ) {}
+	public function remove_tab( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * @since 3.4.0
@@ -73,5 +73,5 @@ class WP_Customize_Image_Control extends WP_Customize_Upload_Control {
 	 * @param string $url
 	 * @param string $thumbnail_url
 	 */
-	public function print_tab_image( $url, $thumbnail_url = null ) {}
+	public function print_tab_image( $url, $thumbnail_url = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 }

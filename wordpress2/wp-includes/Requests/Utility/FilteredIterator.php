@@ -26,7 +26,7 @@ class Requests_Utility_FilteredIterator extends ArrayIterator {
 	 * @param array $data
 	 * @param callable $callback Callback to be called on each value
 	 */
-	public function __construct($data, $callback) {
+	public function __construct($data, $callback) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct($data);
 
 		$this->callback = $callback;
@@ -37,7 +37,7 @@ class Requests_Utility_FilteredIterator extends ArrayIterator {
 	 *
 	 * @return string
 	 */
-	public function current() {
+	public function current() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$value = parent::current();
 		$value = call_user_func($this->callback, $value);
 		return $value;

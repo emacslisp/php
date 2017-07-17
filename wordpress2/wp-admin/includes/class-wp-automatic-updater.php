@@ -29,7 +29,7 @@ class WP_Automatic_Updater {
 	 * @since 3.7.0
 	 * @access public
 	 */
-	public function is_disabled() {
+	public function is_disabled() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Background updates are disabled if you don't want file changes.
 		if ( defined( 'DISALLOW_FILE_MODS' ) && DISALLOW_FILE_MODS )
 			return true;
@@ -72,7 +72,7 @@ class WP_Automatic_Updater {
 	 *
 	 * @param string $context The filesystem path to check, in addition to ABSPATH.
 	 */
-	public function is_vcs_checkout( $context ) {
+	public function is_vcs_checkout( $context ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$context_dirs = array( untrailingslashit( $context ) );
 		if ( $context !== ABSPATH )
 			$context_dirs[] = untrailingslashit( ABSPATH );
@@ -131,7 +131,7 @@ class WP_Automatic_Updater {
 	 * @param string $context The filesystem context (a path) against which filesystem
 	 *                        access and status should be checked.
 	 */
-	public function should_update( $type, $item, $context ) {
+	public function should_update( $type, $item, $context ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Used to see if WP_Filesystem is set up to allow unattended updates.
 		$skin = new Automatic_Upgrader_Skin;
 
@@ -209,7 +209,7 @@ class WP_Automatic_Updater {
 	 *
 	 * @param object $item The update offer.
 	 */
-	protected function send_core_update_notification_email( $item ) {
+	protected function send_core_update_notification_email( $item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$notified = get_site_option( 'auto_core_update_notified' );
 
 		// Don't notify if we've already notified the same email address of the same version.
@@ -256,7 +256,7 @@ class WP_Automatic_Updater {
 	 *
 	 * @return null|WP_Error
 	 */
-	public function update( $type, $item ) {
+	public function update( $type, $item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$skin = new Automatic_Upgrader_Skin;
 
 		switch ( $type ) {
@@ -372,7 +372,7 @@ class WP_Automatic_Updater {
 	 * @since 3.7.0
 	 * @access public
 	 */
-	public function run() {
+	public function run() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_disabled() )
 			return;
 
@@ -491,7 +491,7 @@ class WP_Automatic_Updater {
 	 *
 	 * @param object $update_result The result of the core update. Includes the update offer and result.
 	 */
-	protected function after_core_update( $update_result ) {
+	protected function after_core_update( $update_result ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$wp_version = get_bloginfo( 'version' );
 
 		$core_update = $update_result->item;
@@ -581,7 +581,7 @@ class WP_Automatic_Updater {
 	 * @param object $core_update The update offer that was attempted.
 	 * @param mixed  $result      Optional. The result for the core update. Can be WP_Error.
 	 */
-	protected function send_email( $type, $core_update, $result = null ) {
+	protected function send_email( $type, $core_update, $result = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		update_site_option( 'auto_core_update_notified', array(
 			'type'      => $type,
 			'email'     => get_site_option( 'admin_email' ),
@@ -775,7 +775,7 @@ class WP_Automatic_Updater {
 	 * @since 3.7.0
 	 * @access protected
 	 */
-	protected function send_debug_email() {
+	protected function send_debug_email() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$update_count = 0;
 		foreach ( $this->update_results as $type => $updates )
 			$update_count += count( $updates );

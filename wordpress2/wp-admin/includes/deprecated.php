@@ -17,7 +17,7 @@
  * @deprecated 2.1.0 Use wp_editor()
  * @see wp_editor()
  */
-function tinymce_include() {
+function tinymce_include() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'wp_editor()' );
 
 	wp_tiny_mce();
@@ -30,7 +30,7 @@ function tinymce_include() {
  * @deprecated 2.5.0
  *
  */
-function documentation_link() {
+function documentation_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.5.0' );
 }
 
@@ -47,7 +47,7 @@ function documentation_link() {
  * @param int $hmax Maximum wanted height
  * @return array Shrunk dimensions (width, height).
  */
-function wp_shrink_dimensions( $width, $height, $wmax = 128, $hmax = 96 ) {
+function wp_shrink_dimensions( $width, $height, $wmax = 128, $hmax = 96 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'wp_constrain_dimensions()' );
 	return wp_constrain_dimensions( $width, $height, $wmax, $hmax );
 }
@@ -63,7 +63,7 @@ function wp_shrink_dimensions( $width, $height, $wmax = 128, $hmax = 96 ) {
  * @param int $height Current height of the image
  * @return array Shrunk dimensions (width, height).
  */
-function get_udims( $width, $height ) {
+function get_udims( $width, $height ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'wp_constrain_dimensions()' );
 	return wp_constrain_dimensions( $width, $height, 128, 96 );
 }
@@ -79,7 +79,7 @@ function get_udims( $width, $height ) {
  * @param int $parent        Unused.
  * @param array $popular_ids Unused.
  */
-function dropdown_categories( $default = 0, $parent = 0, $popular_ids = array() ) {
+function dropdown_categories( $default = 0, $parent = 0, $popular_ids = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.6.0', 'wp_category_checklist()' );
 	global $post_ID;
 	wp_category_checklist( $post_ID );
@@ -94,7 +94,7 @@ function dropdown_categories( $default = 0, $parent = 0, $popular_ids = array() 
  *
  * @param int $default Unused.
  */
-function dropdown_link_categories( $default = 0 ) {
+function dropdown_link_categories( $default = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.6.0', 'wp_link_category_checklist()' );
 	global $link_id;
 	wp_link_category_checklist( $link_id );
@@ -110,7 +110,7 @@ function dropdown_link_categories( $default = 0 ) {
  * @param string $file Filesystem path relative to the wp-content directory.
  * @return string Full filesystem path to edit.
  */
-function get_real_file_to_edit( $file ) {
+function get_real_file_to_edit( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.9.0' );
 
 	return WP_CONTENT_DIR . $file;
@@ -130,7 +130,7 @@ function get_real_file_to_edit( $file ) {
  * @param array $categories  Optional. Categories to include in the control. Default 0.
  * @return bool|null False if no categories were found.
  */
-function wp_dropdown_cats( $currentcat = 0, $currentparent = 0, $parent = 0, $level = 0, $categories = 0 ) {
+function wp_dropdown_cats( $currentcat = 0, $currentparent = 0, $parent = 0, $level = 0, $categories = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'wp_dropdown_categories()' );
 	if (!$categories )
 		$categories = get_categories( array('hide_empty' => 0) );
@@ -164,7 +164,7 @@ function wp_dropdown_cats( $currentcat = 0, $currentparent = 0, $parent = 0, $le
  * @param string $option_name The name of an option to sanitize and save.
  * @param callable $sanitize_callback A callback function that sanitizes the option's value.
  */
-function add_option_update_handler( $option_group, $option_name, $sanitize_callback = '' ) {
+function add_option_update_handler( $option_group, $option_name, $sanitize_callback = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'register_setting()' );
 	register_setting( $option_group, $option_name, $sanitize_callback );
 }
@@ -180,7 +180,7 @@ function add_option_update_handler( $option_group, $option_name, $sanitize_callb
  * @param string $option_name
  * @param callable $sanitize_callback
  */
-function remove_option_update_handler( $option_group, $option_name, $sanitize_callback = '' ) {
+function remove_option_update_handler( $option_group, $option_name, $sanitize_callback = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'unregister_setting()' );
 	unregister_setting( $option_group, $option_name, $sanitize_callback );
 }
@@ -193,7 +193,7 @@ function remove_option_update_handler( $option_group, $option_name, $sanitize_ca
  *
  * @param string $filename
 **/
-function codepress_get_lang( $filename ) {
+function codepress_get_lang( $filename ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0' );
 }
 
@@ -203,7 +203,7 @@ function codepress_get_lang( $filename ) {
  * @since 2.8.0
  * @deprecated 3.0.0
 **/
-function codepress_footer_js() {
+function codepress_footer_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0' );
 }
 
@@ -213,7 +213,7 @@ function codepress_footer_js() {
  * @since 2.8.0
  * @deprecated 3.0.0
 **/
-function use_codepress() {
+function use_codepress() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0' );
 }
 
@@ -224,7 +224,7 @@ function use_codepress() {
  *
  * @return array List of user IDs.
  */
-function get_author_user_ids() {
+function get_author_user_ids() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0', 'get_users()' );
 
 	global $wpdb;
@@ -244,7 +244,7 @@ function get_author_user_ids() {
  * @param int $user_id User ID.
  * @return array|bool List of editable authors. False if no editable users.
  */
-function get_editable_authors( $user_id ) {
+function get_editable_authors( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0', 'get_users()' );
 
 	global $wpdb;
@@ -270,7 +270,7 @@ function get_editable_authors( $user_id ) {
  * @param bool $exclude_zeros Optional. Whether to exclude zeroes. Default true.
  * @return array Array of editable user IDs, empty array otherwise.
  */
-function get_editable_user_ids( $user_id, $exclude_zeros = true, $post_type = 'post' ) {
+function get_editable_user_ids( $user_id, $exclude_zeros = true, $post_type = 'post' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0', 'get_users()' );
 
 	global $wpdb;
@@ -303,7 +303,7 @@ function get_editable_user_ids( $user_id, $exclude_zeros = true, $post_type = 'p
  *
  * @deprecated 3.1.0 Use get_users()
  */
-function get_nonauthor_user_ids() {
+function get_nonauthor_user_ids() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0', 'get_users()' );
 
 	global $wpdb;
@@ -479,7 +479,7 @@ class WP_User_Search {
 	 * @param string $role Role name.
 	 * @return WP_User_Search
 	 */
-	function __construct( $search_term = '', $page = '', $role = '' ) {
+	function __construct( $search_term = '', $page = '', $role = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __FUNCTION__, '3.1.0', 'WP_User_Query' );
 
 		$this->search_term = wp_unslash( $search_term );
@@ -502,7 +502,7 @@ class WP_User_Search {
 	 * @param string $role Role name.
 	 * @return WP_User_Search
 	 */
-	public function WP_User_Search( $search_term = '', $page = '', $role = '' ) {
+	public function WP_User_Search( $search_term = '', $page = '', $role = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $search_term, $page, $role );
 	}
 
@@ -512,7 +512,7 @@ class WP_User_Search {
 	 * @since 2.1.0
 	 * @access public
 	 */
-	public function prepare_query() {
+	public function prepare_query() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 		$this->first_user = ($this->page - 1) * $this->users_per_page;
 
@@ -550,7 +550,7 @@ class WP_User_Search {
 	 * @since 2.1.0
 	 * @access public
 	 */
-	public function query() {
+	public function query() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$this->results = $wpdb->get_col("SELECT DISTINCT($wpdb->users.ID)" . $this->query_from . $this->query_where . $this->query_orderby . $this->query_limit);
@@ -567,7 +567,7 @@ class WP_User_Search {
 	 * @since 2.1.0
 	 * @access public
 	 */
-	function prepare_vars_for_template_usage() {}
+	function prepare_vars_for_template_usage() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Handles paging for the user search query.
@@ -575,7 +575,7 @@ class WP_User_Search {
 	 * @since 2.1.0
 	 * @access public
 	 */
-	public function do_paging() {
+	public function do_paging() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->total_users_for_query > $this->users_per_page ) { // have to page the results
 			$args = array();
 			if ( ! empty($this->search_term) )
@@ -609,7 +609,7 @@ class WP_User_Search {
 	 *
 	 * @return array
 	 */
-	public function get_results() {
+	public function get_results() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (array) $this->results;
 	}
 
@@ -621,7 +621,7 @@ class WP_User_Search {
 	 * @since 2.1.0
 	 * @access public
 	 */
-	function page_links() {
+	function page_links() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo $this->paging_text;
 	}
 
@@ -635,7 +635,7 @@ class WP_User_Search {
 	 *
 	 * @return bool
 	 */
-	function results_are_paged() {
+	function results_are_paged() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->paging_text )
 			return true;
 		return false;
@@ -649,7 +649,7 @@ class WP_User_Search {
 	 *
 	 * @return bool
 	 */
-	function is_search() {
+	function is_search() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->search_term )
 			return true;
 		return false;
@@ -669,7 +669,7 @@ endif;
  *                        Default 'any'.
  * @return array List of posts from others.
  */
-function get_others_unpublished_posts( $user_id, $type = 'any' ) {
+function get_others_unpublished_posts( $user_id, $type = 'any' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0' );
 
 	global $wpdb;
@@ -702,7 +702,7 @@ function get_others_unpublished_posts( $user_id, $type = 'any' ) {
  * @param int $user_id User ID.
  * @return array List of drafts from other users.
  */
-function get_others_drafts($user_id) {
+function get_others_drafts($user_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0' );
 
 	return get_others_unpublished_posts($user_id, 'draft');
@@ -717,7 +717,7 @@ function get_others_drafts($user_id) {
  * @param int $user_id User ID.
  * @return array List of posts with pending review post type from other users.
  */
-function get_others_pending($user_id) {
+function get_others_pending($user_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0' );
 
 	return get_others_unpublished_posts($user_id, 'pending');
@@ -730,7 +730,7 @@ function get_others_pending($user_id) {
  * @deprecated 3.2.0 Use wp_dashboard_quick_press()
  * @see wp_dashboard_quick_press()
  */
-function wp_dashboard_quick_press_output() {
+function wp_dashboard_quick_press_output() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.2.0', 'wp_dashboard_quick_press()' );
 	wp_dashboard_quick_press();
 }
@@ -744,7 +744,7 @@ function wp_dashboard_quick_press_output() {
  *
  * @staticvar int $num
  */
-function wp_tiny_mce( $teeny = false, $settings = false ) {
+function wp_tiny_mce( $teeny = false, $settings = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_editor()' );
 
 	static $num = 1;
@@ -770,7 +770,7 @@ function wp_tiny_mce( $teeny = false, $settings = false ) {
  * @deprecated 3.3.0 Use wp_editor()
  * @see wp_editor()
  */
-function wp_preload_dialogs() {
+function wp_preload_dialogs() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_editor()' );
 }
 
@@ -780,7 +780,7 @@ function wp_preload_dialogs() {
  * @deprecated 3.3.0 Use wp_editor()
  * @see wp_editor()
  */
-function wp_print_editor_js() {
+function wp_print_editor_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_editor()' );
 }
 
@@ -790,7 +790,7 @@ function wp_print_editor_js() {
  * @deprecated 3.3.0 Use wp_editor()
  * @see wp_editor()
  */
-function wp_quicktags() {
+function wp_quicktags() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_editor()' );
 }
 
@@ -801,7 +801,7 @@ function wp_quicktags() {
  * @deprecated 3.3.0 WP_Screen::render_screen_layout()
  * @see WP_Screen::render_screen_layout()
  */
-function screen_layout( $screen ) {
+function screen_layout( $screen ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', '$current_screen->render_screen_layout()' );
 
 	$current_screen = get_current_screen();
@@ -821,7 +821,7 @@ function screen_layout( $screen ) {
  * @deprecated 3.3.0 Use WP_Screen::render_per_page_options()
  * @see WP_Screen::render_per_page_options()
  */
-function screen_options( $screen ) {
+function screen_options( $screen ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', '$current_screen->render_per_page_options()' );
 
 	$current_screen = get_current_screen();
@@ -841,7 +841,7 @@ function screen_options( $screen ) {
  * @deprecated 3.3.0 Use WP_Screen::render_screen_meta()
  * @see WP_Screen::render_screen_meta()
  */
-function screen_meta( $screen ) {
+function screen_meta( $screen ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current_screen = get_current_screen();
 	$current_screen->render_screen_meta();
 }
@@ -853,7 +853,7 @@ function screen_meta( $screen ) {
  * @deprecated 3.2.0 Use WP_Admin_Bar
  * @see WP_Admin_Bar
  */
-function favorite_actions() {
+function favorite_actions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.2.0', 'WP_Admin_Bar' );
 }
 
@@ -865,7 +865,7 @@ function favorite_actions() {
  *
  * @return null|string
  */
-function media_upload_image() {
+function media_upload_image() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_media_upload_handler()' );
 	return wp_media_upload_handler();
 }
@@ -878,7 +878,7 @@ function media_upload_image() {
  *
  * @return null|string
  */
-function media_upload_audio() {
+function media_upload_audio() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_media_upload_handler()' );
 	return wp_media_upload_handler();
 }
@@ -891,7 +891,7 @@ function media_upload_audio() {
  *
  * @return null|string
  */
-function media_upload_video() {
+function media_upload_video() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_media_upload_handler()' );
 	return wp_media_upload_handler();
 }
@@ -904,7 +904,7 @@ function media_upload_video() {
  *
  * @return null|string
  */
-function media_upload_file() {
+function media_upload_file() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_media_upload_handler()' );
 	return wp_media_upload_handler();
 }
@@ -917,7 +917,7 @@ function media_upload_file() {
  *
  * @return string
  */
-function type_url_form_image() {
+function type_url_form_image() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', "wp_media_insert_url_form('image')" );
 	return wp_media_insert_url_form( 'image' );
 }
@@ -930,7 +930,7 @@ function type_url_form_image() {
  *
  * @return string
  */
-function type_url_form_audio() {
+function type_url_form_audio() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', "wp_media_insert_url_form('audio')" );
 	return wp_media_insert_url_form( 'audio' );
 }
@@ -943,7 +943,7 @@ function type_url_form_audio() {
  *
  * @return string
  */
-function type_url_form_video() {
+function type_url_form_video() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', "wp_media_insert_url_form('video')" );
 	return wp_media_insert_url_form( 'video' );
 }
@@ -956,7 +956,7 @@ function type_url_form_video() {
  *
  * @return string
  */
-function type_url_form_file() {
+function type_url_form_file() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', "wp_media_insert_url_form('file')" );
 	return wp_media_insert_url_form( 'file' );
 }
@@ -973,7 +973,7 @@ function type_url_form_file() {
  * @param string    $screen The handle for the screen to add help to. This is usually the hook name returned by the add_*_page() functions.
  * @param string    $help   The content of an 'Overview' help tab.
  */
-function add_contextual_help( $screen, $help ) {
+function add_contextual_help( $screen, $help ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'get_current_screen()->add_help_tab()' );
 
 	if ( is_string( $screen ) )
@@ -991,7 +991,7 @@ function add_contextual_help( $screen, $help ) {
  *
  * @return array $themes Array of allowed themes.
  */
-function get_allowed_themes() {
+function get_allowed_themes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', "wp_get_themes( array( 'allowed' => true ) )" );
 
 	$themes = wp_get_themes( array( 'allowed' => true ) );
@@ -1013,7 +1013,7 @@ function get_allowed_themes() {
  *
  * @return array
  */
-function get_broken_themes() {
+function get_broken_themes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', "wp_get_themes( array( 'errors' => true )" );
 
 	$themes = wp_get_themes( array( 'errors' => true ) );
@@ -1038,7 +1038,7 @@ function get_broken_themes() {
  *
  * @return WP_Theme
  */
-function current_theme_info() {
+function current_theme_info() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'wp_get_theme()' );
 
 	return wp_get_theme();
@@ -1051,7 +1051,7 @@ function current_theme_info() {
  *
  * @deprecated 3.5.0
  */
-function _insert_into_post_button( $type ) {
+function _insert_into_post_button( $type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0' );
 }
 
@@ -1062,7 +1062,7 @@ function _insert_into_post_button( $type ) {
  *
  * @deprecated 3.5.0
  */
-function _media_button($title, $icon, $type, $id) {
+function _media_button($title, $icon, $type, $id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0' );
 }
 
@@ -1076,7 +1076,7 @@ function _media_button($title, $icon, $type, $id) {
  * @param int $id
  * @return object
  */
-function get_post_to_edit( $id ) {
+function get_post_to_edit( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'get_post()' );
 
 	return get_post( $id, OBJECT, 'edit' );
@@ -1091,7 +1091,7 @@ function get_post_to_edit( $id ) {
  *
  * @return WP_Post Post object containing all the default post data as attributes
  */
-function get_default_page_to_edit() {
+function get_default_page_to_edit() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', "get_default_post_to_edit( 'page' )" );
 
 	$page = get_default_post_to_edit();
@@ -1111,7 +1111,7 @@ function get_default_page_to_edit() {
  * @param mixed $deprecated Never used.
  * @return string Thumbnail path on success, Error string on failure.
  */
-function wp_create_thumbnail( $file, $max_side, $deprecated = '' ) {
+function wp_create_thumbnail( $file, $max_side, $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'image_resize()' );
 	return apply_filters( 'wp_create_thumbnail', image_resize( $file, $max_side, $max_side ) );
 }
@@ -1124,7 +1124,7 @@ function wp_create_thumbnail( $file, $max_side, $deprecated = '' ) {
  * @since 3.0.0
  * @deprecated 3.6.0
  */
-function wp_nav_menu_locations_meta_box() {
+function wp_nav_menu_locations_meta_box() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.6.0' );
 }
 
@@ -1138,7 +1138,7 @@ function wp_nav_menu_locations_meta_box() {
  * @deprecated 3.7.0 Use Core_Upgrader
  * @see Core_Upgrader
  */
-function wp_update_core($current, $feedback = '') {
+function wp_update_core($current, $feedback = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.7.0', 'new Core_Upgrader();' );
 
 	if ( !empty($feedback) )
@@ -1161,7 +1161,7 @@ function wp_update_core($current, $feedback = '') {
  * @deprecated 3.7.0 Use Plugin_Upgrader
  * @see Plugin_Upgrader
  */
-function wp_update_plugin($plugin, $feedback = '') {
+function wp_update_plugin($plugin, $feedback = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.7.0', 'new Plugin_Upgrader();' );
 
 	if ( !empty($feedback) )
@@ -1183,7 +1183,7 @@ function wp_update_plugin($plugin, $feedback = '') {
  * @deprecated 3.7.0 Use Theme_Upgrader
  * @see Theme_Upgrader
  */
-function wp_update_theme($theme, $feedback = '') {
+function wp_update_theme($theme, $feedback = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.7.0', 'new Theme_Upgrader();' );
 
 	if ( !empty($feedback) )
@@ -1202,7 +1202,7 @@ function wp_update_theme($theme, $feedback = '') {
  *
  * @param int|bool $id
  */
-function the_attachment_links( $id = false ) {
+function the_attachment_links( $id = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.7.0' );
 }
 
@@ -1214,7 +1214,7 @@ function the_attachment_links( $id = false ) {
  * @deprecated 3.8.0 Use get_screen_icon()
  * @see get_screen_icon()
  */
-function screen_icon() {
+function screen_icon() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_screen_icon();
 }
 
@@ -1225,7 +1225,7 @@ function screen_icon() {
  *
  * @return string
  */
-function get_screen_icon() {
+function get_screen_icon() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return '<!-- Screen icons are no longer used as of WordPress 3.8. -->';
 }
 
@@ -1235,14 +1235,14 @@ function get_screen_icon() {
  * @since 2.5.0
  * @deprecated 3.8.0
  */
-function wp_dashboard_incoming_links_output() {}
+function wp_dashboard_incoming_links_output() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Deprecated dashboard secondary output.
  *
  * @deprecated 3.8.0
  */
-function wp_dashboard_secondary_output() {}
+function wp_dashboard_secondary_output() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Deprecated dashboard widget controls.
@@ -1250,49 +1250,49 @@ function wp_dashboard_secondary_output() {}
  * @since 2.7.0
  * @deprecated 3.8.0
  */
-function wp_dashboard_incoming_links() {}
+function wp_dashboard_incoming_links() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Deprecated dashboard incoming links control.
  *
  * @deprecated 3.8.0
  */
-function wp_dashboard_incoming_links_control() {}
+function wp_dashboard_incoming_links_control() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Deprecated dashboard plugins control.
  *
  * @deprecated 3.8.0
  */
-function wp_dashboard_plugins() {}
+function wp_dashboard_plugins() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Deprecated dashboard primary control.
  *
  * @deprecated 3.8.0
  */
-function wp_dashboard_primary_control() {}
+function wp_dashboard_primary_control() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Deprecated dashboard recent comments control.
  *
  * @deprecated 3.8.0
  */
-function wp_dashboard_recent_comments_control() {}
+function wp_dashboard_recent_comments_control() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Deprecated dashboard secondary section.
  *
  * @deprecated 3.8.0
  */
-function wp_dashboard_secondary() {}
+function wp_dashboard_secondary() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Deprecated dashboard secondary control.
  *
  * @deprecated 3.8.0
  */
-function wp_dashboard_secondary_control() {}
+function wp_dashboard_secondary_control() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * This was once used to move child posts to a new parent.
@@ -1304,7 +1304,7 @@ function wp_dashboard_secondary_control() {}
  * @param int $old_ID
  * @param int $new_ID
  */
-function _relocate_children( $old_ID, $new_ID ) {
+function _relocate_children( $old_ID, $new_ID ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.9.0' );
 }
 
@@ -1331,7 +1331,7 @@ function _relocate_children( $old_ID, $new_ID ) {
  * @param string   $icon_url   The url to the icon to be used for this menu.
  * @return string The resulting page's hook_suffix.
  */
-function add_object_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '') {
+function add_object_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.5.0', 'add_menu_page()' );
 
 	global $_wp_last_object_menu;
@@ -1364,7 +1364,7 @@ function add_object_page( $page_title, $menu_title, $capability, $menu_slug, $fu
  * @param string   $icon_url   The url to the icon to be used for this menu.
  * @return string The resulting page's hook_suffix.
  */
-function add_utility_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '') {
+function add_utility_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.5.0', 'add_menu_page()' );
 
 	global $_wp_last_utility_menu;
@@ -1387,7 +1387,7 @@ function add_utility_page( $page_title, $menu_title, $capability, $menu_slug, $f
  * @global bool $is_safari
  * @global bool $is_chrome
  */
-function post_form_autocomplete_off() {
+function post_form_autocomplete_off() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $is_safari, $is_chrome;
 
 	_deprecated_function( __FUNCTION__, '4.6.0' );

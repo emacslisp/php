@@ -101,7 +101,7 @@ class SimplePie_Registry
 	 *
 	 * No-op
 	 */
-	public function __construct() { }
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); }
 
 	/**
 	 * Register a class

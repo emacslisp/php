@@ -133,7 +133,7 @@ function wp_initial_constants() {
  *
  * @since 3.0.0
  */
-function wp_plugin_directory_constants() {
+function wp_plugin_directory_constants() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !defined('WP_CONTENT_URL') )
 		define( 'WP_CONTENT_URL', get_option('siteurl') . '/wp-content'); // full url - WP_CONTENT_DIR is defined further up
 
@@ -194,7 +194,7 @@ function wp_plugin_directory_constants() {
  * Defines constants after multisite is loaded.
  * @since 3.0.0
  */
-function wp_cookie_constants() {
+function wp_cookie_constants() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Used to guarantee unique hash cookies
 	 *
@@ -280,7 +280,7 @@ function wp_cookie_constants() {
  *
  * @since 3.0.0
  */
-function wp_ssl_constants() {
+function wp_ssl_constants() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * @since 2.6.0
 	 */
@@ -307,7 +307,7 @@ function wp_ssl_constants() {
  *
  * @since 3.0.0
  */
-function wp_functionality_constants() {
+function wp_functionality_constants() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * @since 2.5.0
 	 */
@@ -335,7 +335,7 @@ function wp_functionality_constants() {
  *
  * @since 3.0.0
  */
-function wp_templating_constants() {
+function wp_templating_constants() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filesystem path to the current active template directory
 	 * @since 1.5.0

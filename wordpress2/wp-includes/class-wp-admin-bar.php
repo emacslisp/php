@@ -21,7 +21,7 @@ class WP_Admin_Bar {
 	 * @param string $name
 	 * @return string|array|void
 	 */
-	public function __get( $name ) {
+	public function __get( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ( $name ) {
 			case 'proto' :
 				return is_ssl() ? 'https://' : 'http://';
@@ -35,7 +35,7 @@ class WP_Admin_Bar {
 	/**
 	 * @access public
 	 */
-	public function initialize() {
+	public function initialize() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->user = new stdClass;
 
 		if ( is_user_logged_in() ) {
@@ -84,14 +84,14 @@ class WP_Admin_Bar {
 	/**
 	 * @param array $node
 	 */
-	public function add_menu( $node ) {
+	public function add_menu( $node ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->add_node( $node );
 	}
 
 	/**
 	 * @param string $id
 	 */
-	public function remove_menu( $id ) {
+	public function remove_menu( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->remove_node( $id );
 	}
 
@@ -114,7 +114,7 @@ class WP_Admin_Bar {
 	 *                          'onclick', 'target', 'title', 'tabindex'. Default empty.
 	 * }
 	 */
-	public function add_node( $args ) {
+	public function add_node( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Shim for old method signature: add_node( $parent_id, $menu_obj, $args )
 		if ( func_num_args() >= 3 && is_string( func_get_arg(0) ) )
 			$args = array_merge( array( 'parent' => func_get_arg(0) ), func_get_arg(2) );
@@ -168,7 +168,7 @@ class WP_Admin_Bar {
 	/**
 	 * @param array $args
 	 */
-	final protected function _set_node( $args ) {
+	final protected function _set_node( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->nodes[ $args['id'] ] = (object) $args;
 	}
 
@@ -178,7 +178,7 @@ class WP_Admin_Bar {
 	 * @param string $id
 	 * @return object Node.
 	 */
-	final public function get_node( $id ) {
+	final public function get_node( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $node = $this->_get_node( $id ) )
 			return clone $node;
 	}
@@ -187,7 +187,7 @@ class WP_Admin_Bar {
 	 * @param string $id
 	 * @return object|void
 	 */
-	final protected function _get_node( $id ) {
+	final protected function _get_node( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->bound )
 			return;
 
@@ -201,7 +201,7 @@ class WP_Admin_Bar {
 	/**
 	 * @return array|void
 	 */
-	final public function get_nodes() {
+	final public function get_nodes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $nodes = $this->_get_nodes() )
 			return;
 
@@ -214,7 +214,7 @@ class WP_Admin_Bar {
 	/**
 	 * @return array|void
 	 */
-	final protected function _get_nodes() {
+	final protected function _get_nodes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->bound )
 			return;
 
@@ -235,7 +235,7 @@ class WP_Admin_Bar {
 	 *                         'class', 'onclick', 'target', and 'title'.
 	 * }
 	 */
-	final public function add_group( $args ) {
+	final public function add_group( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args['group'] = true;
 
 		$this->add_node( $args );
@@ -246,21 +246,21 @@ class WP_Admin_Bar {
 	 *
 	 * @param string $id The ID of the item.
 	 */
-	public function remove_node( $id ) {
+	public function remove_node( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->_unset_node( $id );
 	}
 
 	/**
 	 * @param string $id
 	 */
-	final protected function _unset_node( $id ) {
+	final protected function _unset_node( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->nodes[ $id ] );
 	}
 
 	/**
 	 * @access public
 	 */
-	public function render() {
+	public function render() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$root = $this->_bind();
 		if ( $root )
 			$this->_render( $root );
@@ -269,7 +269,7 @@ class WP_Admin_Bar {
 	/**
 	 * @return object|void
 	 */
-	final protected function _bind() {
+	final protected function _bind() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->bound )
 			return;
 
@@ -395,7 +395,7 @@ class WP_Admin_Bar {
 	 * @global bool $is_IE
 	 * @param object $root
 	 */
-	final protected function _render( $root ) {
+	final protected function _render( $root ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $is_IE;
 
 		// Add browser classes.
@@ -433,7 +433,7 @@ class WP_Admin_Bar {
 	/**
 	 * @param object $node
 	 */
-	final protected function _render_container( $node ) {
+	final protected function _render_container( $node ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $node->type != 'container' || empty( $node->children ) )
 			return;
 
@@ -447,7 +447,7 @@ class WP_Admin_Bar {
 	/**
 	 * @param object $node
 	 */
-	final protected function _render_group( $node ) {
+	final protected function _render_group( $node ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $node->type == 'container' ) {
 			$this->_render_container( $node );
 			return;
@@ -470,7 +470,7 @@ class WP_Admin_Bar {
 	/**
 	 * @param object $node
 	 */
-	final protected function _render_item( $node ) {
+	final protected function _render_item( $node ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $node->type != 'item' )
 			return;
 
@@ -559,7 +559,7 @@ class WP_Admin_Bar {
 	 * @param string $id    Unused.
 	 * @param object $node
 	 */
-	public function recursive_render( $id, $node ) {
+	public function recursive_render( $id, $node ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '3.3.0', 'WP_Admin_bar::render(), WP_Admin_Bar::_render_item()' );
 		$this->_render_item( $node );
 	}
@@ -567,7 +567,7 @@ class WP_Admin_Bar {
 	/**
 	 * @access public
 	 */
-	public function add_menus() {
+	public function add_menus() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// User related, aligned right.
 		add_action( 'admin_bar_menu', 'wp_admin_bar_my_account_menu', 0 );
 		add_action( 'admin_bar_menu', 'wp_admin_bar_search_menu', 4 );

@@ -348,7 +348,7 @@ final class WP_Post_Type {
 	 * @param array|string $args      Optional. Array or string of arguments for registering a post type.
 	 *                                Default empty array.
 	 */
-	public function __construct( $post_type, $args = array() ) {
+	public function __construct( $post_type, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->name = $post_type;
 
 		$this->set_props( $args );
@@ -362,7 +362,7 @@ final class WP_Post_Type {
 	 *
 	 * @param array|string $args Array or string of arguments for registering a post type.
 	 */
-	public function set_props( $args ) {
+	public function set_props( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = wp_parse_args( $args );
 
 		/**
@@ -509,7 +509,7 @@ final class WP_Post_Type {
 	 * @since 4.6.0
 	 * @access public
 	 */
-	public function add_supports() {
+	public function add_supports() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! empty( $this->supports ) ) {
 			add_post_type_support( $this->name, $this->supports );
 			unset( $this->supports );
@@ -528,7 +528,7 @@ final class WP_Post_Type {
 	 * @global WP_Rewrite $wp_rewrite WordPress Rewrite Component.
 	 * @global WP         $wp         Current WordPress environment instance.
 	 */
-	public function add_rewrite_rules() {
+	public function add_rewrite_rules() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_rewrite, $wp;
 
 		if ( false !== $this->query_var && $wp && is_post_type_viewable( $this ) ) {
@@ -573,7 +573,7 @@ final class WP_Post_Type {
 	 * @since 4.6.0
 	 * @access public
 	 */
-	public function register_meta_boxes() {
+	public function register_meta_boxes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->register_meta_box_cb ) {
 			add_action( 'add_meta_boxes_' . $this->name, $this->register_meta_box_cb, 10, 1 );
 		}
@@ -585,7 +585,7 @@ final class WP_Post_Type {
 	 * @since 4.6.0
 	 * @access public
 	 */
-	public function add_hooks() {
+	public function add_hooks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		add_action( 'future_' . $this->name, '_future_post_hook', 5, 2 );
 	}
 
@@ -595,7 +595,7 @@ final class WP_Post_Type {
 	 * @since 4.6.0
 	 * @access public
 	 */
-	public function register_taxonomies() {
+	public function register_taxonomies() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->taxonomies as $taxonomy ) {
 			register_taxonomy_for_object_type( $taxonomy, $this->name );
 		}
@@ -609,7 +609,7 @@ final class WP_Post_Type {
 	 *
 	 * @global array $_wp_post_type_features Post type features.
 	 */
-	public function remove_supports() {
+	public function remove_supports() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $_wp_post_type_features;
 
 		unset( $_wp_post_type_features[ $this->name ] );
@@ -625,7 +625,7 @@ final class WP_Post_Type {
 	 * @global WP         $wp                  Current WordPress environment instance.
 	 * @global array      $post_type_meta_caps Used to remove meta capabilities.
 	 */
-	public function remove_rewrite_rules() {
+	public function remove_rewrite_rules() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp, $wp_rewrite, $post_type_meta_caps;
 
 		// Remove query var.
@@ -656,7 +656,7 @@ final class WP_Post_Type {
 	 * @since 4.6.0
 	 * @access public
 	 */
-	public function unregister_meta_boxes() {
+	public function unregister_meta_boxes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->register_meta_box_cb ) {
 			remove_action( 'add_meta_boxes_' . $this->name, $this->register_meta_box_cb, 10 );
 		}
@@ -668,7 +668,7 @@ final class WP_Post_Type {
 	 * @since 4.6.0
 	 * @access public
 	 */
-	public function unregister_taxonomies() {
+	public function unregister_taxonomies() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( get_object_taxonomies( $this->name ) as $taxonomy ) {
 			unregister_taxonomy_for_object_type( $taxonomy, $this->name );
 		}
@@ -680,7 +680,7 @@ final class WP_Post_Type {
 	 * @since 4.6.0
 	 * @access public
 	 */
-	public function remove_hooks() {
+	public function remove_hooks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		remove_action( 'future_' . $this->name, '_future_post_hook', 5 );
 	}
 }

@@ -28,7 +28,7 @@ class WP_Embed {
 	/**
 	 * Constructor
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Hack to get the [embed] shortcode to run before wpautop()
 		add_filter( 'the_content', array( $this, 'run_shortcode' ), 8 );
 
@@ -55,7 +55,7 @@ class WP_Embed {
 	 * @param string $content Content to parse
 	 * @return string Content with shortcode parsed
 	 */
-	public function run_shortcode( $content ) {
+	public function run_shortcode( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $shortcode_tags;
 
 		// Back up current registered shortcodes and clear them all out
@@ -77,7 +77,7 @@ class WP_Embed {
 	 * If a post/page was saved, then output JavaScript to make
 	 * an Ajax request that will call WP_Embed::cache_oembed().
 	 */
-	public function maybe_run_ajax_cache() {
+	public function maybe_run_ajax_cache() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post = get_post();
 
 		if ( ! $post || empty( $_GET['message'] ) )
@@ -85,7 +85,7 @@ class WP_Embed {
 
 ?>
 <script type="text/javascript">
-	jQuery(document).ready(function($){
+	jQuery(document).ready(function($){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$.get("<?php echo admin_url( 'admin-ajax.php?action=oembed-cache&post=' . $post->ID, 'relative' ); ?>");
 	});
 </script>
@@ -104,7 +104,7 @@ class WP_Embed {
 	 * @param callable $callback The callback function that will be called if the regex is matched.
 	 * @param int $priority Optional. Used to specify the order in which the registered handlers will be tested (default: 10). Lower numbers correspond with earlier testing, and handlers with the same priority are tested in the order in which they were added to the action.
 	 */
-	public function register_handler( $id, $regex, $callback, $priority = 10 ) {
+	public function register_handler( $id, $regex, $callback, $priority = 10 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->handlers[$priority][$id] = array(
 			'regex'    => $regex,
 			'callback' => $callback,
@@ -119,7 +119,7 @@ class WP_Embed {
 	 * @param string $id The handler ID that should be removed.
 	 * @param int $priority Optional. The priority of the handler to be removed (default: 10).
 	 */
-	public function unregister_handler( $id, $priority = 10 ) {
+	public function unregister_handler( $id, $priority = 10 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->handlers[ $priority ][ $id ] );
 	}
 
@@ -140,7 +140,7 @@ class WP_Embed {
 	 * @return string|false The embed HTML on success, otherwise the original URL.
 	 *                      `->maybe_make_link()` can return false on failure.
 	 */
-	public function shortcode( $attr, $url = '' ) {
+	public function shortcode( $attr, $url = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post = get_post();
 
 		if ( empty( $url ) && ! empty( $attr['src'] ) ) {
@@ -279,7 +279,7 @@ class WP_Embed {
 	 *
 	 * @param int $post_ID Post ID to delete the caches for.
 	 */
-	public function delete_oembed_caches( $post_ID ) {
+	public function delete_oembed_caches( $post_ID ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post_metas = get_post_custom_keys( $post_ID );
 		if ( empty($post_metas) )
 			return;
@@ -295,7 +295,7 @@ class WP_Embed {
 	 *
 	 * @param int $post_ID Post ID to do the caching for.
 	 */
-	public function cache_oembed( $post_ID ) {
+	public function cache_oembed( $post_ID ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post = get_post( $post_ID );
 
 		$post_types = get_post_types( array( 'show_ui' => true ) );
@@ -330,7 +330,7 @@ class WP_Embed {
 	 * @param string $content The content to be searched.
 	 * @return string Potentially modified $content.
 	 */
-	public function autoembed( $content ) {
+	public function autoembed( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Replace line breaks from all HTML elements with placeholders.
 		$content = wp_replace_in_html_tags( $content, array( "\n" => '<!-- wp-line-break -->' ) );
 
@@ -351,7 +351,7 @@ class WP_Embed {
 	 * @param array $match A regex match array.
 	 * @return string The embed HTML on success, otherwise the original URL.
 	 */
-	public function autoembed_callback( $match ) {
+	public function autoembed_callback( $match ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$oldval = $this->linkifunknown;
 		$this->linkifunknown = false;
 		$return = $this->shortcode( array(), $match[2] );
@@ -366,7 +366,7 @@ class WP_Embed {
 	 * @param string $url URL to potentially be linked.
 	 * @return false|string Linked URL or the original URL. False if 'return_false_on_fail' is true.
 	 */
-	public function maybe_make_link( $url ) {
+	public function maybe_make_link( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->return_false_on_fail ) {
 			return false;
 		}

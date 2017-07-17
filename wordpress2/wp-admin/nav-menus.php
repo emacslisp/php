@@ -503,7 +503,7 @@ if ( is_nav_menu( $nav_menu_selected_id ) ) {
  * @param string $classes
  * @return string
  */
-function wp_nav_menu_max_depth( $classes ) {
+function wp_nav_menu_max_depth( $classes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_nav_menu_max_depth;
 	return "$classes menu-max-depth-$_wp_nav_menu_max_depth";
 }

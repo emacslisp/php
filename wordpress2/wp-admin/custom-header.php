@@ -56,7 +56,7 @@ class Custom_Image_Header {
 	 * @param callable $admin_header_callback
 	 * @param callable $admin_image_div_callback Optional custom image div output callback.
 	 */
-	public function __construct($admin_header_callback, $admin_image_div_callback = '') {
+	public function __construct($admin_header_callback, $admin_image_div_callback = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->admin_header_callback = $admin_header_callback;
 		$this->admin_image_div_callback = $admin_image_div_callback;
 
@@ -73,7 +73,7 @@ class Custom_Image_Header {
 	 *
 	 * @since 2.1.0
 	 */
-	public function init() {
+	public function init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$page = add_theme_page( __( 'Header' ), __( 'Header' ), 'edit_theme_options', 'custom-header', array( $this, 'admin_page' ) );
 		if ( ! $page ) {
 			return;
@@ -94,7 +94,7 @@ class Custom_Image_Header {
 	 *
 	 * @since 3.0.0
 	 */
-	public function help() {
+	public function help() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		get_current_screen()->add_help_tab( array(
 			'id'      => 'overview',
 			'title'   => __('Overview'),
@@ -136,7 +136,7 @@ class Custom_Image_Header {
 	 *
 	 * @return int Current step
 	 */
-	public function step() {
+	public function step() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $_GET['step'] ) )
 			return 1;
 
@@ -155,7 +155,7 @@ class Custom_Image_Header {
 	 *
 	 * @since 2.1.0
 	 */
-	public function js_includes() {
+	public function js_includes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$step = $this->step();
 
 		if ( ( 1 == $step || 3 == $step ) ) {
@@ -173,7 +173,7 @@ class Custom_Image_Header {
 	 *
 	 * @since 2.7.0
 	 */
-	public function css_includes() {
+	public function css_includes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$step = $this->step();
 
 		if ( ( 1 == $step || 3 == $step ) && current_theme_supports( 'custom-header', 'header-text' ) )
@@ -187,7 +187,7 @@ class Custom_Image_Header {
 	 *
 	 * @since 2.6.0
 	 */
-	public function take_action() {
+	public function take_action() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! current_user_can('edit_theme_options') )
 			return;
 
@@ -235,7 +235,7 @@ class Custom_Image_Header {
 	 *
 	 * @global array $_wp_default_headers
 	 */
-	public function process_default_headers() {
+	public function process_default_headers() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $_wp_default_headers;
 
 		if ( !isset($_wp_default_headers) )
@@ -265,7 +265,7 @@ class Custom_Image_Header {
 	 * @param string $type The header type. One of 'default' (for the Uploaded Images control)
 	 *                     or 'uploaded' (for the Uploaded Images control).
 	 */
-	public function show_header_selector( $type = 'default' ) {
+	public function show_header_selector( $type = 'default' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'default' == $type ) {
 			$headers = $this->default_headers;
 		} else {
@@ -302,7 +302,7 @@ class Custom_Image_Header {
 	 *
 	 * @since 2.1.0
 	 */
-	public function js() {
+	public function js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$step = $this->step();
 		if ( ( 1 == $step || 3 == $step ) && current_theme_supports( 'custom-header', 'header-text' ) )
 			$this->js_1();
@@ -315,7 +315,7 @@ class Custom_Image_Header {
 	 *
 	 * @since 2.6.0
 	 */
-	public function js_1() {
+	public function js_1() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$default_color = '';
 		if ( current_theme_supports( 'custom-header', 'default-text-color' ) ) {
 			$default_color = get_theme_support( 'custom-header', 'default-text-color' );
@@ -325,17 +325,17 @@ class Custom_Image_Header {
 		}
 		?>
 <script type="text/javascript">
-(function($){
+(function($){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	var default_color = '<?php echo $default_color; ?>',
 		header_text_fields;
 
-	function pickColor(color) {
+	function pickColor(color) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$('#name').css('color', color);
 		$('#desc').css('color', color);
 		$('#text-color').val(color);
 	}
 
-	function toggle_text() {
+	function toggle_text() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		var checked = $('#display-header-text').prop('checked'),
 			text_color;
 		header_text_fields.toggle( checked );
@@ -350,14 +350,14 @@ class Custom_Image_Header {
 		}
 	}
 
-	$(document).ready(function() {
+	$(document).ready(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		var text_color = $('#text-color');
 		header_text_fields = $('.displaying-header-text');
 		text_color.wpColorPicker({
-			change: function( event, ui ) {
+			change: function( event, ui ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				pickColor( text_color.wpColorPicker('color') );
 			},
-			clear: function() {
+			clear: function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				pickColor( '' );
 			}
 		});
@@ -376,16 +376,16 @@ class Custom_Image_Header {
 	 *
 	 * @since 2.6.0
 	 */
-	public function js_2() { ?>
+	public function js_2() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); ?>
 <script type="text/javascript">
-	function onEndCrop( coords ) {
+	function onEndCrop( coords ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		jQuery( '#x1' ).val(coords.x);
 		jQuery( '#y1' ).val(coords.y);
 		jQuery( '#width' ).val(coords.w);
 		jQuery( '#height' ).val(coords.h);
 	}
 
-	jQuery(document).ready(function() {
+	jQuery(document).ready(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		var xinit = <?php echo absint( get_theme_support( 'custom-header', 'width' ) ); ?>;
 		var yinit = <?php echo absint( get_theme_support( 'custom-header', 'height' ) ); ?>;
 		var ratio = xinit / yinit;
@@ -427,11 +427,11 @@ class Custom_Image_Header {
 			<?php
 			}
 			?>
-			onInit: function () {
+			onInit: function () {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				jQuery('#width').val(xinit);
 				jQuery('#height').val(yinit);
 			},
-			onSelectChange: function(img, c) {
+			onSelectChange: function(img, c) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				jQuery('#x1').val(c.x1);
 				jQuery('#y1').val(c.y1);
 				jQuery('#width').val(c.width);
@@ -448,7 +448,7 @@ class Custom_Image_Header {
 	 *
 	 * @since 2.1.0
 	 */
-	public function step_1() {
+	public function step_1() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->process_default_headers();
 ?>
 
@@ -719,7 +719,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @since 2.1.0
 	 */
-	public function step_2() {
+	public function step_2() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		check_admin_referer('custom-header-upload', '_wpnonce-custom-header-upload');
 		if ( ! current_theme_supports( 'custom-header', 'uploads' ) ) {
 			wp_die(
@@ -837,7 +837,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @since 3.4.0
 	 */
-	public function step_2_manage_upload() {
+	public function step_2_manage_upload() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$overrides = array('test_form' => false);
 
 		$uploaded_file = $_FILES['import'];
@@ -876,7 +876,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 * @since 4.4.0 Switched to using wp_get_attachment_url() instead of the guid
 	 *              for retrieving the header image URL.
 	 */
-	public function step_3() {
+	public function step_3() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		check_admin_referer( 'custom-header-crop-image' );
 
 		if ( ! current_theme_supports( 'custom-header', 'uploads' ) ) {
@@ -954,7 +954,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @since 2.1.0
 	 */
-	public function finished() {
+	public function finished() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->updated = true;
 		$this->step_1();
 	}
@@ -964,7 +964,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @since 2.1.0
 	 */
-	public function admin_page() {
+	public function admin_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! current_user_can('edit_theme_options') )
 			wp_die(__('Sorry, you are not allowed to customize headers.'));
 		$step = $this->step();
@@ -984,7 +984,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 * @param array $form_fields
 	 * @return array $form_fields
 	 */
-	public function attachment_fields_to_edit( $form_fields ) {
+	public function attachment_fields_to_edit( $form_fields ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $form_fields;
 	}
 
@@ -996,7 +996,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 * @param array $tabs
 	 * @return array $tabs
 	 */
-	public function filter_upload_tabs( $tabs ) {
+	public function filter_upload_tabs( $tabs ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $tabs;
 	}
 
@@ -1012,7 +1012,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 * 	the key of an image uploaded for that theme (the attachment ID of the image).
 	 *  Or an array of arguments: attachment_id, url, width, height. All are required.
 	 */
-	final public function set_header_image( $choice ) {
+	final public function set_header_image( $choice ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_array( $choice ) || is_object( $choice ) ) {
 			$choice = (array) $choice;
 			if ( ! isset( $choice['attachment_id'] ) || ! isset( $choice['url'] ) )
@@ -1061,7 +1061,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @since 3.4.0
 	 */
-	final public function remove_header_image() {
+	final public function remove_header_image() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->set_header_image( 'remove-header' );
 	}
 
@@ -1072,7 +1072,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @since 3.4.0
 	 */
-	final public function reset_header_image() {
+	final public function reset_header_image() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->process_default_headers();
 		$default = get_theme_support( 'custom-header', 'default-image' );
 
@@ -1100,7 +1100,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 * @param array $dimensions
 	 * @return array dst_height and dst_width of header image.
 	 */
-	final public function get_header_dimensions( $dimensions ) {
+	final public function get_header_dimensions( $dimensions ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$max_width = 0;
 		$width = absint( $dimensions['width'] );
 		$height = absint( $dimensions['height'] );
@@ -1152,7 +1152,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @return array Attachment object.
 	 */
-	final public function create_attachment_object( $cropped, $parent_attachment_id ) {
+	final public function create_attachment_object( $cropped, $parent_attachment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$parent = get_post( $parent_attachment_id );
 		$parent_url = wp_get_attachment_url( $parent->ID );
 		$url = str_replace( basename( $parent_url ), basename( $cropped ), $parent_url );
@@ -1179,7 +1179,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @return int Attachment ID.
 	 */
-	final public function insert_attachment( $object, $cropped ) {
+	final public function insert_attachment( $object, $cropped ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$attachment_id = wp_insert_attachment( $object, $cropped );
 		$metadata = wp_generate_attachment_metadata( $attachment_id, $cropped );
 		/**
@@ -1200,7 +1200,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 * Gets attachment uploaded by Media Manager, crops it, then saves it as a
 	 * new object. Returns JSON-encoded object details.
 	 */
-	public function ajax_header_crop() {
+	public function ajax_header_crop() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		check_ajax_referer( 'image_editor-' . $_POST['id'], 'nonce' );
 
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
@@ -1258,7 +1258,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 * Triggered when the user tries adds a new header image from the
 	 * Media Manager, even if s/he doesn't save that change.
 	 */
-	public function ajax_header_add() {
+	public function ajax_header_add() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		check_ajax_referer( 'header-add', 'nonce' );
 
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
@@ -1284,7 +1284,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 * Triggered when the user clicks the overlay "X" button next to each image
 	 * choice in the Customizer's Header tool.
 	 */
-	public function ajax_header_remove() {
+	public function ajax_header_remove() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		check_ajax_referer( 'header-remove', 'nonce' );
 
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
@@ -1307,7 +1307,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @param WP_Customize_Manager $wp_customize
 	 */
-	public function customize_set_last_used( $wp_customize ) {
+	public function customize_set_last_used( $wp_customize ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$data = $wp_customize->get_setting( 'header_image_data' )->post_value();
 
 		if ( ! isset( $data['attachment_id'] ) ) {
@@ -1323,7 +1323,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @return array
 	 */
-	public function get_default_header_images() {
+	public function get_default_header_images() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->process_default_headers();
 
 		// Get the default image if there is one.
@@ -1363,7 +1363,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	 *
 	 * @return array
 	 */
-	public function get_uploaded_header_images() {
+	public function get_uploaded_header_images() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$header_images = get_uploaded_header_images();
 		$timestamp_key = '_wp_attachment_custom_header_last_used_' . get_stylesheet();
 		$alt_text_key = '_wp_attachment_image_alt';

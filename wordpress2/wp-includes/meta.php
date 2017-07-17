@@ -27,7 +27,7 @@
  *                           no change will be made.
  * @return int|false The meta ID on success, false on failure.
  */
-function add_metadata($meta_type, $object_id, $meta_key, $meta_value, $unique = false) {
+function add_metadata($meta_type, $object_id, $meta_key, $meta_value, $unique = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( ! $meta_type || ! $meta_key || ! is_numeric( $object_id ) ) {
@@ -140,7 +140,7 @@ function add_metadata($meta_type, $object_id, $meta_key, $meta_value, $unique = 
  * 		                     the specified value. Otherwise, update all entries.
  * @return int|bool Meta ID if the key didn't exist, true on successful update, false on failure.
  */
-function update_metadata($meta_type, $object_id, $meta_key, $meta_value, $prev_value = '') {
+function update_metadata($meta_type, $object_id, $meta_key, $meta_value, $prev_value = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( ! $meta_type || ! $meta_key || ! is_numeric( $object_id ) ) {
@@ -304,7 +304,7 @@ function update_metadata($meta_type, $object_id, $meta_key, $meta_value, $prev_v
  *                           the specified object_id.
  * @return bool True on successful delete, false on failure.
  */
-function delete_metadata($meta_type, $object_id, $meta_key, $meta_value = '', $delete_all = false) {
+function delete_metadata($meta_type, $object_id, $meta_key, $meta_value = '', $delete_all = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( ! $meta_type || ! $meta_key || ! is_numeric( $object_id ) && ! $delete_all ) {
@@ -458,7 +458,7 @@ function delete_metadata($meta_type, $object_id, $meta_key, $meta_value = '', $d
  *                          This parameter has no effect if meta_key is not specified.
  * @return mixed Single metadata value, or array of values
  */
-function get_metadata($meta_type, $object_id, $meta_key = '', $single = false) {
+function get_metadata($meta_type, $object_id, $meta_key = '', $single = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $meta_type || ! is_numeric( $object_id ) ) {
 		return false;
 	}
@@ -525,7 +525,7 @@ function get_metadata($meta_type, $object_id, $meta_key = '', $single = false) {
  * @param string $meta_key  Metadata key.
  * @return bool True of the key is set, false if not.
  */
-function metadata_exists( $meta_type, $object_id, $meta_key ) {
+function metadata_exists( $meta_type, $object_id, $meta_key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $meta_type || ! is_numeric( $object_id ) ) {
 		return false;
 	}
@@ -564,7 +564,7 @@ function metadata_exists( $meta_type, $object_id, $meta_key ) {
  * @param int    $meta_id   ID for a specific meta row
  * @return object|false Meta object or false.
  */
-function get_metadata_by_mid( $meta_type, $meta_id ) {
+function get_metadata_by_mid( $meta_type, $meta_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( ! $meta_type || ! is_numeric( $meta_id ) || floor( $meta_id ) != $meta_id ) {
@@ -607,7 +607,7 @@ function get_metadata_by_mid( $meta_type, $meta_id ) {
  * @param string $meta_key   Optional, you can provide a meta key to update it
  * @return bool True on successful update, false on failure.
  */
-function update_metadata_by_mid( $meta_type, $meta_id, $meta_value, $meta_key = false ) {
+function update_metadata_by_mid( $meta_type, $meta_id, $meta_value, $meta_key = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	// Make sure everything is valid.
@@ -698,7 +698,7 @@ function update_metadata_by_mid( $meta_type, $meta_id, $meta_value, $meta_key = 
  * @param int    $meta_id   ID for a specific meta row
  * @return bool True on successful delete, false on failure.
  */
-function delete_metadata_by_mid( $meta_type, $meta_id ) {
+function delete_metadata_by_mid( $meta_type, $meta_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	// Make sure everything is valid.
@@ -785,7 +785,7 @@ function delete_metadata_by_mid( $meta_type, $meta_id ) {
  * @param int|array $object_ids Array or comma delimited list of object IDs to update cache for
  * @return array|false Metadata cache for the specified objects, or false on failure.
  */
-function update_meta_cache($meta_type, $object_ids) {
+function update_meta_cache($meta_type, $object_ids) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( ! $meta_type || ! $object_ids ) {
@@ -858,7 +858,7 @@ function update_meta_cache($meta_type, $object_ids) {
  *
  * @return WP_Metadata_Lazyloader $lazyloader Metadata lazyloader queue.
  */
-function wp_metadata_lazyloader() {
+function wp_metadata_lazyloader() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $wp_metadata_lazyloader;
 
 	if ( null === $wp_metadata_lazyloader ) {
@@ -882,7 +882,7 @@ function wp_metadata_lazyloader() {
  * @param object $context           Optional. The main query object
  * @return array Associative array of `JOIN` and `WHERE` SQL.
  */
-function get_meta_sql( $meta_query, $type, $primary_table, $primary_id_column, $context = null ) {
+function get_meta_sql( $meta_query, $type, $primary_table, $primary_id_column, $context = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$meta_query_obj = new WP_Meta_Query( $meta_query );
 	return $meta_query_obj->get_sql( $type, $primary_table, $primary_id_column, $context );
 }
@@ -897,7 +897,7 @@ function get_meta_sql( $meta_query, $type, $primary_table, $primary_id_column, $
  * @param string $type Type of object to get metadata table for (e.g., comment, post, or user)
  * @return string|false Metadata table name, or false if no metadata table exists
  */
-function _get_meta_table($type) {
+function _get_meta_table($type) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$table_name = $type . 'meta';
@@ -917,7 +917,7 @@ function _get_meta_table($type) {
  * @param string|null $meta_type
  * @return bool True if the key is protected, false otherwise.
  */
-function is_protected_meta( $meta_key, $meta_type = null ) {
+function is_protected_meta( $meta_key, $meta_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$protected = ( '_' == $meta_key[0] );
 
 	/**
@@ -943,7 +943,7 @@ function is_protected_meta( $meta_key, $meta_type = null ) {
  *
  * @return mixed Sanitized $meta_value.
  */
-function sanitize_meta( $meta_key, $meta_value, $object_type ) {
+function sanitize_meta( $meta_key, $meta_value, $object_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the sanitization of a specific meta key of a specific meta type.
 	 *
@@ -986,7 +986,7 @@ function sanitize_meta( $meta_key, $meta_value, $object_type ) {
  *                       Registering a meta key with distinct sanitize and auth callbacks will fire those
  *                       callbacks, but will not add to the global registry.
  */
-function register_meta( $object_type, $meta_key, $args, $deprecated = null ) {
+function register_meta( $object_type, $meta_key, $args, $deprecated = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_meta_keys;
 
 	if ( ! is_array( $wp_meta_keys ) ) {
@@ -1072,7 +1072,7 @@ function register_meta( $object_type, $meta_key, $args, $deprecated = null ) {
  *
  * @return bool True if the meta key is registered to the object type. False if not.
  */
-function registered_meta_key_exists( $object_type, $meta_key ) {
+function registered_meta_key_exists( $object_type, $meta_key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_meta_keys;
 
 	if ( ! is_array( $wp_meta_keys ) ) {
@@ -1099,7 +1099,7 @@ function registered_meta_key_exists( $object_type, $meta_key ) {
  * @param string $meta_key    The meta key.
  * @return bool True if successful. False if the meta key was not registered.
  */
-function unregister_meta_key( $object_type, $meta_key ) {
+function unregister_meta_key( $object_type, $meta_key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_meta_keys;
 
 	if ( ! registered_meta_key_exists( $object_type, $meta_key ) ) {
@@ -1134,7 +1134,7 @@ function unregister_meta_key( $object_type, $meta_key ) {
  * @param string $object_type The type of object. Post, comment, user, term.
  * @return array List of registered meta keys.
  */
-function get_registered_meta_keys( $object_type ) {
+function get_registered_meta_keys( $object_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_meta_keys;
 
 	if ( ! is_array( $wp_meta_keys ) || ! isset( $wp_meta_keys[ $object_type ] ) ) {
@@ -1156,7 +1156,7 @@ function get_registered_meta_keys( $object_type ) {
  * @return mixed A single value or array of values for a key if specified. An array of all registered keys
  *               and values for an object ID if not.
  */
-function get_registered_metadata( $object_type, $object_id, $meta_key = '' ) {
+function get_registered_metadata( $object_type, $object_id, $meta_key = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $meta_key ) ) {
 		if ( ! registered_meta_key_exists( $object_type, $meta_key ) ) {
 			return false;
@@ -1197,7 +1197,7 @@ function get_registered_metadata( $object_type, $object_id, $meta_key = '' ) {
  *
  * @return array Filtered arguments.
  */
-function _wp_register_meta_args_whitelist( $args, $default_args ) {
+function _wp_register_meta_args_whitelist( $args, $default_args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$whitelist = array_keys( $default_args );
 
 	// In an anonymous function world, this would be better as an array_filter()

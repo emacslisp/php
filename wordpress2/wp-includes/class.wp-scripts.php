@@ -140,7 +140,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * @since 2.6.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->init();
 		add_action( 'init', array( $this, 'init' ), 0 );
 	}
@@ -151,7 +151,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * @since 3.4.0
 	 * @access public
 	 */
-	public function init() {
+	public function init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/**
 		 * Fires when the WP_Scripts instance is initialized.
 		 *
@@ -177,7 +177,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *                       Default false.
 	 * @return array Scripts that have been printed.
 	 */
-	public function print_scripts( $handles = false, $group = false ) {
+	public function print_scripts( $handles = false, $group = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->do_items( $handles, $group );
 	}
 
@@ -196,7 +196,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *                       Default true.
 	 * @return bool|string|void Void if no data exists, extra scripts if `$echo` is true, true otherwise.
 	 */
-	public function print_scripts_l10n( $handle, $echo = true ) {
+	public function print_scripts_l10n( $handle, $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __FUNCTION__, '3.3.0', 'print_extra_script()' );
 		return $this->print_extra_script( $handle, $echo );
 	}
@@ -212,7 +212,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *                       Default true.
 	 * @return bool|string|void Void if no data exists, extra scripts if `$echo` is true, true otherwise.
 	 */
-	public function print_extra_script( $handle, $echo = true ) {
+	public function print_extra_script( $handle, $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !$output = $this->get_data( $handle, 'data' ) )
 			return;
 
@@ -241,7 +241,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * @param int|false $group  Optional. Group level: (int) level, (false) no groups. Default false.
 	 * @return bool True on success, false on failure.
 	 */
-	public function do_item( $handle, $group = false ) {
+	public function do_item( $handle, $group = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !parent::do_item($handle) )
 			return false;
 
@@ -376,7 +376,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *                         or after. Default 'after'.
 	 * @return bool True on success, false on failure.
 	 */
-	public function add_inline_script( $handle, $data, $position = 'after' ) {
+	public function add_inline_script( $handle, $data, $position = 'after' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $data ) {
 			return false;
 		}
@@ -404,7 +404,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *                         Default true.
 	 * @return string|false Script on success, false otherwise.
 	 */
-	public function print_inline_script( $handle, $position = 'after', $echo = true ) {
+	public function print_inline_script( $handle, $position = 'after', $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$output = $this->get_data( $handle, $position );
 
 		if ( empty( $output ) ) {
@@ -431,7 +431,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * @param array $l10n
 	 * @return bool
 	 */
-	public function localize( $handle, $object_name, $l10n ) {
+	public function localize( $handle, $object_name, $l10n ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $handle === 'jquery' )
 			$handle = 'jquery-core';
 
@@ -473,7 +473,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * @param int|false $group     Optional. Group level: (int) level, (false) no groups. Default false.
 	 * @return bool Not already in the group or a lower group
 	 */
-	public function set_group( $handle, $recursion, $group = false ) {
+	public function set_group( $handle, $recursion, $group = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->registered[$handle]->args ) && $this->registered[$handle]->args === 1 )
 			$grp = 1;
 		else
@@ -498,7 +498,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * @param int|false $group     Optional. Group level: (int) level, (false) no groups. Default false.
 	 * @return bool True on success, false on failure.
 	 */
-	public function all_deps( $handles, $recursion = false, $group = false ) {
+	public function all_deps( $handles, $recursion = false, $group = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$r = parent::all_deps( $handles, $recursion, $group );
 		if ( ! $recursion ) {
 			/**
@@ -523,7 +523,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *
 	 * @return array Handles of items that have been processed.
 	 */
-	public function do_head_items() {
+	public function do_head_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->do_items(false, 0);
 		return $this->done;
 	}
@@ -538,7 +538,7 @@ class WP_Scripts extends WP_Dependencies {
 	 *
 	 * @return array Handles of items that have been processed.
 	 */
-	public function do_footer_items() {
+	public function do_footer_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->do_items(false, 1);
 		return $this->done;
 	}
@@ -552,7 +552,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * @param string $src The source of the enqueued script.
 	 * @return bool True if found, false if not.
 	 */
-	public function in_default_dir( $src ) {
+	public function in_default_dir( $src ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->default_dirs ) {
 			return true;
 		}
@@ -575,7 +575,7 @@ class WP_Scripts extends WP_Dependencies {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function reset() {
+	public function reset() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->do_concat = false;
 		$this->print_code = '';
 		$this->concat = '';

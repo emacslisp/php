@@ -7,7 +7,7 @@ class WP_Importer {
 	 * Class Constructor
 	 *
 	 */
-	public function __construct() {}
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Returns array with imported permalinks from WordPress database
@@ -18,7 +18,7 @@ class WP_Importer {
 	 * @param string $bid
 	 * @return array
 	 */
-	public function get_imported_posts( $importer_name, $bid ) {
+	public function get_imported_posts( $importer_name, $bid ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$hashtable = array();
@@ -58,7 +58,7 @@ class WP_Importer {
 	 * @param string $bid
 	 * @return int
 	 */
-	public function count_imported_posts( $importer_name, $bid ) {
+	public function count_imported_posts( $importer_name, $bid ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$count = 0;
@@ -86,7 +86,7 @@ class WP_Importer {
 	 * @param string $bid
 	 * @return array
 	 */
-	public function get_imported_comments( $bid ) {
+	public function get_imported_comments( $bid ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$hashtable = array();
@@ -127,7 +127,7 @@ class WP_Importer {
 	 * @param int $blog_id
 	 * @return int|void
 	 */
-	public function set_blog( $blog_id ) {
+	public function set_blog( $blog_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_numeric( $blog_id ) ) {
 			$blog_id = (int) $blog_id;
 		} else {
@@ -148,7 +148,7 @@ class WP_Importer {
 			$blog_id = (int) $blog->blog_id;
 		}
 
-		if ( function_exists( 'is_multisite' ) ) {
+		if ( function_exists( 'is_multisite' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			if ( is_multisite() )
 				switch_to_blog( $blog_id );
 		}
@@ -161,7 +161,7 @@ class WP_Importer {
 	 * @param int $user_id
 	 * @return int|void
 	 */
-	public function set_user( $user_id ) {
+	public function set_user( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_numeric( $user_id ) ) {
 			$user_id = (int) $user_id;
 		} else {
@@ -183,7 +183,7 @@ class WP_Importer {
 	 * @param string $b
 	 * @return int
 	 */
-	public function cmpr_strlen( $a, $b ) {
+	public function cmpr_strlen( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return strlen( $b ) - strlen( $a );
 	}
 
@@ -196,7 +196,7 @@ class WP_Importer {
 	 * @param bool   $head
 	 * @return array
 	 */
-	public function get_page( $url, $username = '', $password = '', $head = false ) {
+	public function get_page( $url, $username = '', $password = '', $head = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Increase the timeout
 		add_filter( 'http_request_timeout', array( $this, 'bump_request_timeout' ) );
 
@@ -218,7 +218,7 @@ class WP_Importer {
 	 * @param int $val
 	 * @return int
 	 */
-	public function bump_request_timeout( $val ) {
+	public function bump_request_timeout( $val ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 60;
 	}
 
@@ -227,8 +227,8 @@ class WP_Importer {
 	 *
 	 * @return bool
 	 */
-	public function is_user_over_quota() {
-		if ( function_exists( 'upload_is_user_over_quota' ) ) {
+	public function is_user_over_quota() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		if ( function_exists( 'upload_is_user_over_quota' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			if ( upload_is_user_over_quota() ) {
 				return true;
 			}
@@ -243,7 +243,7 @@ class WP_Importer {
 	 * @param string $string
 	 * @return string
 	 */
-	public function min_whitespace( $string ) {
+	public function min_whitespace( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return preg_replace( '|[\r\n\t ]+|', ' ', $string );
 	}
 
@@ -253,7 +253,7 @@ class WP_Importer {
 	 * @global wpdb  $wpdb
 	 * @global array $wp_actions
 	 */
-	public function stop_the_insanity() {
+	public function stop_the_insanity() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb, $wp_actions;
 		// Or define( 'WP_IMPORTING', true );
 		$wpdb->queries = array();
@@ -270,7 +270,7 @@ class WP_Importer {
  * @param bool   $required
  * @return mixed
  */
-function get_cli_args( $param, $required = false ) {
+function get_cli_args( $param, $required = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$args = $_SERVER['argv'];
 
 	$out = array();

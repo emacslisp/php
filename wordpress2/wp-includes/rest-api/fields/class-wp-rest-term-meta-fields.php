@@ -33,7 +33,7 @@ class WP_REST_Term_Meta_Fields extends WP_REST_Meta_Fields {
 	 *
 	 * @param string $taxonomy Taxonomy to register fields for.
 	 */
-	public function __construct( $taxonomy ) {
+	public function __construct( $taxonomy ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->taxonomy = $taxonomy;
 	}
 
@@ -45,7 +45,7 @@ class WP_REST_Term_Meta_Fields extends WP_REST_Meta_Fields {
 	 *
 	 * @return string The meta type.
 	 */
-	protected function get_meta_type() {
+	protected function get_meta_type() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'term';
 	}
 
@@ -57,7 +57,7 @@ class WP_REST_Term_Meta_Fields extends WP_REST_Meta_Fields {
 	 *
 	 * @return string The REST field type.
 	 */
-	public function get_rest_field_type() {
+	public function get_rest_field_type() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'post_tag' === $this->taxonomy ? 'tag' : $this->taxonomy;
 	}
 }

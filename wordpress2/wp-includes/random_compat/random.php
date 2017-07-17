@@ -53,7 +53,7 @@ if (PHP_VERSION_ID < 70000) {
     require_once $RandomCompatDIR.'/cast_to_int.php';
     require_once $RandomCompatDIR.'/error_polyfill.php';
 
-    if (!function_exists('random_bytes')) {
+    if (!function_exists('random_bytes')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         /**
          * PHP 5.2.0 - 5.6.x way to implement random_bytes()
          *
@@ -71,7 +71,7 @@ if (PHP_VERSION_ID < 70000) {
          */
         if (extension_loaded('libsodium')) {
             // See random_bytes_libsodium.php
-            if (PHP_VERSION_ID >= 50300 && function_exists('\\Sodium\\randombytes_buf')) {
+            if (PHP_VERSION_ID >= 50300 && function_exists('\\Sodium\\randombytes_buf')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
                 require_once $RandomCompatDIR.'/random_bytes_libsodium.php';
             } elseif (method_exists('Sodium', 'randombytes_buf')) {
                 require_once $RandomCompatDIR.'/random_bytes_libsodium_legacy.php';
@@ -195,7 +195,7 @@ if (PHP_VERSION_ID < 70000) {
         /**
          * throw new Exception
          */
-        if (!function_exists('random_bytes')) {
+        if (!function_exists('random_bytes')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
             /**
              * We don't have any more options, so let's throw an exception right now
              * and hope the developer won't let it fail silently.
@@ -209,7 +209,7 @@ if (PHP_VERSION_ID < 70000) {
         }
     }
 
-    if (!function_exists('random_int')) {
+    if (!function_exists('random_int')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         require_once $RandomCompatDIR.'/random_int.php';
     }
 

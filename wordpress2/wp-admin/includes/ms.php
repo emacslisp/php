@@ -15,7 +15,7 @@
  * @param array $file $_FILES array for a given file.
  * @return array $_FILES array with 'error' key set if file exceeds quota. 'error' is empty otherwise.
  */
-function check_upload_size( $file ) {
+function check_upload_size( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( get_site_option( 'upload_space_check_disabled' ) )
 		return $file;
 
@@ -59,7 +59,7 @@ function check_upload_size( $file ) {
  * @param int  $blog_id Site ID.
  * @param bool $drop    True if site's database tables should be dropped. Default is false.
  */
-function wpmu_delete_blog( $blog_id, $drop = false ) {
+function wpmu_delete_blog( $blog_id, $drop = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$switch = false;
@@ -189,7 +189,7 @@ function wpmu_delete_blog( $blog_id, $drop = false ) {
  * @param int $id The user ID.
  * @return bool True if the user was deleted, otherwise false.
  */
-function wpmu_delete_user( $id ) {
+function wpmu_delete_user( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( ! is_numeric( $id ) ) {
@@ -263,7 +263,7 @@ function wpmu_delete_user( $id ) {
  * @param string $old_value The old email address. Not currently used.
  * @param string $value     The new email address.
  */
-function update_option_new_admin_email( $old_value, $value ) {
+function update_option_new_admin_email( $old_value, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $value == get_option( 'admin_email' ) || !is_email( $value ) )
 		return;
 
@@ -333,7 +333,7 @@ All at ###SITENAME###
  * @global WP_Error $errors WP_Error object.
  * @global wpdb     $wpdb   WordPress database object.
  */
-function send_confirmation_on_profile_email() {
+function send_confirmation_on_profile_email() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $errors, $wpdb;
 	$current_user = wp_get_current_user();
 	if ( ! is_object($errors) )
@@ -420,7 +420,7 @@ All at ###SITENAME###
  *
  * @global string $pagenow
  */
-function new_user_email_admin_notice() {
+function new_user_email_admin_notice() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $pagenow;
 	if ( 'profile.php' === $pagenow && isset( $_GET['updated'] ) && $email = get_user_meta( get_current_user_id(), '_new_email', true ) ) {
 		/* translators: %s: New email address */
@@ -436,7 +436,7 @@ function new_user_email_admin_notice() {
  * @param bool $echo Optional. If $echo is set and the quota is exceeded, a warning message is echoed. Default is true.
  * @return bool True if user is over upload space quota, otherwise false.
  */
-function upload_is_user_over_quota( $echo = true ) {
+function upload_is_user_over_quota( $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( get_site_option( 'upload_space_check_disabled' ) )
 		return false;
 
@@ -460,7 +460,7 @@ function upload_is_user_over_quota( $echo = true ) {
  *
  * @since MU
  */
-function display_space_usage() {
+function display_space_usage() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$space_allowed = get_space_allowed();
 	$space_used = get_space_used();
 
@@ -491,7 +491,7 @@ function display_space_usage() {
  * @param int $size Current max size in bytes
  * @return int Max size in bytes
  */
-function fix_import_form_size( $size ) {
+function fix_import_form_size( $size ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( upload_is_user_over_quota( false ) ) {
 		return 0;
 	}
@@ -506,7 +506,7 @@ function fix_import_form_size( $size ) {
  *
  * @param int $id The ID of the site to display the setting for.
  */
-function upload_space_setting( $id ) {
+function upload_space_setting( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	switch_to_blog( $id );
 	$quota = get_option( 'blog_upload_space' );
 	restore_current_blog();
@@ -541,7 +541,7 @@ function upload_space_setting( $id ) {
  * @param null   $deprecated Deprecated as of 3.0.2 and should not be used.
  * @return int   The initially passed $value.
  */
-function update_user_status( $id, $pref, $value, $deprecated = null ) {
+function update_user_status( $id, $pref, $value, $deprecated = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( null !== $deprecated )
@@ -585,7 +585,7 @@ function update_user_status( $id, $pref, $value, $deprecated = null ) {
  * @param int $id The user ID.
  * @return bool|int The ID of the refreshed user or false if the user does not exist.
  */
-function refresh_user_details( $id ) {
+function refresh_user_details( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = (int) $id;
 
 	if ( !$user = get_userdata( $id ) )
@@ -605,7 +605,7 @@ function refresh_user_details( $id ) {
  * @return string The language corresponding to $code if it exists. If it does not exist,
  *                then the first two letters of $code is returned.
  */
-function format_code_lang( $code = '' ) {
+function format_code_lang( $code = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$code = strtolower( substr( $code, 0, 2 ) );
 	$lang_codes = array(
 		'aa' => 'Afar', 'ab' => 'Abkhazian', 'af' => 'Afrikaans', 'ak' => 'Akan', 'sq' => 'Albanian', 'am' => 'Amharic', 'ar' => 'Arabic', 'an' => 'Aragonese', 'hy' => 'Armenian', 'as' => 'Assamese', 'av' => 'Avaric', 'ae' => 'Avestan', 'ay' => 'Aymara', 'az' => 'Azerbaijani', 'ba' => 'Bashkir', 'bm' => 'Bambara', 'eu' => 'Basque', 'be' => 'Belarusian', 'bn' => 'Bengali',
@@ -644,7 +644,7 @@ function format_code_lang( $code = '' ) {
  * @return object|array Returns `$term`, after filtering the 'slug' field with sanitize_title()
  *                      if $taxonomy is 'category' or 'post_tag'.
  */
-function sync_category_tag_slugs( $term, $taxonomy ) {
+function sync_category_tag_slugs( $term, $taxonomy ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( global_terms_enabled() && ( $taxonomy == 'category' || $taxonomy == 'post_tag' ) ) {
 		if ( is_object( $term ) ) {
 			$term->slug = sanitize_title( $term->name );
@@ -662,7 +662,7 @@ function sync_category_tag_slugs( $term, $taxonomy ) {
  * @since 3.2.0
  * @access private
  */
-function _access_denied_splash() {
+function _access_denied_splash() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_user_logged_in() || is_network_admin() )
 		return;
 
@@ -703,7 +703,7 @@ function _access_denied_splash() {
  * @param string $permission A permission to be checked. Currently not used.
  * @return bool True if the user has proper permissions, false if they do not.
  */
-function check_import_new_users( $permission ) {
+function check_import_new_users( $permission ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !is_super_admin() )
 		return false;
 	return true;
@@ -718,7 +718,7 @@ function check_import_new_users( $permission ) {
  * @param array  $lang_files Optional. An array of the language files. Default empty array.
  * @param string $current    Optional. The current language code. Default empty.
  */
-function mu_dropdown_languages( $lang_files = array(), $current = '' ) {
+function mu_dropdown_languages( $lang_files = array(), $current = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$flag = false;
 	$output = array();
 
@@ -770,7 +770,7 @@ function mu_dropdown_languages( $lang_files = array(), $current = '' ) {
  *
  * @return false False if the current user is not a super admin.
  */
-function site_admin_notice() {
+function site_admin_notice() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_db_version, $pagenow;
 
 	if ( ! is_super_admin() ) {
@@ -798,7 +798,7 @@ function site_admin_notice() {
  * @param array $postarr An array of posts. Not currently used.
  * @return array The new array of post data after checking for collisions.
  */
-function avoid_blog_page_permalink_collision( $data, $postarr ) {
+function avoid_blog_page_permalink_collision( $data, $postarr ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_subdomain_install() )
 		return $data;
 	if ( $data['post_type'] != 'page' )
@@ -828,7 +828,7 @@ function avoid_blog_page_permalink_collision( $data, $postarr ) {
  *
  * @since 3.0.0
  */
-function choose_primary_blog() {
+function choose_primary_blog() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	?>
 	<table class="form-table">
 	<tr>
@@ -881,7 +881,7 @@ function choose_primary_blog() {
  * @param int $site_id The network/site ID to check.
  * @return bool True if network can be edited, otherwise false.
  */
-function can_edit_network( $site_id ) {
+function can_edit_network( $site_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( $site_id == $wpdb->siteid )
@@ -907,7 +907,7 @@ function can_edit_network( $site_id ) {
  *
  * @access private
  */
-function _thickbox_path_admin_subfolder() {
+function _thickbox_path_admin_subfolder() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 <script type="text/javascript">
 var tb_pathToImage = "<?php echo includes_url( 'js/thickbox/loadingAnimation.gif', 'relative' ); ?>";
@@ -919,7 +919,7 @@ var tb_pathToImage = "<?php echo includes_url( 'js/thickbox/loadingAnimation.gif
  *
  * @param array $users
  */
-function confirm_delete_users( $users ) {
+function confirm_delete_users( $users ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current_user = wp_get_current_user();
 	if ( ! is_array( $users ) || empty( $users ) ) {
 		return false;
@@ -1029,12 +1029,12 @@ function confirm_delete_users( $users ) {
  *
  * @since 4.1.0
  */
-function network_settings_add_js() {
+function network_settings_add_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 <script type="text/javascript">
-jQuery(document).ready( function($) {
+jQuery(document).ready( function($) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	var languageSelect = $( '#WPLANG' );
-	$( 'form' ).submit( function() {
+	$( 'form' ).submit( function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Don't show a spinner for English and installed languages,
 		// as there is nothing to download.
 		if ( ! languageSelect.find( 'option:selected' ).data( 'installed' ) ) {
@@ -1059,7 +1059,7 @@ jQuery(document).ready( function($) {
  *     @type string $selected The ID of the selected link.
  * }
  */
-function network_edit_site_nav( $args = array() ) {
+function network_edit_site_nav( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	/**
 	 * Filters the links that appear on site-editing network pages.

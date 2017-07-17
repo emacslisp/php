@@ -17,7 +17,7 @@
  *
  * @return WP_Styles WP_Styles instance.
  */
-function wp_styles() {
+function wp_styles() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_styles;
 	if ( ! ( $wp_styles instanceof WP_Styles ) ) {
 		$wp_styles = new WP_Styles();
@@ -39,7 +39,7 @@ function wp_styles() {
  * @param string|bool|array $handles Styles to be printed. Default 'false'.
  * @return array On success, a processed array of WP_Dependencies items; otherwise, an empty array.
  */
-function wp_print_styles( $handles = false ) {
+function wp_print_styles( $handles = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( '' === $handles ) { // for wp_head
 		$handles = false;
 	}
@@ -80,7 +80,7 @@ function wp_print_styles( $handles = false ) {
  * @param string $data   String containing the CSS styles to be added.
  * @return bool True on success, false on failure.
  */
-function wp_add_inline_style( $handle, $data ) {
+function wp_add_inline_style( $handle, $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	if ( false !== stripos( $data, '</style>' ) ) {
@@ -117,7 +117,7 @@ function wp_add_inline_style( $handle, $data ) {
  *                                 '(orientation: portrait)' and '(max-width: 640px)'.
  * @return bool Whether the style has been registered. True on success, false on failure.
  */
-function wp_register_style( $handle, $src, $deps = array(), $ver = false, $media = 'all' ) {
+function wp_register_style( $handle, $src, $deps = array(), $ver = false, $media = 'all' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	return wp_styles()->add( $handle, $src, $deps, $ver, $media );
@@ -132,7 +132,7 @@ function wp_register_style( $handle, $src, $deps = array(), $ver = false, $media
  *
  * @param string $handle Name of the stylesheet to be removed.
  */
-function wp_deregister_style( $handle ) {
+function wp_deregister_style( $handle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	wp_styles()->remove( $handle );
@@ -161,7 +161,7 @@ function wp_deregister_style( $handle ) {
  *                                 Default 'all'. Accepts media types like 'all', 'print' and 'screen', or media queries like
  *                                 '(orientation: portrait)' and '(max-width: 640px)'.
  */
-function wp_enqueue_style( $handle, $src = '', $deps = array(), $ver = false, $media = 'all' ) {
+function wp_enqueue_style( $handle, $src = '', $deps = array(), $ver = false, $media = 'all' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	$wp_styles = wp_styles();
@@ -182,7 +182,7 @@ function wp_enqueue_style( $handle, $src = '', $deps = array(), $ver = false, $m
  *
  * @param string $handle Name of the stylesheet to be removed.
  */
-function wp_dequeue_style( $handle ) {
+function wp_dequeue_style( $handle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	wp_styles()->dequeue( $handle );
@@ -198,7 +198,7 @@ function wp_dequeue_style( $handle ) {
  *                       Accepts 'enqueued', 'registered', 'queue', 'to_do', and 'done'.
  * @return bool Whether style is queued.
  */
-function wp_style_is( $handle, $list = 'enqueued' ) {
+function wp_style_is( $handle, $list = 'enqueued' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	return (bool) wp_styles()->query( $handle, $list );
@@ -226,6 +226,6 @@ function wp_style_is( $handle, $list = 'enqueued' ) {
  * @param mixed  $value  String containing the CSS data to be added.
  * @return bool True on success, false on failure.
  */
-function wp_style_add_data( $handle, $key, $value ) {
+function wp_style_add_data( $handle, $key, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return wp_styles()->add_data( $handle, $key, $value );
 }

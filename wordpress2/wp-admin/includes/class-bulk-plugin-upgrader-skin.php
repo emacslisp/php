@@ -18,7 +18,7 @@
 class Bulk_Plugin_Upgrader_Skin extends Bulk_Upgrader_Skin {
 	public $plugin_info = array(); // Plugin_Upgrader::bulk() will fill this in.
 
-	public function add_strings() {
+	public function add_strings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::add_strings();
 		$this->upgrader->strings['skin_before_update_header'] = __('Updating Plugin %1$s (%2$d/%3$d)');
 	}
@@ -27,7 +27,7 @@ class Bulk_Plugin_Upgrader_Skin extends Bulk_Upgrader_Skin {
 	 *
 	 * @param string $title
 	 */
-	public function before($title = '') {
+	public function before($title = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::before($this->plugin_info['Title']);
 	}
 
@@ -35,7 +35,7 @@ class Bulk_Plugin_Upgrader_Skin extends Bulk_Upgrader_Skin {
 	 *
 	 * @param string $title
 	 */
-	public function after($title = '') {
+	public function after($title = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::after($this->plugin_info['Title']);
 		$this->decrement_update_count( 'plugin' );
 	}
@@ -43,7 +43,7 @@ class Bulk_Plugin_Upgrader_Skin extends Bulk_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function bulk_footer() {
+	public function bulk_footer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::bulk_footer();
 		$update_actions =  array(
 			'plugins_page' => '<a href="' . self_admin_url( 'plugins.php' ) . '" target="_parent">' . __( 'Return to Plugins page' ) . '</a>',

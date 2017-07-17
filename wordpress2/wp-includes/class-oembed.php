@@ -52,7 +52,7 @@ class WP_oEmbed {
 	 * @since 2.9.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$host = urlencode( home_url() );
 		$providers = array(
 			'#https?://((m|www)\.)?youtube\.com/watch.*#i'             => array( 'https://www.youtube.com/oembed',                            true  ),
@@ -215,7 +215,7 @@ class WP_oEmbed {
 	 * @param array    $arguments Arguments to pass when calling.
 	 * @return mixed|bool Return value of the callback, false otherwise.
 	 */
-	public function __call( $name, $arguments ) {
+	public function __call( $name, $arguments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_methods ) ) {
 			return call_user_func_array( array( $this, $name ), $arguments );
 		}
@@ -234,7 +234,7 @@ class WP_oEmbed {
 	 * @param string|array  $args Optional provider arguments.
 	 * @return false|string False on failure, otherwise the oEmbed provider URL.
 	 */
-	public function get_provider( $url, $args = '' ) {
+	public function get_provider( $url, $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = wp_parse_args( $args );
 
 		$provider = false;
@@ -283,7 +283,7 @@ class WP_oEmbed {
 	 * @param bool   $regex    Optional. Whether the $format parameter is in a regex format.
 	 *                         Default false.
 	 */
-	public static function _add_provider_early( $format, $provider, $regex = false ) {
+	public static function _add_provider_early( $format, $provider, $regex = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( self::$early_providers['add'] ) ) {
 			self::$early_providers['add'] = array();
 		}
@@ -308,7 +308,7 @@ class WP_oEmbed {
 	 * @param string $format The format of URL that this provider can handle. You can use
 	 *                       asterisks as wildcards.
 	 */
-	public static function _remove_provider_early( $format ) {
+	public static function _remove_provider_early( $format ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( self::$early_providers['remove'] ) ) {
 			self::$early_providers['remove'] = array();
 		}
@@ -329,7 +329,7 @@ class WP_oEmbed {
 	 * @param array|string $args Optional. Arguments, usually passed from a shortcode. Default empty.
 	 * @return false|string False on failure, otherwise the UNSANITIZED (and potentially unsafe) HTML that should be used to embed.
 	 */
-	public function get_html( $url, $args = '' ) {
+	public function get_html( $url, $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = wp_parse_args( $args );
 
 		/**
@@ -380,7 +380,7 @@ class WP_oEmbed {
 	 * @param string $url The URL that should be inspected for discovery `<link>` tags.
 	 * @return false|string False on failure, otherwise the oEmbed provider URL.
 	 */
-	public function discover( $url ) {
+	public function discover( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$providers = array();
 		$args = array(
 			'limit_response_size' => 153600, // 150 KB
@@ -466,7 +466,7 @@ class WP_oEmbed {
 	 * @param array|string $args     Optional. Arguments, usually passed from a shortcode. Default empty.
 	 * @return false|object False on failure, otherwise the result in the form of an object.
 	 */
-	public function fetch( $provider, $url, $args = '' ) {
+	public function fetch( $provider, $url, $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = wp_parse_args( $args, wp_embed_defaults( $url ) );
 
 		$provider = add_query_arg( 'maxwidth', (int) $args['width'], $provider );
@@ -503,7 +503,7 @@ class WP_oEmbed {
 	 * @param string $format Format to use
 	 * @return false|object|WP_Error False on failure, otherwise the result in the form of an object.
 	 */
-	private function _fetch_with_format( $provider_url_with_args, $format ) {
+	private function _fetch_with_format( $provider_url_with_args, $format ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$provider_url_with_args = add_query_arg( 'format', $format, $provider_url_with_args );
 
 		/** This filter is documented in wp-includes/class-oembed.php */
@@ -527,7 +527,7 @@ class WP_oEmbed {
 	 * @param string $response_body
 	 * @return object|false
 	 */
-	private function _parse_json( $response_body ) {
+	private function _parse_json( $response_body ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$data = json_decode( trim( $response_body ) );
 		return ( $data && is_object( $data ) ) ? $data : false;
 	}
@@ -541,7 +541,7 @@ class WP_oEmbed {
 	 * @param string $response_body
 	 * @return object|false
 	 */
-	private function _parse_xml( $response_body ) {
+	private function _parse_xml( $response_body ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! function_exists( 'libxml_disable_entity_loader' ) )
 			return false;
 
@@ -565,7 +565,7 @@ class WP_oEmbed {
 	 * @param string $response_body
 	 * @return stdClass|false
 	 */
-	private function _parse_xml_body( $response_body ) {
+	private function _parse_xml_body( $response_body ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! function_exists( 'simplexml_import_dom' ) || ! class_exists( 'DOMDocument', false ) )
 			return false;
 
@@ -604,7 +604,7 @@ class WP_oEmbed {
 	 * @param string $url The URL to the content that is desired to be embedded.
 	 * @return false|string False on error, otherwise the HTML needed to embed.
 	 */
-	public function data2html( $data, $url ) {
+	public function data2html( $data, $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_object( $data ) || empty( $data->type ) )
 			return false;
 
@@ -662,7 +662,7 @@ class WP_oEmbed {
 	 * @param string $url The original URL passed to oEmbed.
 	 * @return string Possibly modified $html
 	 */
-	public function _strip_newlines( $html, $data, $url ) {
+	public function _strip_newlines( $html, $data, $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( false === strpos( $html, "\n" ) ) {
 			return $html;
 		}

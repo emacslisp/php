@@ -19,7 +19,7 @@ getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio.flac.php', __FILE
 class getid3_ogg extends getid3_handler
 {
 	// http://xiph.org/vorbis/doc/Vorbis_I_spec.html
-	public function Analyze() {
+	public function Analyze() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$info['fileformat'] = 'ogg';
@@ -378,7 +378,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 		return true;
 	}
 
-	public function ParseVorbisPageHeader(&$filedata, &$filedataoffset, &$oggpageinfo) {
+	public function ParseVorbisPageHeader(&$filedata, &$filedataoffset, &$oggpageinfo) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 		$info['audio']['dataformat'] = 'vorbis';
 		$info['audio']['lossless']   = false;
@@ -427,7 +427,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 	}
 
 	// http://tools.ietf.org/html/draft-ietf-codec-oggopus-03
-	public function ParseOpusPageHeader(&$filedata, &$filedataoffset, &$oggpageinfo) {
+	public function ParseOpusPageHeader(&$filedata, &$filedataoffset, &$oggpageinfo) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 		$info['audio']['dataformat']   = 'opus';
 		$info['mime_type']             = 'audio/ogg; codecs=opus';
@@ -477,7 +477,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 	}
 
 
-	public function ParseOggPageHeader() {
+	public function ParseOggPageHeader() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// http://xiph.org/ogg/vorbis/doc/framing.html
 		$oggheader['page_start_offset'] = $this->ftell(); // where we started from in the file
 
@@ -529,7 +529,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 	}
 
     // http://xiph.org/vorbis/doc/Vorbis_I_spec.html#x1-810005
-	public function ParseVorbisComments() {
+	public function ParseVorbisComments() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$OriginalOffset = $this->ftell();
@@ -764,7 +764,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 		return true;
 	}
 
-	public static function SpeexBandModeLookup($mode) {
+	public static function SpeexBandModeLookup($mode) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $SpeexBandModeLookup = array();
 		if (empty($SpeexBandModeLookup)) {
 			$SpeexBandModeLookup[0] = 'narrow';
@@ -775,7 +775,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 	}
 
 
-	public static function OggPageSegmentLength($OggInfoArray, $SegmentNumber=1) {
+	public static function OggPageSegmentLength($OggInfoArray, $SegmentNumber=1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		for ($i = 0; $i < $SegmentNumber; $i++) {
 			$segmentlength = 0;
 			foreach ($OggInfoArray['segment_table'] as $key => $value) {
@@ -789,7 +789,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 	}
 
 
-	public static function get_quality_from_nominal_bitrate($nominal_bitrate) {
+	public static function get_quality_from_nominal_bitrate($nominal_bitrate) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// decrease precision
 		$nominal_bitrate = $nominal_bitrate / 1000;
@@ -812,7 +812,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 		return round($qval, 1); // 5 or 4.9
 	}
 
-	public static function TheoraColorSpace($colorspace_id) {
+	public static function TheoraColorSpace($colorspace_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// http://www.theora.org/doc/Theora.pdf (table 6.3)
 		static $TheoraColorSpaceLookup = array();
 		if (empty($TheoraColorSpaceLookup)) {
@@ -824,7 +824,7 @@ $info['warning'][] = 'Ogg Theora (v3) not fully supported in this version of get
 		return (isset($TheoraColorSpaceLookup[$colorspace_id]) ? $TheoraColorSpaceLookup[$colorspace_id] : null);
 	}
 
-	public static function TheoraPixelFormat($pixelformat_id) {
+	public static function TheoraPixelFormat($pixelformat_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// http://www.theora.org/doc/Theora.pdf (table 6.4)
 		static $TheoraPixelFormatLookup = array();
 		if (empty($TheoraPixelFormatLookup)) {

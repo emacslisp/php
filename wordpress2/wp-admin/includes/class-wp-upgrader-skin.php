@@ -33,7 +33,7 @@ class WP_Upgrader_Skin {
 	 *
 	 * @param array $args
 	 */
-	public function __construct($args = array()) {
+	public function __construct($args = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array( 'url' => '', 'nonce' => '', 'title' => '', 'context' => false );
 		$this->options = wp_parse_args($args, $defaults);
 	}
@@ -41,7 +41,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * @param WP_Upgrader $upgrader
 	 */
-	public function set_upgrader(&$upgrader) {
+	public function set_upgrader(&$upgrader) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_object($upgrader) )
 			$this->upgrader =& $upgrader;
 		$this->add_strings();
@@ -50,7 +50,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function add_strings() {
+	public function add_strings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	}
 
 	/**
@@ -61,7 +61,7 @@ class WP_Upgrader_Skin {
 	 *
 	 * @param string|bool|WP_Error $result The result of an upgrade.
 	 */
-	public function set_result( $result ) {
+	public function set_result( $result ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->result = $result;
 	}
 
@@ -81,7 +81,7 @@ class WP_Upgrader_Skin {
 	 * @param bool   $allow_relaxed_file_ownership Optional. Whether to allow Group/World writable. Default false.
 	 * @return bool False on failure, true on success.
 	 */
-	public function request_filesystem_credentials( $error = false, $context = '', $allow_relaxed_file_ownership = false ) {
+	public function request_filesystem_credentials( $error = false, $context = '', $allow_relaxed_file_ownership = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$url = $this->options['url'];
 		if ( ! $context ) {
 			$context = $this->options['context'];
@@ -98,7 +98,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function header() {
+	public function header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->done_header ) {
 			return;
 		}
@@ -110,7 +110,7 @@ class WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function footer() {
+	public function footer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->done_footer ) {
 			return;
 		}
@@ -122,7 +122,7 @@ class WP_Upgrader_Skin {
 	 *
 	 * @param string|WP_Error $errors
 	 */
-	public function error($errors) {
+	public function error($errors) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->done_header )
 			$this->header();
 		if ( is_string($errors) ) {
@@ -141,7 +141,7 @@ class WP_Upgrader_Skin {
 	 *
 	 * @param string $string
 	 */
-	public function feedback($string) {
+	public function feedback($string) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->upgrader->strings[$string] ) )
 			$string = $this->upgrader->strings[$string];
 
@@ -162,12 +162,12 @@ class WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function before() {}
+	public function before() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * @access public
 	 */
-	public function after() {}
+	public function after() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Output JavaScript that calls function to decrement the update counts.
@@ -177,7 +177,7 @@ class WP_Upgrader_Skin {
 	 * @param string $type Type of update count to decrement. Likely values include 'plugin',
 	 *                     'theme', 'translation', etc.
 	 */
-	protected function decrement_update_count( $type ) {
+	protected function decrement_update_count( $type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->result || is_wp_error( $this->result ) || 'up_to_date' === $this->result ) {
 			return;
 		}
@@ -202,10 +202,10 @@ class WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function bulk_header() {}
+	public function bulk_header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * @access public
 	 */
-	public function bulk_footer() {}
+	public function bulk_footer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 }

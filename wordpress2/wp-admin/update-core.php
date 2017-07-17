@@ -31,7 +31,7 @@ if ( ! current_user_can( 'update_core' ) && ! current_user_can( 'update_themes' 
  *
  * @param object $update
  */
-function list_core_update( $update ) {
+function list_core_update( $update ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
  	global $wp_local_package, $wpdb;
   	static $first_pass = true;
 
@@ -119,7 +119,7 @@ function list_core_update( $update ) {
 /**
  * @since 2.7.0
  */
-function dismissed_updates() {
+function dismissed_updates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$dismissed = get_core_updates( array( 'dismissed' => true, 'available' => false ) );
 	if ( $dismissed ) {
 
@@ -128,10 +128,10 @@ function dismissed_updates() {
 	?>
 	<script type="text/javascript">
 
-		jQuery(function($) {
+		jQuery(function($) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			$('dismissed-updates').show();
-			$('#show-dismissed').toggle(function(){$(this).text('<?php echo $hide_text; ?>');}, function() {$(this).text('<?php echo $show_text; ?>')});
-			$('#show-dismissed').click(function() { $('#dismissed-updates').toggle('slow');});
+			$('#show-dismissed').toggle(function(){$(this).text('<?php echo $hide_text; ?>');}, function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);$(this).text('<?php echo $show_text; ?>')});
+			$('#show-dismissed').click(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); $('#dismissed-updates').toggle('slow');});
 		});
 	</script>
 	<?php
@@ -154,7 +154,7 @@ function dismissed_updates() {
  * @global string $required_php_version
  * @global string $required_mysql_version
  */
-function core_upgrade_preamble() {
+function core_upgrade_preamble() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $required_php_version, $required_mysql_version;
 
 	$wp_version = get_bloginfo( 'version' );
@@ -215,7 +215,7 @@ function core_upgrade_preamble() {
 	dismissed_updates();
 }
 
-function list_plugin_updates() {
+function list_plugin_updates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$wp_version = get_bloginfo( 'version' );
 	$cur_wp_version = preg_replace( '/-.*$/', '', $wp_version );
 
@@ -333,7 +333,7 @@ function list_plugin_updates() {
 /**
  * @since 2.9.0
  */
-function list_theme_updates() {
+function list_theme_updates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$themes = get_theme_updates();
 	if ( empty( $themes ) ) {
 		echo '<h2>' . __( 'Themes' ) . '</h2>';
@@ -404,7 +404,7 @@ function list_theme_updates() {
 /**
  * @since 3.7.0
  */
-function list_translation_updates() {
+function list_translation_updates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$updates = wp_get_translation_updates();
 	if ( ! $updates ) {
 		if ( 'en_US' != get_locale() ) {
@@ -434,7 +434,7 @@ function list_translation_updates() {
  *
  * @param bool $reinstall
  */
-function do_core_upgrade( $reinstall = false ) {
+function do_core_upgrade( $reinstall = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filesystem;
 
 	include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
@@ -511,7 +511,7 @@ function do_core_upgrade( $reinstall = false ) {
 /**
  * @since 2.7.0
  */
-function do_dismiss_core_update() {
+function do_dismiss_core_update() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$version = isset( $_POST['version'] )? $_POST['version'] : false;
 	$locale = isset( $_POST['locale'] )? $_POST['locale'] : 'en_US';
 	$update = find_core_update( $version, $locale );
@@ -525,7 +525,7 @@ function do_dismiss_core_update() {
 /**
  * @since 2.7.0
  */
-function do_undismiss_core_update() {
+function do_undismiss_core_update() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$version = isset( $_POST['version'] )? $_POST['version'] : false;
 	$locale = isset( $_POST['locale'] )? $_POST['locale'] : 'en_US';
 	$update = find_core_update( $version, $locale );

@@ -29,7 +29,7 @@ class WP_Press_This {
 	 * @since 4.2.0
 	 * @access public
 	 */
-	public function __construct() {}
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * App and site settings data, including i18n strings for the client-side.
@@ -39,7 +39,7 @@ class WP_Press_This {
 	 *
 	 * @return array Site settings.
 	 */
-	public function site_settings() {
+	public function site_settings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array(
 			/**
 			 * Filters whether or not Press This should redirect the user in the parent window upon save.
@@ -62,7 +62,7 @@ class WP_Press_This {
 	 * @param string $content Optional. Current expected markup for Press This. Expects slashed. Default empty.
 	 * @return string New markup with old image URLs replaced with the local attachment ones if swapped.
 	 */
-	public function side_load_images( $post_id, $content = '' ) {
+	public function side_load_images( $post_id, $content = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$content = wp_unslash( $content );
 
 		if ( preg_match_all( '/<img [^>]+>/', $content, $matches ) && current_user_can( 'upload_files' ) ) {
@@ -101,7 +101,7 @@ class WP_Press_This {
 	 * @since 4.2.0
 	 * @access public
 	 */
-	public function save_post() {
+	public function save_post() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $_POST['post_ID'] ) || ! $post_id = (int) $_POST['post_ID'] ) {
 			wp_send_json_error( array( 'errorMessage' => __( 'Missing post ID.' ) ) );
 		}
@@ -212,7 +212,7 @@ class WP_Press_This {
 	 * @since 4.2.0
 	 * @access public
 	 */
-	public function add_category() {
+	public function add_category() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( false === wp_verify_nonce( $_POST['new_cat_nonce'], 'add-category' ) ) {
 			wp_send_json_error();
 		}
@@ -284,7 +284,7 @@ class WP_Press_This {
 	 * @param string $url URL to scan.
 	 * @return string Source's HTML sanitized markup
 	 */
-	public function fetch_source_html( $url ) {
+	public function fetch_source_html( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $url ) ) {
 			return new WP_Error( 'invalid-url', __( 'A valid URL was not provided.' ) );
 		}
@@ -335,7 +335,7 @@ class WP_Press_This {
 	 * @param array $value Array to limit.
 	 * @return array Original array if fewer than 50 values, limited array, empty array otherwise.
 	 */
-	private function _limit_array( $value ) {
+	private function _limit_array( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_array( $value ) ) {
 			if ( count( $value ) > 50 ) {
 				return array_slice( $value, 0, 50 );
@@ -358,7 +358,7 @@ class WP_Press_This {
 	 *                         if fewer than 5,000 characters, a truncated version, otherwise an
 	 *                         empty string.
 	 */
-	private function _limit_string( $value ) {
+	private function _limit_string( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$return = '';
 
 		if ( is_numeric( $value ) || is_bool( $value ) ) {
@@ -386,7 +386,7 @@ class WP_Press_This {
 	 * @param string $url URL to check for length and validity.
 	 * @return string Escaped URL if of valid length (< 2048) and makeup. Empty string otherwise.
 	 */
-	private function _limit_url( $url ) {
+	private function _limit_url( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_string( $url ) ) {
 			return '';
 		}
@@ -426,7 +426,7 @@ class WP_Press_This {
 	 * @param string $src Image source URL.
 	 * @return string If not matched an excluded URL type, the original URL, empty string otherwise.
 	 */
-	private function _limit_img( $src ) {
+	private function _limit_img( $src ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$src = $this->_limit_url( $src );
 
 		if ( preg_match( '!/ad[sx]?/!i', $src ) ) {
@@ -473,7 +473,7 @@ class WP_Press_This {
 	 * @param string $src Embed source URL.
 	 * @return string If not from a supported provider, an empty string. Otherwise, a reformatted embed URL.
 	 */
-	private function _limit_embed( $src ) {
+	private function _limit_embed( $src ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$src = $this->_limit_url( $src );
 
 		if ( empty( $src ) )
@@ -516,7 +516,7 @@ class WP_Press_This {
 	 * @param array  $data       Associative array of source data.
 	 * @return array Processed data array.
 	 */
-	private function _process_meta_entry( $meta_name, $meta_value, $data ) {
+	private function _process_meta_entry( $meta_name, $meta_value, $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( preg_match( '/:?(title|description|keywords|site_name)$/', $meta_name ) ) {
 			$data['_meta'][ $meta_name ] = $meta_value;
 		} else {
@@ -568,7 +568,7 @@ class WP_Press_This {
 	 * @param array  $data Optional. Existing data array if you have one. Default empty array.
 	 * @return array New data array.
 	 */
-	public function source_data_fetch_fallback( $url, $data = array() ) {
+	public function source_data_fetch_fallback( $url, $data = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $url ) ) {
 			return array();
 		}
@@ -676,7 +676,7 @@ class WP_Press_This {
 	 *
 	 * @return array
 	 */
-	public function merge_or_fetch_data() {
+	public function merge_or_fetch_data() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Get data from $_POST and $_GET, as appropriate ($_POST > $_GET), to remain backward compatible.
 		$data = array();
 
@@ -799,7 +799,7 @@ class WP_Press_This {
 	 * @param string $styles URL to editor stylesheet.
 	 * @return string Possibly modified stylesheets list.
 	 */
-	public function add_editor_style( $styles ) {
+	public function add_editor_style( $styles ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! empty( $styles ) ) {
 			$styles .= ',';
 		}
@@ -820,7 +820,7 @@ class WP_Press_This {
 	 *
 	 * @param WP_Post $post Post object.
 	 */
-	public function post_formats_html( $post ) {
+	public function post_formats_html( $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( current_theme_supports( 'post-formats' ) && post_type_supports( $post->post_type, 'post-formats' ) ) {
 			$post_formats = get_theme_support( 'post-formats' );
 
@@ -868,7 +868,7 @@ class WP_Press_This {
 	 *
 	 * @param WP_Post $post Post object.
 	 */
-	public function categories_html( $post ) {
+	public function categories_html( $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$taxonomy = get_taxonomy( 'category' );
 
 		// Bail if user cannot assign terms
@@ -926,7 +926,7 @@ class WP_Press_This {
 	 *
 	 * @param WP_Post $post Post object.
 	 */
-	public function tags_html( $post ) {
+	public function tags_html( $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$taxonomy              = get_taxonomy( 'post_tag' );
 		$user_can_assign_terms = current_user_can( $taxonomy->cap->assign_terms );
 		$esc_tags              = get_terms_to_edit( $post->ID, 'post_tag' );
@@ -978,7 +978,7 @@ class WP_Press_This {
 	 * @param array $data The site's data.
 	 * @return array Embeds selected to be available.
 	 */
-	public function get_embeds( $data ) {
+	public function get_embeds( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$selected_embeds = array();
 
 		// Make sure to add the Pressed page if it's a valid oembed itself
@@ -1011,7 +1011,7 @@ class WP_Press_This {
 	 * @param array $data The site's data.
 	 * @return array
 	 */
-	public function get_images( $data ) {
+	public function get_images( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$selected_images = array();
 
 		if ( ! empty( $data['_images'] ) ) {
@@ -1045,7 +1045,7 @@ class WP_Press_This {
  	 * @param array $data The site's data.
 	 * @return string Discovered canonical URL, or empty
 	 */
-	public function get_canonical_link( $data ) {
+	public function get_canonical_link( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$link = '';
 
 		if ( ! empty( $data['_links']['canonical'] ) ) {
@@ -1076,7 +1076,7 @@ class WP_Press_This {
 	 * @param array $data The site's data.
 	 * @return string Discovered site name, or empty
 	 */
-	public function get_source_site_name( $data ) {
+	public function get_source_site_name( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$name = '';
 
 		if ( ! empty( $data['_meta'] ) ) {
@@ -1099,7 +1099,7 @@ class WP_Press_This {
 	 * @param array $data The site's data.
 	 * @return string Discovered page title, or empty
 	 */
-	public function get_suggested_title( $data ) {
+	public function get_suggested_title( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$title = '';
 
 		if ( ! empty( $data['t'] ) ) {
@@ -1128,7 +1128,7 @@ class WP_Press_This {
 	 * @param array $data The site's data.
 	 * @return string Discovered content, or empty
 	 */
-	public function get_suggested_content( $data ) {
+	public function get_suggested_content( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$content = $text = '';
 
 		if ( ! empty( $data['s'] ) ) {
@@ -1213,7 +1213,7 @@ class WP_Press_This {
 	 * @global WP_Locale $wp_locale
 	 * @global bool      $is_IE
 	 */
-	public function html() {
+	public function html() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_locale;
 
 		$wp_version = get_bloginfo( 'version' );

@@ -31,7 +31,7 @@ class IXR_Server
 	/**
 	 * PHP4 constructor.
 	 */
-	public function IXR_Server( $callbacks = false, $data = false, $wait = false ) {
+	public function IXR_Server( $callbacks = false, $data = false, $wait = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $callbacks, $data, $wait );
 	}
 
@@ -39,7 +39,7 @@ class IXR_Server
     {
         if (!$data) {
             if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] !== 'POST') {
-                if ( function_exists( 'status_header' ) ) {
+                if ( function_exists( 'status_header' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
                     status_header( 405 ); // WP #20986
                     header( 'Allow: POST' );
                 }
@@ -119,7 +119,7 @@ EOD;
                 if (!is_callable(array($method[0], $method[1]))) {
                     return new IXR_Error(-32601, 'server error. requested object method "'.$method[1].'" does not exist.');
                 }
-            } else if (!function_exists($method)) {
+            } else if (!function_exists($method)) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
                 return new IXR_Error(-32601, 'server error. requested function "'.$method.'" does not exist.');
             }
 

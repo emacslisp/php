@@ -33,7 +33,7 @@ $charset_collate = $wpdb->get_charset_collate();
  * @param int $blog_id Optional. The site ID for which to retrieve SQL. Default is the current site ID.
  * @return string The SQL needed to create the requested tables.
  */
-function wp_get_db_schema( $scope = 'all', $blog_id = null ) {
+function wp_get_db_schema( $scope = 'all', $blog_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$charset_collate = $wpdb->get_charset_collate();
@@ -347,7 +347,7 @@ $wp_queries = wp_get_db_schema( 'all' );
  * @global int  $wp_db_version
  * @global int  $wp_current_db_version
  */
-function populate_options() {
+function populate_options() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $wp_db_version, $wp_current_db_version;
 
 	$guessurl = wp_guess_url();
@@ -612,7 +612,7 @@ function populate_options() {
  *
  * @since 2.0.0
  */
-function populate_roles() {
+function populate_roles() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	populate_roles_160();
 	populate_roles_210();
 	populate_roles_230();
@@ -628,7 +628,7 @@ function populate_roles() {
  *
  * @since 2.0.0
  */
-function populate_roles_160() {
+function populate_roles_160() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Add roles
 
 	// Dummy gettext calls to get strings in the catalog.
@@ -733,7 +733,7 @@ function populate_roles_160() {
  *
  * @since 2.1.0
  */
-function populate_roles_210() {
+function populate_roles_210() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$roles = array('administrator', 'editor');
 	foreach ($roles as $role) {
 		$role = get_role($role);
@@ -780,7 +780,7 @@ function populate_roles_210() {
  *
  * @since 2.3.0
  */
-function populate_roles_230() {
+function populate_roles_230() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$role = get_role( 'administrator' );
 
 	if ( !empty( $role ) ) {
@@ -793,7 +793,7 @@ function populate_roles_230() {
  *
  * @since 2.5.0
  */
-function populate_roles_250() {
+function populate_roles_250() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$role = get_role( 'administrator' );
 
 	if ( !empty( $role ) ) {
@@ -806,7 +806,7 @@ function populate_roles_250() {
  *
  * @since 2.6.0
  */
-function populate_roles_260() {
+function populate_roles_260() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$role = get_role( 'administrator' );
 
 	if ( !empty( $role ) ) {
@@ -820,7 +820,7 @@ function populate_roles_260() {
  *
  * @since 2.7.0
  */
-function populate_roles_270() {
+function populate_roles_270() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$role = get_role( 'administrator' );
 
 	if ( !empty( $role ) ) {
@@ -834,7 +834,7 @@ function populate_roles_270() {
  *
  * @since 2.8.0
  */
-function populate_roles_280() {
+function populate_roles_280() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$role = get_role( 'administrator' );
 
 	if ( !empty( $role ) ) {
@@ -847,7 +847,7 @@ function populate_roles_280() {
  *
  * @since 3.0.0
  */
-function populate_roles_300() {
+function populate_roles_300() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$role = get_role( 'administrator' );
 
 	if ( !empty( $role ) ) {
@@ -868,7 +868,7 @@ function populate_roles_300() {
  *
  */
 if ( !function_exists( 'install_network' ) ) :
-function install_network() {
+function install_network() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! defined( 'WP_INSTALLING_NETWORK' ) )
 		define( 'WP_INSTALLING_NETWORK', true );
 
@@ -896,7 +896,7 @@ endif;
  * @return bool|WP_Error True on success, or WP_Error on warning (with the install otherwise successful,
  *                       so the error code must be checked) or failure.
  */
-function populate_network( $network_id = 1, $domain = '', $email = '', $site_name = '', $path = '/', $subdomain_install = false ) {
+function populate_network( $network_id = 1, $domain = '', $email = '', $site_name = '', $path = '/', $subdomain_install = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $current_site, $wp_db_version, $wp_rewrite;
 
 	$errors = new WP_Error();

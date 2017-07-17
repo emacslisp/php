@@ -23,7 +23,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 */
 	protected $image;
 
-	public function __destruct() {
+	public function __destruct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->image ) {
 			// we don't need the original in memory anymore
 			imagedestroy( $this->image );
@@ -41,14 +41,14 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param array $args
 	 * @return bool
 	 */
-	public static function test( $args = array() ) {
+	public static function test( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! extension_loaded('gd') || ! function_exists('gd_info') )
 			return false;
 
 		// On some setups GD library does not provide imagerotate() - Ticket #11536
 		if ( isset( $args['methods'] ) &&
 			 in_array( 'rotate', $args['methods'] ) &&
-			 ! function_exists('imagerotate') ){
+			 ! function_exists('imagerotate') ){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 				return false;
 		}
@@ -67,7 +67,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param string $mime_type
 	 * @return bool
 	 */
-	public static function supports_mime_type( $mime_type ) {
+	public static function supports_mime_type( $mime_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$image_types = imagetypes();
 		switch( $mime_type ) {
 			case 'image/jpeg':
@@ -89,7 +89,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 *
 	 * @return bool|WP_Error True if loaded successfully; WP_Error on failure.
 	 */
-	public function load() {
+	public function load() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->image )
 			return true;
 
@@ -108,7 +108,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 		if ( ! $size )
 			return new WP_Error( 'invalid_image', __('Could not read image size.'), $this->file );
 
-		if ( function_exists( 'imagealphablending' ) && function_exists( 'imagesavealpha' ) ) {
+		if ( function_exists( 'imagealphablending' ) && function_exists( 'imagesavealpha' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			imagealphablending( $this->image, false );
 			imagesavealpha( $this->image, true );
 		}
@@ -129,7 +129,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param int $height
 	 * @return true
 	 */
-	protected function update_size( $width = false, $height = false ) {
+	protected function update_size( $width = false, $height = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $width )
 			$width = imagesx( $this->image );
 
@@ -155,7 +155,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param  bool     $crop
 	 * @return true|WP_Error
 	 */
-	public function resize( $max_w, $max_h, $crop = false ) {
+	public function resize( $max_w, $max_h, $crop = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ( $this->size['width'] == $max_w ) && ( $this->size['height'] == $max_h ) )
 			return true;
 
@@ -179,7 +179,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param bool|array $crop
 	 * @return resource|WP_Error
 	 */
-	protected function _resize( $max_w, $max_h, $crop = false ) {
+	protected function _resize( $max_w, $max_h, $crop = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$dims = image_resize_dimensions( $this->size['width'], $this->size['height'], $max_w, $max_h, $crop );
 		if ( ! $dims ) {
 			return new WP_Error( 'error_getting_dimensions', __('Could not calculate resized image dimensions'), $this->file );
@@ -220,7 +220,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * }
 	 * @return array An array of resized images' metadata by size.
 	 */
-	public function multi_resize( $sizes ) {
+	public function multi_resize( $sizes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$metadata = array();
 		$orig_size = $this->size;
 
@@ -275,7 +275,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param bool $src_abs Optional. If the source crop points are absolute.
 	 * @return bool|WP_Error
 	 */
-	public function crop( $src_x, $src_y, $src_w, $src_h, $dst_w = null, $dst_h = null, $src_abs = false ) {
+	public function crop( $src_x, $src_y, $src_w, $src_h, $dst_w = null, $dst_h = null, $src_abs = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// If destination width/height isn't specified, use same as
 		// width/height from source.
 		if ( ! $dst_w )
@@ -315,8 +315,8 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param float $angle
 	 * @return true|WP_Error
 	 */
-	public function rotate( $angle ) {
-		if ( function_exists('imagerotate') ) {
+	public function rotate( $angle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		if ( function_exists('imagerotate') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			$transparency = imagecolorallocatealpha( $this->image, 255, 255, 255, 127 );
 			$rotated = imagerotate( $this->image, $angle, $transparency );
 
@@ -342,7 +342,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param bool $vert Flip along Vertical Axis
 	 * @return true|WP_Error
 	 */
-	public function flip( $horz, $vert ) {
+	public function flip( $horz, $vert ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$w = $this->size['width'];
 		$h = $this->size['height'];
 		$dst = wp_imagecreatetruecolor( $w, $h );
@@ -372,7 +372,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param string|null $mime_type
 	 * @return array|WP_Error {'path'=>string, 'file'=>string, 'width'=>int, 'height'=>int, 'mime-type'=>string}
 	 */
-	public function save( $filename = null, $mime_type = null ) {
+	public function save( $filename = null, $mime_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$saved = $this->_save( $this->image, $filename, $mime_type );
 
 		if ( ! is_wp_error( $saved ) ) {
@@ -389,7 +389,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param string|null $mime_type
 	 * @return WP_Error|array
 	 */
-	protected function _save( $image, $filename = null, $mime_type = null ) {
+	protected function _save( $image, $filename = null, $mime_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		list( $filename, $extension, $mime_type ) = $this->get_output_format( $filename, $mime_type );
 
 		if ( ! $filename )
@@ -445,7 +445,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param string $mime_type
 	 * @return bool
 	 */
-	public function stream( $mime_type = null ) {
+	public function stream( $mime_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		list( $filename, $extension, $mime_type ) = $this->get_output_format( null, $mime_type );
 
 		switch ( $mime_type ) {
@@ -472,7 +472,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	 * @param array $arguments
 	 * @return bool
 	 */
-	protected function make_image( $filename, $function, $arguments ) {
+	protected function make_image( $filename, $function, $arguments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( wp_is_stream( $filename ) )
 			$arguments[1] = null;
 

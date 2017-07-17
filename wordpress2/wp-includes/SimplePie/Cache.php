@@ -69,7 +69,7 @@ class SimplePie_Cache
 	/**
 	 * Don't call the constructor. Please.
 	 */
-	private function __construct() { }
+	private function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); }
 
 	/**
 	 * Create a new SimplePie_Cache object

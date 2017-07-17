@@ -22,7 +22,7 @@ class WP_Widget_Archives extends WP_Widget {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$widget_ops = array(
 			'classname' => 'widget_archive',
 			'description' => __( 'A monthly archive of your site&#8217;s Posts.' ),
@@ -41,7 +41,7 @@ class WP_Widget_Archives extends WP_Widget {
 	 *                        'before_widget', and 'after_widget'.
 	 * @param array $instance Settings for the current Archives widget instance.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$c = ! empty( $instance['count'] ) ? '1' : '0';
 		$d = ! empty( $instance['dropdown'] ) ? '1' : '0';
 
@@ -132,7 +132,7 @@ class WP_Widget_Archives extends WP_Widget {
 	 * @param array $old_instance Old settings for this instance.
 	 * @return array Updated settings to save.
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = $old_instance;
 		$new_instance = wp_parse_args( (array) $new_instance, array( 'title' => '', 'count' => 0, 'dropdown' => '') );
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
@@ -150,7 +150,7 @@ class WP_Widget_Archives extends WP_Widget {
 	 *
 	 * @param array $instance Current settings.
 	 */
-	public function form( $instance ) {
+	public function form( $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'count' => 0, 'dropdown' => '') );
 		$title = sanitize_text_field( $instance['title'] );
 		?>

@@ -37,7 +37,7 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 	 * @param string               $id      Control ID.
 	 * @param array                $args    Optional. Arguments to override class property defaults.
 	 */
-	public function __construct( $manager, $id, $args = array() ) {
+	public function __construct( $manager, $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( $manager, $id, $args );
 		add_action( 'customize_controls_print_styles', 'wp_site_icon', 99 );
 	}
@@ -48,7 +48,7 @@ class WP_Customize_Site_Icon_Control extends WP_Customize_Cropped_Image_Control 
 	 * @since 4.5.0
 	 * @access public
 	 */
-	public function content_template() {
+	public function content_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<label for="{{ data.settings['default'] }}-button">
 			<# if ( data.label ) { #>

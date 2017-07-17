@@ -53,7 +53,7 @@ define( 'WXR_VERSION', '1.2' );
  *                                  'trash'. Default false (all statuses except 'auto-draft').
  * }
  */
-function export_wp( $args = array() ) {
+function export_wp( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $post;
 
 	$defaults = array( 'content' => 'all', 'author' => false, 'category' => false,
@@ -173,7 +173,7 @@ function export_wp( $args = array() ) {
 	 * @param string $str String to wrap in XML CDATA tag.
 	 * @return string
 	 */
-	function wxr_cdata( $str ) {
+	function wxr_cdata( $str ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! seems_utf8( $str ) ) {
 			$str = utf8_encode( $str );
 		}
@@ -190,7 +190,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @return string Site URL.
 	 */
-	function wxr_site_url() {
+	function wxr_site_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Multisite: the base URL.
 		if ( is_multisite() )
 			return network_home_url();
@@ -206,7 +206,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @param object $category Category Object
 	 */
-	function wxr_cat_name( $category ) {
+	function wxr_cat_name( $category ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $category->name ) )
 			return;
 
@@ -220,7 +220,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @param object $category Category Object
 	 */
-	function wxr_category_description( $category ) {
+	function wxr_category_description( $category ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $category->description ) )
 			return;
 
@@ -234,7 +234,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @param object $tag Tag Object
 	 */
-	function wxr_tag_name( $tag ) {
+	function wxr_tag_name( $tag ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $tag->name ) )
 			return;
 
@@ -248,7 +248,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @param object $tag Tag Object
 	 */
-	function wxr_tag_description( $tag ) {
+	function wxr_tag_description( $tag ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $tag->description ) )
 			return;
 
@@ -262,7 +262,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @param object $term Term Object
 	 */
-	function wxr_term_name( $term ) {
+	function wxr_term_name( $term ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $term->name ) )
 			return;
 
@@ -276,7 +276,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @param object $term Term Object
 	 */
-	function wxr_term_description( $term ) {
+	function wxr_term_description( $term ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $term->description ) )
 			return;
 
@@ -290,7 +290,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @param WP_Term $term Term object.
 	 */
-	function wxr_term_meta( $term ) {
+	function wxr_term_meta( $term ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$termmeta = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->termmeta WHERE term_id = %d", $term->term_id ) );
@@ -323,7 +323,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @param array $post_ids Array of post IDs to filter the query by. Optional.
 	 */
-	function wxr_authors_list( array $post_ids = null ) {
+	function wxr_authors_list( array $post_ids = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		if ( !empty( $post_ids ) ) {
@@ -357,7 +357,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @since 3.1.0
 	 */
-	function wxr_nav_menu_terms() {
+	function wxr_nav_menu_terms() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$nav_menus = wp_get_nav_menus();
 		if ( empty( $nav_menus ) || ! is_array( $nav_menus ) )
 			return;
@@ -377,7 +377,7 @@ function export_wp( $args = array() ) {
 	 *
 	 * @since 2.3.0
 	 */
-	function wxr_post_taxonomy() {
+	function wxr_post_taxonomy() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post = get_post();
 
 		$taxonomies = get_object_taxonomies( $post->post_type );
@@ -396,7 +396,7 @@ function export_wp( $args = array() ) {
 	 * @param string $meta_key
 	 * @return bool
 	 */
-	function wxr_filter_postmeta( $return_me, $meta_key ) {
+	function wxr_filter_postmeta( $return_me, $meta_key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( '_edit_lock' == $meta_key )
 			$return_me = true;
 		return $return_me;

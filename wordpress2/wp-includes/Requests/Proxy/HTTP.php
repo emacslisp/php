@@ -54,7 +54,7 @@ class Requests_Proxy_HTTP implements Requests_Proxy {
 	 * @throws Requests_Exception On incorrect number of arguments (`authbasicbadargs`)
 	 * @param array|null $args Array of user and password. Must have exactly two elements
 	 */
-	public function __construct($args = null) {
+	public function __construct($args = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (is_string($args)) {
 			$this->proxy = $args;
 		}
@@ -82,7 +82,7 @@ class Requests_Proxy_HTTP implements Requests_Proxy {
 	 * @see fsockopen_header
 	 * @param Requests_Hooks $hooks Hook system
 	 */
-	public function register(Requests_Hooks &$hooks) {
+	public function register(Requests_Hooks &$hooks) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$hooks->register('curl.before_send', array(&$this, 'curl_before_send'));
 
 		$hooks->register('fsockopen.remote_socket', array(&$this, 'fsockopen_remote_socket'));
@@ -98,7 +98,7 @@ class Requests_Proxy_HTTP implements Requests_Proxy {
 	 * @since 1.6
 	 * @param resource $handle cURL resource
 	 */
-	public function curl_before_send(&$handle) {
+	public function curl_before_send(&$handle) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		curl_setopt($handle, CURLOPT_PROXYTYPE, CURLPROXY_HTTP);
 		curl_setopt($handle, CURLOPT_PROXY, $this->proxy);
 
@@ -114,7 +114,7 @@ class Requests_Proxy_HTTP implements Requests_Proxy {
 	 * @since 1.6
 	 * @param string $remote_socket Socket connection string
 	 */
-	public function fsockopen_remote_socket(&$remote_socket) {
+	public function fsockopen_remote_socket(&$remote_socket) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$remote_socket = $this->proxy;
 	}
 
@@ -125,7 +125,7 @@ class Requests_Proxy_HTTP implements Requests_Proxy {
 	 * @param string $path Path to send in HTTP request string ("GET ...")
 	 * @param string $url Full URL we're requesting
 	 */
-	public function fsockopen_remote_host_path(&$path, $url) {
+	public function fsockopen_remote_host_path(&$path, $url) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$path = $url;
 	}
 
@@ -135,7 +135,7 @@ class Requests_Proxy_HTTP implements Requests_Proxy {
 	 * @since 1.6
 	 * @param string $out HTTP header string
 	 */
-	public function fsockopen_header(&$out) {
+	public function fsockopen_header(&$out) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$out .= sprintf("Proxy-Authorization: Basic %s\r\n", base64_encode($this->get_auth_string()));
 	}
 
@@ -145,7 +145,7 @@ class Requests_Proxy_HTTP implements Requests_Proxy {
 	 * @since 1.6
 	 * @return string
 	 */
-	public function get_auth_string() {
+	public function get_auth_string() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->user . ':' . $this->pass;
 	}
 }

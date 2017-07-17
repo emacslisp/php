@@ -44,7 +44,7 @@ final class WP_Customize_Nav_Menus {
 	 *
 	 * @param object $manager An instance of the WP_Customize_Manager class.
 	 */
-	public function __construct( $manager ) {
+	public function __construct( $manager ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->previewed_menus = array();
 		$this->manager         = $manager;
 
@@ -82,7 +82,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param array $nonces Array of nonces.
 	 * @return array $nonces Modified array of nonces.
 	 */
-	public function filter_nonces( $nonces ) {
+	public function filter_nonces( $nonces ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$nonces['customize-menus'] = wp_create_nonce( 'customize-menus' );
 		return $nonces;
 	}
@@ -93,7 +93,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function ajax_load_available_items() {
+	public function ajax_load_available_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		check_ajax_referer( 'customize-menus', 'customize-menus-nonce' );
 
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
@@ -143,7 +143,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param int    $page   Optional. The page number used to generate the query offset. Default is '0'.
 	 * @return WP_Error|array Returns either a WP_Error object or an array of menu items.
 	 */
-	public function load_available_items_query( $type = 'post_type', $object = 'page', $page = 0 ) {
+	public function load_available_items_query( $type = 'post_type', $object = 'page', $page = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$items = array();
 
 		if ( 'post_type' === $type ) {
@@ -260,7 +260,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function ajax_search_available_items() {
+	public function ajax_search_available_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		check_ajax_referer( 'customize-menus', 'customize-menus-nonce' );
 
 		if ( ! current_user_can( 'edit_theme_options' ) ) {
@@ -297,7 +297,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param array $args Optional. Accepts 'pagenum' and 's' (search) arguments.
 	 * @return array Menu items.
 	 */
-	public function search_available_items_query( $args = array() ) {
+	public function search_available_items_query( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$items = array();
 
 		$post_type_objects = get_post_types( array( 'show_in_nav_menus' => true ), 'objects' );
@@ -397,7 +397,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_enqueue_style( 'customize-nav-menus' );
 		wp_enqueue_script( 'customize-nav-menus' );
 
@@ -486,7 +486,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param string      $setting_id   ID for dynamic setting, usually coming from `$_POST['customized']`.
 	 * @return array|false
 	 */
-	public function filter_dynamic_setting_args( $setting_args, $setting_id ) {
+	public function filter_dynamic_setting_args( $setting_args, $setting_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( preg_match( WP_Customize_Nav_Menu_Setting::ID_PATTERN, $setting_id ) ) {
 			$setting_args = array(
 				'type'      => WP_Customize_Nav_Menu_Setting::TYPE,
@@ -512,7 +512,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param array  $setting_args  WP_Customize_Setting or a subclass.
 	 * @return string
 	 */
-	public function filter_dynamic_setting_class( $setting_class, $setting_id, $setting_args ) {
+	public function filter_dynamic_setting_class( $setting_class, $setting_id, $setting_args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $setting_id );
 
 		if ( ! empty( $setting_args['type'] ) && WP_Customize_Nav_Menu_Setting::TYPE === $setting_args['type'] ) {
@@ -529,7 +529,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function customize_register() {
+	public function customize_register() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// Preview settings for nav menus early so that the sections and controls will be added properly.
 		$nav_menus_setting_ids = array();
@@ -713,7 +713,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param mixed $value Number to convert.
 	 * @return int Integer.
 	 */
-	public function intval_base10( $value ) {
+	public function intval_base10( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return intval( $value, 10 );
 	}
 
@@ -726,7 +726,7 @@ final class WP_Customize_Nav_Menus {
 	 *
 	 * @return array The available menu item types.
 	 */
-	public function available_item_types() {
+	public function available_item_types() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$item_types = array();
 
 		$post_types = get_post_types( array( 'show_in_nav_menus' => true ), 'objects' );
@@ -785,7 +785,7 @@ final class WP_Customize_Nav_Menus {
 	 * }
 	 * @return WP_Post|WP_Error Inserted auto-draft post object or error.
 	 */
-	public function insert_auto_draft_post( $postarr ) {
+	public function insert_auto_draft_post( $postarr ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $postarr['post_type'] ) || ! post_type_exists( $postarr['post_type'] )  ) {
 			return new WP_Error( 'unknown_post_type', __( 'Unknown post type' ) );
 		}
@@ -825,7 +825,7 @@ final class WP_Customize_Nav_Menus {
 	 * @access public
 	 * @since 4.7.0
 	 */
-	public function ajax_insert_auto_draft_post() {
+	public function ajax_insert_auto_draft_post() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! check_ajax_referer( 'customize-menus', 'customize-menus-nonce', false ) ) {
 			wp_send_json_error( 'bad_nonce', 400 );
 		}
@@ -901,7 +901,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function print_templates() {
+	public function print_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<script type="text/html" id="tmpl-available-menu-item">
 			<li id="menu-item-tpl-{{ data.id }}" class="menu-item-tpl" data-menu-item-id="{{ data.id }}">
@@ -944,7 +944,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function available_items_template() {
+	public function available_items_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<div id="available-menu-items" class="accordion-container">
 			<div class="customize-section-title">
@@ -1008,7 +1008,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param array $available_item_type Menu item data to output, including title, type, and label.
 	 * @return void
 	 */
-	protected function print_post_type_container( $available_item_type ) {
+	protected function print_post_type_container( $available_item_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$id = sprintf( 'available-menu-items-%s-%s', $available_item_type['type'], $available_item_type['object'] );
 		?>
 		<div id="<?php echo esc_attr( $id ); ?>" class="accordion-section">
@@ -1047,7 +1047,7 @@ final class WP_Customize_Nav_Menus {
 	 *
 	 * @return void
 	 */
-	protected function print_custom_links_available_menu_item() {
+	protected function print_custom_links_available_menu_item() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<div id="new-custom-menu-item" class="accordion-section">
 			<h4 class="accordion-section-title" role="presentation">
@@ -1101,7 +1101,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param string      $partial_id   Partial ID.
 	 * @return array Partial args.
 	 */
-	public function customize_dynamic_partial_args( $partial_args, $partial_id ) {
+	public function customize_dynamic_partial_args( $partial_args, $partial_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		if ( preg_match( '/^nav_menu_instance\[[0-9a-f]{32}\]$/', $partial_id ) ) {
 			if ( false === $partial_args ) {
@@ -1128,7 +1128,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function customize_preview_init() {
+	public function customize_preview_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		add_action( 'wp_enqueue_scripts', array( $this, 'customize_preview_enqueue_deps' ) );
 		add_filter( 'wp_nav_menu_args', array( $this, 'filter_wp_nav_menu_args' ), 1000 );
 		add_filter( 'wp_nav_menu', array( $this, 'filter_wp_nav_menu' ), 10, 2 );
@@ -1142,7 +1142,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.7.0
 	 * @access public
 	 */
-	public function make_auto_draft_status_previewable() {
+	public function make_auto_draft_status_previewable() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_post_statuses;
 		$wp_post_statuses['auto-draft']->protected = true;
 	}
@@ -1156,7 +1156,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param array $value Post IDs.
 	 * @returns array Post IDs.
 	 */
-	public function sanitize_nav_menus_created_posts( $value ) {
+	public function sanitize_nav_menus_created_posts( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post_ids = array();
 		foreach ( wp_parse_id_list( $value ) as $post_id ) {
 			if ( empty( $post_id ) ) {
@@ -1191,7 +1191,7 @@ final class WP_Customize_Nav_Menus {
 	 *
 	 * @param WP_Customize_Setting $setting Customizer setting object.
 	 */
-	public function save_nav_menus_created_posts( $setting ) {
+	public function save_nav_menus_created_posts( $setting ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post_ids = $setting->post_value();
 		if ( ! empty( $post_ids ) ) {
 			foreach ( $post_ids as $post_id ) {
@@ -1224,7 +1224,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param array $args An array containing wp_nav_menu() arguments.
 	 * @return array Arguments.
 	 */
-	public function filter_wp_nav_menu_args( $args ) {
+	public function filter_wp_nav_menu_args( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/*
 		 * The following conditions determine whether or not this instance of
 		 * wp_nav_menu() can use selective refreshed. A wp_nav_menu() can be
@@ -1293,7 +1293,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param object $args             An object containing wp_nav_menu() arguments.
 	 * @return null
 	 */
-	public function filter_wp_nav_menu( $nav_menu_content, $args ) {
+	public function filter_wp_nav_menu( $nav_menu_content, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $args->customize_preview_nav_menus_args['can_partial_refresh'] ) && $args->customize_preview_nav_menus_args['can_partial_refresh'] ) {
 			$attributes = sprintf( ' data-customize-partial-id="%s"', esc_attr( 'nav_menu_instance[' . $args->customize_preview_nav_menus_args['args_hmac'] . ']' ) );
 			$attributes .= ' data-customize-partial-type="nav_menu_instance"';
@@ -1315,7 +1315,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param array $args The arguments to hash.
 	 * @return string Hashed nav menu arguments.
 	 */
-	public function hash_nav_menu_args( $args ) {
+	public function hash_nav_menu_args( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return wp_hash( serialize( $args ) );
 	}
 
@@ -1325,7 +1325,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function customize_preview_enqueue_deps() {
+	public function customize_preview_enqueue_deps() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_enqueue_script( 'customize-preview-nav-menus' ); // Note that we have overridden this.
 		wp_enqueue_style( 'customize-preview' );
 	}
@@ -1336,7 +1336,7 @@ final class WP_Customize_Nav_Menus {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function export_preview_data() {
+	public function export_preview_data() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// Why not wp_localize_script? Because we're not localizing, and it forces values into strings.
 		$exports = array(
@@ -1354,7 +1354,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param array $response Response.
 	 * @return array Response.
 	 */
-	public function export_partial_rendered_nav_menu_instances( $response ) {
+	public function export_partial_rendered_nav_menu_instances( $response ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$response['nav_menu_instance_args'] = $this->preview_nav_menu_instance_args;
 		return $response;
 	}
@@ -1371,7 +1371,7 @@ final class WP_Customize_Nav_Menus {
 	 * @param array                $nav_menu_args Nav menu args supplied as container context.
 	 * @return string|false
 	 */
-	public function render_nav_menu_partial( $partial, $nav_menu_args ) {
+	public function render_nav_menu_partial( $partial, $nav_menu_args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $partial );
 
 		if ( ! isset( $nav_menu_args['args_hmac'] ) ) {

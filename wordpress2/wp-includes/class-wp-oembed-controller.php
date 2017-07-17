@@ -22,7 +22,7 @@ final class WP_oEmbed_Controller {
 	 * @since 4.4.0
 	 * @access public
 	 */
-	public function register_routes() {
+	public function register_routes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/**
 		 * Filters the maxwidth oEmbed parameter.
 		 *
@@ -65,7 +65,7 @@ final class WP_oEmbed_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|array oEmbed response data or WP_Error on failure.
 	 */
-	public function get_item( $request ) {
+	public function get_item( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post_id = url_to_postid( $request['url'] );
 
 		/**

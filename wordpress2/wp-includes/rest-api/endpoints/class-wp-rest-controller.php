@@ -38,7 +38,7 @@ abstract class WP_REST_Controller {
 	 * @since 4.7.0
 	 * @access public
 	 */
-	public function register_routes() {
+	public function register_routes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_doing_it_wrong( 'WP_REST_Controller::register_routes', __( 'The register_routes() method must be overridden' ), '4.7' );
 	}
 
@@ -51,7 +51,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|bool True if the request has read access, WP_Error object otherwise.
 	 */
-	public function get_items_permissions_check( $request ) {
+	public function get_items_permissions_check( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -64,7 +64,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
 	 */
-	public function get_items( $request ) {
+	public function get_items( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -77,7 +77,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|bool True if the request has read access for the item, WP_Error object otherwise.
 	 */
-	public function get_item_permissions_check( $request ) {
+	public function get_item_permissions_check( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -90,7 +90,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
 	 */
-	public function get_item( $request ) {
+	public function get_item( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -103,7 +103,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|bool True if the request has access to create items, WP_Error object otherwise.
 	 */
-	public function create_item_permissions_check( $request ) {
+	public function create_item_permissions_check( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -116,7 +116,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
 	 */
-	public function create_item( $request ) {
+	public function create_item( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -129,7 +129,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|bool True if the request has access to update the item, WP_Error object otherwise.
 	 */
-	public function update_item_permissions_check( $request ) {
+	public function update_item_permissions_check( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -142,7 +142,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
 	 */
-	public function update_item( $request ) {
+	public function update_item( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -155,7 +155,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|bool True if the request has access to delete the item, WP_Error object otherwise.
 	 */
-	public function delete_item_permissions_check( $request ) {
+	public function delete_item_permissions_check( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -168,7 +168,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full data about the request.
 	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
 	 */
-	public function delete_item( $request ) {
+	public function delete_item( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -181,7 +181,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Request object.
 	 * @return WP_Error|object The prepared item, or WP_Error object on failure.
 	 */
-	protected function prepare_item_for_database( $request ) {
+	protected function prepare_item_for_database( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -195,7 +195,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Request object.
 	 * @return WP_Error|WP_REST_Response Response object on success, or WP_Error object on failure.
 	 */
-	public function prepare_item_for_response( $item, $request ) {
+	public function prepare_item_for_response( $item, $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new WP_Error( 'invalid-method', sprintf( __( "Method '%s' not implemented. Must be overridden in subclass." ), __METHOD__ ), array( 'status' => 405 ) );
 	}
 
@@ -208,7 +208,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Response $response Response object.
 	 * @return array|mixed Response data, ready for insertion into collection data.
 	 */
-	public function prepare_response_for_collection( $response ) {
+	public function prepare_response_for_collection( $response ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! ( $response instanceof WP_REST_Response ) ) {
 			return $response;
 		}
@@ -239,7 +239,7 @@ abstract class WP_REST_Controller {
 	 * @param string $context Context defined in the schema.
 	 * @return array Filtered response.
 	 */
-	public function filter_response_by_context( $data, $context ) {
+	public function filter_response_by_context( $data, $context ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$schema = $this->get_item_schema();
 
@@ -279,7 +279,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @return array Item schema data.
 	 */
-	public function get_item_schema() {
+	public function get_item_schema() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->add_additional_fields_schema( array() );
 	}
 
@@ -291,7 +291,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @return array Public item schema data.
 	 */
-	public function get_public_item_schema() {
+	public function get_public_item_schema() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$schema = $this->get_item_schema();
 
@@ -310,7 +310,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @return array Query parameters for the collection.
 	 */
-	public function get_collection_params() {
+	public function get_collection_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array(
 			'context'                => $this->get_context_param(),
 			'page'                   => array(
@@ -350,7 +350,7 @@ abstract class WP_REST_Controller {
 	 * @param array $args Optional. Additional arguments for context parameter. Default empty array.
 	 * @return array Context parameter details.
 	 */
-	public function get_context_param( $args = array() ) {
+	public function get_context_param( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$param_details = array(
 			'description'        => __( 'Scope under which the request is made; determines fields present in response.' ),
 			'type'               => 'string',
@@ -390,7 +390,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return array Modified data object with additional fields.
 	 */
-	protected function add_additional_fields_to_object( $object, $request ) {
+	protected function add_additional_fields_to_object( $object, $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$additional_fields = $this->get_additional_fields();
 
@@ -416,7 +416,7 @@ abstract class WP_REST_Controller {
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return bool|WP_Error True on success, WP_Error object if a field cannot be updated.
 	 */
-	protected function update_additional_fields_for_object( $object, $request ) {
+	protected function update_additional_fields_for_object( $object, $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$additional_fields = $this->get_additional_fields();
 
 		foreach ( $additional_fields as $field_name => $field_options ) {
@@ -450,7 +450,7 @@ abstract class WP_REST_Controller {
 	 * @param array $schema Schema array.
 	 * @return array Modified Schema array.
 	 */
-	protected function add_additional_fields_schema( $schema ) {
+	protected function add_additional_fields_schema( $schema ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $schema['title'] ) ) {
 			return $schema;
 		}
@@ -481,7 +481,7 @@ abstract class WP_REST_Controller {
 	 * @return array Registered additional fields (if any), empty array if none or if the object type could
 	 *               not be inferred.
 	 */
-	protected function get_additional_fields( $object_type = null ) {
+	protected function get_additional_fields( $object_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		if ( ! $object_type ) {
 			$object_type = $this->get_object_type();
@@ -508,7 +508,7 @@ abstract class WP_REST_Controller {
 	 *
 	 * @return string Object type for the controller.
 	 */
-	protected function get_object_type() {
+	protected function get_object_type() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$schema = $this->get_item_schema();
 
 		if ( ! $schema || ! isset( $schema['title'] ) ) {
@@ -529,7 +529,7 @@ abstract class WP_REST_Controller {
 	 *                       on `EDITABLE` requests. Default WP_REST_Server::CREATABLE.
 	 * @return array Endpoint arguments.
 	 */
-	public function get_endpoint_args_for_item_schema( $method = WP_REST_Server::CREATABLE ) {
+	public function get_endpoint_args_for_item_schema( $method = WP_REST_Server::CREATABLE ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$schema            = $this->get_item_schema();
 		$schema_properties = ! empty( $schema['properties'] ) ? $schema['properties'] : array();
@@ -597,7 +597,7 @@ abstract class WP_REST_Controller {
 	 * @param string $slug Slug value passed in request.
 	 * @return string Sanitized value for the slug.
 	 */
-	public function sanitize_slug( $slug ) {
+	public function sanitize_slug( $slug ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return sanitize_title( $slug );
 	}
 }

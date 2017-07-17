@@ -90,7 +90,7 @@ class AtomParser {
 	/**
 	 * PHP5 constructor.
 	 */
-    function __construct() {
+    function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
         $this->feed = new AtomFeed();
         $this->current = null;
@@ -101,27 +101,27 @@ class AtomParser {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function AtomParser() {
+	public function AtomParser() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct();
 	}
 
-    function _p($msg) {
+    function _p($msg) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         if($this->debug) {
             print str_repeat(" ", $this->depth * $this->indent) . $msg ."\n";
         }
     }
 
-    function error_handler($log_level, $log_text, $error_file, $error_line) {
+    function error_handler($log_level, $log_text, $error_file, $error_line) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         $this->error = $log_text;
     }
 
-    function parse() {
+    function parse() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
         set_error_handler(array(&$this, 'error_handler'));
 
         array_unshift($this->ns_contexts, array());
 
-        if ( ! function_exists( 'xml_parser_create_ns' ) ) {
+        if ( ! function_exists( 'xml_parser_create_ns' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         	trigger_error( __( "PHP's XML extension is not available. Please contact your hosting provider to enable PHP's XML extension." ) );
         	return false;
         }
@@ -162,7 +162,7 @@ class AtomParser {
         return $ret;
     }
 
-    function start_element($parser, $name, $attrs) {
+    function start_element($parser, $name, $attrs) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
         $tag = array_pop(explode(":", $name));
 
@@ -241,7 +241,7 @@ class AtomParser {
         $this->ns_decls = array();
     }
 
-    function end_element($parser, $name) {
+    function end_element($parser, $name) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
         $tag = array_pop(explode(":", $name));
 
@@ -295,28 +295,28 @@ class AtomParser {
         $this->_p("end_element('$name')");
     }
 
-    function start_ns($parser, $prefix, $uri) {
+    function start_ns($parser, $prefix, $uri) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         $this->_p("starting: " . $prefix . ":" . $uri);
         array_push($this->ns_decls, array($prefix,$uri));
     }
 
-    function end_ns($parser, $prefix) {
+    function end_ns($parser, $prefix) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         $this->_p("ending: #" . $prefix . "#");
     }
 
-    function cdata($parser, $data) {
+    function cdata($parser, $data) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         $this->_p("data: #" . str_replace(array("\n"), array("\\n"), trim($data)) . "#");
         if(!empty($this->in_content)) {
             array_push($this->in_content, $data);
         }
     }
 
-    function _default($parser, $data) {
+    function _default($parser, $data) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         # when does this gets called?
     }
 
 
-    function ns_to_prefix($qname, $attr=false) {
+    function ns_to_prefix($qname, $attr=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         # split 'http://www.w3.org/1999/xhtml:div' into ('http','//www.w3.org/1999/xhtml','div')
         $components = explode(":", $qname);
 
@@ -348,7 +348,7 @@ class AtomParser {
         }
     }
 
-    function is_declared_content_ns($new_mapping) {
+    function is_declared_content_ns($new_mapping) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         foreach($this->content_ns_contexts as $context) {
             foreach($context as $mapping) {
                 if($new_mapping == $mapping) {

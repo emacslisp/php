@@ -31,7 +31,7 @@ class WP_Customize_Nav_Menu_Auto_Add_Control extends WP_Customize_Control {
 	 * @since 4.3.0
 	 * @access protected
 	 */
-	protected function render_content() {}
+	protected function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Render the Underscore template for this control.
@@ -39,7 +39,7 @@ class WP_Customize_Nav_Menu_Auto_Add_Control extends WP_Customize_Control {
 	 * @since 4.3.0
 	 * @access protected
 	 */
-	protected function content_template() {
+	protected function content_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<span class="customize-control-title"><?php _e( 'Menu Options' ); ?></span>
 		<label>

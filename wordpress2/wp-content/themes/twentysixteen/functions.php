@@ -44,7 +44,7 @@ if ( ! function_exists( 'twentysixteen_setup' ) ) :
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_setup() {
+function twentysixteen_setup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/twentysixteen
@@ -139,7 +139,7 @@ add_action( 'after_setup_theme', 'twentysixteen_setup' );
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_content_width() {
+function twentysixteen_content_width() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$GLOBALS['content_width'] = apply_filters( 'twentysixteen_content_width', 840 );
 }
 add_action( 'after_setup_theme', 'twentysixteen_content_width', 0 );
@@ -151,7 +151,7 @@ add_action( 'after_setup_theme', 'twentysixteen_content_width', 0 );
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_widgets_init() {
+function twentysixteen_widgets_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'twentysixteen' ),
 		'id'            => 'sidebar-1',
@@ -194,7 +194,7 @@ if ( ! function_exists( 'twentysixteen_fonts_url' ) ) :
  *
  * @return string Google fonts URL for the theme.
  */
-function twentysixteen_fonts_url() {
+function twentysixteen_fonts_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$fonts_url = '';
 	$fonts     = array();
 	$subsets   = 'latin,latin-ext';
@@ -232,7 +232,7 @@ endif;
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_javascript_detection() {
+function twentysixteen_javascript_detection() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
 add_action( 'wp_head', 'twentysixteen_javascript_detection', 0 );
@@ -242,7 +242,7 @@ add_action( 'wp_head', 'twentysixteen_javascript_detection', 0 );
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_scripts() {
+function twentysixteen_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'twentysixteen-fonts', twentysixteen_fonts_url(), array(), null );
 
@@ -295,7 +295,7 @@ add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
  * @param array $classes Classes for the body element.
  * @return array (Maybe) filtered body classes.
  */
-function twentysixteen_body_classes( $classes ) {
+function twentysixteen_body_classes( $classes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Adds a class of custom-background-image to sites with a custom background image.
 	if ( get_background_image() ) {
 		$classes[] = 'custom-background-image';
@@ -329,7 +329,7 @@ add_filter( 'body_class', 'twentysixteen_body_classes' );
  * @return array Array containing RGB (red, green, and blue) values for the given
  *               HEX code, empty array otherwise.
  */
-function twentysixteen_hex2rgb( $color ) {
+function twentysixteen_hex2rgb( $color ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$color = trim( $color, '#' );
 
 	if ( strlen( $color ) === 3 ) {
@@ -368,7 +368,7 @@ require get_template_directory() . '/inc/customizer.php';
  *                      values in pixels (in that order).
  * @return string A source size value for use in a content image 'sizes' attribute.
  */
-function twentysixteen_content_image_sizes_attr( $sizes, $size ) {
+function twentysixteen_content_image_sizes_attr( $sizes, $size ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$width = $size[0];
 
 	840 <= $width && $sizes = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px';
@@ -395,7 +395,7 @@ add_filter( 'wp_calculate_image_sizes', 'twentysixteen_content_image_sizes_attr'
  * @param array $size Registered image size or flat array of height and width dimensions.
  * @return string A source size value for use in a post thumbnail 'sizes' attribute.
  */
-function twentysixteen_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+function twentysixteen_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'post-thumbnail' === $size ) {
 		is_active_sidebar( 'sidebar-1' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
 		! is_active_sidebar( 'sidebar-1' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, 1200px';
@@ -412,7 +412,7 @@ add_filter( 'wp_get_attachment_image_attributes', 'twentysixteen_post_thumbnail_
  * @param array $args Arguments for tag cloud widget.
  * @return array A new modified arguments.
  */
-function twentysixteen_widget_tag_cloud_args( $args ) {
+function twentysixteen_widget_tag_cloud_args( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$args['largest'] = 1;
 	$args['smallest'] = 1;
 	$args['unit'] = 'em';

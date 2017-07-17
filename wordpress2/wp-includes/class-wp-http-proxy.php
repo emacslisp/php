@@ -51,7 +51,7 @@ class WP_HTTP_Proxy {
 	 *
 	 * @return bool
 	 */
-	public function is_enabled() {
+	public function is_enabled() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return defined('WP_PROXY_HOST') && defined('WP_PROXY_PORT');
 	}
 
@@ -65,7 +65,7 @@ class WP_HTTP_Proxy {
 	 *
 	 * @return bool
 	 */
-	public function use_authentication() {
+	public function use_authentication() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return defined('WP_PROXY_USERNAME') && defined('WP_PROXY_PASSWORD');
 	}
 
@@ -76,7 +76,7 @@ class WP_HTTP_Proxy {
 	 *
 	 * @return string
 	 */
-	public function host() {
+	public function host() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( defined('WP_PROXY_HOST') )
 			return WP_PROXY_HOST;
 
@@ -90,7 +90,7 @@ class WP_HTTP_Proxy {
 	 *
 	 * @return string
 	 */
-	public function port() {
+	public function port() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( defined('WP_PROXY_PORT') )
 			return WP_PROXY_PORT;
 
@@ -104,7 +104,7 @@ class WP_HTTP_Proxy {
 	 *
 	 * @return string
 	 */
-	public function username() {
+	public function username() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( defined('WP_PROXY_USERNAME') )
 			return WP_PROXY_USERNAME;
 
@@ -118,7 +118,7 @@ class WP_HTTP_Proxy {
 	 *
 	 * @return string
 	 */
-	public function password() {
+	public function password() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( defined('WP_PROXY_PASSWORD') )
 			return WP_PROXY_PASSWORD;
 
@@ -132,7 +132,7 @@ class WP_HTTP_Proxy {
 	 *
 	 * @return string
 	 */
-	public function authentication() {
+	public function authentication() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->username() . ':' . $this->password();
 	}
 
@@ -143,7 +143,7 @@ class WP_HTTP_Proxy {
 	 *
 	 * @return string
 	 */
-	public function authentication_header() {
+	public function authentication_header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'Proxy-Authorization: Basic ' . base64_encode( $this->authentication() );
 	}
 
@@ -162,7 +162,7 @@ class WP_HTTP_Proxy {
 	 * @param string $uri URI to check.
 	 * @return bool True, to send through the proxy and false if, the proxy should not be used.
 	 */
-	public function send_through_proxy( $uri ) {
+	public function send_through_proxy( $uri ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/*
 		 * parse_url() only handles http, https type URLs, and will emit E_WARNING on failure.
 		 * This will be displayed on sites, which is not reasonable.

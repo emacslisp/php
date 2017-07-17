@@ -23,7 +23,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @param array $args
 	 */
-	public function __construct($args = array()) {
+	public function __construct($args = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array( 'type' => 'web', 'url' => '', 'theme' => '', 'nonce' => '', 'title' => '' );
 		$args = wp_parse_args($args, $defaults);
 
@@ -36,7 +36,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function before() {
+	public function before() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !empty($this->api) )
 			$this->upgrader->strings['process_success'] = sprintf( $this->upgrader->strings['process_success_specific'], $this->api->name, $this->api->version);
 	}
@@ -44,7 +44,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function after() {
+	public function after() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty($this->upgrader->result['destination_name']) )
 			return;
 

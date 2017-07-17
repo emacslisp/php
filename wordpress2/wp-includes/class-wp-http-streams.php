@@ -27,7 +27,7 @@ class WP_Http_Streams {
 	 * @param string|array $args Optional. Override the defaults.
 	 * @return array|WP_Error Array containing 'headers', 'body', 'response', 'cookies', 'filename'. A WP_Error instance upon error
 	 */
-	public function request($url, $args = array()) {
+	public function request($url, $args = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array(
 			'method' => 'GET', 'timeout' => 5,
 			'redirection' => 5, 'httpversion' => '1.0',
@@ -329,7 +329,7 @@ class WP_Http_Streams {
 	 * @param string $host The hostname being requested
 	 * @return bool If the cerficiate presented in $stream is valid for $host
 	 */
-	public static function verify_ssl_certificate( $stream, $host ) {
+	public static function verify_ssl_certificate( $stream, $host ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$context_options = stream_context_get_options( $stream );
 
 		if ( empty( $context_options['ssl']['peer_certificate'] ) )
@@ -387,7 +387,7 @@ class WP_Http_Streams {
 	 * @param array $args Optional. Array of request arguments. Default empty array.
 	 * @return bool False means this class can not be used, true means it can.
 	 */
-	public static function test( $args = array() ) {
+	public static function test( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! function_exists( 'stream_socket_client' ) )
 			return false;
 

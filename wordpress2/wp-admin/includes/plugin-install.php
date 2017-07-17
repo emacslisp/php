@@ -98,7 +98,7 @@
  *         {@link https://developer.wordpress.org/reference/functions/plugins_api/ function reference article}
  *         for more information on the make-up of possible return values depending on the value of `$action`.
  */
-function plugins_api( $action, $args = array() ) {
+function plugins_api( $action, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	if ( is_array( $args ) ) {
 		$args = (object) $args;
@@ -212,7 +212,7 @@ function plugins_api( $action, $args = array() ) {
  * @param array $args
  * @return array
  */
-function install_popular_tags( $args = array() ) {
+function install_popular_tags( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$key = md5(serialize($args));
 	if ( false !== ($tags = get_site_transient('poptags_' . $key) ) )
 		return $tags;
@@ -230,7 +230,7 @@ function install_popular_tags( $args = array() ) {
 /**
  * @since 2.7.0
  */
-function install_dashboard() {
+function install_dashboard() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	?>
 	<p><?php printf( __( 'Plugins extend and expand the functionality of WordPress. You may automatically install plugins from the <a href="%1$s">WordPress Plugin Directory</a> or upload a plugin in .zip format by clicking the button at the top of this page.' ), __( 'https://wordpress.org/plugins/' ) ); ?></p>
 
@@ -273,7 +273,7 @@ function install_dashboard() {
  *
  * @param bool $deprecated Not used.
  */
-function install_search_form( $deprecated = true ) {
+function install_search_form( $deprecated = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$type = isset( $_REQUEST['type'] ) ? wp_unslash( $_REQUEST['type'] ) : 'term';
 	$term = isset( $_REQUEST['s'] ) ? wp_unslash( $_REQUEST['s'] ) : '';
 	?><form class="search-form search-plugins" method="get">
@@ -295,7 +295,7 @@ function install_search_form( $deprecated = true ) {
  * Upload from zip
  * @since 2.8.0
  */
-function install_plugins_upload() {
+function install_plugins_upload() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 <div class="upload-plugin">
 	<p class="install-help"><?php _e('If you have a plugin in a .zip format, you may install it by uploading it here.'); ?></p>
@@ -314,7 +314,7 @@ function install_plugins_upload() {
  * @since 3.5.0
  *
  */
-function install_plugins_favorites_form() {
+function install_plugins_favorites_form() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user   = get_user_option( 'wporg_favorites' );
 	$action = 'save_wporg_username_' . get_current_user_id();
 	?>
@@ -338,7 +338,7 @@ function install_plugins_favorites_form() {
  *
  * @global WP_List_Table $wp_list_table
  */
-function display_plugins_table() {
+function display_plugins_table() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_list_table;
 
 	switch ( current_filter() ) {
@@ -381,7 +381,7 @@ function display_plugins_table() {
  *     @type string $file    Plugin filename relative to the plugins directory.
  * }
  */
-function install_plugin_install_status($api, $loop = false) {
+function install_plugin_install_status($api, $loop = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// This function is called recursively, $loop prevents further loops.
 	if ( is_array($api) )
 		$api = (object) $api;
@@ -453,7 +453,7 @@ function install_plugin_install_status($api, $loop = false) {
  *
  * @global string $tab
  */
-function install_plugin_information() {
+function install_plugin_information() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $tab;
 
 	if ( empty( $_REQUEST['plugin'] ) ) {

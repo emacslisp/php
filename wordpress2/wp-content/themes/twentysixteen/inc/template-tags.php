@@ -17,7 +17,7 @@ if ( ! function_exists( 'twentysixteen_entry_meta' ) ) :
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_entry_meta() {
+function twentysixteen_entry_meta() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'post' === get_post_type() ) {
 		$author_avatar_size = apply_filters( 'twentysixteen_author_avatar_size', 49 );
 		printf( '<span class="byline"><span class="author vcard">%1$s<span class="screen-reader-text">%2$s </span> <a class="url fn n" href="%3$s">%4$s</a></span></span>',
@@ -61,7 +61,7 @@ if ( ! function_exists( 'twentysixteen_entry_date' ) ) :
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_entry_date() {
+function twentysixteen_entry_date() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -91,7 +91,7 @@ if ( ! function_exists( 'twentysixteen_entry_taxonomies' ) ) :
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_entry_taxonomies() {
+function twentysixteen_entry_taxonomies() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'twentysixteen' ) );
 	if ( $categories_list && twentysixteen_categorized_blog() ) {
 		printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
@@ -121,7 +121,7 @@ if ( ! function_exists( 'twentysixteen_post_thumbnail' ) ) :
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_post_thumbnail() {
+function twentysixteen_post_thumbnail() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -155,7 +155,7 @@ if ( ! function_exists( 'twentysixteen_excerpt' ) ) :
 	 *
 	 * @param string $class Optional. Class string of the div element. Defaults to 'entry-summary'.
 	 */
-	function twentysixteen_excerpt( $class = 'entry-summary' ) {
+	function twentysixteen_excerpt( $class = 'entry-summary' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$class = esc_attr( $class );
 
 		if ( has_excerpt() || is_search() ) : ?>
@@ -177,7 +177,7 @@ if ( ! function_exists( 'twentysixteen_excerpt_more' ) && ! is_admin() ) :
  *
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
-function twentysixteen_excerpt_more() {
+function twentysixteen_excerpt_more() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
@@ -198,7 +198,7 @@ if ( ! function_exists( 'twentysixteen_categorized_blog' ) ) :
  *
  * @return bool True if there is more than one category, false otherwise.
  */
-function twentysixteen_categorized_blog() {
+function twentysixteen_categorized_blog() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( false === ( $all_the_cool_cats = get_transient( 'twentysixteen_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
@@ -228,7 +228,7 @@ endif;
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_category_transient_flusher() {
+function twentysixteen_category_transient_flusher() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
@@ -246,8 +246,8 @@ if ( ! function_exists( 'twentysixteen_the_custom_logo' ) ) :
  *
  * @since Twenty Sixteen 1.2
  */
-function twentysixteen_the_custom_logo() {
-	if ( function_exists( 'the_custom_logo' ) ) {
+function twentysixteen_the_custom_logo() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	if ( function_exists( 'the_custom_logo' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		the_custom_logo();
 	}
 }

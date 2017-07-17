@@ -82,7 +82,7 @@ class WP_Http_Cookie {
 	 * @param string       $requested_url The URL which the cookie was set on, used for default $domain
 	 *                                    and $port values.
 	 */
-	public function __construct( $data, $requested_url = '' ) {
+	public function __construct( $data, $requested_url = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $requested_url )
 			$arrURL = @parse_url( $requested_url );
 		if ( isset( $arrURL['host'] ) )
@@ -146,7 +146,7 @@ class WP_Http_Cookie {
 	 * @param string $url URL you intend to send this cookie to
 	 * @return bool true if allowed, false otherwise.
 	 */
-	public function test( $url ) {
+	public function test( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_null( $this->name ) )
 			return false;
 
@@ -190,7 +190,7 @@ class WP_Http_Cookie {
 	 *
 	 * @return string Header encoded cookie name and value.
 	 */
-	public function getHeaderValue() {
+	public function getHeaderValue() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $this->name ) || ! isset( $this->value ) )
 			return '';
 
@@ -213,7 +213,7 @@ class WP_Http_Cookie {
 	 *
 	 * @return string
 	 */
-	public function getFullHeader() {
+	public function getFullHeader() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'Cookie: ' . $this->getHeaderValue();
 	}
 
@@ -231,7 +231,7 @@ class WP_Http_Cookie {
 	 *    @type string $domain  Cookie domain.
 	 * }
 	 */
-	public function get_attributes() {
+	public function get_attributes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array(
 			'expires' => $this->expires,
 			'path'    => $this->path,

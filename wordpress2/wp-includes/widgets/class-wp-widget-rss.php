@@ -22,7 +22,7 @@ class WP_Widget_RSS extends WP_Widget {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$widget_ops = array(
 			'description' => __( 'Entries from any RSS or Atom feed.' ),
 			'customize_selective_refresh' => true,
@@ -41,7 +41,7 @@ class WP_Widget_RSS extends WP_Widget {
 	 *                        'before_widget', and 'after_widget'.
 	 * @param array $instance Settings for the current RSS widget instance.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset($instance['error']) && $instance['error'] )
 			return;
 
@@ -104,7 +104,7 @@ class WP_Widget_RSS extends WP_Widget {
 	 * @param array $old_instance Old settings for this instance.
 	 * @return array Updated settings to save.
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$testurl = ( isset( $new_instance['url'] ) && ( !isset( $old_instance['url'] ) || ( $new_instance['url'] != $old_instance['url'] ) ) );
 		return wp_widget_rss_process( $new_instance, $testurl );
 	}
@@ -117,7 +117,7 @@ class WP_Widget_RSS extends WP_Widget {
 	 *
 	 * @param array $instance Current settings.
 	 */
-	public function form( $instance ) {
+	public function form( $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $instance ) ) {
 			$instance = array( 'title' => '', 'url' => '', 'items' => 10, 'error' => false, 'show_summary' => 0, 'show_author' => 0, 'show_date' => 0 );
 		}

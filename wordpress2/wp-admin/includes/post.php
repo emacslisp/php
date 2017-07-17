@@ -18,7 +18,7 @@
  * @param array $post_data Array of post data. Defaults to the contents of $_POST.
  * @return object|bool WP_Error on failure, true on success.
  */
-function _wp_translate_postdata( $update = false, $post_data = null ) {
+function _wp_translate_postdata( $update = false, $post_data = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	if ( empty($post_data) )
 		$post_data = &$_POST;
@@ -185,7 +185,7 @@ function _wp_translate_postdata( $update = false, $post_data = null ) {
  * @param array $post_data Optional.
  * @return int Post ID.
  */
-function edit_post( $post_data = null ) {
+function edit_post( $post_data = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( empty($post_data) )
@@ -417,7 +417,7 @@ function edit_post( $post_data = null ) {
  * @param array $post_data Optional, the array of post data to process if not provided will use $_POST superglobal.
  * @return array
  */
-function bulk_edit_posts( $post_data = null ) {
+function bulk_edit_posts( $post_data = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( empty($post_data) )
@@ -590,7 +590,7 @@ function bulk_edit_posts( $post_data = null ) {
  * @param bool   $create_in_db Optional. Whether to insert the post into database. Default false.
  * @return WP_Post Post object containing all the default post data as attributes
  */
-function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) {
+function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post_title = '';
 	if ( !empty( $_REQUEST['post_title'] ) )
 		$post_title = esc_html( wp_unslash( $_REQUEST['post_title'] ));
@@ -675,7 +675,7 @@ function get_default_post_to_edit( $post_type = 'post', $create_in_db = false ) 
  * @param string $date Optional post date
  * @return int Post ID if post exists, 0 otherwise.
  */
-function post_exists($title, $content = '', $date = '') {
+function post_exists($title, $content = '', $date = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$post_title = wp_unslash( sanitize_post_field( 'post_title', $title, 0, 'db' ) );
@@ -715,7 +715,7 @@ function post_exists($title, $content = '', $date = '') {
  *
  * @return int|WP_Error
  */
-function wp_write_post() {
+function wp_write_post() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset($_POST['post_type']) )
 		$ptype = get_post_type_object($_POST['post_type']);
 	else
@@ -784,7 +784,7 @@ function wp_write_post() {
  *
  * @return int|null
  */
-function write_post() {
+function write_post() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$result = wp_write_post();
 	if ( is_wp_error( $result ) )
 		wp_die( $result->get_error_message() );
@@ -804,7 +804,7 @@ function write_post() {
  * @param int $post_ID
  * @return int|bool
  */
-function add_meta( $post_ID ) {
+function add_meta( $post_ID ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post_ID = (int) $post_ID;
 
 	$metakeyselect = isset($_POST['metakeyselect']) ? wp_unslash( trim( $_POST['metakeyselect'] ) ) : '';
@@ -843,7 +843,7 @@ function add_meta( $post_ID ) {
  * @param int $mid
  * @return bool
  */
-function delete_meta( $mid ) {
+function delete_meta( $mid ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return delete_metadata_by_mid( 'post' , $mid );
 }
 
@@ -856,7 +856,7 @@ function delete_meta( $mid ) {
  *
  * @return mixed
  */
-function get_meta_keys() {
+function get_meta_keys() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$keys = $wpdb->get_col( "
@@ -876,7 +876,7 @@ function get_meta_keys() {
  * @param int $mid
  * @return object|bool
  */
-function get_post_meta_by_id( $mid ) {
+function get_post_meta_by_id( $mid ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return get_metadata_by_mid( 'post', $mid );
 }
 
@@ -890,7 +890,7 @@ function get_post_meta_by_id( $mid ) {
  * @param int $postid
  * @return mixed
  */
-function has_meta( $postid ) {
+function has_meta( $postid ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	return $wpdb->get_results( $wpdb->prepare("SELECT meta_key, meta_value, meta_id, post_id
@@ -908,7 +908,7 @@ function has_meta( $postid ) {
  * @param string $meta_value Expect Slashed
  * @return bool
  */
-function update_meta( $meta_id, $meta_key, $meta_value ) {
+function update_meta( $meta_id, $meta_key, $meta_value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$meta_key = wp_unslash( $meta_key );
 	$meta_value = wp_unslash( $meta_value );
 
@@ -928,7 +928,7 @@ function update_meta( $meta_id, $meta_key, $meta_value ) {
  * @param int|object $post Post ID or post object.
  * @return void|int|WP_Error Void if nothing fixed. 0 or WP_Error on update failure. The post ID on update success.
  */
-function _fix_attachment_links( $post ) {
+function _fix_attachment_links( $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $post, ARRAY_A );
 	$content = $post['post_content'];
 
@@ -980,7 +980,7 @@ function _fix_attachment_links( $post ) {
  * @param string $type The post_type you want the statuses for
  * @return array As array of all the statuses for the supplied post type
  */
-function get_available_post_statuses($type = 'post') {
+function get_available_post_statuses($type = 'post') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$stati = wp_count_posts($type);
 
 	return array_keys(get_object_vars($stati));
@@ -994,7 +994,7 @@ function get_available_post_statuses($type = 'post') {
  * @param array|bool $q Array of query variables to use to build the query or false to use $_GET superglobal.
  * @return array
  */
-function wp_edit_posts_query( $q = false ) {
+function wp_edit_posts_query( $q = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( false === $q )
 		$q = $_GET;
 	$q['m'] = isset($q['m']) ? (int) $q['m'] : 0;
@@ -1084,7 +1084,7 @@ function wp_edit_posts_query( $q = false ) {
  * @param string $type
  * @return mixed
  */
-function get_available_post_mime_types($type = 'attachment') {
+function get_available_post_mime_types($type = 'attachment') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$types = $wpdb->get_col($wpdb->prepare("SELECT DISTINCT post_mime_type FROM $wpdb->posts WHERE post_type = %s", $type));
@@ -1100,7 +1100,7 @@ function get_available_post_mime_types($type = 'attachment') {
  *                       to use $_GET superglobal. Default false.
  * @return array The parsed query vars.
  */
-function wp_edit_attachments_query_vars( $q = false ) {
+function wp_edit_attachments_query_vars( $q = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( false === $q ) {
 		$q = $_GET;
 	}
@@ -1163,7 +1163,7 @@ function wp_edit_attachments_query_vars( $q = false ) {
  * @param array|false $q Array of query variables to use to build the query or false to use $_GET superglobal.
  * @return array
  */
-function wp_edit_attachments_query( $q = false ) {
+function wp_edit_attachments_query( $q = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp( wp_edit_attachments_query_vars( $q ) );
 
 	$post_mime_types = get_post_mime_types();
@@ -1181,7 +1181,7 @@ function wp_edit_attachments_query( $q = false ) {
  * @param string $page
  * @return string
  */
-function postbox_classes( $id, $page ) {
+function postbox_classes( $id, $page ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $_GET['edit'] ) && $_GET['edit'] == $id ) {
 		$classes = array( '' );
 	} elseif ( $closed = get_user_option('closedpostboxes_'.$page ) ) {
@@ -1218,7 +1218,7 @@ function postbox_classes( $id, $page ) {
  * @param string $name  Optional. Name to override the post name. Default null.
  * @return array Array containing the sample permalink with placeholder for the post name, and the post name.
  */
-function get_sample_permalink($id, $title = null, $name = null) {
+function get_sample_permalink($id, $title = null, $name = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $id );
 	if ( ! $post )
 		return array( '', '' );
@@ -1296,7 +1296,7 @@ function get_sample_permalink($id, $title = null, $name = null) {
  * @param string $new_slug  Optional. New slug. Default null.
  * @return string The HTML of the sample permalink slug editor.
  */
-function get_sample_permalink_html( $id, $new_title = null, $new_slug = null ) {
+function get_sample_permalink_html( $id, $new_title = null, $new_slug = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $id );
 	if ( ! $post )
 		return '';
@@ -1378,7 +1378,7 @@ function get_sample_permalink_html( $id, $new_title = null, $new_slug = null ) {
  * @param mixed $post The post ID or object associated with the thumbnail, defaults to global $post.
  * @return string html
  */
-function _wp_post_thumbnail_html( $thumbnail_id = null, $post = null ) {
+function _wp_post_thumbnail_html( $thumbnail_id = null, $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$_wp_additional_image_sizes = wp_get_additional_image_sizes();
 
 	$post               = get_post( $post );
@@ -1451,7 +1451,7 @@ function _wp_post_thumbnail_html( $thumbnail_id = null, $post = null ) {
  * @param int $post_id ID of the post to check for editing
  * @return integer False: not locked or locked by current user. Int: user ID of user with lock.
  */
-function wp_check_post_lock( $post_id ) {
+function wp_check_post_lock( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !$post = get_post( $post_id ) )
 		return false;
 
@@ -1479,7 +1479,7 @@ function wp_check_post_lock( $post_id ) {
  * @return bool|array Returns false if the post doesn't exist of there is no current user, or
  * 	an array of the lock time and the user ID.
  */
-function wp_set_post_lock( $post_id ) {
+function wp_set_post_lock( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !$post = get_post( $post_id ) )
 		return false;
 	if ( 0 == ($user_id = get_current_user_id()) )
@@ -1498,7 +1498,7 @@ function wp_set_post_lock( $post_id ) {
  * @since 2.8.5
  * @return none
  */
-function _admin_notice_post_locked() {
+function _admin_notice_post_locked() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $post = get_post() )
 		return;
 
@@ -1653,7 +1653,7 @@ function _admin_notice_post_locked() {
  * @param mixed $post_data Associative array containing the post data or int post ID.
  * @return mixed The autosave revision ID. WP_Error or 0 on error.
  */
-function wp_create_post_autosave( $post_data ) {
+function wp_create_post_autosave( $post_data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_numeric( $post_data ) ) {
 		$post_id = $post_data;
 		$post_data = $_POST;
@@ -1715,7 +1715,7 @@ function wp_create_post_autosave( $post_data ) {
  *
  * @return str URL to redirect to show the preview
  */
-function post_preview() {
+function post_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	$post_ID = (int) $_POST['post_ID'];
 	$_POST['ID'] = $post_ID;
@@ -1773,7 +1773,7 @@ function post_preview() {
  * @return mixed The value 0 or WP_Error on failure. The saved post ID on success.
  *               The ID can be the draft post_id or the autosave revision post_id.
  */
-function wp_autosave( $post_data ) {
+function wp_autosave( $post_data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Back-compat
 	if ( ! defined( 'DOING_AUTOSAVE' ) )
 		define( 'DOING_AUTOSAVE', true );
@@ -1811,7 +1811,7 @@ function wp_autosave( $post_data ) {
  *
  * @param int $post_id Optional. Post ID.
  */
-function redirect_post($post_id = '') {
+function redirect_post($post_id = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset($_POST['save']) || isset($_POST['publish']) ) {
 		$status = get_post_status( $post_id );
 

@@ -74,7 +74,7 @@ $wp_file_descriptions = array(
  * @return string Description of file from $wp_file_descriptions or basename of $file if description doesn't exist.
  *                Appends 'Page Template' to basename of $file if the file is a page template
  */
-function get_file_description( $file ) {
+function get_file_description( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_file_descriptions, $allowed_files;
 
 	$dirname = pathinfo( $file, PATHINFO_DIRNAME );
@@ -99,7 +99,7 @@ function get_file_description( $file ) {
  *
  * @return string Full filesystem path to the root of the WordPress installation
  */
-function get_home_path() {
+function get_home_path() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$home    = set_url_scheme( get_option( 'home' ), 'http' );
 	$siteurl = set_url_scheme( get_option( 'siteurl' ), 'http' );
 	if ( ! empty( $home ) && 0 !== strcasecmp( $home, $siteurl ) ) {
@@ -124,7 +124,7 @@ function get_home_path() {
  * @param int    $levels Optional. Levels of folders to follow, Default 100 (PHP Loop limit).
  * @return bool|array False on failure, Else array of files
  */
-function list_files( $folder = '', $levels = 100 ) {
+function list_files( $folder = '', $levels = 100 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty($folder) )
 		return false;
 
@@ -164,7 +164,7 @@ function list_files( $folder = '', $levels = 100 ) {
  * @param string $dir      Optional. Directory to store the file in. Default empty.
  * @return string a writable filename
  */
-function wp_tempnam( $filename = '', $dir = '' ) {
+function wp_tempnam( $filename = '', $dir = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $dir ) ) {
 		$dir = get_temp_dir();
 	}
@@ -209,7 +209,7 @@ function wp_tempnam( $filename = '', $dir = '' ) {
  * @param array $allowed_files Array of allowed files to edit, $file must match an entry exactly
  * @return string|null
  */
-function validate_file_to_edit( $file, $allowed_files = '' ) {
+function validate_file_to_edit( $file, $allowed_files = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$code = validate_file( $file, $allowed_files );
 
 	if (!$code )
@@ -243,10 +243,10 @@ function validate_file_to_edit( $file, $allowed_files = '' ) {
  * @return array On success, returns an associative array of file attributes. On failure, returns
  *               $overrides['upload_error_handler'](&$file, $message ) or array( 'error'=>$message ).
  */
-function _wp_handle_upload( &$file, $overrides, $time, $action ) {
+function _wp_handle_upload( &$file, $overrides, $time, $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// The default error handler.
-	if ( ! function_exists( 'wp_handle_upload_error' ) ) {
-		function wp_handle_upload_error( &$file, $message ) {
+	if ( ! function_exists( 'wp_handle_upload_error' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		function wp_handle_upload_error( &$file, $message ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			return array( 'error' => $message );
 		}
 	}
@@ -437,7 +437,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
  * @return array On success, returns an associative array of file attributes. On failure, returns
  *               $overrides['upload_error_handler'](&$file, $message ) or array( 'error'=>$message ).
  */
-function wp_handle_upload( &$file, $overrides = false, $time = null ) {
+function wp_handle_upload( &$file, $overrides = false, $time = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/*
 	 *  $_POST['action'] must be set and its value must equal $overrides['action']
 	 *  or this:
@@ -466,7 +466,7 @@ function wp_handle_upload( &$file, $overrides = false, $time = null ) {
  * @return array On success, returns an associative array of file attributes. On failure, returns
  *               $overrides['upload_error_handler'](&$file, $message ) or array( 'error'=>$message ).
  */
-function wp_handle_sideload( &$file, $overrides = false, $time = null ) {
+function wp_handle_sideload( &$file, $overrides = false, $time = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/*
 	 *  $_POST['action'] must be set and its value must equal $overrides['action']
 	 *  or this:
@@ -489,7 +489,7 @@ function wp_handle_sideload( &$file, $overrides = false, $time = null ) {
  * @param int $timeout The timeout for the request to download the file default 300 seconds
  * @return mixed WP_Error on failure, string Filename on success.
  */
-function download_url( $url, $timeout = 300 ) {
+function download_url( $url, $timeout = 300 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	//WARNING: The file is not automatically deleted, The script must unlink() the file.
 	if ( ! $url )
 		return new WP_Error('http_no_url', __('Invalid URL Provided.'));
@@ -533,7 +533,7 @@ function download_url( $url, $timeout = 300 ) {
  * @param string $expected_md5 The expected MD5 of the file, either a base64 encoded raw md5, or a hex-encoded md5
  * @return bool|object WP_Error on failure, true on success, false when the MD5 format is unknown/unexpected
  */
-function verify_file_md5( $filename, $expected_md5 ) {
+function verify_file_md5( $filename, $expected_md5 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 32 == strlen( $expected_md5 ) )
 		$expected_raw_md5 = pack( 'H*', $expected_md5 );
 	elseif ( 24 == strlen( $expected_md5 ) )
@@ -564,7 +564,7 @@ function verify_file_md5( $filename, $expected_md5 ) {
  * @param string $to Full path on the filesystem to extract archive to
  * @return mixed WP_Error on failure, True on success
  */
-function unzip_file($file, $to) {
+function unzip_file($file, $to) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filesystem;
 
 	if ( ! $wp_filesystem || !is_object($wp_filesystem) )
@@ -629,7 +629,7 @@ function unzip_file($file, $to) {
  * @param array $needed_dirs A partial list of required folders needed to be created.
  * @return mixed WP_Error on failure, True on success
  */
-function _unzip_file_ziparchive($file, $to, $needed_dirs = array() ) {
+function _unzip_file_ziparchive($file, $to, $needed_dirs = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filesystem;
 
 	$z = new ZipArchive();
@@ -732,7 +732,7 @@ function _unzip_file_ziparchive($file, $to, $needed_dirs = array() ) {
  * @param array $needed_dirs A partial list of required folders needed to be created.
  * @return mixed WP_Error on failure, True on success
  */
-function _unzip_file_pclzip($file, $to, $needed_dirs = array()) {
+function _unzip_file_pclzip($file, $to, $needed_dirs = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filesystem;
 
 	mbstring_binary_safe_encoding();
@@ -826,7 +826,7 @@ function _unzip_file_pclzip($file, $to, $needed_dirs = array()) {
  * @param array $skip_list a list of files/folders to skip copying
  * @return mixed WP_Error on failure, True on success.
  */
-function copy_dir($from, $to, $skip_list = array() ) {
+function copy_dir($from, $to, $skip_list = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filesystem;
 
 	$dirlist = $wp_filesystem->dirlist($from);
@@ -883,7 +883,7 @@ function copy_dir($from, $to, $skip_list = array() ) {
  * @param bool         $allow_relaxed_file_ownership Optional. Whether to allow Group/World writable. Default false.
  * @return null|bool false on failure, true on success.
  */
-function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_ownership = false ) {
+function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_ownership = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filesystem;
 
 	require_once(ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php');
@@ -963,7 +963,7 @@ function WP_Filesystem( $args = false, $context = false, $allow_relaxed_file_own
  *                                             Default false.
  * @return string The transport to use, see description for valid return values.
  */
-function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_file_ownership = false ) {
+function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_file_ownership = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$method = defined('FS_METHOD') ? FS_METHOD : false; // Please ensure that this is either 'direct', 'ssh2', 'ftpext' or 'ftpsockets'
 
 	if ( ! $context ) {
@@ -985,7 +985,7 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
 
 			// Attempt to determine the file owner of the WordPress files, and that of newly created files
 			$wp_file_owner = $temp_file_owner = false;
-			if ( function_exists('fileowner') ) {
+			if ( function_exists('fileowner') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				$wp_file_owner = @fileowner( __FILE__ );
 				$temp_file_owner = @fileowner( $temp_file_name );
 			}
@@ -1052,7 +1052,7 @@ function get_filesystem_method( $args = array(), $context = '', $allow_relaxed_f
  *
  * @return bool False on failure, true on success.
  */
-function request_filesystem_credentials( $form_post, $type = '', $error = false, $context = '', $extra_fields = null, $allow_relaxed_file_ownership = false ) {
+function request_filesystem_credentials( $form_post, $type = '', $error = false, $context = '', $extra_fields = null, $allow_relaxed_file_ownership = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $pagenow;
 
 	/**
@@ -1274,7 +1274,7 @@ foreach ( (array) $extra_fields as $field ) {
  *
  * @since 4.2.0
  */
-function wp_print_request_filesystem_credentials_modal() {
+function wp_print_request_filesystem_credentials_modal() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$filesystem_method = get_filesystem_method();
 	ob_start();
 	$filesystem_credentials_are_stored = request_filesystem_credentials( self_admin_url() );

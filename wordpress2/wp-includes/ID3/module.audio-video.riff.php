@@ -31,7 +31,7 @@ class getid3_riff extends getid3_handler {
 
 	protected $container = 'riff'; // default
 
-	public function Analyze() {
+	public function Analyze() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		// initialize these values to an empty array, otherwise they default to NULL
@@ -1320,7 +1320,7 @@ class getid3_riff extends getid3_handler {
 		return true;
 	}
 
-	public function ParseRIFFAMV($startoffset, $maxoffset) {
+	public function ParseRIFFAMV($startoffset, $maxoffset) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// AMV files are RIFF-AVI files with parts of the spec deliberately broken, such as chunk size fields hardcoded to zero (because players known in hardware that these fields are always a certain size
 
 		// https://code.google.com/p/amv-codec-tools/wiki/AmvDocumentation
@@ -1429,7 +1429,7 @@ class getid3_riff extends getid3_handler {
 	}
 
 
-	public function ParseRIFF($startoffset, $maxoffset) {
+	public function ParseRIFF($startoffset, $maxoffset) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$RIFFchunk = false;
@@ -1715,7 +1715,7 @@ class getid3_riff extends getid3_handler {
 		return $RIFFchunk;
 	}
 
-	public function ParseRIFFdata(&$RIFFdata) {
+	public function ParseRIFFdata(&$RIFFdata) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 		if ($RIFFdata) {
 			$tempfile = tempnam(GETID3_TEMP_DIR, 'getID3');
@@ -1752,7 +1752,7 @@ class getid3_riff extends getid3_handler {
 		return false;
 	}
 
-	public static function parseComments(&$RIFFinfoArray, &$CommentsTargetArray) {
+	public static function parseComments(&$RIFFinfoArray, &$CommentsTargetArray) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$RIFFinfoKeyLookup = array(
 			'IARL'=>'archivallocation',
 			'IART'=>'artist',
@@ -1811,7 +1811,7 @@ class getid3_riff extends getid3_handler {
 		return true;
 	}
 
-	public static function parseWAVEFORMATex($WaveFormatExData) {
+	public static function parseWAVEFORMATex($WaveFormatExData) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// shortcut
 		$WaveFormatEx['raw'] = array();
 		$WaveFormatEx_raw    = &$WaveFormatEx['raw'];
@@ -1836,7 +1836,7 @@ class getid3_riff extends getid3_handler {
 		return $WaveFormatEx;
 	}
 
-	public function parseWavPackHeader($WavPackChunkData) {
+	public function parseWavPackHeader($WavPackChunkData) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// typedef struct {
 		//     char ckID [4];
 		//     long ckSize;
@@ -1897,7 +1897,7 @@ class getid3_riff extends getid3_handler {
 		return true;
 	}
 
-	public static function ParseBITMAPINFOHEADER($BITMAPINFOHEADER, $littleEndian=true) {
+	public static function ParseBITMAPINFOHEADER($BITMAPINFOHEADER, $littleEndian=true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$parsed['biSize']          = substr($BITMAPINFOHEADER,  0, 4); // number of bytes required by the BITMAPINFOHEADER structure
 		$parsed['biWidth']         = substr($BITMAPINFOHEADER,  4, 4); // width of the bitmap in pixels
@@ -1916,7 +1916,7 @@ class getid3_riff extends getid3_handler {
 		return $parsed;
 	}
 
-	public static function ParseDIVXTAG($DIVXTAG, $raw=false) {
+	public static function ParseDIVXTAG($DIVXTAG, $raw=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// structure from "IDivX" source, Form1.frm, by "Greg Frazier of Daemonic Software Group", email: gfrazier@icestorm.net, web: http://dsg.cjb.net/
 		// source available at http://files.divx-digest.com/download/c663efe7ef8ad2e90bf4af4d3ea6188a/on0SWN2r/edit/IDivX.zip
 		// 'Byte Layout:                   '1111111111111111
@@ -1990,7 +1990,7 @@ class getid3_riff extends getid3_handler {
 		return $parsed;
 	}
 
-	public static function waveSNDMtagLookup($tagshortname) {
+	public static function waveSNDMtagLookup($tagshortname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$begin = __LINE__;
 
 		/** This is not a comment!
@@ -2013,7 +2013,7 @@ class getid3_riff extends getid3_handler {
 		return getid3_lib::EmbeddedLookup($tagshortname, $begin, __LINE__, __FILE__, 'riff-sndm');
 	}
 
-	public static function wFormatTagLookup($wFormatTag) {
+	public static function wFormatTagLookup($wFormatTag) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$begin = __LINE__;
 
@@ -2182,7 +2182,7 @@ class getid3_riff extends getid3_handler {
 		return getid3_lib::EmbeddedLookup('0x'.str_pad(strtoupper(dechex($wFormatTag)), 4, '0', STR_PAD_LEFT), $begin, __LINE__, __FILE__, 'riff-wFormatTag');
 	}
 
-	public static function fourccLookup($fourcc) {
+	public static function fourccLookup($fourcc) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$begin = __LINE__;
 
@@ -2576,7 +2576,7 @@ class getid3_riff extends getid3_handler {
 		return getid3_lib::EmbeddedLookup($fourcc, $begin, __LINE__, __FILE__, 'riff-fourcc');
 	}
 
-	private function EitherEndian2Int($byteword, $signed=false) {
+	private function EitherEndian2Int($byteword, $signed=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($this->container == 'riff') {
 			return getid3_lib::LittleEndian2Int($byteword, $signed);
 		}

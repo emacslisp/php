@@ -20,7 +20,7 @@ class getid3_id3v2 extends getid3_handler
 {
 	public $StartingOffset = 0;
 
-	public function Analyze() {
+	public function Analyze() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		//    Overall tag structure:
@@ -495,7 +495,7 @@ class getid3_id3v2 extends getid3_handler
 	}
 
 
-	public function ParseID3v2GenreString($genrestring) {
+	public function ParseID3v2GenreString($genrestring) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Parse genres into arrays of genreName and genreID
 		// ID3v2.2.x, ID3v2.3.x: '(21)' or '(4)Eurodisco' or '(51)(39)' or '(55)((I think...)'
 		// ID3v2.4.x: '21' $00 'Eurodisco' $00
@@ -518,7 +518,7 @@ class getid3_id3v2 extends getid3_handler
 	}
 
 
-	public function ParseID3v2Frame(&$parsedFrame) {
+	public function ParseID3v2Frame(&$parsedFrame) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// shortcuts
 		$info = &$this->getid3->info;
@@ -570,7 +570,7 @@ class getid3_id3v2 extends getid3_handler
 			//    Frame-level de-compression
 			if ($parsedFrame['flags']['compression']) {
 				$parsedFrame['decompressed_size'] = getid3_lib::BigEndian2Int(substr($parsedFrame['data'], 0, 4));
-				if (!function_exists('gzuncompress')) {
+				if (!function_exists('gzuncompress')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 					$info['warning'][] = 'gzuncompress() support required to decompress ID3v2 frame "'.$parsedFrame['frame_name'].'"';
 				} else {
 					if ($decompresseddata = @gzuncompress(substr($parsedFrame['data'], 4))) {
@@ -2152,11 +2152,11 @@ class getid3_id3v2 extends getid3_handler
 	}
 
 
-	public function DeUnsynchronise($data) {
+	public function DeUnsynchronise($data) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return str_replace("\xFF\x00", "\xFF", $data);
 	}
 
-	public function LookupExtendedHeaderRestrictionsTagSizeLimits($index) {
+	public function LookupExtendedHeaderRestrictionsTagSizeLimits($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $LookupExtendedHeaderRestrictionsTagSizeLimits = array(
 			0x00 => 'No more than 128 frames and 1 MB total tag size',
 			0x01 => 'No more than 64 frames and 128 KB total tag size',
@@ -2166,7 +2166,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($LookupExtendedHeaderRestrictionsTagSizeLimits[$index]) ? $LookupExtendedHeaderRestrictionsTagSizeLimits[$index] : '');
 	}
 
-	public function LookupExtendedHeaderRestrictionsTextEncodings($index) {
+	public function LookupExtendedHeaderRestrictionsTextEncodings($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $LookupExtendedHeaderRestrictionsTextEncodings = array(
 			0x00 => 'No restrictions',
 			0x01 => 'Strings are only encoded with ISO-8859-1 or UTF-8',
@@ -2174,7 +2174,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($LookupExtendedHeaderRestrictionsTextEncodings[$index]) ? $LookupExtendedHeaderRestrictionsTextEncodings[$index] : '');
 	}
 
-	public function LookupExtendedHeaderRestrictionsTextFieldSize($index) {
+	public function LookupExtendedHeaderRestrictionsTextFieldSize($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $LookupExtendedHeaderRestrictionsTextFieldSize = array(
 			0x00 => 'No restrictions',
 			0x01 => 'No string is longer than 1024 characters',
@@ -2184,7 +2184,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($LookupExtendedHeaderRestrictionsTextFieldSize[$index]) ? $LookupExtendedHeaderRestrictionsTextFieldSize[$index] : '');
 	}
 
-	public function LookupExtendedHeaderRestrictionsImageEncoding($index) {
+	public function LookupExtendedHeaderRestrictionsImageEncoding($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $LookupExtendedHeaderRestrictionsImageEncoding = array(
 			0x00 => 'No restrictions',
 			0x01 => 'Images are encoded only with PNG or JPEG',
@@ -2192,7 +2192,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($LookupExtendedHeaderRestrictionsImageEncoding[$index]) ? $LookupExtendedHeaderRestrictionsImageEncoding[$index] : '');
 	}
 
-	public function LookupExtendedHeaderRestrictionsImageSizeSize($index) {
+	public function LookupExtendedHeaderRestrictionsImageSizeSize($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $LookupExtendedHeaderRestrictionsImageSizeSize = array(
 			0x00 => 'No restrictions',
 			0x01 => 'All images are 256x256 pixels or smaller',
@@ -2202,7 +2202,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($LookupExtendedHeaderRestrictionsImageSizeSize[$index]) ? $LookupExtendedHeaderRestrictionsImageSizeSize[$index] : '');
 	}
 
-	public function LookupCurrencyUnits($currencyid) {
+	public function LookupCurrencyUnits($currencyid) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$begin = __LINE__;
 
@@ -2399,7 +2399,7 @@ class getid3_id3v2 extends getid3_handler
 	}
 
 
-	public function LookupCurrencyCountry($currencyid) {
+	public function LookupCurrencyCountry($currencyid) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$begin = __LINE__;
 
@@ -2596,7 +2596,7 @@ class getid3_id3v2 extends getid3_handler
 
 
 
-	public static function LanguageLookup($languagecode, $casesensitive=false) {
+	public static function LanguageLookup($languagecode, $casesensitive=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		if (!$casesensitive) {
 			$languagecode = strtolower($languagecode);
@@ -3052,7 +3052,7 @@ class getid3_id3v2 extends getid3_handler
 	}
 
 
-	public static function ETCOEventLookup($index) {
+	public static function ETCOEventLookup($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (($index >= 0x17) && ($index <= 0xDF)) {
 			return 'reserved for future use';
 		}
@@ -3095,7 +3095,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($EventLookup[$index]) ? $EventLookup[$index] : '');
 	}
 
-	public static function SYTLContentTypeLookup($index) {
+	public static function SYTLContentTypeLookup($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $SYTLContentTypeLookup = array(
 			0x00 => 'other',
 			0x01 => 'lyrics',
@@ -3111,7 +3111,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($SYTLContentTypeLookup[$index]) ? $SYTLContentTypeLookup[$index] : '');
 	}
 
-	public static function APICPictureTypeLookup($index, $returnarray=false) {
+	public static function APICPictureTypeLookup($index, $returnarray=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $APICPictureTypeLookup = array(
 			0x00 => 'Other',
 			0x01 => '32x32 pixels \'file icon\' (PNG only)',
@@ -3141,7 +3141,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($APICPictureTypeLookup[$index]) ? $APICPictureTypeLookup[$index] : '');
 	}
 
-	public static function COMRReceivedAsLookup($index) {
+	public static function COMRReceivedAsLookup($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $COMRReceivedAsLookup = array(
 			0x00 => 'Other',
 			0x01 => 'Standard CD album with other songs',
@@ -3157,7 +3157,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($COMRReceivedAsLookup[$index]) ? $COMRReceivedAsLookup[$index] : '');
 	}
 
-	public static function RVA2ChannelTypeLookup($index) {
+	public static function RVA2ChannelTypeLookup($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $RVA2ChannelTypeLookup = array(
 			0x00 => 'Other',
 			0x01 => 'Master volume',
@@ -3173,7 +3173,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($RVA2ChannelTypeLookup[$index]) ? $RVA2ChannelTypeLookup[$index] : '');
 	}
 
-	public static function FrameNameLongLookup($framename) {
+	public static function FrameNameLongLookup($framename) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$begin = __LINE__;
 
@@ -3357,7 +3357,7 @@ class getid3_id3v2 extends getid3_handler
 	}
 
 
-	public static function FrameNameShortLookup($framename) {
+	public static function FrameNameShortLookup($framename) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$begin = __LINE__;
 
@@ -3536,7 +3536,7 @@ class getid3_id3v2 extends getid3_handler
 		return getid3_lib::EmbeddedLookup($framename, $begin, __LINE__, __FILE__, 'id3v2-framename_short');
 	}
 
-	public static function TextEncodingTerminatorLookup($encoding) {
+	public static function TextEncodingTerminatorLookup($encoding) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// http://www.id3.org/id3v2.4.0-structure.txt
 		// Frames that allow different types of text encoding contains a text encoding description byte. Possible encodings:
 		static $TextEncodingTerminatorLookup = array(
@@ -3549,7 +3549,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($TextEncodingTerminatorLookup[$encoding]) ? $TextEncodingTerminatorLookup[$encoding] : "\x00");
 	}
 
-	public static function TextEncodingNameLookup($encoding) {
+	public static function TextEncodingNameLookup($encoding) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// http://www.id3.org/id3v2.4.0-structure.txt
 		// Frames that allow different types of text encoding contains a text encoding description byte. Possible encodings:
 		static $TextEncodingNameLookup = array(
@@ -3562,7 +3562,7 @@ class getid3_id3v2 extends getid3_handler
 		return (isset($TextEncodingNameLookup[$encoding]) ? $TextEncodingNameLookup[$encoding] : 'ISO-8859-1');
 	}
 
-	public static function IsValidID3v2FrameName($framename, $id3v2majorversion) {
+	public static function IsValidID3v2FrameName($framename, $id3v2majorversion) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ($id3v2majorversion) {
 			case 2:
 				return preg_match('#[A-Z][A-Z0-9]{2}#', $framename);
@@ -3576,7 +3576,7 @@ class getid3_id3v2 extends getid3_handler
 		return false;
 	}
 
-	public static function IsANumber($numberstring, $allowdecimal=false, $allownegative=false) {
+	public static function IsANumber($numberstring, $allowdecimal=false, $allownegative=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		for ($i = 0; $i < strlen($numberstring); $i++) {
 			if ((chr($numberstring{$i}) < chr('0')) || (chr($numberstring{$i}) > chr('9'))) {
 				if (($numberstring{$i} == '.') && $allowdecimal) {
@@ -3591,7 +3591,7 @@ class getid3_id3v2 extends getid3_handler
 		return true;
 	}
 
-	public static function IsValidDateStampString($datestamp) {
+	public static function IsValidDateStampString($datestamp) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (strlen($datestamp) != 8) {
 			return false;
 		}
@@ -3619,7 +3619,7 @@ class getid3_id3v2 extends getid3_handler
 		return true;
 	}
 
-	public static function ID3v2HeaderLength($majorversion) {
+	public static function ID3v2HeaderLength($majorversion) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (($majorversion == 2) ? 6 : 10);
 	}
 

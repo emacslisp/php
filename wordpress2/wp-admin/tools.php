@@ -71,11 +71,11 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 			<a class="button" href="<?php echo htmlspecialchars( admin_url( 'press-this.php' ) ); ?>"><?php _e( 'Open Press This' ) ?></a>
 		</p>
 		<script>
-			jQuery( document ).ready( function( $ ) {
+			jQuery( document ).ready( function( $ ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				var $showPressThisWrap = $( '.js-show-pressthis-code-wrap' );
 				var $pressthisCode = $( '.js-pressthis-code' );
 
-				$showPressThisWrap.on( 'click', function( event ) {
+				$showPressThisWrap.on( 'click', function( event ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 					var $this = $( this );
 
 					$this.parent().next( '.js-pressthis-code-wrap' ).slideToggle( 200 );
@@ -83,9 +83,9 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
 				});
 
 				// Select Press This code when focusing (tabbing) or clicking the textarea.
-				$pressthisCode.on( 'click focus', function() {
+				$pressthisCode.on( 'click focus', function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 					var self = this;
-					setTimeout( function() { self.select(); }, 50 );
+					setTimeout( function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); self.select(); }, 50 );
 				});
 
 			});

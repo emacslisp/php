@@ -67,7 +67,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 *                                      theme mod or option name.
 	 * @param array                $args    Setting arguments.
 	 */
-	public function __construct( $manager, $id, $args = array() ) {
+	public function __construct( $manager, $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( $manager, $id, $args );
 		if ( 'custom_css' !== $this->id_data['base'] ) {
 			throw new Exception( 'Expected custom_css id_base.' );
@@ -86,7 +86,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 *
 	 * @return bool False when preview short-circuits due no change needing to be previewed.
 	 */
-	public function preview() {
+	public function preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_previewed ) {
 			return false;
 		}
@@ -108,7 +108,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 * @param string $stylesheet Current stylesheet.
 	 * @return string CSS.
 	 */
-	public function filter_previewed_wp_get_custom_css( $css, $stylesheet ) {
+	public function filter_previewed_wp_get_custom_css( $css, $stylesheet ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $stylesheet === $this->stylesheet ) {
 			$customized_value = $this->post_value( null );
 			if ( ! is_null( $customized_value ) ) {
@@ -127,7 +127,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 *
 	 * @return string
 	 */
-	public function value() {
+	public function value() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_previewed ) {
 			$post_value = $this->post_value( null );
 			if ( null !== $post_value ) {
@@ -164,7 +164,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 * @param string $css The input string.
 	 * @return true|WP_Error True if the input was validated, otherwise WP_Error.
 	 */
-	public function validate( $css ) {
+	public function validate( $css ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$validity = new WP_Error();
 
 		if ( preg_match( '#</?\w+#', $css ) ) {
@@ -234,7 +234,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 * @param string $css The input value.
 	 * @return int|false The post ID or false if the value could not be saved.
 	 */
-	public function update( $css ) {
+	public function update( $css ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $css ) ) {
 			$css = '';
 		}
@@ -274,7 +274,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 *
 	 * @return bool
 	 */
-	private function validate_balanced_characters( $opening_char, $closing_char, $css ) {
+	private function validate_balanced_characters( $opening_char, $closing_char, $css ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return substr_count( $css, $opening_char ) === substr_count( $css, $closing_char );
 	}
 
@@ -294,7 +294,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 * @param string $css The CSS input string.
 	 * @return bool Equality.
 	 */
-	private function validate_equal_characters( $char, $css ) {
+	private function validate_equal_characters( $char, $css ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$char_count = substr_count( $css, $char );
 		return ( 0 === $char_count % 2 );
 	}
@@ -312,7 +312,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 * @param string $css The CSS input string.
 	 * @return int Count.
 	 */
-	private function validate_count_unclosed_comments( $css ) {
+	private function validate_count_unclosed_comments( $css ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$count = 0;
 		$comments = explode( '/*', $css );
 
@@ -357,7 +357,7 @@ final class WP_Customize_Custom_CSS_Setting extends WP_Customize_Setting {
 	 * @param string $css The CSS input string.
 	 * @return bool
 	 */
-	private function is_possible_content_error( $css ) {
+	private function is_possible_content_error( $css ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$found = preg_match( '/\bcontent\s*:/', $css );
 		if ( ! empty( $found ) ) {
 			return true;

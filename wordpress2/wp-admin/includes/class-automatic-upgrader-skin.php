@@ -37,7 +37,7 @@ class Automatic_Upgrader_Skin extends WP_Upgrader_Skin {
 	 * @param bool   $allow_relaxed_file_ownership Optional. Whether to allow Group/World writable. Default false.
 	 * @return bool True on success, false on failure.
 	 */
-	public function request_filesystem_credentials( $error = false, $context = '', $allow_relaxed_file_ownership = false ) {
+	public function request_filesystem_credentials( $error = false, $context = '', $allow_relaxed_file_ownership = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $context ) {
 			$this->options['context'] = $context;
 		}
@@ -54,14 +54,14 @@ class Automatic_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @return array
 	 */
-	public function get_upgrade_messages() {
+	public function get_upgrade_messages() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->messages;
 	}
 
 	/**
 	 * @param string|array|WP_Error $data
 	 */
-	public function feedback( $data ) {
+	public function feedback( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_wp_error( $data ) ) {
 			$string = $data->get_error_message();
 		} elseif ( is_array( $data ) ) {
@@ -100,14 +100,14 @@ class Automatic_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function header() {
+	public function header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		ob_start();
 	}
 
 	/**
 	 * @access public
 	 */
-	public function footer() {
+	public function footer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$output = ob_get_clean();
 		if ( ! empty( $output ) )
 			$this->feedback( $output );

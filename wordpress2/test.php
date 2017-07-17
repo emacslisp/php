@@ -4,6 +4,52 @@ require( './wp-load.php' );
 
 ?>
 
+<?php 
+
+function print_filters_for1( $hook = '' ) {
+	global $wp_filter;
+	if( empty( $hook ) || !isset( $wp_filter[$hook] ) )
+		return;
+		
+		print '<pre>';
+		print_r( $wp_filter[$hook] );
+		print '</pre>';
+}
+
+print (new ReflectionFunction("_wp_admin_bar_init"))->getFileName();
+print '<br/>';
+
+print '<p>==============</p><br/>';
+
+print_filters_for('style_loader_src');
+
+function list_all() {
+global $wp_filter;
+
+$comment_filters = array ();
+$h1  = '<h1>Current Comment Filters</h1>';
+$out = '';
+$toc = '<ul>';
+
+foreach ( $wp_filter as $key => $val )
+{
+	if ( FALSE !== strpos( $key, 'comment' ) )
+	{
+		$comment_filters[$key][] = var_export( $val, TRUE );
+	}
+}
+
+foreach ( $comment_filters as $name => $arr_vals )
+{
+	$out .= "<h2 id=$name>$name</h2><pre>" . implode( "\n\n", $arr_vals ) . '</pre>';
+	$toc .= "<li><a href='#$name'>$name</a></li>";
+}
+
+print "$h1$toc</ul>$out";
+}
+
+?>
+
 <?php
 
 echo('wp-load.php');

@@ -38,7 +38,7 @@ class WP_Customize_Nav_Menu_Control extends WP_Customize_Control {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function render_content() {}
+	public function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * JS/Underscore template for the control UI.
@@ -46,7 +46,7 @@ class WP_Customize_Nav_Menu_Control extends WP_Customize_Control {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function content_template() {
+	public function content_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<button type="button" class="button add-new-menu-item" aria-label="<?php esc_attr_e( 'Add or remove menu items' ); ?>" aria-expanded="false" aria-controls="available-menu-items">
 			<?php _e( 'Add Items' ); ?>
@@ -93,7 +93,7 @@ class WP_Customize_Nav_Menu_Control extends WP_Customize_Control {
 	 *
 	 * @return array Exported parameters.
 	 */
-	public function json() {
+	public function json() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$exported            = parent::json();
 		$exported['menu_id'] = $this->setting->term_id;
 

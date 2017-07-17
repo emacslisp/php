@@ -36,7 +36,7 @@ if ( !defined('ABSPATH') ) {
  *
  * @return string|false Value of the `doing_cron` transient, 0|false otherwise.
  */
-function _get_cron_lock() {
+function _get_cron_lock() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$value = 0;

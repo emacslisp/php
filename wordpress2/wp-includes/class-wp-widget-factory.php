@@ -30,7 +30,7 @@ class WP_Widget_Factory {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		add_action( 'widgets_init', array( $this, '_register_widgets' ), 100 );
 	}
 
@@ -40,7 +40,7 @@ class WP_Widget_Factory {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function WP_Widget_Factory() {
+	public function WP_Widget_Factory() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_constructor( 'WP_Widget_Factory', '4.2.0' );
 		self::__construct();
 	}
@@ -71,8 +71,8 @@ class WP_Widget_Factory {
 	 * @param WP_Widget $widget Widget.
 	 * @return string Object hash.
 	 */
-	private function hash_object( $widget ) {
-		if ( function_exists( 'spl_object_hash' ) ) {
+	private function hash_object( $widget ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		if ( function_exists( 'spl_object_hash' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			return spl_object_hash( $widget );
 		} else {
 			$class_name = get_class( $widget );
@@ -99,7 +99,7 @@ class WP_Widget_Factory {
 	 *
 	 * @param string|WP_Widget $widget Either the name of a `WP_Widget` subclass or an instance of a `WP_Widget` subclass.
 	 */
-	public function register( $widget ) {
+	public function register( $widget ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $widget instanceof WP_Widget ) {
 			$this->widgets[ $this->hash_object( $widget ) ] = $widget;
 		} else {
@@ -117,7 +117,7 @@ class WP_Widget_Factory {
 	 *
 	 * @param string|WP_Widget $widget Either the name of a `WP_Widget` subclass or an instance of a `WP_Widget` subclass.
 	 */
-	public function unregister( $widget ) {
+	public function unregister( $widget ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $widget instanceof WP_Widget ) {
 			unset( $this->widgets[ $this->hash_object( $widget ) ] );
 		} else {
@@ -133,7 +133,7 @@ class WP_Widget_Factory {
 	 *
 	 * @global array $wp_registered_widgets
 	 */
-	public function _register_widgets() {
+	public function _register_widgets() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_registered_widgets;
 		$keys = array_keys($this->widgets);
 		$registered = array_keys($wp_registered_widgets);

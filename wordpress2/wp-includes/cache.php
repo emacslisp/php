@@ -24,7 +24,7 @@
  *                           Default 0 (no expiration).
  * @return bool False if cache key and group already exist, true on success.
  */
-function wp_cache_add( $key, $data, $group = '', $expire = 0 ) {
+function wp_cache_add( $key, $data, $group = '', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	return $wp_object_cache->add( $key, $data, $group, (int) $expire );
@@ -43,7 +43,7 @@ function wp_cache_add( $key, $data, $group = '', $expire = 0 ) {
  *
  * @return true Always returns true.
  */
-function wp_cache_close() {
+function wp_cache_close() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return true;
 }
 
@@ -60,7 +60,7 @@ function wp_cache_close() {
  * @param string     $group  Optional. The group the key is in. Default empty.
  * @return false|int False on failure, the item's new value on success.
  */
-function wp_cache_decr( $key, $offset = 1, $group = '' ) {
+function wp_cache_decr( $key, $offset = 1, $group = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	return $wp_object_cache->decr( $key, $offset, $group );
@@ -78,7 +78,7 @@ function wp_cache_decr( $key, $offset = 1, $group = '' ) {
  * @param string     $group Optional. Where the cache contents are grouped. Default empty.
  * @return bool True on successful removal, false on failure.
  */
-function wp_cache_delete( $key, $group = '' ) {
+function wp_cache_delete( $key, $group = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	return $wp_object_cache->delete($key, $group);
@@ -94,7 +94,7 @@ function wp_cache_delete( $key, $group = '' ) {
  *
  * @return bool False on failure, true on success
  */
-function wp_cache_flush() {
+function wp_cache_flush() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	return $wp_object_cache->flush();
@@ -117,7 +117,7 @@ function wp_cache_flush() {
  * @return bool|mixed False on failure to retrieve contents or the cache
  *		              contents on success
  */
-function wp_cache_get( $key, $group = '', $force = false, &$found = null ) {
+function wp_cache_get( $key, $group = '', $force = false, &$found = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	return $wp_object_cache->get( $key, $group, $force, $found );
@@ -136,7 +136,7 @@ function wp_cache_get( $key, $group = '', $force = false, &$found = null ) {
  * @param string     $group  Optional. The group the key is in. Default empty.
  * @return false|int False on failure, the item's new value on success.
  */
-function wp_cache_incr( $key, $offset = 1, $group = '' ) {
+function wp_cache_incr( $key, $offset = 1, $group = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	return $wp_object_cache->incr( $key, $offset, $group );
@@ -149,7 +149,7 @@ function wp_cache_incr( $key, $offset = 1, $group = '' ) {
  *
  * @global WP_Object_Cache $wp_object_cache
  */
-function wp_cache_init() {
+function wp_cache_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$GLOBALS['wp_object_cache'] = new WP_Object_Cache();
 }
 
@@ -169,7 +169,7 @@ function wp_cache_init() {
  *                           Default 0 (no expiration).
  * @return bool False if original value does not exist, true if contents were replaced
  */
-function wp_cache_replace( $key, $data, $group = '', $expire = 0 ) {
+function wp_cache_replace( $key, $data, $group = '', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	return $wp_object_cache->replace( $key, $data, $group, (int) $expire );
@@ -193,7 +193,7 @@ function wp_cache_replace( $key, $data, $group = '', $expire = 0 ) {
  *                           Default 0 (no expiration).
  * @return bool False on failure, true on success
  */
-function wp_cache_set( $key, $data, $group = '', $expire = 0 ) {
+function wp_cache_set( $key, $data, $group = '', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	return $wp_object_cache->set( $key, $data, $group, (int) $expire );
@@ -211,7 +211,7 @@ function wp_cache_set( $key, $data, $group = '', $expire = 0 ) {
  *
  * @param int $blog_id Site ID.
  */
-function wp_cache_switch_to_blog( $blog_id ) {
+function wp_cache_switch_to_blog( $blog_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	$wp_object_cache->switch_to_blog( $blog_id );
@@ -227,7 +227,7 @@ function wp_cache_switch_to_blog( $blog_id ) {
  *
  * @param string|array $groups A group or an array of groups to add.
  */
-function wp_cache_add_global_groups( $groups ) {
+function wp_cache_add_global_groups( $groups ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
 
 	$wp_object_cache->add_global_groups( $groups );
@@ -240,7 +240,7 @@ function wp_cache_add_global_groups( $groups ) {
  *
  * @param string|array $groups A group or an array of groups to add.
  */
-function wp_cache_add_non_persistent_groups( $groups ) {
+function wp_cache_add_non_persistent_groups( $groups ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Default cache doesn't persist so nothing to do here.
 }
 
@@ -263,7 +263,7 @@ function wp_cache_add_non_persistent_groups( $groups ) {
  *
  * @global WP_Object_Cache $wp_object_cache Object cache global instance.
  */
-function wp_cache_reset() {
+function wp_cache_reset() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0' );
 
 	global $wp_object_cache;
@@ -352,7 +352,7 @@ class WP_Object_Cache {
 	 * @param string $name Property to get.
 	 * @return mixed Property.
 	 */
-	public function __get( $name ) {
+	public function __get( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->$name;
 	}
 
@@ -366,7 +366,7 @@ class WP_Object_Cache {
 	 * @param mixed  $value Property value.
 	 * @return mixed Newly-set property.
 	 */
-	public function __set( $name, $value ) {
+	public function __set( $name, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->$name = $value;
 	}
 
@@ -379,7 +379,7 @@ class WP_Object_Cache {
 	 * @param string $name Property to check if set.
 	 * @return bool Whether the property is set.
 	 */
-	public function __isset( $name ) {
+	public function __isset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $this->$name );
 	}
 
@@ -391,7 +391,7 @@ class WP_Object_Cache {
 	 *
 	 * @param string $name Property to unset.
 	 */
-	public function __unset( $name ) {
+	public function __unset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->$name );
 	}
 
@@ -411,7 +411,7 @@ class WP_Object_Cache {
 	 * @param int        $expire Optional. When to expire the cache contents. Default 0 (no expiration).
 	 * @return bool False if cache key and group already exist, true on success
 	 */
-	public function add( $key, $data, $group = 'default', $expire = 0 ) {
+	public function add( $key, $data, $group = 'default', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( wp_suspend_cache_addition() )
 			return false;
 
@@ -436,7 +436,7 @@ class WP_Object_Cache {
 	 *
 	 * @param array $groups List of groups that are global.
 	 */
-	public function add_global_groups( $groups ) {
+	public function add_global_groups( $groups ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$groups = (array) $groups;
 
 		$groups = array_fill_keys( $groups, true );
@@ -454,7 +454,7 @@ class WP_Object_Cache {
 	 * @param string     $group  Optional. The group the key is in. Default 'default'.
 	 * @return false|int False on failure, the item's new value on success.
 	 */
-	public function decr( $key, $offset = 1, $group = 'default' ) {
+	public function decr( $key, $offset = 1, $group = 'default' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -490,7 +490,7 @@ class WP_Object_Cache {
 	 * @param bool       $deprecated Optional. Unused. Default false.
 	 * @return bool False if the contents weren't deleted and true on success.
 	 */
-	public function delete( $key, $group = 'default', $deprecated = false ) {
+	public function delete( $key, $group = 'default', $deprecated = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -512,7 +512,7 @@ class WP_Object_Cache {
 	 *
 	 * @return true Always returns true.
 	 */
-	public function flush() {
+	public function flush() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->cache = array();
 
 		return true;
@@ -538,7 +538,7 @@ class WP_Object_Cache {
 	 *                           false, a storable value. Passed by reference. Default null.
 	 * @return false|mixed False on failure to retrieve contents or the cache contents on success.
 	 */
-	public function get( $key, $group = 'default', $force = false, &$found = null ) {
+	public function get( $key, $group = 'default', $force = false, &$found = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -570,7 +570,7 @@ class WP_Object_Cache {
 	 * @param string     $group  Optional. The group the key is in. Default 'default'.
 	 * @return false|int False on failure, the item's new value on success.
 	 */
-	public function incr( $key, $offset = 1, $group = 'default' ) {
+	public function incr( $key, $offset = 1, $group = 'default' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -607,7 +607,7 @@ class WP_Object_Cache {
 	 * @param int        $expire Optional. When to expire the cache contents. Default 0 (no expiration).
 	 * @return bool False if not exists, true if contents were replaced.
 	 */
-	public function replace( $key, $data, $group = 'default', $expire = 0 ) {
+	public function replace( $key, $data, $group = 'default', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -630,7 +630,7 @@ class WP_Object_Cache {
 	 * @deprecated 3.5.0 Use switch_to_blog()
 	 * @see switch_to_blog()
 	 */
-	public function reset() {
+	public function reset() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __FUNCTION__, '3.5.0', 'switch_to_blog()' );
 
 		// Clear out non-global caches since the blog ID has changed.
@@ -661,7 +661,7 @@ class WP_Object_Cache {
 	 * @param int        $expire Not Used.
 	 * @return true Always returns true.
 	 */
-	public function set( $key, $data, $group = 'default', $expire = 0 ) {
+	public function set( $key, $data, $group = 'default', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -684,7 +684,7 @@ class WP_Object_Cache {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function stats() {
+	public function stats() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo "<p>";
 		echo "<strong>Cache Hits:</strong> {$this->cache_hits}<br />";
 		echo "<strong>Cache Misses:</strong> {$this->cache_misses}<br />";
@@ -706,7 +706,7 @@ class WP_Object_Cache {
 	 *
 	 * @param int $blog_id Blog ID.
 	 */
-	public function switch_to_blog( $blog_id ) {
+	public function switch_to_blog( $blog_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$blog_id = (int) $blog_id;
 		$this->blog_prefix = $this->multisite ? $blog_id . ':' : '';
 	}
@@ -721,7 +721,7 @@ class WP_Object_Cache {
 	 * @param string     $group Cache group for the key existence check.
 	 * @return bool Whether the key exists in the cache for the given group.
 	 */
-	protected function _exists( $key, $group ) {
+	protected function _exists( $key, $group ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $this->cache[ $group ] ) && ( isset( $this->cache[ $group ][ $key ] ) || array_key_exists( $key, $this->cache[ $group ] ) );
 	}
 
@@ -730,7 +730,7 @@ class WP_Object_Cache {
 	 *
 	 * @since 2.0.8
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->multisite = is_multisite();
 		$this->blog_prefix =  $this->multisite ? get_current_blog_id() . ':' : '';
 
@@ -751,7 +751,7 @@ class WP_Object_Cache {
 	 *
 	 * @return true Always returns true.
 	 */
-	public function __destruct() {
+	public function __destruct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return true;
 	}
 }

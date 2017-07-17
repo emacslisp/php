@@ -119,7 +119,7 @@ class WP_Widget {
 	 *                        'before_widget', and 'after_widget'.
 	 * @param array $instance The settings for the particular instance of the widget.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		die('function WP_Widget::widget() must be over-ridden in a sub-class.');
 	}
 
@@ -138,7 +138,7 @@ class WP_Widget {
 	 * @param array $old_instance Old settings for this instance.
 	 * @return array Settings to save or bool false to cancel saving.
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $new_instance;
 	}
 
@@ -151,7 +151,7 @@ class WP_Widget {
 	 * @param array $instance Current settings.
 	 * @return string Default return is 'noform'.
 	 */
-	public function form( $instance ) {
+	public function form( $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo '<p class="no-options-widget">' . __('There are no options for this widget.') . '</p>';
 		return 'noform';
 	}
@@ -172,7 +172,7 @@ class WP_Widget {
 	 * @param array  $control_options Optional. Widget control options. See wp_register_widget_control() for
 	 *                                information on accepted arguments. Default empty array.
 	 */
-	public function __construct( $id_base, $name, $widget_options = array(), $control_options = array() ) {
+	public function __construct( $id_base, $name, $widget_options = array(), $control_options = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->id_base = empty($id_base) ? preg_replace( '/(wp_)?widget_/', '', strtolower(get_class($this)) ) : strtolower($id_base);
 		$this->name = $name;
 		$this->option_name = 'widget_' . $this->id_base;
@@ -196,7 +196,7 @@ class WP_Widget {
 	 * @param array  $control_options Optional. Widget control options. See wp_register_widget_control() for
 	 *                                information on accepted arguments. Default empty array.
 	 */
-	public function WP_Widget( $id_base, $name, $widget_options = array(), $control_options = array() ) {
+	public function WP_Widget( $id_base, $name, $widget_options = array(), $control_options = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_constructor( 'WP_Widget', '4.3.0', get_class( $this ) );
 		WP_Widget::__construct( $id_base, $name, $widget_options, $control_options );
 	}
@@ -214,7 +214,7 @@ class WP_Widget {
 	 * @param string $field_name Field name
 	 * @return string Name attribute for $field_name
 	 */
-	public function get_field_name($field_name) {
+	public function get_field_name($field_name) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( false === $pos = strpos( $field_name, '[' ) ) {
 			return 'widget-' . $this->id_base . '[' . $this->number . '][' . $field_name . ']';
 		} else {
@@ -235,7 +235,7 @@ class WP_Widget {
 	 * @param string $field_name Field name.
 	 * @return string ID attribute for `$field_name`.
 	 */
-	public function get_field_id( $field_name ) {
+	public function get_field_id( $field_name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'widget-' . $this->id_base . '-' . $this->number . '-' . trim( str_replace( array( '[]', '[', ']' ), array( '', '-', '' ), $field_name ), '-' );
 	}
 
@@ -245,7 +245,7 @@ class WP_Widget {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function _register() {
+	public function _register() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$settings = $this->get_settings();
 		$empty = true;
 
@@ -280,7 +280,7 @@ class WP_Widget {
 	 * @param int $number The unique order number of this widget instance compared to other
 	 *                    instances of the same class.
 	 */
-	public function _set($number) {
+	public function _set($number) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->number = $number;
 		$this->id = $this->id_base . '-' . $number;
 	}
@@ -293,7 +293,7 @@ class WP_Widget {
 	 *
 	 * @return callable Display callback.
 	 */
-	public function _get_display_callback() {
+	public function _get_display_callback() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array($this, 'display_callback');
 	}
 
@@ -305,7 +305,7 @@ class WP_Widget {
 	 *
 	 * @return callable Update callback.
 	 */
-	public function _get_update_callback() {
+	public function _get_update_callback() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array($this, 'update_callback');
 	}
 
@@ -317,7 +317,7 @@ class WP_Widget {
 	 *
 	 * @return callable Form callback.
 	 */
-	public function _get_form_callback() {
+	public function _get_form_callback() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array($this, 'form_callback');
 	}
 
@@ -336,7 +336,7 @@ class WP_Widget {
 	 *
 	 * @return bool True if within the Customizer preview, false if not.
 	 */
-	public function is_preview() {
+	public function is_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_customize;
 		return ( isset( $wp_customize ) && $wp_customize->is_preview() ) ;
 	}
@@ -358,7 +358,7 @@ class WP_Widget {
 	 *     @type int $number Number increment used for multiples of the same widget.
 	 * }
 	 */
-	public function display_callback( $args, $widget_args = 1 ) {
+	public function display_callback( $args, $widget_args = 1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_numeric( $widget_args ) ) {
 			$widget_args = array( 'number' => $widget_args );
 		}
@@ -410,7 +410,7 @@ class WP_Widget {
 	 *
 	 * @param int $deprecated Not used.
 	 */
-	public function update_callback( $deprecated = 1 ) {
+	public function update_callback( $deprecated = 1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_registered_widgets;
 
 		$all_instances = $this->get_settings();
@@ -499,7 +499,7 @@ class WP_Widget {
 	 * }
 	 * @return string|null
 	 */
-	public function form_callback( $widget_args = 1 ) {
+	public function form_callback( $widget_args = 1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_numeric($widget_args) )
 			$widget_args = array( 'number' => $widget_args );
 
@@ -561,7 +561,7 @@ class WP_Widget {
 	 * @param integer $number Optional. The unique order number of this widget instance
 	 *                        compared to other instances of the same class. Default -1.
 	 */
-	public function _register_one( $number = -1 ) {
+	public function _register_one( $number = -1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_register_sidebar_widget(	$this->id, $this->name,	$this->_get_display_callback(), $this->widget_options, array( 'number' => $number ) );
 		_register_widget_update_callback( $this->id_base, $this->_get_update_callback(), $this->control_options, array( 'number' => -1 ) );
 		_register_widget_form_callback(	$this->id, $this->name,	$this->_get_form_callback(), $this->control_options, array( 'number' => $number ) );
@@ -575,7 +575,7 @@ class WP_Widget {
 	 *
 	 * @param array $settings Multi-dimensional array of widget instance settings.
 	 */
-	public function save_settings( $settings ) {
+	public function save_settings( $settings ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$settings['_multiwidget'] = 1;
 		update_option( $this->option_name, $settings );
 	}
@@ -588,7 +588,7 @@ class WP_Widget {
 	 *
 	 * @return array Multi-dimensional array of widget instance settings.
 	 */
-	public function get_settings() {
+	public function get_settings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$settings = get_option( $this->option_name );
 

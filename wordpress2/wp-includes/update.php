@@ -21,7 +21,7 @@
  * @param array $extra_stats Extra statistics to report to the WordPress.org API.
  * @param bool  $force_check Whether to bypass the transient cache and force a fresh update check. Defaults to false, true if $extra_stats is set.
  */
-function wp_version_check( $extra_stats = array(), $force_check = false ) {
+function wp_version_check( $extra_stats = array(), $force_check = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( wp_installing() ) {
 		return;
 	}
@@ -194,7 +194,7 @@ function wp_version_check( $extra_stats = array(), $force_check = false ) {
  *
  * @param array $extra_stats Extra statistics to report to the WordPress.org API.
  */
-function wp_update_plugins( $extra_stats = array() ) {
+function wp_update_plugins( $extra_stats = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( wp_installing() ) {
 		return;
 	}
@@ -366,7 +366,7 @@ function wp_update_plugins( $extra_stats = array() ) {
  *
  * @param array $extra_stats Extra statistics to report to the WordPress.org API.
  */
-function wp_update_themes( $extra_stats = array() ) {
+function wp_update_themes( $extra_stats = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( wp_installing() ) {
 		return;
 	}
@@ -524,7 +524,7 @@ function wp_update_themes( $extra_stats = array() ) {
  *
  * @since 3.7.0
  */
-function wp_maybe_auto_update() {
+function wp_maybe_auto_update() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	include_once( ABSPATH . '/wp-admin/includes/admin.php' );
 	include_once( ABSPATH . '/wp-admin/includes/class-wp-upgrader.php' );
 
@@ -539,7 +539,7 @@ function wp_maybe_auto_update() {
  *
  * @return array
  */
-function wp_get_translation_updates() {
+function wp_get_translation_updates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$updates = array();
 	$transients = array( 'update_core' => 'core', 'update_plugins' => 'plugin', 'update_themes' => 'theme' );
 	foreach ( $transients as $transient => $type ) {
@@ -561,7 +561,7 @@ function wp_get_translation_updates() {
  *
  * @return array
  */
-function wp_get_update_data() {
+function wp_get_update_data() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$counts = array( 'plugins' => 0, 'themes' => 0, 'wordpress' => 0, 'translations' => 0 );
 
 	if ( $plugins = current_user_can( 'update_plugins' ) ) {
@@ -576,7 +576,7 @@ function wp_get_update_data() {
 			$counts['themes'] = count( $update_themes->response );
 	}
 
-	if ( ( $core = current_user_can( 'update_core' ) ) && function_exists( 'get_core_updates' ) ) {
+	if ( ( $core = current_user_can( 'update_core' ) ) && function_exists( 'get_core_updates' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$update_wordpress = get_core_updates( array('dismissed' => false) );
 		if ( ! empty( $update_wordpress ) && ! in_array( $update_wordpress[0]->response, array('development', 'latest') ) && current_user_can('update_core') )
 			$counts['wordpress'] = 1;
@@ -629,7 +629,7 @@ function wp_get_update_data() {
  *
  * @global string $wp_version
  */
-function _maybe_update_core() {
+function _maybe_update_core() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// include an unmodified $wp_version
 	include( ABSPATH . WPINC . '/version.php' );
 
@@ -652,7 +652,7 @@ function _maybe_update_core() {
  * @since 2.7.0
  * @access private
  */
-function _maybe_update_plugins() {
+function _maybe_update_plugins() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current = get_site_transient( 'update_plugins' );
 	if ( isset( $current->last_checked ) && 12 * HOUR_IN_SECONDS > ( time() - $current->last_checked ) )
 		return;
@@ -668,7 +668,7 @@ function _maybe_update_plugins() {
  * @since 2.7.0
  * @access private
  */
-function _maybe_update_themes() {
+function _maybe_update_themes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current = get_site_transient( 'update_themes' );
 	if ( isset( $current->last_checked ) && 12 * HOUR_IN_SECONDS > ( time() - $current->last_checked ) )
 		return;
@@ -680,7 +680,7 @@ function _maybe_update_themes() {
  *
  * @since 3.1.0
  */
-function wp_schedule_update_checks() {
+function wp_schedule_update_checks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! wp_next_scheduled( 'wp_version_check' ) && ! wp_installing() )
 		wp_schedule_event(time(), 'twicedaily', 'wp_version_check');
 
@@ -696,8 +696,8 @@ function wp_schedule_update_checks() {
  *
  * @since 4.1.0
  */
-function wp_clean_update_cache() {
-	if ( function_exists( 'wp_clean_plugins_cache' ) ) {
+function wp_clean_update_cache() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	if ( function_exists( 'wp_clean_plugins_cache' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_clean_plugins_cache();
 	} else {
 		delete_site_transient( 'update_plugins' );

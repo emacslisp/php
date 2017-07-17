@@ -230,7 +230,7 @@
     return;
   }
 
-  public function PclZip($p_zipname) {
+  public function PclZip($p_zipname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
     self::__construct($p_zipname);
   }
   // --------------------------------------------------------------------------------
@@ -1767,7 +1767,7 @@
           $v_function_name = $p_options_list[$i+1];
 
           // ----- Check that the value is a valid existing function
-          if (!function_exists($v_function_name)) {
+          if (!function_exists($v_function_name)) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
             // ----- Error log
             PclZip::privErrorLog(PCLZIP_ERR_INVALID_OPTION_VALUE, "Function '".$v_function_name."()' is not an existing function for option '".PclZipUtilOptionText($p_options_list[$i])."'");
 
@@ -5328,7 +5328,7 @@
 
     // ----- Look if function exists
     if (   (!function_exists("get_magic_quotes_runtime"))
-	    || (!function_exists("set_magic_quotes_runtime"))) {
+	    || (!function_exists("set_magic_quotes_runtime"))) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
       return $v_result;
 	}
 
@@ -5362,7 +5362,7 @@
 
     // ----- Look if function exists
     if (   (!function_exists("get_magic_quotes_runtime"))
-	    || (!function_exists("set_magic_quotes_runtime"))) {
+	    || (!function_exists("set_magic_quotes_runtime"))) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
       return $v_result;
 	}
 

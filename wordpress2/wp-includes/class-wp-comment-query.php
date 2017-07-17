@@ -134,7 +134,7 @@ class WP_Comment_Query {
 	 * @param array    $arguments Arguments to pass when calling.
 	 * @return mixed|false Return value of the callback, false otherwise.
 	 */
-	public function __call( $name, $arguments ) {
+	public function __call( $name, $arguments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'get_search_sql' === $name ) {
 			return call_user_func_array( array( $this, $name ), $arguments );
 		}
@@ -259,7 +259,7 @@ class WP_Comment_Query {
 	 *                                                   Default false.
 	 * }
 	 */
-	public function __construct( $query = '' ) {
+	public function __construct( $query = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_var_defaults = array(
 			'author_email' => '',
 			'author_url' => '',
@@ -321,7 +321,7 @@ class WP_Comment_Query {
 	 *
 	 * @param string|array $query WP_Comment_Query arguments. See WP_Comment_Query::__construct()
 	 */
-	public function parse_query( $query = '' ) {
+	public function parse_query( $query = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $query ) ) {
 			$query = $this->query_vars;
 		}
@@ -352,7 +352,7 @@ class WP_Comment_Query {
 	 * @param string|array $query Array or URL query string of parameters.
 	 * @return array|int List of comments, or number of comments when 'count' is passed as a query var.
 	 */
-	public function query( $query ) {
+	public function query( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_vars = wp_parse_args( $query );
 		return $this->get_comments();
 	}
@@ -367,7 +367,7 @@ class WP_Comment_Query {
 	 *
 	 * @return int|array List of comments or number of found comments if `$count` argument is true.
 	 */
-	public function get_comments() {
+	public function get_comments() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$this->parse_query();
@@ -480,7 +480,7 @@ class WP_Comment_Query {
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 */
-	protected function get_comment_ids() {
+	protected function get_comment_ids() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		// Assemble clauses related to 'comment_approved'.
@@ -910,7 +910,7 @@ class WP_Comment_Query {
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 */
-	private function set_found_comments() {
+	private function set_found_comments() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		if ( $this->query_vars['number'] && ! $this->query_vars['no_found_rows'] ) {
@@ -939,7 +939,7 @@ class WP_Comment_Query {
 	 * @param array $comments Array of top-level comments whose descendants should be filled in.
 	 * @return array
 	 */
-	protected function fill_descendants( $comments ) {
+	protected function fill_descendants( $comments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$levels = array(
@@ -1076,7 +1076,7 @@ class WP_Comment_Query {
 	 * @param array $cols
 	 * @return string
 	 */
-	protected function get_search_sql( $string, $cols ) {
+	protected function get_search_sql( $string, $cols ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$like = '%' . $wpdb->esc_like( $string ) . '%';
@@ -1100,7 +1100,7 @@ class WP_Comment_Query {
 	 * @param string $orderby Alias for the field to order by.
 	 * @return string|false Value to used in the ORDER clause. False otherwise.
 	 */
-	protected function parse_orderby( $orderby ) {
+	protected function parse_orderby( $orderby ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$allowed_keys = array(
@@ -1162,7 +1162,7 @@ class WP_Comment_Query {
 	 * @param string $order The 'order' query variable.
 	 * @return string The sanitized 'order' query variable.
 	 */
-	protected function parse_order( $order ) {
+	protected function parse_order( $order ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_string( $order ) || empty( $order ) ) {
 			return 'DESC';
 		}

@@ -28,7 +28,7 @@ $theme_field_defaults = array( 'description' => true, 'sections' => false, 'test
  *
  * @return array
  */
-function install_themes_feature_list() {
+function install_themes_feature_list() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0', 'get_theme_feature_list()' );
 
 	if ( !$cache = get_transient( 'wporg_theme_feature_list' ) )
@@ -53,7 +53,7 @@ function install_themes_feature_list() {
  *
  * @param bool $type_selector
  */
-function install_theme_search_form( $type_selector = true ) {
+function install_theme_search_form( $type_selector = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$type = isset( $_REQUEST['type'] ) ? wp_unslash( $_REQUEST['type'] ) : 'term';
 	$term = isset( $_REQUEST['s'] ) ? wp_unslash( $_REQUEST['s'] ) : '';
 	if ( ! $type_selector )
@@ -95,7 +95,7 @@ function install_theme_search_form( $type_selector = true ) {
  *
  * @since 2.8.0
  */
-function install_themes_dashboard() {
+function install_themes_dashboard() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	install_theme_search_form( false );
 ?>
 <h4><?php _e('Feature Filter') ?></h4>
@@ -138,7 +138,7 @@ function install_themes_dashboard() {
 /**
  * @since 2.8.0
  */
-function install_themes_upload() {
+function install_themes_upload() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 <p class="install-help"><?php _e('If you have a theme in a .zip format, you may install it by uploading it here.'); ?></p>
 <form method="post" enctype="multipart/form-data" class="wp-upload-form" action="<?php echo self_admin_url('update.php?action=upload-theme'); ?>">
@@ -159,7 +159,7 @@ function install_themes_upload() {
  *
  * @param object $theme
  */
-function display_theme( $theme ) {
+function display_theme( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0' );
 	global $wp_list_table;
 	if ( ! isset( $wp_list_table ) ) {
@@ -176,7 +176,7 @@ function display_theme( $theme ) {
  *
  * @global WP_Theme_Install_List_Table $wp_list_table
  */
-function display_themes() {
+function display_themes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_list_table;
 
 	if ( ! isset( $wp_list_table ) ) {
@@ -194,7 +194,7 @@ function display_themes() {
  *
  * @global WP_Theme_Install_List_Table $wp_list_table
  */
-function install_theme_information() {
+function install_theme_information() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_list_table;
 
 	$theme = themes_api( 'theme_information', array( 'slug' => wp_unslash( $_REQUEST['theme'] ) ) );

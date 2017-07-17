@@ -21,14 +21,14 @@ $title = __('Export');
  *
  * @since 3.5.0
  */
-function export_add_js() {
+function export_add_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 <script type="text/javascript">
-	jQuery(document).ready(function($){
+	jQuery(document).ready(function($){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
  		var form = $('#export-filters'),
  			filters = form.find('.export-filters');
  		filters.hide();
- 		form.find('input:radio').change(function() {
+ 		form.find('input:radio').change(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			filters.slideUp('fast');
 			switch ( $(this).val() ) {
 				case 'attachment': $('#attachment-filters').slideDown(); break;
@@ -127,7 +127,7 @@ require_once( ABSPATH . 'wp-admin/admin-header.php' );
  *
  * @param string $post_type The post type. Default 'post'.
  */
-function export_date_options( $post_type = 'post' ) {
+function export_date_options( $post_type = 'post' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $wp_locale;
 
 	$months = $wpdb->get_results( $wpdb->prepare( "

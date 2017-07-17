@@ -22,7 +22,7 @@ class WP_Ajax_Response {
 	 *
 	 * @param string|array $args Optional. Will be passed to add() method.
 	 */
-	public function __construct( $args = '' ) {
+	public function __construct( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !empty($args) )
 			$this->add($args);
 	}
@@ -62,7 +62,7 @@ class WP_Ajax_Response {
 	 * }
 	 * @return string XML response.
 	 */
-	public function add( $args = '' ) {
+	public function add( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array(
 			'what' => 'object', 'action' => false,
 			'id' => '0', 'old_id' => false,
@@ -143,7 +143,7 @@ class WP_Ajax_Response {
 	 *
 	 * @since 2.1.0
 	 */
-	public function send() {
+	public function send() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ) );
 		echo "<?xml version='1.0' encoding='" . get_option( 'blog_charset' ) . "' standalone='yes'?><wp_ajax>";
 		foreach ( (array) $this->responses as $response )

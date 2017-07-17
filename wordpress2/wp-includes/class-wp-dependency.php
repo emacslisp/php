@@ -78,7 +78,7 @@ class _WP_Dependency {
 	 *
 	 * @since 2.6.0
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		@list( $this->handle, $this->src, $this->deps, $this->ver, $this->args ) = func_get_args();
 		if ( ! is_array($this->deps) )
 			$this->deps = array();
@@ -94,7 +94,7 @@ class _WP_Dependency {
 	 * @param mixed  $data The data value to add.
 	 * @return bool False if not scalar, true otherwise.
 	 */
-	public function add_data( $name, $data ) {
+	public function add_data( $name, $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !is_scalar($name) )
 			return false;
 		$this->extra[$name] = $data;

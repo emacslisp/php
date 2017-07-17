@@ -56,7 +56,7 @@ class Walker_PageDropdown extends Walker {
 	 *                        attribute. See wp_dropdown_pages(). Default empty array.
 	 * @param int     $id     Optional. ID of the current page. Default 0 (unused).
 	 */
-	public function start_el( &$output, $page, $depth = 0, $args = array(), $id = 0 ) {
+	public function start_el( &$output, $page, $depth = 0, $args = array(), $id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$pad = str_repeat('&nbsp;', $depth * 3);
 
 		if ( ! isset( $args['value_field'] ) || ! isset( $page->{$args['value_field']} ) ) {

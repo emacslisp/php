@@ -12,7 +12,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function twentyseventeen_customize_register( $wp_customize ) {
+function twentyseventeen_customize_register( $wp_customize ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$wp_customize->get_setting( 'blogname' )->transport          = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport   = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport  = 'postMessage';
@@ -124,7 +124,7 @@ add_action( 'customize_register', 'twentyseventeen_customize_register' );
 /**
  * Sanitize the page layout options.
  */
-function twentyseventeen_sanitize_page_layout( $input ) {
+function twentyseventeen_sanitize_page_layout( $input ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$valid = array(
 		'one-column' => __( 'One Column', 'twentyseventeen' ),
 		'two-column' => __( 'Two Column', 'twentyseventeen' ),
@@ -140,7 +140,7 @@ function twentyseventeen_sanitize_page_layout( $input ) {
 /**
  * Sanitize the colorscheme.
  */
-function twentyseventeen_sanitize_colorscheme( $input ) {
+function twentyseventeen_sanitize_colorscheme( $input ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$valid = array( 'light', 'dark', 'custom' );
 
 	if ( in_array( $input, $valid ) ) {
@@ -158,7 +158,7 @@ function twentyseventeen_sanitize_colorscheme( $input ) {
  *
  * @return void
  */
-function twentyseventeen_customize_partial_blogname() {
+function twentyseventeen_customize_partial_blogname() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	bloginfo( 'name' );
 }
 
@@ -170,21 +170,21 @@ function twentyseventeen_customize_partial_blogname() {
  *
  * @return void
  */
-function twentyseventeen_customize_partial_blogdescription() {
+function twentyseventeen_customize_partial_blogdescription() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	bloginfo( 'description' );
 }
 
 /**
  * Return whether we're previewing the front page and it's a static page.
  */
-function twentyseventeen_is_static_front_page() {
+function twentyseventeen_is_static_front_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return ( is_front_page() && ! is_home() );
 }
 
 /**
  * Return whether we're on a view that supports a one or two column layout.
  */
-function twentyseventeen_is_view_with_layout_option() {
+function twentyseventeen_is_view_with_layout_option() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// This option is available on all pages. It's also available on archives when there isn't a sidebar.
 	return ( is_page() || ( is_archive() && ! is_active_sidebar( 'sidebar-1' ) ) );
 }
@@ -192,7 +192,7 @@ function twentyseventeen_is_view_with_layout_option() {
 /**
  * Bind JS handlers to instantly live-preview changes.
  */
-function twentyseventeen_customize_preview_js() {
+function twentyseventeen_customize_preview_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_enqueue_script( 'twentyseventeen-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview' ), '1.0', true );
 }
 add_action( 'customize_preview_init', 'twentyseventeen_customize_preview_js' );
@@ -200,7 +200,7 @@ add_action( 'customize_preview_init', 'twentyseventeen_customize_preview_js' );
 /**
  * Load dynamic logic for the customizer controls area.
  */
-function twentyseventeen_panels_js() {
+function twentyseventeen_panels_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_enqueue_script( 'twentyseventeen-customize-controls', get_theme_file_uri( '/assets/js/customize-controls.js' ), array(), '1.0', true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'twentyseventeen_panels_js' );

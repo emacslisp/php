@@ -240,7 +240,7 @@ final class WP_Customize_Manager {
 	 *     @type string $messenger_channel Messenger channel. Defaults to customize_messenger_channel query param.
 	 * }
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$args = array_merge(
 			array_fill_keys( array( 'changeset_uuid', 'theme', 'messenger_channel' ), null ),
@@ -378,7 +378,7 @@ final class WP_Customize_Manager {
 	 * @param string|null $action Whether the supplied Ajax action is being run.
 	 * @return bool True if it's an Ajax request, false otherwise.
 	 */
-	public function doing_ajax( $action = null ) {
+	public function doing_ajax( $action = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! wp_doing_ajax() ) {
 			return false;
 		}
@@ -403,7 +403,7 @@ final class WP_Customize_Manager {
 	 * @param mixed $ajax_message Ajax return
 	 * @param mixed $message UI message
 	 */
-	protected function wp_die( $ajax_message, $message = null ) {
+	protected function wp_die( $ajax_message, $message = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->doing_ajax() ) {
 			wp_die( $ajax_message );
 		}
@@ -426,7 +426,7 @@ final class WP_Customize_Manager {
 			);
 			?>
 			<script>
-			( function( api, settings ) {
+			( function( api, settings ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				var preview = new api.Messenger( settings.messengerArgs );
 				preview.send( 'iframe-loading-error', settings.error );
 			} )( wp.customize, <?php echo wp_json_encode( $settings ) ?> );
@@ -446,7 +446,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return callable Die handler.
 	 */
-	public function wp_die_handler() {
+	public function wp_die_handler() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.7.0' );
 
 		if ( $this->doing_ajax() || isset( $_POST['customized'] ) ) {
@@ -463,7 +463,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function setup_theme() {
+	public function setup_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $pagenow;
 
 		// Check permissions for customize.php access since this method is called before customize.php can run any code,
@@ -540,7 +540,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function after_setup_theme() {
+	public function after_setup_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$doing_ajax_or_is_customized = ( $this->doing_ajax() || isset( $_POST['customized'] ) );
 		if ( ! $doing_ajax_or_is_customized && ! validate_current_theme() ) {
 			wp_redirect( 'themes.php?broken=true' );
@@ -554,7 +554,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function start_previewing_theme() {
+	public function start_previewing_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Bail if we're already previewing.
 		if ( $this->is_preview() ) {
 			return;
@@ -593,7 +593,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function stop_previewing_theme() {
+	public function stop_previewing_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->is_preview() ) {
 			return;
 		}
@@ -632,7 +632,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string UUID.
 	 */
-	public function changeset_uuid() {
+	public function changeset_uuid() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->_changeset_uuid;
 	}
 
@@ -643,7 +643,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return WP_Theme
 	 */
-	public function theme() {
+	public function theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->theme ) {
 			$this->theme = wp_get_theme();
 		}
@@ -657,7 +657,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return array
 	 */
-	public function settings() {
+	public function settings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->settings;
 	}
 
@@ -668,7 +668,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return array
 	 */
-	public function controls() {
+	public function controls() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->controls;
 	}
 
@@ -679,7 +679,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return array
 	 */
-	public function containers() {
+	public function containers() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->containers;
 	}
 
@@ -690,7 +690,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return array
 	 */
-	public function sections() {
+	public function sections() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->sections;
 	}
 
@@ -702,7 +702,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return array Panels.
 	 */
-	public function panels() {
+	public function panels() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->panels;
 	}
 
@@ -713,7 +713,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return bool
 	 */
-	public function is_theme_active() {
+	public function is_theme_active() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->get_stylesheet() == $this->original_stylesheet;
 	}
 
@@ -722,7 +722,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function wp_loaded() {
+	public function wp_loaded() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		/**
 		 * Fires once WordPress has loaded, allowing scripts and styles to be initialized.
@@ -764,7 +764,7 @@ final class WP_Customize_Manager {
 	 * @param int $status Status.
 	 * @return int
 	 */
-	public function wp_redirect_status( $status ) {
+	public function wp_redirect_status( $status ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __FUNCTION__, '4.7.0' );
 
 		if ( $this->is_preview() && ! is_admin() ) {
@@ -783,7 +783,7 @@ final class WP_Customize_Manager {
 	 * @param string $uuid Changeset UUID.
 	 * @return int|null Returns post ID on success and null on failure.
 	 */
-	public function find_changeset_post_id( $uuid ) {
+	public function find_changeset_post_id( $uuid ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$cache_group = 'customize_changeset_post';
 		$changeset_post_id = wp_cache_get( $uuid, $cache_group );
 		if ( $changeset_post_id && 'customize_changeset' === get_post_type( $changeset_post_id ) ) {
@@ -819,7 +819,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return int|null Post ID on success or null if there is no post yet saved.
 	 */
-	public function changeset_post_id() {
+	public function changeset_post_id() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $this->_changeset_post_id ) ) {
 			$post_id = $this->find_changeset_post_id( $this->_changeset_uuid );
 			if ( ! $post_id ) {
@@ -842,7 +842,7 @@ final class WP_Customize_Manager {
 	 * @param int $post_id Changeset post ID.
 	 * @return array|WP_Error Changeset data or WP_Error on error.
 	 */
-	protected function get_changeset_post_data( $post_id ) {
+	protected function get_changeset_post_data( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $post_id ) {
 			return new WP_Error( 'empty_post_id' );
 		}
@@ -854,7 +854,7 @@ final class WP_Customize_Manager {
 			return new WP_Error( 'wrong_post_type' );
 		}
 		$changeset_data = json_decode( $changeset_post->post_content, true );
-		if ( function_exists( 'json_last_error' ) && json_last_error() ) {
+		if ( function_exists( 'json_last_error' ) && json_last_error() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			return new WP_Error( 'json_parse_error', '', json_last_error() );
 		}
 		if ( ! is_array( $changeset_data ) ) {
@@ -871,7 +871,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return array Changeset data.
 	 */
-	public function changeset_data() {
+	public function changeset_data() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->_changeset_data ) ) {
 			return $this->_changeset_data;
 		}
@@ -906,7 +906,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @param array $starter_content Starter content. Defaults to `get_theme_starter_content()`.
 	 */
-	function import_theme_starter_content( $starter_content = array() ) {
+	function import_theme_starter_content( $starter_content = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $starter_content ) ) {
 			$starter_content = get_theme_starter_content();
 		}
@@ -1294,7 +1294,7 @@ final class WP_Customize_Manager {
 	 * @param array $attachments Attachments.
 	 * @return array Prepared attachments.
 	 */
-	protected function prepare_starter_content_attachments( $attachments ) {
+	protected function prepare_starter_content_attachments( $attachments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$prepared_attachments = array();
 		if ( empty( $attachments ) ) {
 			return $prepared_attachments;
@@ -1352,7 +1352,7 @@ final class WP_Customize_Manager {
 	 * @since 4.7.0
 	 * @access private
 	 */
-	public function _save_starter_content_changeset() {
+	public function _save_starter_content_changeset() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		if ( empty( $this->pending_starter_content_settings_ids ) ) {
 			return;
@@ -1393,7 +1393,7 @@ final class WP_Customize_Manager {
 	 * }
 	 * @return array
 	 */
-	public function unsanitized_post_values( $args = array() ) {
+	public function unsanitized_post_values( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = array_merge(
 			array(
 				'exclude_changeset' => false,
@@ -1470,7 +1470,7 @@ final class WP_Customize_Manager {
 	 *                                      or the post value is invalid (added in 4.6.0).
 	 * @return string|mixed $post_value Sanitized value or the $default provided.
 	 */
-	public function post_value( $setting, $default = null ) {
+	public function post_value( $setting, $default = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post_values = $this->unsanitized_post_values();
 		if ( ! array_key_exists( $setting->id, $post_values ) ) {
 			return $default;
@@ -1499,7 +1499,7 @@ final class WP_Customize_Manager {
 	 * @param string $setting_id ID for the WP_Customize_Setting instance.
 	 * @param mixed  $value      Post value.
 	 */
-	public function set_post_value( $setting_id, $value ) {
+	public function set_post_value( $setting_id, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->unsanitized_post_values(); // Populate _post_values from $_POST['customized'].
 		$this->_post_values[ $setting_id ] = $value;
 
@@ -1539,7 +1539,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function customize_preview_init() {
+	public function customize_preview_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		/*
 		 * Now that Customizer previews are loaded into iframes via GET requests
@@ -1596,7 +1596,7 @@ final class WP_Customize_Manager {
 	 * @param array $headers Headers.
 	 * @return array Headers.
 	 */
-	public function filter_iframe_security_headers( $headers ) {
+	public function filter_iframe_security_headers( $headers ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$customize_url = admin_url( 'customize.php' );
 		$headers['X-Frame-Options'] = 'ALLOW-FROM ' . $customize_url;
 		$headers['Content-Security-Policy'] = 'frame-ancestors ' . preg_replace( '#^(\w+://[^/]+).+?$#', '$1', $customize_url );
@@ -1614,7 +1614,7 @@ final class WP_Customize_Manager {
 	 * @param string $url URL.
 	 * @return string URL.
 	 */
-	public function add_state_query_params( $url ) {
+	public function add_state_query_params( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$parsed_original_url = wp_parse_url( $url );
 		$is_allowed = false;
 		foreach ( $this->get_allowed_urls() as $allowed_url ) {
@@ -1655,7 +1655,7 @@ final class WP_Customize_Manager {
 	 * @deprecated 4.7.0
 	 * @access public
 	 */
-	public function customize_preview_override_404_status() {
+	public function customize_preview_override_404_status() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.7.0' );
 	}
 
@@ -1665,7 +1665,7 @@ final class WP_Customize_Manager {
 	 * @since 3.4.0
 	 * @deprecated 4.7.0
 	 */
-	public function customize_preview_base() {
+	public function customize_preview_base() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.7.0' );
 	}
 
@@ -1675,7 +1675,7 @@ final class WP_Customize_Manager {
 	 * @since 3.4.0
 	 * @deprecated 4.7.0 Customizer no longer supports IE8, so all supported browsers recognize HTML5.
 	 */
-	public function customize_preview_html5() {
+	public function customize_preview_html5() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __FUNCTION__, '4.7.0' );
 	}
 
@@ -1685,7 +1685,7 @@ final class WP_Customize_Manager {
 	 * @since 4.2.0
 	 * @access public
 	 */
-	public function customize_preview_loading_style() {
+	public function customize_preview_loading_style() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?><style>
 			body.wp-customizer-unloading {
 				opacity: 0.25;
@@ -1716,13 +1716,13 @@ final class WP_Customize_Manager {
 	 * @since 4.7.0
 	 * @access public
 	 */
-	public function remove_frameless_preview_messenger_channel() {
+	public function remove_frameless_preview_messenger_channel() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->messenger_channel ) {
 			return;
 		}
 		?>
 		<script>
-		( function() {
+		( function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			var urlParser, oldQueryParams, newQueryParams, i;
 			if ( parent !== window ) {
 				return;
@@ -1750,7 +1750,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function customize_preview_settings() {
+	public function customize_preview_settings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post_values = $this->unsanitized_post_values( array( 'exclude_changeset' => true ) );
 		$setting_validities = $this->validate_setting_values( $post_values );
 		$exported_setting_validities = array_map( array( $this, 'prepare_setting_validity_for_js' ), $setting_validities );
@@ -1841,7 +1841,7 @@ final class WP_Customize_Manager {
 		<script type="text/javascript">
 			var _wpCustomizeSettings = <?php echo wp_json_encode( $settings ); ?>;
 			_wpCustomizeSettings.values = {};
-			(function( v ) {
+			(function( v ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				<?php
 				/*
 				 * Serialize settings separately from the initial _wpCustomizeSettings
@@ -1869,7 +1869,7 @@ final class WP_Customize_Manager {
 	 * @since 3.4.0
 	 * @deprecated 4.7.0
 	 */
-	public function customize_preview_signature() {
+	public function customize_preview_signature() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.7.0' );
 	}
 
@@ -1882,7 +1882,7 @@ final class WP_Customize_Manager {
 	 * @param mixed $return Value passed through for {@see 'wp_die_handler'} filter.
 	 * @return mixed Value passed through for {@see 'wp_die_handler'} filter.
 	 */
-	public function remove_preview_signature( $return = null ) {
+	public function remove_preview_signature( $return = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.7.0' );
 
 		return $return;
@@ -1895,7 +1895,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return bool True if it's a preview, false if not.
 	 */
-	public function is_preview() {
+	public function is_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->previewing;
 	}
 
@@ -1906,7 +1906,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string Template name.
 	 */
-	public function get_template() {
+	public function get_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->theme()->get_template();
 	}
 
@@ -1917,7 +1917,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string Stylesheet name.
 	 */
-	public function get_stylesheet() {
+	public function get_stylesheet() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->theme()->get_stylesheet();
 	}
 
@@ -1928,7 +1928,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string Theme root.
 	 */
-	public function get_template_root() {
+	public function get_template_root() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return get_raw_theme_root( $this->get_template(), true );
 	}
 
@@ -1939,7 +1939,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string Theme root.
 	 */
-	public function get_stylesheet_root() {
+	public function get_stylesheet_root() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return get_raw_theme_root( $this->get_stylesheet(), true );
 	}
 
@@ -1951,7 +1951,7 @@ final class WP_Customize_Manager {
 	 * @param $current_theme {@internal Parameter is not used}
 	 * @return string Theme name.
 	 */
-	public function current_theme( $current_theme ) {
+	public function current_theme( $current_theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->theme()->display('Name');
 	}
 
@@ -1978,7 +1978,7 @@ final class WP_Customize_Manager {
 	 * }
 	 * @return array Mapping of setting IDs to return value of validate method calls, either `true` or `WP_Error`.
 	 */
-	public function validate_setting_values( $setting_values, $options = array() ) {
+	public function validate_setting_values( $setting_values, $options = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$options = wp_parse_args( $options, array(
 			'validate_capability' => false,
 			'validate_existence' => false,
@@ -2038,7 +2038,7 @@ final class WP_Customize_Manager {
 	 *                    to their respective `message` and `data` to pass into the
 	 *                    `wp.customize.Notification` JS model.
 	 */
-	public function prepare_setting_validity_for_js( $validity ) {
+	public function prepare_setting_validity_for_js( $validity ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_wp_error( $validity ) ) {
 			$notification = array();
 			foreach ( $validity->errors as $error_code => $error_messages ) {
@@ -2059,7 +2059,7 @@ final class WP_Customize_Manager {
 	 * @since 3.4.0
 	 * @since 4.7.0 The semantics of this method have changed to update a changeset, optionally to also change the status and other attributes.
 	 */
-	public function save() {
+	public function save() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_user_logged_in() ) {
 			wp_send_json_error( 'unauthenticated' );
 		}
@@ -2213,7 +2213,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return array|WP_Error Returns array on success and WP_Error with array data on error.
 	 */
-	function save_changeset_post( $args = array() ) {
+	function save_changeset_post( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$args = array_merge(
 			array(
@@ -2550,7 +2550,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return bool Whether a revision should be made.
 	 */
-	public function _filter_revision_post_has_changed( $post_has_changed, $last_revision, $post ) {
+	public function _filter_revision_post_has_changed( $post_has_changed, $last_revision, $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $last_revision );
 		if ( 'customize_changeset' === $post->post_type ) {
 			$post_has_changed = $this->store_changeset_revision;
@@ -2578,7 +2578,7 @@ final class WP_Customize_Manager {
 	 * @param int $changeset_post_id ID for customize_changeset post. Defaults to the changeset for the current manager instance.
 	 * @return true|WP_Error True or error info.
 	 */
-	public function _publish_changeset_values( $changeset_post_id ) {
+	public function _publish_changeset_values( $changeset_post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$publishing_changeset_data = $this->get_changeset_post_data( $changeset_post_id );
 		if ( is_wp_error( $publishing_changeset_data ) ) {
 			return $publishing_changeset_data;
@@ -2728,7 +2728,7 @@ final class WP_Customize_Manager {
 	 * @param array $inactive_theme_mod_settings Mapping of stylesheet to arrays of theme mod settings.
 	 * @return array|false Returns array of updated stashed theme mods or false if the update failed or there were no changes.
 	 */
-	protected function update_stashed_theme_mod_settings( $inactive_theme_mod_settings ) {
+	protected function update_stashed_theme_mod_settings( $inactive_theme_mod_settings ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$stashed_theme_mod_settings = get_option( 'customize_stashed_theme_mods' );
 		if ( empty( $stashed_theme_mod_settings ) ) {
 			$stashed_theme_mod_settings = array();
@@ -2762,7 +2762,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 4.2.0
 	 */
-	public function refresh_nonces() {
+	public function refresh_nonces() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->is_preview() ) {
 			wp_send_json_error( 'not_preview' );
 		}
@@ -2782,7 +2782,7 @@ final class WP_Customize_Manager {
 	 *                                          constructor.
 	 * @return WP_Customize_Setting             The instance of the setting that was added.
 	 */
-	public function add_setting( $id, $args = array() ) {
+	public function add_setting( $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $id instanceof WP_Customize_Setting ) {
 			$setting = $id;
 		} else {
@@ -2816,7 +2816,7 @@ final class WP_Customize_Manager {
 	 * @param array $setting_ids The setting IDs to add.
 	 * @return array The WP_Customize_Setting objects added.
 	 */
-	public function add_dynamic_settings( $setting_ids ) {
+	public function add_dynamic_settings( $setting_ids ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$new_settings = array();
 		foreach ( $setting_ids as $setting_id ) {
 			// Skip settings already created
@@ -2871,7 +2871,7 @@ final class WP_Customize_Manager {
 	 * @param string $id Customize Setting ID.
 	 * @return WP_Customize_Setting|void The setting, if set.
 	 */
-	public function get_setting( $id ) {
+	public function get_setting( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->settings[ $id ] ) ) {
 			return $this->settings[ $id ];
 		}
@@ -2884,7 +2884,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @param string $id Customize Setting ID.
 	 */
-	public function remove_setting( $id ) {
+	public function remove_setting( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->settings[ $id ] );
 	}
 
@@ -2900,7 +2900,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return WP_Customize_Panel             The instance of the panel that was added.
 	 */
-	public function add_panel( $id, $args = array() ) {
+	public function add_panel( $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $id instanceof WP_Customize_Panel ) {
 			$panel = $id;
 		} else {
@@ -2920,7 +2920,7 @@ final class WP_Customize_Manager {
 	 * @param string $id Panel ID to get.
 	 * @return WP_Customize_Panel|void Requested panel instance, if set.
 	 */
-	public function get_panel( $id ) {
+	public function get_panel( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->panels[ $id ] ) ) {
 			return $this->panels[ $id ];
 		}
@@ -2934,7 +2934,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @param string $id Panel ID to remove.
 	 */
-	public function remove_panel( $id ) {
+	public function remove_panel( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Removing core components this way is _doing_it_wrong().
 		if ( in_array( $id, $this->components, true ) ) {
 			/* translators: 1: panel id, 2: link to 'customize_loaded_components' filter reference */
@@ -2960,7 +2960,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @param string $panel Name of a custom panel which is a subclass of WP_Customize_Panel.
 	 */
-	public function register_panel_type( $panel ) {
+	public function register_panel_type( $panel ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->registered_panel_types[] = $panel;
 	}
 
@@ -2970,7 +2970,7 @@ final class WP_Customize_Manager {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function render_panel_templates() {
+	public function render_panel_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->registered_panel_types as $panel_type ) {
 			$panel = new $panel_type( $this, 'temp', array() );
 			$panel->print_template();
@@ -2989,7 +2989,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return WP_Customize_Section             The instance of the section that was added.
 	 */
-	public function add_section( $id, $args = array() ) {
+	public function add_section( $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $id instanceof WP_Customize_Section ) {
 			$section = $id;
 		} else {
@@ -3008,7 +3008,7 @@ final class WP_Customize_Manager {
 	 * @param string $id Section ID.
 	 * @return WP_Customize_Section|void The section, if set.
 	 */
-	public function get_section( $id ) {
+	public function get_section( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->sections[ $id ] ) )
 			return $this->sections[ $id ];
 	}
@@ -3020,7 +3020,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @param string $id Section ID.
 	 */
-	public function remove_section( $id ) {
+	public function remove_section( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->sections[ $id ] );
 	}
 
@@ -3036,7 +3036,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @param string $section Name of a custom section which is a subclass of WP_Customize_Section.
 	 */
-	public function register_section_type( $section ) {
+	public function register_section_type( $section ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->registered_section_types[] = $section;
 	}
 
@@ -3046,7 +3046,7 @@ final class WP_Customize_Manager {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function render_section_templates() {
+	public function render_section_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->registered_section_types as $section_type ) {
 			$section = new $section_type( $this, 'temp', array() );
 			$section->print_template();
@@ -3065,7 +3065,7 @@ final class WP_Customize_Manager {
 	 *                                          constructor.
 	 * @return WP_Customize_Control             The instance of the control that was added.
 	 */
-	public function add_control( $id, $args = array() ) {
+	public function add_control( $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $id instanceof WP_Customize_Control ) {
 			$control = $id;
 		} else {
@@ -3084,7 +3084,7 @@ final class WP_Customize_Manager {
 	 * @param string $id ID of the control.
 	 * @return WP_Customize_Control|void The control object, if set.
 	 */
-	public function get_control( $id ) {
+	public function get_control( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->controls[ $id ] ) )
 			return $this->controls[ $id ];
 	}
@@ -3096,7 +3096,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @param string $id ID of the control.
 	 */
-	public function remove_control( $id ) {
+	public function remove_control( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->controls[ $id ] );
 	}
 
@@ -3111,7 +3111,7 @@ final class WP_Customize_Manager {
 	 * @param string $control Name of a custom control which is a subclass of
 	 *                        WP_Customize_Control.
 	 */
-	public function register_control_type( $control ) {
+	public function register_control_type( $control ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->registered_control_types[] = $control;
 	}
 
@@ -3121,7 +3121,7 @@ final class WP_Customize_Manager {
 	 * @since 4.1.0
 	 * @access public
 	 */
-	public function render_control_templates() {
+	public function render_control_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->registered_control_types as $control_type ) {
 			$control = new $control_type( $this, 'temp', array(
 				'settings' => array(),
@@ -3131,7 +3131,7 @@ final class WP_Customize_Manager {
 		?>
 		<script type="text/html" id="tmpl-customize-control-notifications">
 			<ul>
-				<# _.each( data.notifications, function( notification ) { #>
+				<# _.each( data.notifications, function( notification ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); #>
 					<li class="notice notice-{{ notification.type || 'info' }} {{ data.altNotice ? 'notice-alt' : '' }}" data-code="{{ notification.code }}" data-type="{{ notification.type }}">{{{ notification.message || notification.code }}}</li>
 				<# } ); #>
 			</ul>
@@ -3149,7 +3149,7 @@ final class WP_Customize_Manager {
 	 * @param WP_Customize_Panel|WP_Customize_Section|WP_Customize_Control $b Object B.
 	 * @return int
 	 */
-	protected function _cmp_priority( $a, $b ) {
+	protected function _cmp_priority( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.7.0', 'wp_list_sort' );
 
 		if ( $a->priority === $b->priority ) {
@@ -3168,7 +3168,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function prepare_controls() {
+	public function prepare_controls() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$controls = array();
 		$this->controls = wp_list_sort( $this->controls, array(
@@ -3249,7 +3249,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function enqueue_control_scripts() {
+	public function enqueue_control_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->controls as $control ) {
 			$control->enqueue();
 		}
@@ -3263,7 +3263,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return bool Whether the user agent is iOS.
 	 */
-	public function is_ios() {
+	public function is_ios() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return wp_is_mobile() && preg_match( '/iPad|iPod|iPhone/', $_SERVER['HTTP_USER_AGENT'] );
 	}
 
@@ -3275,7 +3275,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string The template string for the document title.
 	 */
-	public function get_document_title_template() {
+	public function get_document_title_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_theme_active() ) {
 			/* translators: %s: document title from the preview */
 			$document_title_tmpl = __( 'Customize: %s' );
@@ -3297,7 +3297,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @param string $preview_url URL to be previewed.
 	 */
-	public function set_preview_url( $preview_url ) {
+	public function set_preview_url( $preview_url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$preview_url = esc_url_raw( $preview_url );
 		$this->preview_url = wp_validate_redirect( $preview_url, home_url( '/' ) );
 	}
@@ -3310,7 +3310,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string URL being previewed.
 	 */
-	public function get_preview_url() {
+	public function get_preview_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $this->preview_url ) ) {
 			$preview_url = home_url( '/' );
 		} else {
@@ -3327,7 +3327,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return bool Whether cross-domain.
 	 */
-	public function is_cross_domain() {
+	public function is_cross_domain() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$admin_origin = wp_parse_url( admin_url() );
 		$home_origin = wp_parse_url( home_url() );
 		$cross_domain = ( strtolower( $admin_origin['host'] ) !== strtolower( $home_origin['host'] ) );
@@ -3349,7 +3349,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @returns array Allowed URLs.
 	 */
-	public function get_allowed_urls() {
+	public function get_allowed_urls() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$allowed_urls = array( home_url( '/' ) );
 
 		if ( is_ssl() && ! $this->is_cross_domain() ) {
@@ -3376,7 +3376,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string Messenger channel.
 	 */
-	public function get_messenger_channel() {
+	public function get_messenger_channel() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->messenger_channel;
 	}
 
@@ -3390,7 +3390,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @param string $return_url URL for return link.
 	 */
-	public function set_return_url( $return_url ) {
+	public function set_return_url( $return_url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$return_url = esc_url_raw( $return_url );
 		$return_url = remove_query_arg( wp_removable_query_args(), $return_url );
 		$return_url = wp_validate_redirect( $return_url );
@@ -3405,7 +3405,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string URL for link to close Customizer.
 	 */
-	public function get_return_url() {
+	public function get_return_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$referer = wp_get_referer();
 		$excluded_referer_basenames = array( 'customize.php', 'wp-login.php' );
 
@@ -3435,7 +3435,7 @@ final class WP_Customize_Manager {
 	 *     @type string [$panel]    ID for panel to be autofocused.
 	 * }
 	 */
-	public function set_autofocus( $autofocus ) {
+	public function set_autofocus( $autofocus ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->autofocus = array_filter( wp_array_slice_assoc( $autofocus, array( 'panel', 'section', 'control' ) ), 'is_string' );
 	}
 
@@ -3453,7 +3453,7 @@ final class WP_Customize_Manager {
 	 *     @type string [$panel]    ID for panel to be autofocused.
 	 * }
 	 */
-	public function get_autofocus() {
+	public function get_autofocus() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->autofocus;
 	}
 
@@ -3463,7 +3463,7 @@ final class WP_Customize_Manager {
 	 * @since 4.5.0
 	 * @return array Nonces.
 	 */
-	public function get_nonces() {
+	public function get_nonces() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$nonces = array(
 			'save' => wp_create_nonce( 'save-customize_' . $this->get_stylesheet() ),
 			'preview' => wp_create_nonce( 'preview-customize_' . $this->get_stylesheet() ),
@@ -3488,7 +3488,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 4.4.0
 	 */
-	public function customize_pane_settings() {
+	public function customize_pane_settings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$login_url = add_query_arg( array(
 			'interim-login' => 1,
@@ -3569,7 +3569,7 @@ final class WP_Customize_Manager {
 			<?php
 
 			// Serialize settings one by one to improve memory usage.
-			echo "(function ( s ){\n";
+			echo "(function ( s ){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);\n";
 			foreach ( $this->settings() as $setting ) {
 				if ( $setting->check_capabilities() ) {
 					printf(
@@ -3582,7 +3582,7 @@ final class WP_Customize_Manager {
 			echo "})( _wpCustomizeSettings.settings );\n";
 
 			// Serialize controls one by one to improve memory usage.
-			echo "(function ( c ){\n";
+			echo "(function ( c ){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);\n";
 			foreach ( $this->controls() as $control ) {
 				if ( $control->check_capabilities() ) {
 					printf(
@@ -3606,7 +3606,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return array List of devices with labels and default setting.
 	 */
-	public function get_previewable_devices() {
+	public function get_previewable_devices() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$devices = array(
 			'desktop' => array(
 				'label' => __( 'Enter desktop preview mode' ),
@@ -3639,7 +3639,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @since 3.4.0
 	 */
-	public function register_controls() {
+	public function register_controls() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		/* Panel, Section, and Control Types */
 		$this->register_panel_type( 'WP_Customize_Panel' );
@@ -4157,7 +4157,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @returns bool Whether there are published (or to be published) pages.
 	 */
-	public function has_published_pages() {
+	public function has_published_pages() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$setting = $this->get_setting( 'nav_menus_created_posts' );
 		if ( $setting ) {
@@ -4178,7 +4178,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @see add_dynamic_settings()
 	 */
-	public function register_dynamic_settings() {
+	public function register_dynamic_settings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$setting_ids = array_keys( $this->unsanitized_post_values() );
 		$this->add_dynamic_settings( $setting_ids );
 	}
@@ -4194,7 +4194,7 @@ final class WP_Customize_Manager {
 	 * @param string $color
 	 * @return mixed
 	 */
-	public function _sanitize_header_textcolor( $color ) {
+	public function _sanitize_header_textcolor( $color ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'blank' === $color )
 			return 'blank';
 
@@ -4215,7 +4215,7 @@ final class WP_Customize_Manager {
 	 * @param WP_Customize_Setting $setting Setting.
 	 * @return string|WP_Error Background value or validation error.
 	 */
-	public function _sanitize_background_setting( $value, $setting ) {
+	public function _sanitize_background_setting( $value, $setting ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'background_repeat' === $setting->id ) {
 			if ( ! in_array( $value, array( 'repeat-x', 'repeat-y', 'repeat', 'no-repeat' ) ) ) {
 				return new WP_Error( 'invalid_value', __( 'Invalid value for background repeat.' ) );
@@ -4258,7 +4258,7 @@ final class WP_Customize_Manager {
 	 * @param array $partials Array of partials.
 	 * @return array
 	 */
-	public function export_header_video_settings( $response, $selective_refresh, $partials ) {
+	public function export_header_video_settings( $response, $selective_refresh, $partials ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $partials['custom_header'] ) ) {
 			$response['custom_header_settings'] = get_header_video_settings();
 		}
@@ -4277,7 +4277,7 @@ final class WP_Customize_Manager {
 	 * @param mixed $value
 	 * @return mixed
 	 */
-	public function _validate_header_video( $validity, $value ) {
+	public function _validate_header_video( $validity, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$video = get_attached_file( absint( $value ) );
 		if ( $video ) {
 			$size = filesize( $video );
@@ -4309,7 +4309,7 @@ final class WP_Customize_Manager {
 	 * @param mixed $value
 	 * @return mixed
 	 */
-	public function _validate_external_header_video( $validity, $value ) {
+	public function _validate_external_header_video( $validity, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$video = esc_url_raw( $value );
 		if ( $video ) {
 			if ( ! preg_match( '#^https?://(?:www\.)?(?:youtube\.com/watch|youtu\.be/)#', $video ) ) {
@@ -4327,7 +4327,7 @@ final class WP_Customize_Manager {
 	 * @param string $value URL.
 	 * @return string Sanitized URL.
 	 */
-	public function _sanitize_external_header_video( $value ) {
+	public function _sanitize_external_header_video( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return esc_url_raw( trim( $value ) );
 	}
 
@@ -4347,7 +4347,7 @@ final class WP_Customize_Manager {
 	 *
 	 * @return string Custom logo.
 	 */
-	public function _render_custom_logo_partial() {
+	public function _render_custom_logo_partial() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return get_custom_logo();
 	}
 }

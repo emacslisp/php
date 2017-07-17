@@ -24,7 +24,7 @@ class WP_REST_User_Meta_Fields extends WP_REST_Meta_Fields {
 	 *
 	 * @return string The user meta type.
 	 */
-	protected function get_meta_type() {
+	protected function get_meta_type() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'user';
 	}
 
@@ -36,7 +36,7 @@ class WP_REST_User_Meta_Fields extends WP_REST_Meta_Fields {
 	 *
 	 * @return string The user REST field type.
 	 */
-	public function get_rest_field_type() {
+	public function get_rest_field_type() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'user';
 	}
 }

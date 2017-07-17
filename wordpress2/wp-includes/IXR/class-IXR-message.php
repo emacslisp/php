@@ -38,13 +38,13 @@ class IXR_Message
 	/**
 	 * PHP4 constructor.
 	 */
-	public function IXR_Message( $message ) {
+	public function IXR_Message( $message ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $message );
 	}
 
     function parse()
     {
-        if ( ! function_exists( 'xml_parser_create' ) ) {
+        if ( ! function_exists( 'xml_parser_create' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
             trigger_error( __( "PHP's XML extension is not available. Please contact your hosting provider to enable PHP's XML extension." ) );
             return false;
         }
@@ -75,7 +75,7 @@ class IXR_Message
 
         // Bail if there are too many elements to parse
         $element_limit = 30000;
-        if ( function_exists( 'apply_filters' ) ) {
+        if ( function_exists( 'apply_filters' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
             /**
              * Filters the number of elements to parse in an XML-RPC response.
              *

@@ -6,208 +6,208 @@ $wpcom_api_key    = defined( 'WPCOM_API_KEY' ) ? constant( 'WPCOM_API_KEY' ) : '
 $akismet_api_host = Akismet::get_api_key() . '.rest.akismet.com';
 $akismet_api_port = 80;
 
-function akismet_test_mode() {
+function akismet_test_mode() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::is_test_mode();
 }
 
-function akismet_http_post( $request, $host, $path, $port = 80, $ip = null ) {
+function akismet_http_post( $request, $host, $path, $port = 80, $ip = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$path = str_replace( '/1.1/', '', $path );
 
 	return Akismet::http_post( $request, $path, $ip ); 
 }
 
-function akismet_microtime() {
+function akismet_microtime() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::_get_microtime();
 }
 
-function akismet_delete_old() {
+function akismet_delete_old() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::delete_old_comments();
 }
 
-function akismet_delete_old_metadata() { 
+function akismet_delete_old_metadata() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); 
 	return Akismet::delete_old_comments_meta();
 }
 
-function akismet_check_db_comment( $id, $recheck_reason = 'recheck_queue' ) {
+function akismet_check_db_comment( $id, $recheck_reason = 'recheck_queue' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
    	return Akismet::check_db_comment( $id, $recheck_reason );
 }
 
-function akismet_rightnow() {
+function akismet_rightnow() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !class_exists( 'Akismet_Admin' ) )
 		return false;
    
    	return Akismet_Admin::rightnow_stats();
 }
 
-function akismet_admin_init() {
+function akismet_admin_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_version_warning() {
+function akismet_version_warning() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_load_js_and_css() {
+function akismet_load_js_and_css() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_nonce_field( $action = -1 ) {
+function akismet_nonce_field( $action = -1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return wp_nonce_field( $action );
 }
-function akismet_plugin_action_links( $links, $file ) {
+function akismet_plugin_action_links( $links, $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::plugin_action_links( $links, $file );
 }
-function akismet_conf() {
+function akismet_conf() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_stats_display() {
+function akismet_stats_display() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_stats() {
+function akismet_stats() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::dashboard_stats();
 }
-function akismet_admin_warnings() {
+function akismet_admin_warnings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_comment_row_action( $a, $comment ) {
+function akismet_comment_row_action( $a, $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::comment_row_actions( $a, $comment );
 }
-function akismet_comment_status_meta_box( $comment ) {
+function akismet_comment_status_meta_box( $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::comment_status_meta_box( $comment );
 }
-function akismet_comments_columns( $columns ) {
+function akismet_comments_columns( $columns ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 
 	return $columns;
 }
-function akismet_comment_column_row( $column, $comment_id ) {
+function akismet_comment_column_row( $column, $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_text_add_link_callback( $m ) {
+function akismet_text_add_link_callback( $m ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::text_add_link_callback( $m );
 }
-function akismet_text_add_link_class( $comment_text ) {
+function akismet_text_add_link_class( $comment_text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::text_add_link_class( $comment_text );
 }
-function akismet_check_for_spam_button( $comment_status ) {
+function akismet_check_for_spam_button( $comment_status ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::check_for_spam_button( $comment_status );
 }
-function akismet_submit_nonspam_comment( $comment_id ) {
+function akismet_submit_nonspam_comment( $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::submit_nonspam_comment( $comment_id );
 }
-function akismet_submit_spam_comment( $comment_id ) {
+function akismet_submit_spam_comment( $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::submit_spam_comment( $comment_id );
 }
-function akismet_transition_comment_status( $new_status, $old_status, $comment ) {
+function akismet_transition_comment_status( $new_status, $old_status, $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::transition_comment_status( $new_status, $old_status, $comment );
 }
-function akismet_spam_count( $type = false ) {
+function akismet_spam_count( $type = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::get_spam_count( $type );
 }
-function akismet_recheck_queue() {
+function akismet_recheck_queue() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::recheck_queue();
 }
-function akismet_remove_comment_author_url() {
+function akismet_remove_comment_author_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::remove_comment_author_url();
 }
-function akismet_add_comment_author_url() {
+function akismet_add_comment_author_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::add_comment_author_url();
 }
-function akismet_check_server_connectivity() {
+function akismet_check_server_connectivity() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::check_server_connectivity();
 }
-function akismet_get_server_connectivity( $cache_timeout = 86400 ) {
+function akismet_get_server_connectivity( $cache_timeout = 86400 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::get_server_connectivity( $cache_timeout );
 }
-function akismet_server_connectivity_ok() {
+function akismet_server_connectivity_ok() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 
 	return true;
 }
-function akismet_admin_menu() {
+function akismet_admin_menu() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::admin_menu();
 }
-function akismet_load_menu() {
+function akismet_load_menu() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet_Admin::load_menu();
 }
-function akismet_init() {
+function akismet_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_get_key() {
+function akismet_get_key() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::get_api_key();
 }
-function akismet_check_key_status( $key, $ip = null ) {
+function akismet_check_key_status( $key, $ip = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::check_key_status( $key, $ip );
 }
-function akismet_update_alert( $response ) {
+function akismet_update_alert( $response ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::update_alert( $response );
 }
-function akismet_verify_key( $key, $ip = null ) {
+function akismet_verify_key( $key, $ip = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::verify_key( $key, $ip );
 }
-function akismet_get_user_roles( $user_id ) {
+function akismet_get_user_roles( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::get_user_roles( $user_id );
 }
-function akismet_result_spam( $approved ) {
+function akismet_result_spam( $approved ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::comment_is_spam( $approved );
 }
-function akismet_result_hold( $approved ) {
+function akismet_result_hold( $approved ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::comment_needs_moderation( $approved );
 }
-function akismet_get_user_comments_approved( $user_id, $comment_author_email, $comment_author, $comment_author_url ) {
+function akismet_get_user_comments_approved( $user_id, $comment_author_email, $comment_author, $comment_author_url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::get_user_comments_approved( $user_id, $comment_author_email, $comment_author, $comment_author_url );
 }
-function akismet_update_comment_history( $comment_id, $message, $event = null ) {
+function akismet_update_comment_history( $comment_id, $message, $event = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::update_comment_history( $comment_id, $message, $event );
 }
-function akismet_get_comment_history( $comment_id ) {
+function akismet_get_comment_history( $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::get_comment_history( $comment_id );
 }
-function akismet_cmp_time( $a, $b ) {
+function akismet_cmp_time( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::_cmp_time( $a, $b );
 }
-function akismet_auto_check_update_meta( $id, $comment ) {
+function akismet_auto_check_update_meta( $id, $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::auto_check_update_meta( $id, $comment );
 }
-function akismet_auto_check_comment( $commentdata ) {
+function akismet_auto_check_comment( $commentdata ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::auto_check_comment( $commentdata );
 }
-function akismet_get_ip_address() {
+function akismet_get_ip_address() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::get_ip_address();
 }
-function akismet_cron_recheck() {
+function akismet_cron_recheck() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::cron_recheck();
 }
-function akismet_add_comment_nonce() {
+function akismet_add_comment_nonce() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::add_comment_nonce( $post_id );
 }
-function akismet_fix_scheduled_recheck() {
+function akismet_fix_scheduled_recheck() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::fix_scheduled_recheck();
 }
-function akismet_spam_comments() {
+function akismet_spam_comments() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 
 	return array();
 }
-function akismet_spam_totals() {
+function akismet_spam_totals() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 
 	return array();
 }
-function akismet_manage_page() {
+function akismet_manage_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_caught() {
+function akismet_caught() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function redirect_old_akismet_urls() {
+function redirect_old_akismet_urls() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 }
-function akismet_kill_proxy_check( $option ) {
+function akismet_kill_proxy_check( $option ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0' );
 
 	return 0;
 }
-function akismet_pingback_forwarded_for( $r, $url ) {
+function akismet_pingback_forwarded_for( $r, $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::pingback_forwarded_for( $r, $url );
 }
-function akismet_pre_check_pingback( $method ) {
+function akismet_pre_check_pingback( $method ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return Akismet::pre_check_pingback( $method );
 }

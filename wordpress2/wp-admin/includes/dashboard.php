@@ -17,7 +17,7 @@
  * @global array $wp_registered_widget_controls
  * @global array $wp_dashboard_control_callbacks
  */
-function wp_dashboard_setup() {
+function wp_dashboard_setup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_registered_widgets, $wp_registered_widget_controls, $wp_dashboard_control_callbacks;
 	$wp_dashboard_control_callbacks = array();
 	$screen = get_current_screen();
@@ -144,7 +144,7 @@ function wp_dashboard_setup() {
  * @param array    $callback_args    Optional. Data that should be set as the $args property of the widget array
  *                                   (which is the second parameter passed to your callback). Default null.
  */
-function wp_add_dashboard_widget( $widget_id, $widget_name, $callback, $control_callback = null, $callback_args = null ) {
+function wp_add_dashboard_widget( $widget_id, $widget_name, $callback, $control_callback = null, $callback_args = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$screen = get_current_screen();
 	global $wp_dashboard_control_callbacks;
 
@@ -190,7 +190,7 @@ function wp_add_dashboard_widget( $widget_id, $widget_name, $callback, $control_
  * @param mixed $dashboard
  * @param array $meta_box
  */
-function _wp_dashboard_control_callback( $dashboard, $meta_box ) {
+function _wp_dashboard_control_callback( $dashboard, $meta_box ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo '<form method="post" class="dashboard-widget-control-form">';
 	wp_dashboard_trigger_widget_control( $meta_box['id'] );
 	wp_nonce_field( 'edit-dashboard-widget_' . $meta_box['id'], 'dashboard-widget-nonce' );
@@ -204,7 +204,7 @@ function _wp_dashboard_control_callback( $dashboard, $meta_box ) {
  *
  * @since 2.5.0
  */
-function wp_dashboard() {
+function wp_dashboard() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$screen = get_current_screen();
 	$columns = absint( $screen->get_columns() );
 	$columns_css = '';
@@ -245,7 +245,7 @@ function wp_dashboard() {
  *
  * @since 2.7.0
  */
-function wp_dashboard_right_now() {
+function wp_dashboard_right_now() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 	<div class="main">
 	<ul>
@@ -382,7 +382,7 @@ function wp_dashboard_right_now() {
 /**
  * @since 3.1.0
  */
-function wp_network_dashboard_right_now() {
+function wp_network_dashboard_right_now() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$actions = array();
 	if ( current_user_can('create_sites') )
 		$actions['create-site'] = '<a href="' . network_admin_url('site-new.php') . '">' . __( 'Create a New Site' ) . '</a>';
@@ -466,7 +466,7 @@ function wp_network_dashboard_right_now() {
  *
  * @param string $error_msg Optional. Error message. Default false.
  */
-function wp_dashboard_quick_press( $error_msg = false ) {
+function wp_dashboard_quick_press( $error_msg = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $post_ID;
 
 	if ( ! current_user_can( 'edit_posts' ) ) {
@@ -537,7 +537,7 @@ function wp_dashboard_quick_press( $error_msg = false ) {
  *
  * @param array $drafts
  */
-function wp_dashboard_recent_drafts( $drafts = false ) {
+function wp_dashboard_recent_drafts( $drafts = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $drafts ) {
 		$query_args = array(
 			'post_type'      => 'post',
@@ -596,7 +596,7 @@ function wp_dashboard_recent_drafts( $drafts = false ) {
  * @param WP_Comment $comment   The current comment.
  * @param bool       $show_date Optional. Whether to display the date.
  */
-function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
+function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$GLOBALS['comment'] = clone $comment;
 
 	if ( $comment->comment_post_ID > 0 ) {
@@ -757,7 +757,7 @@ function _wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
  *
  * @since 3.8.0
  */
-function wp_dashboard_site_activity() {
+function wp_dashboard_site_activity() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	echo '<div id="activity-widget">';
 
@@ -804,7 +804,7 @@ function wp_dashboard_site_activity() {
  * }
  * @return bool False if no posts were found. True otherwise.
  */
-function wp_dashboard_recent_posts( $args ) {
+function wp_dashboard_recent_posts( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$query_args = array(
 		'post_type'      => 'post',
 		'post_status'    => $args['status'],
@@ -888,7 +888,7 @@ function wp_dashboard_recent_posts( $args ) {
  * @param int $total_items Optional. Number of comments to query. Default 5.
  * @return bool False if no comments were found. True otherwise.
  */
-function wp_dashboard_recent_comments( $total_items = 5 ) {
+function wp_dashboard_recent_comments( $total_items = 5 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Select all comment types and filter out spam later for better query performance.
 	$comments = array();
 
@@ -945,7 +945,7 @@ function wp_dashboard_recent_comments( $total_items = 5 ) {
  *
  * @param string $widget_id
  */
-function wp_dashboard_rss_output( $widget_id ) {
+function wp_dashboard_rss_output( $widget_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$widgets = get_option( 'dashboard_widget_options' );
 	echo '<div class="rss-widget">';
 	wp_widget_rss_output( $widgets[ $widget_id ] );
@@ -967,7 +967,7 @@ function wp_dashboard_rss_output( $widget_id ) {
  * @param array $check_urls RSS feeds
  * @return bool False on failure. True on success.
  */
-function wp_dashboard_cached_rss_widget( $widget_id, $callback, $check_urls = array() ) {
+function wp_dashboard_cached_rss_widget( $widget_id, $callback, $check_urls = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$loading = '<p class="widget-loading hide-if-no-js">' . __( 'Loading&#8230;' ) . '</p><p class="hide-if-js">' . __( 'This widget requires JavaScript.' ) . '</p>';
 	$doing_ajax = wp_doing_ajax();
 
@@ -1016,7 +1016,7 @@ function wp_dashboard_cached_rss_widget( $widget_id, $callback, $check_urls = ar
  *
  * @param int $widget_control_id Registered Widget ID.
  */
-function wp_dashboard_trigger_widget_control( $widget_control_id = false ) {
+function wp_dashboard_trigger_widget_control( $widget_control_id = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_dashboard_control_callbacks;
 
 	if ( is_scalar($widget_control_id) && $widget_control_id && isset($wp_dashboard_control_callbacks[$widget_control_id]) && is_callable($wp_dashboard_control_callbacks[$widget_control_id]) ) {
@@ -1035,7 +1035,7 @@ function wp_dashboard_trigger_widget_control( $widget_control_id = false ) {
  * @param string $widget_id
  * @param array $form_inputs
  */
-function wp_dashboard_rss_control( $widget_id, $form_inputs = array() ) {
+function wp_dashboard_rss_control( $widget_id, $form_inputs = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !$widget_options = get_option( 'dashboard_widget_options' ) )
 		$widget_options = array();
 
@@ -1074,7 +1074,7 @@ function wp_dashboard_rss_control( $widget_id, $form_inputs = array() ) {
  *
  * @since 2.7.0
  */
-function wp_dashboard_primary() {
+function wp_dashboard_primary() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$feeds = array(
 		'news' => array(
 
@@ -1177,7 +1177,7 @@ function wp_dashboard_primary() {
  * @param string $widget_id Widget ID.
  * @param array  $feeds     Array of RSS feeds.
  */
-function wp_dashboard_primary_output( $widget_id, $feeds ) {
+function wp_dashboard_primary_output( $widget_id, $feeds ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	foreach ( $feeds as $type => $args ) {
 		$args['type'] = $type;
 		echo '<div class="rss-widget">';
@@ -1198,7 +1198,7 @@ function wp_dashboard_primary_output( $widget_id, $feeds ) {
  * @param string $rss  The RSS feed URL.
  * @param array  $args Array of arguments for this RSS feed.
  */
-function wp_dashboard_plugins_output( $rss, $args = array() ) {
+function wp_dashboard_plugins_output( $rss, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Plugin feeds plus link to install them
 	$popular = fetch_feed( $args['url']['popular'] );
 
@@ -1278,7 +1278,7 @@ function wp_dashboard_plugins_output( $rss, $args = array() ) {
  *
  * @return bool|null True if not multisite, user can't upload files, or the space check option is disabled.
  */
-function wp_dashboard_quota() {
+function wp_dashboard_quota() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !is_multisite() || !current_user_can( 'upload_files' ) || get_site_option( 'upload_space_check_disabled' ) )
 		return true;
 
@@ -1329,7 +1329,7 @@ function wp_dashboard_quota() {
 }
 
 // Display Browser Nag Meta Box
-function wp_dashboard_browser_nag() {
+function wp_dashboard_browser_nag() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$notice = '';
 	$response = wp_check_browser_version();
 
@@ -1382,7 +1382,7 @@ function wp_dashboard_browser_nag() {
  * @param array $classes
  * @return array
  */
-function dashboard_browser_nag_class( $classes ) {
+function dashboard_browser_nag_class( $classes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$response = wp_check_browser_version();
 
 	if ( $response && $response['insecure'] )
@@ -1398,7 +1398,7 @@ function dashboard_browser_nag_class( $classes ) {
  *
  * @return array|bool False on failure, array of browser data on success.
  */
-function wp_check_browser_version() {
+function wp_check_browser_version() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $_SERVER['HTTP_USER_AGENT'] ) )
 		return false;
 
@@ -1440,14 +1440,14 @@ function wp_check_browser_version() {
 /**
  * Empty function usable by plugins to output empty dashboard widget (to be populated later by JS).
  */
-function wp_dashboard_empty() {}
+function wp_dashboard_empty() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Displays a welcome panel to introduce users to WordPress.
  *
  * @since 3.3.0
  */
-function wp_welcome_panel() {
+function wp_welcome_panel() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	?>
 	<div class="welcome-panel-content">
 	<h2><?php _e( 'Welcome to WordPress!' ); ?></h2>

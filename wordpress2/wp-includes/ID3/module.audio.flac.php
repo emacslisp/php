@@ -24,7 +24,7 @@ class getid3_flac extends getid3_handler
 {
 	const syncword = 'fLaC';
 
-	public function Analyze() {
+	public function Analyze() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$this->fseek($info['avdataoffset']);
@@ -41,7 +41,7 @@ class getid3_flac extends getid3_handler
 		return $this->parseMETAdata();
 	}
 
-	public function parseMETAdata() {
+	public function parseMETAdata() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 		do {
 			$BlockOffset   = $this->ftell();
@@ -194,7 +194,7 @@ class getid3_flac extends getid3_handler
 		return true;
 	}
 
-	private function parseSTREAMINFO($BlockData) {
+	private function parseSTREAMINFO($BlockData) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$info['flac']['STREAMINFO'] = array();
@@ -236,7 +236,7 @@ class getid3_flac extends getid3_handler
 		return true;
 	}
 
-	private function parseAPPLICATION($BlockData) {
+	private function parseAPPLICATION($BlockData) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$ApplicationID = getid3_lib::BigEndian2Int(substr($BlockData, 0, 4));
@@ -246,7 +246,7 @@ class getid3_flac extends getid3_handler
 		return true;
 	}
 
-	private function parseSEEKTABLE($BlockData) {
+	private function parseSEEKTABLE($BlockData) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$offset = 0;
@@ -275,7 +275,7 @@ class getid3_flac extends getid3_handler
 		return true;
 	}
 
-	private function parseVORBIS_COMMENT($BlockData) {
+	private function parseVORBIS_COMMENT($BlockData) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$getid3_ogg = new getid3_ogg($this->getid3);
@@ -294,7 +294,7 @@ class getid3_flac extends getid3_handler
 		return true;
 	}
 
-	private function parseCUESHEET($BlockData) {
+	private function parseCUESHEET($BlockData) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 		$offset = 0;
 		$info['flac']['CUESHEET']['media_catalog_number'] =                              trim(substr($BlockData, $offset, 128), "\0");
@@ -349,7 +349,7 @@ class getid3_flac extends getid3_handler
 	* Parse METADATA_BLOCK_PICTURE flac structure and extract attachment
 	* External usage: audio.ogg
 	*/
-	public function parsePICTURE() {
+	public function parsePICTURE() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$picture['typeid']         = getid3_lib::BigEndian2Int($this->fread(4));
@@ -380,7 +380,7 @@ class getid3_flac extends getid3_handler
 		return true;
 	}
 
-	public static function metaBlockTypeLookup($blocktype) {
+	public static function metaBlockTypeLookup($blocktype) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0 => 'STREAMINFO',
 			1 => 'PADDING',
@@ -393,7 +393,7 @@ class getid3_flac extends getid3_handler
 		return (isset($lookup[$blocktype]) ? $lookup[$blocktype] : 'reserved');
 	}
 
-	public static function applicationIDLookup($applicationid) {
+	public static function applicationIDLookup($applicationid) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// http://flac.sourceforge.net/id.html
 		static $lookup = array(
 			0x41544348 => 'FlacFile',                                                                           // "ATCH"
@@ -423,7 +423,7 @@ class getid3_flac extends getid3_handler
 		return (isset($lookup[$applicationid]) ? $lookup[$applicationid] : 'reserved');
 	}
 
-	public static function pictureTypeLookup($type_id) {
+	public static function pictureTypeLookup($type_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array (
 			 0 => 'Other',
 			 1 => '32x32 pixels \'file icon\' (PNG only)',

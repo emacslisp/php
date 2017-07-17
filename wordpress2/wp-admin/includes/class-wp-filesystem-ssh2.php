@@ -52,7 +52,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 *
 	 * @param array $opt
 	 */
-	public function __construct( $opt = '' ) {
+	public function __construct( $opt = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->method = 'ssh2';
 		$this->errors = new WP_Error();
 
@@ -61,7 +61,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 			$this->errors->add('no_ssh2_ext', __('The ssh2 PHP extension is not available'));
 			return;
 		}
-		if ( !function_exists('stream_get_contents') ) {
+		if ( !function_exists('stream_get_contents') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			$this->errors->add(
 				'ssh2_php_requirement',
 				sprintf(
@@ -113,7 +113,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 *
 	 * @return bool
 	 */
-	public function connect() {
+	public function connect() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->keys ) {
 			$this->link = @ssh2_connect($this->options['hostname'], $this->options['port']);
 		} else {
@@ -181,7 +181,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $path The File/Directory path on the remote server to return
 	 * @return string The ssh2.sftp:// wrapped path to use.
 	 */
-	public function sftp_path( $path ) {
+	public function sftp_path( $path ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( '/' === $path ) {
 			$path = '/./';
 		}
@@ -196,7 +196,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @return bool|string True on success, false on failure. String if the command was executed, `$returnbool`
 	 *                     is false (default), and data from the resulting stream was retrieved.
 	 */
-	public function run_command( $command, $returnbool = false ) {
+	public function run_command( $command, $returnbool = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->link )
 			return false;
 
@@ -227,7 +227,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return string|false
 	 */
-	public function get_contents( $file ) {
+	public function get_contents( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return file_get_contents( $this->sftp_path( $file ) );
 	}
 
@@ -237,7 +237,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return array
 	 */
-	public function get_contents_array($file) {
+	public function get_contents_array($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return file( $this->sftp_path( $file ) );
 	}
 
@@ -249,7 +249,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param bool|int $mode
 	 * @return bool
 	 */
-	public function put_contents($file, $contents, $mode = false ) {
+	public function put_contents($file, $contents, $mode = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$ret = file_put_contents( $this->sftp_path( $file ), $contents );
 
 		if ( $ret !== strlen( $contents ) )
@@ -265,7 +265,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 *
 	 * @return bool
 	 */
-	public function cwd() {
+	public function cwd() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$cwd = ssh2_sftp_realpath( $this->sftp_link, '.' );
 		if ( $cwd ) {
 			$cwd = trailingslashit( trim( $cwd ) );
@@ -279,7 +279,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $dir
 	 * @return bool|string
 	 */
-	public function chdir($dir) {
+	public function chdir($dir) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->run_command('cd ' . $dir, true);
 	}
 
@@ -292,7 +292,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 *
 	 * @return bool
 	 */
-	public function chgrp($file, $group, $recursive = false ) {
+	public function chgrp($file, $group, $recursive = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->exists($file) )
 			return false;
 		if ( ! $recursive || ! $this->is_dir($file) )
@@ -308,7 +308,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param bool   $recursive
 	 * @return bool|string
 	 */
-	public function chmod($file, $mode = false, $recursive = false) {
+	public function chmod($file, $mode = false, $recursive = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->exists($file) )
 			return false;
 
@@ -336,7 +336,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param bool       $recursive Optional. If set True changes file owner recursivly. Default False.
 	 * @return bool True on success or false on failure.
 	 */
-	public function chown( $file, $owner, $recursive = false ) {
+	public function chown( $file, $owner, $recursive = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->exists($file) )
 			return false;
 		if ( ! $recursive || ! $this->is_dir($file) )
@@ -350,7 +350,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return string|false
 	 */
-	public function owner($file) {
+	public function owner($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$owneruid = @fileowner( $this->sftp_path( $file ) );
 		if ( ! $owneruid )
 			return false;
@@ -366,7 +366,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return string
 	 */
-	public function getchmod($file) {
+	public function getchmod($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return substr( decoct( @fileperms( $this->sftp_path( $file ) ) ), -3 );
 	}
 
@@ -376,7 +376,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return string|false
 	 */
-	public function group($file) {
+	public function group($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$gid = @filegroup( $this->sftp_path( $file ) );
 		if ( ! $gid )
 			return false;
@@ -395,7 +395,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param int|bool $mode
 	 * @return bool
 	 */
-	public function copy($source, $destination, $overwrite = false, $mode = false) {
+	public function copy($source, $destination, $overwrite = false, $mode = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $overwrite && $this->exists($destination) )
 			return false;
 		$content = $this->get_contents($source);
@@ -412,7 +412,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param bool   $overwrite
 	 * @return bool
 	 */
-	public function move($source, $destination, $overwrite = false) {
+	public function move($source, $destination, $overwrite = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @ssh2_sftp_rename( $this->sftp_link, $source, $destination );
 	}
 
@@ -424,7 +424,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string|bool $type
 	 * @return bool
 	 */
-	public function delete($file, $recursive = false, $type = false) {
+	public function delete($file, $recursive = false, $type = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'f' == $type || $this->is_file($file) )
 			return ssh2_sftp_unlink($this->sftp_link, $file);
 		if ( ! $recursive )
@@ -444,7 +444,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function exists($file) {
+	public function exists($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return file_exists( $this->sftp_path( $file ) );
 	}
 
@@ -454,7 +454,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function is_file($file) {
+	public function is_file($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return is_file( $this->sftp_path( $file ) );
 	}
 
@@ -464,7 +464,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $path
 	 * @return bool
 	 */
-	public function is_dir($path) {
+	public function is_dir($path) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return is_dir( $this->sftp_path( $path ) );
 	}
 
@@ -474,7 +474,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function is_readable($file) {
+	public function is_readable($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return is_readable( $this->sftp_path( $file ) );
 	}
 
@@ -484,7 +484,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function is_writable($file) {
+	public function is_writable($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// PHP will base it's writable checks on system_user === file_owner, not ssh_user === file_owner
 		return true;
 	}
@@ -495,7 +495,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return int
 	 */
-	public function atime($file) {
+	public function atime($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return fileatime( $this->sftp_path( $file ) );
 	}
 
@@ -505,7 +505,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return int
 	 */
-	public function mtime($file) {
+	public function mtime($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return filemtime( $this->sftp_path( $file ) );
 	}
 
@@ -515,7 +515,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return int
 	 */
-	public function size($file) {
+	public function size($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return filesize( $this->sftp_path( $file ) );
 	}
 
@@ -526,7 +526,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param int    $time
 	 * @param int    $atime
 	 */
-	public function touch($file, $time = 0, $atime = 0) {
+	public function touch($file, $time = 0, $atime = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		//Not implemented.
 	}
 
@@ -539,7 +539,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param mixed  $chgrp
 	 * @return bool
 	 */
-	public function mkdir($path, $chmod = false, $chown = false, $chgrp = false) {
+	public function mkdir($path, $chmod = false, $chown = false, $chgrp = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$path = untrailingslashit($path);
 		if ( empty($path) )
 			return false;
@@ -562,7 +562,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param bool   $recursive
 	 * @return bool
 	 */
-	public function rmdir($path, $recursive = false) {
+	public function rmdir($path, $recursive = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->delete($path, $recursive);
 	}
 
@@ -574,7 +574,7 @@ class WP_Filesystem_SSH2 extends WP_Filesystem_Base {
 	 * @param bool   $recursive
 	 * @return bool|array
 	 */
-	public function dirlist($path, $include_hidden = true, $recursive = false) {
+	public function dirlist($path, $include_hidden = true, $recursive = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_file($path) ) {
 			$limit_file = basename($path);
 			$path = dirname($path);

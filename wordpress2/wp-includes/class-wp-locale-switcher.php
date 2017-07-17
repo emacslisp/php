@@ -47,7 +47,7 @@ class WP_Locale_Switcher {
 	 *
 	 * @since 4.7.0
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->original_locale     = is_admin() ? get_user_locale() : get_locale();
 		$this->available_languages = array_merge( array( 'en_US' ), get_available_languages() );
 	}
@@ -57,7 +57,7 @@ class WP_Locale_Switcher {
 	 *
 	 * Hooks into the {@see 'locale'} filter to change the locale on the fly.
 	 */
-	public function init() {
+	public function init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		add_filter( 'locale', array( $this, 'filter_locale' ) );
 	}
 
@@ -69,7 +69,7 @@ class WP_Locale_Switcher {
 	 * @param string $locale The locale to switch to.
 	 * @return bool True on success, false on failure.
 	 */
-	public function switch_to_locale( $locale ) {
+	public function switch_to_locale( $locale ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$current_locale = is_admin() ? get_user_locale() : get_locale();
 		if ( $current_locale === $locale ) {
 			return false;
@@ -102,7 +102,7 @@ class WP_Locale_Switcher {
 	 *
 	 * @return string|false Locale on success, false on failure.
 	 */
-	public function restore_previous_locale() {
+	public function restore_previous_locale() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$previous_locale = array_pop( $this->locales );
 
 		if ( null === $previous_locale ) {
@@ -139,7 +139,7 @@ class WP_Locale_Switcher {
 	 *
 	 * @return string|false Locale on success, false on failure.
 	 */
-	public function restore_current_locale() {
+	public function restore_current_locale() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $this->locales ) ) {
 			return false;
 		}
@@ -156,7 +156,7 @@ class WP_Locale_Switcher {
 	 *
 	 * @return bool True if the locale has been switched, false otherwise.
 	 */
-	public function is_switched() {
+	public function is_switched() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return ! empty( $this->locales );
 	}
 
@@ -168,7 +168,7 @@ class WP_Locale_Switcher {
 	 * @param string $locale The WordPress install's locale.
 	 * @return string The locale currently being switched to.
 	 */
-	public function filter_locale( $locale ) {
+	public function filter_locale( $locale ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$switched_locale = end( $this->locales );
 
 		if ( $switched_locale ) {
@@ -190,7 +190,7 @@ class WP_Locale_Switcher {
 	 *
 	 * @param string $locale The locale to load translations for.
 	 */
-	private function load_translations( $locale ) {
+	private function load_translations( $locale ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $l10n;
 
 		$domains = $l10n ? array_keys( $l10n ) : array();
@@ -220,7 +220,7 @@ class WP_Locale_Switcher {
 	 *
 	 * @param string $locale The locale to change to.
 	 */
-	private function change_locale( $locale ) {
+	private function change_locale( $locale ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Reset translation availability information.
 		_get_path_to_translation( null, true );
 

@@ -18,7 +18,7 @@
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_switch_theme() {
+function twentyfifteen_switch_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	switch_theme( WP_DEFAULT_THEME, WP_DEFAULT_THEME );
 	unset( $_GET['activated'] );
 	add_action( 'admin_notices', 'twentyfifteen_upgrade_notice' );
@@ -33,7 +33,7 @@ add_action( 'after_switch_theme', 'twentyfifteen_switch_theme' );
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_upgrade_notice() {
+function twentyfifteen_upgrade_notice() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$message = sprintf( __( 'Twenty Fifteen requires at least WordPress version 4.1. You are running version %s. Please upgrade and try again.', 'twentyfifteen' ), $GLOBALS['wp_version'] );
 	printf( '<div class="error"><p>%s</p></div>', $message );
 }
@@ -43,7 +43,7 @@ function twentyfifteen_upgrade_notice() {
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_customize() {
+function twentyfifteen_customize() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_die( sprintf( __( 'Twenty Fifteen requires at least WordPress version 4.1. You are running version %s. Please upgrade and try again.', 'twentyfifteen' ), $GLOBALS['wp_version'] ), '', array(
 		'back_link' => true,
 	) );
@@ -55,7 +55,7 @@ add_action( 'load-customize.php', 'twentyfifteen_customize' );
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_preview() {
+function twentyfifteen_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $_GET['preview'] ) ) {
 		wp_die( sprintf( __( 'Twenty Fifteen requires at least WordPress version 4.1. You are running version %s. Please upgrade and try again.', 'twentyfifteen' ), $GLOBALS['wp_version'] ) );
 	}

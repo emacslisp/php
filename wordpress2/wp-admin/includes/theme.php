@@ -17,7 +17,7 @@
  * @param string $redirect Redirect to page when complete.
  * @return void|bool|WP_Error When void, echoes content.
  */
-function delete_theme($stylesheet, $redirect = '') {
+function delete_theme($stylesheet, $redirect = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filesystem;
 
 	if ( empty($stylesheet) )
@@ -108,7 +108,7 @@ function delete_theme($stylesheet, $redirect = '') {
  * @param string       $post_type Optional. Post type to get the templates for. Default 'page'.
  * @return array Key is the template name, value is the filename of the template
  */
-function get_page_templates( $post = null, $post_type = 'page' ) {
+function get_page_templates( $post = null, $post_type = 'page' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return array_flip( wp_get_theme()->get_page_templates( $post, $post_type ) );
 }
 
@@ -122,7 +122,7 @@ function get_page_templates( $post = null, $post_type = 'page' ) {
  * @param string $containingfolder Path of the theme parent folder
  * @return string
  */
-function _get_template_edit_filename($fullpath, $containingfolder) {
+function _get_template_edit_filename($fullpath, $containingfolder) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return str_replace(dirname(dirname( $containingfolder )) , '', $fullpath);
 }
 
@@ -136,7 +136,7 @@ function _get_template_edit_filename($fullpath, $containingfolder) {
  *
  * @param WP_Theme $theme Theme data object.
  */
-function theme_update_available( $theme ) {
+function theme_update_available( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_theme_update_available( $theme );
 }
 
@@ -152,7 +152,7 @@ function theme_update_available( $theme ) {
  * @param WP_Theme $theme WP_Theme object.
  * @return false|string HTML for the update link, or false if invalid info was passed.
  */
-function get_theme_update_available( $theme ) {
+function get_theme_update_available( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $themes_update = null;
 
 	if ( !current_user_can('update_themes' ) )
@@ -230,7 +230,7 @@ function get_theme_update_available( $theme ) {
  * @param bool $api Optional. Whether try to fetch tags from the WordPress.org API. Defaults to true.
  * @return array Array of features keyed by category with translations keyed by slug.
  */
-function get_theme_feature_list( $api = true ) {
+function get_theme_feature_list( $api = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Hard-coded list is used if api not accessible.
 	$features = array(
 
@@ -403,7 +403,7 @@ function get_theme_feature_list( $api = true ) {
  *         {@link https://developer.wordpress.org/reference/functions/themes_api/ function reference article}
  *         for more information on the make-up of possible return objects depending on the value of `$action`.
  */
-function themes_api( $action, $args = array() ) {
+function themes_api( $action, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	if ( is_array( $args ) ) {
 		$args = (object) $args;
@@ -521,7 +521,7 @@ function themes_api( $action, $args = array() ) {
  *
  * @return array An associative array of theme data, sorted by name.
  */
-function wp_prepare_themes_for_js( $themes = null ) {
+function wp_prepare_themes_for_js( $themes = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current_theme = get_stylesheet();
 
 	/**
@@ -630,7 +630,7 @@ function wp_prepare_themes_for_js( $themes = null ) {
  *
  * @since 4.2.0
  */
-function customize_themes_print_templates() {
+function customize_themes_print_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$preview_url = esc_url( add_query_arg( 'theme', '__THEME__' ) ); // Token because esc_url() strips curly braces.
 	$preview_url = str_replace( '__THEME__', '{{ data.id }}', $preview_url );
 	?>

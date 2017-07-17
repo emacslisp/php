@@ -20,3 +20,5 @@ function _e($text, $domain='default') {
 	<li><?php _e( 'Database host' ); ?></li>
 	<li><?php _e( 'Table prefix (if you want to run more than one WordPress in a single database)' ); ?></li>
 </ol>
+
+

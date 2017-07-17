@@ -69,7 +69,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 *
 	 * @param array $params
 	 */
-	public function __construct( $params = array() ) {
+	public function __construct( $params = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( $params );
 		if ( isset( $params[ 'show_split_view' ] ) )
 			$this->_show_split_view = $params[ 'show_split_view' ];
@@ -81,7 +81,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param string $header
 	 * @return string
 	 */
-	public function _startBlock( $header ) {
+	public function _startBlock( $header ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return '';
 	}
 
@@ -91,7 +91,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param array $lines
 	 * @param string $prefix
 	 */
-	public function _lines( $lines, $prefix=' ' ) {
+	public function _lines( $lines, $prefix=' ' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	}
 
 	/**
@@ -100,7 +100,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param string $line HTML-escape the value.
 	 * @return string
 	 */
-	public function addedLine( $line ) {
+	public function addedLine( $line ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return "<td class='diff-addedline'>{$line}</td>";
 
 	}
@@ -111,7 +111,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param string $line HTML-escape the value.
 	 * @return string
 	 */
-	public function deletedLine( $line ) {
+	public function deletedLine( $line ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return "<td class='diff-deletedline'>{$line}</td>";
 	}
 
@@ -121,7 +121,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param string $line HTML-escape the value.
 	 * @return string
 	 */
-	public function contextLine( $line ) {
+	public function contextLine( $line ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return "<td class='diff-context'>{$line}</td>";
 	}
 
@@ -130,7 +130,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 *
 	 * @return string
 	 */
-	public function emptyLine() {
+	public function emptyLine() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return '<td>&nbsp;</td>';
 	}
 
@@ -142,7 +142,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param bool $encode
 	 * @return string
 	 */
-	public function _added( $lines, $encode = true ) {
+	public function _added( $lines, $encode = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$r = '';
 		foreach ($lines as $line) {
 			if ( $encode ) {
@@ -181,7 +181,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param bool $encode
 	 * @return string
 	 */
-	public function _deleted( $lines, $encode = true ) {
+	public function _deleted( $lines, $encode = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$r = '';
 		foreach ($lines as $line) {
 			if ( $encode ) {
@@ -208,7 +208,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param bool $encode
 	 * @return string
 	 */
-	public function _context( $lines, $encode = true ) {
+	public function _context( $lines, $encode = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$r = '';
 		foreach ($lines as $line) {
 			if ( $encode ) {
@@ -239,7 +239,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param array $final
 	 * @return string
 	 */
-	public function _changed( $orig, $final ) {
+	public function _changed( $orig, $final ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$r = '';
 
 		// Does the aforementioned additional processing
@@ -330,7 +330,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param array $final
 	 * @return array
 	 */
-	public function interleave_changed_lines( $orig, $final ) {
+	public function interleave_changed_lines( $orig, $final ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// Contains all pairwise string comparisons. Keys are such that this need only be a one dimensional array.
 		$matches = array();
@@ -419,7 +419,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param string $string2
 	 * @return int
 	 */
-	public function compute_string_distance( $string1, $string2 ) {
+	public function compute_string_distance( $string1, $string2 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Vectors containing character frequency for all chars in each string
 		$chars1 = count_chars($string1);
 		$chars2 = count_chars($string2);
@@ -443,7 +443,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param int $b
 	 * @return int
 	 */
-	public function difference( $a, $b ) {
+	public function difference( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return abs( $a - $b );
 	}
 
@@ -456,7 +456,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param string $name Property to get.
 	 * @return mixed Property.
 	 */
-	public function __get( $name ) {
+	public function __get( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return $this->$name;
 		}
@@ -472,7 +472,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param mixed  $value Property value.
 	 * @return mixed Newly-set property.
 	 */
-	public function __set( $name, $value ) {
+	public function __set( $name, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return $this->$name = $value;
 		}
@@ -487,7 +487,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 * @param string $name Property to check if set.
 	 * @return bool Whether the property is set.
 	 */
-	public function __isset( $name ) {
+	public function __isset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return isset( $this->$name );
 		}
@@ -501,7 +501,7 @@ class WP_Text_Diff_Renderer_Table extends Text_Diff_Renderer {
 	 *
 	 * @param string $name Property to unset.
 	 */
-	public function __unset( $name ) {
+	public function __unset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			unset( $this->$name );
 		}

@@ -44,7 +44,7 @@ class WP_Customize_Nav_Menu_Location_Control extends WP_Customize_Control {
 	 *
 	 * @see WP_Customize_Control::to_json()
 	 */
-	public function to_json() {
+	public function to_json() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::to_json();
 		$this->json['locationId'] = $this->location_id;
 	}
@@ -55,7 +55,7 @@ class WP_Customize_Nav_Menu_Location_Control extends WP_Customize_Control {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function render_content() {
+	public function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $this->choices ) ) {
 			return;
 		}

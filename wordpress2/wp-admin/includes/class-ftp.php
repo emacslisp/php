@@ -121,7 +121,7 @@ class ftp_base {
 	var $AutoAsciiExt;
 
 	/* Constructor */
-	function __construct($port_mode=FALSE, $verb=FALSE, $le=FALSE) {
+	function __construct($port_mode=FALSE, $verb=FALSE, $le=FALSE) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->LocalEcho=$le;
 		$this->Verbose=$verb;
 		$this->_lastaction=NULL;
@@ -153,7 +153,7 @@ class ftp_base {
 		elseif(strtoupper(substr(PHP_OS, 0, 3)) === 'MAC') $this->OS_local=FTP_OS_Mac;
 	}
 
-	function ftp_base($port_mode=FALSE) {
+	function ftp_base($port_mode=FALSE) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->__construct($port_mode);
 	}
 
@@ -161,7 +161,7 @@ class ftp_base {
 // <!--       Public functions                                                                  -->
 // <!-- --------------------------------------------------------------------------------------- -->
 
-	function parselisting($line) {
+	function parselisting($line) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$is_windows = ($this->OS_remote == FTP_OS_Windows);
 		if ($is_windows && preg_match("/([0-9]{2})-([0-9]{2})-([0-9]{2}) +([0-9]{2}):([0-9]{2})(AM|PM) +([0-9]+|<DIR>) +(.+)/",$line,$lucifer)) {
 			$b = array();
@@ -223,7 +223,7 @@ class ftp_base {
 		return $b;
 	}
 
-	function SendMSG($message = "", $crlf=true) {
+	function SendMSG($message = "", $crlf=true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($this->Verbose) {
 			echo $message.($crlf?CRLF:"");
 			flush();
@@ -231,7 +231,7 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function SetType($mode=FTP_AUTOASCII) {
+	function SetType($mode=FTP_AUTOASCII) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!in_array($mode, $this->AuthorizedTransferMode)) {
 			$this->SendMSG("Wrong type");
 			return FALSE;
@@ -241,7 +241,7 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function _settype($mode=FTP_ASCII) {
+	function _settype($mode=FTP_ASCII) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if($this->_ready) {
 			if($mode==FTP_BINARY) {
 				if($this->_curtype!=FTP_BINARY) {
@@ -256,7 +256,7 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function Passive($pasv=NULL) {
+	function Passive($pasv=NULL) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(is_null($pasv)) $this->_passive=!$this->_passive;
 		else $this->_passive=$pasv;
 		if(!$this->_port_available and !$this->_passive) {
@@ -268,7 +268,7 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function SetServer($host, $port=21, $reconnect=true) {
+	function SetServer($host, $port=21, $reconnect=true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!is_long($port)) {
 	        $this->verbose=true;
     	    $this->SendMSG("Incorrect port syntax");
@@ -301,14 +301,14 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function SetUmask($umask=0022) {
+	function SetUmask($umask=0022) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->_umask=$umask;
 		umask($this->_umask);
 		$this->SendMSG("UMASK 0".decoct($this->_umask));
 		return TRUE;
 	}
 
-	function SetTimeout($timeout=30) {
+	function SetTimeout($timeout=30) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->_timeout=$timeout;
 		$this->SendMSG("Timeout ".$this->_timeout);
 		if($this->_connected)
@@ -316,7 +316,7 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function connect($server=NULL) {
+	function connect($server=NULL) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!empty($server)) {
 			if(!$this->SetServer($server)) return false;
 		}
@@ -347,7 +347,7 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function quit($force=false) {
+	function quit($force=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if($this->_ready) {
 			if(!$this->_exec("QUIT") and !$force) return FALSE;
 			if(!$this->_checkCode() and !$force) return FALSE;
@@ -358,7 +358,7 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function login($user=NULL, $pass=NULL) {
+	function login($user=NULL, $pass=NULL) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!is_null($user)) $this->_login=$user;
 		else $this->_login="anonymous";
 		if(!is_null($pass)) $this->_password=$pass;
@@ -377,37 +377,37 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function pwd() {
+	function pwd() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("PWD", "pwd")) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		return preg_replace("/^[0-9]{3} \"(.+)\".*$/s", "\\1", $this->_message);
 	}
 
-	function cdup() {
+	function cdup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("CDUP", "cdup")) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		return true;
 	}
 
-	function chdir($pathname) {
+	function chdir($pathname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("CWD ".$pathname, "chdir")) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		return TRUE;
 	}
 
-	function rmdir($pathname) {
+	function rmdir($pathname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("RMD ".$pathname, "rmdir")) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		return TRUE;
 	}
 
-	function mkdir($pathname) {
+	function mkdir($pathname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("MKD ".$pathname, "mkdir")) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		return TRUE;
 	}
 
-	function rename($from, $to) {
+	function rename($from, $to) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("RNFR ".$from, "rename")) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		if($this->_code==350) {
@@ -417,7 +417,7 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function filesize($pathname) {
+	function filesize($pathname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!isset($this->_features["SIZE"])) {
 			$this->PushError("filesize", "not supported by server");
 			return FALSE;
@@ -427,7 +427,7 @@ class ftp_base {
 		return preg_replace("/^[0-9]{3} ([0-9]+).*$/s", "\\1", $this->_message);
 	}
 
-	function abort() {
+	function abort() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("ABOR", "abort")) return FALSE;
 		if(!$this->_checkCode()) {
 			if($this->_code!=426) return FALSE;
@@ -437,7 +437,7 @@ class ftp_base {
 		return true;
 	}
 
-	function mdtm($pathname) {
+	function mdtm($pathname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!isset($this->_features["MDTM"])) {
 			$this->PushError("mdtm", "not supported by server");
 			return FALSE;
@@ -450,31 +450,31 @@ class ftp_base {
 		return $timestamp;
 	}
 
-	function systype() {
+	function systype() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("SYST", "systype")) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		$DATA = explode(" ", $this->_message);
 		return array($DATA[1], $DATA[3]);
 	}
 
-	function delete($pathname) {
+	function delete($pathname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("DELE ".$pathname, "delete")) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		return TRUE;
 	}
 
-	function site($command, $fnction="site") {
+	function site($command, $fnction="site") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("SITE ".$command, $fnction)) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		return TRUE;
 	}
 
-	function chmod($pathname, $mode) {
+	function chmod($pathname, $mode) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->site( sprintf('CHMOD %o %s', $mode, $pathname), "chmod")) return FALSE;
 		return TRUE;
 	}
 
-	function restore($from) {
+	function restore($from) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!isset($this->_features["REST"])) {
 			$this->PushError("restore", "not supported by server");
 			return FALSE;
@@ -488,7 +488,7 @@ class ftp_base {
 		return TRUE;
 	}
 
-	function features() {
+	function features() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_exec("FEAT", "features")) return FALSE;
 		if(!$this->_checkCode()) return FALSE;
 		$f=preg_split("/[".CRLF."]+/", preg_replace("/[0-9]{3}[ -].*[".CRLF."]+/", "", $this->_message), -1, PREG_SPLIT_NO_EMPTY);
@@ -500,19 +500,19 @@ class ftp_base {
 		return true;
 	}
 
-	function rawlist($pathname="", $arg="") {
+	function rawlist($pathname="", $arg="") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->_list(($arg?" ".$arg:"").($pathname?" ".$pathname:""), "LIST", "rawlist");
 	}
 
-	function nlist($pathname="", $arg="") {
+	function nlist($pathname="", $arg="") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->_list(($arg?" ".$arg:"").($pathname?" ".$pathname:""), "NLST", "nlist");
 	}
 
-	function is_exists($pathname) {
+	function is_exists($pathname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->file_exists($pathname);
 	}
 
-	function file_exists($pathname) {
+	function file_exists($pathname) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$exists=true;
 		if(!$this->_exec("RNFR ".$pathname, "rename")) $exists=FALSE;
 		else {
@@ -524,7 +524,7 @@ class ftp_base {
 		return $exists;
 	}
 
-	function fget($fp, $remotefile,$rest=0) {
+	function fget($fp, $remotefile,$rest=0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if($this->_can_restore and $rest!=0) fseek($fp, $rest);
 		$pi=pathinfo($remotefile);
 		if($this->_type==FTP_ASCII or ($this->_type==FTP_AUTOASCII and in_array(strtoupper($pi["extension"]), $this->AutoAsciiExt))) $mode=FTP_ASCII;
@@ -548,7 +548,7 @@ class ftp_base {
 		return $out;
 	}
 
-	function get($remotefile, $localfile=NULL, $rest=0) {
+	function get($remotefile, $localfile=NULL, $rest=0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(is_null($localfile)) $localfile=$remotefile;
 		if (@file_exists($localfile)) $this->SendMSG("Warning : local file will be overwritten");
 		$fp = @fopen($localfile, "w");
@@ -583,7 +583,7 @@ class ftp_base {
 		return $out;
 	}
 
-	function fput($remotefile, $fp) {
+	function fput($remotefile, $fp) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if($this->_can_restore and $rest!=0) fseek($fp, $rest);
 		$pi=pathinfo($remotefile);
 		if($this->_type==FTP_ASCII or ($this->_type==FTP_AUTOASCII and in_array(strtoupper($pi["extension"]), $this->AutoAsciiExt))) $mode=FTP_ASCII;
@@ -607,7 +607,7 @@ class ftp_base {
 		return $ret;
 	}
 
-	function put($localfile, $remotefile=NULL, $rest=0) {
+	function put($localfile, $remotefile=NULL, $rest=0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(is_null($remotefile)) $remotefile=$localfile;
 		if (!file_exists($localfile)) {
 			$this->PushError("put","can't open local file", "No such file or directory \"".$localfile."\"");
@@ -646,7 +646,7 @@ class ftp_base {
 		return $ret;
 	}
 
-	function mput($local=".", $remote=NULL, $continious=false) {
+	function mput($local=".", $remote=NULL, $continious=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$local=realpath($local);
 		if(!@file_exists($local)) {
 			$this->PushError("mput","can't open local folder", "Cannot stat folder \"".$local."\"");
@@ -679,7 +679,7 @@ class ftp_base {
 
 	}
 
-	function mget($remote, $local=".", $continious=false) {
+	function mget($remote, $local=".", $continious=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$list=$this->rawlist($remote, "-lA");
 		if($list===false) {
 			$this->PushError("mget","can't read remote folder list", "Can't read remote folder \"".$remote."\" contents");
@@ -718,7 +718,7 @@ class ftp_base {
 		return $ret;
 	}
 
-	function mdel($remote, $continious=false) {
+	function mdel($remote, $continious=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$list=$this->rawlist($remote, "-la");
 		if($list===false) {
 			$this->PushError("mdel","can't read remote folder list", "Can't read remote folder \"".$remote."\" contents");
@@ -756,7 +756,7 @@ class ftp_base {
 		return $ret;
 	}
 
-	function mmkdir($dir, $mode = 0777) {
+	function mmkdir($dir, $mode = 0777) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(empty($dir)) return FALSE;
 		if($this->is_exists($dir) or $dir == "/" ) return TRUE;
 		if(!$this->mmkdir(dirname($dir), $mode)) return false;
@@ -765,7 +765,7 @@ class ftp_base {
 		return $r;
 	}
 
-	function glob($pattern, $handle=NULL) {
+	function glob($pattern, $handle=NULL) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$path=$output=null;
 		if(PHP_OS=='WIN32') $slash='\\';
 		else $slash='/';
@@ -792,7 +792,7 @@ class ftp_base {
 		return false;
 	}
 
-	function glob_pattern_match($pattern,$string) {
+	function glob_pattern_match($pattern,$string) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$out=null;
 		$chunks=explode(';',$pattern);
 		foreach($chunks as $pattern) {
@@ -815,7 +815,7 @@ class ftp_base {
 		return false;
 	}
 
-	function glob_regexp($pattern,$probe) {
+	function glob_regexp($pattern,$probe) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$sensitive=(PHP_OS!='WIN32');
 		return ($sensitive?
 			preg_match( '/' . preg_quote( $pattern, '/' ) . '/', $probe ) :
@@ -823,7 +823,7 @@ class ftp_base {
 		);
 	}
 
-	function dirlist($remote) {
+	function dirlist($remote) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$list=$this->rawlist($remote, "-la");
 		if($list===false) {
 			$this->PushError("dirlist","can't read remote folder list", "Can't read remote folder \"".$remote."\" contents");
@@ -847,11 +847,11 @@ class ftp_base {
 // <!-- --------------------------------------------------------------------------------------- -->
 // <!--       Private functions                                                                 -->
 // <!-- --------------------------------------------------------------------------------------- -->
-	function _checkCode() {
+	function _checkCode() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return ($this->_code<400 and $this->_code>0);
 	}
 
-	function _list($arg="", $cmd="LIST", $fnction="_list") {
+	function _list($arg="", $cmd="LIST", $fnction="_list") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_data_prepare()) return false;
 		if(!$this->_exec($cmd.$arg, $fnction)) {
 			$this->_data_close();
@@ -878,7 +878,7 @@ class ftp_base {
 // <!-- Partie : gestion des erreurs                                                            -->
 // <!-- --------------------------------------------------------------------------------------- -->
 // Gnre une erreur pour traitement externe  la classe
-	function PushError($fctname,$msg,$desc=false){
+	function PushError($fctname,$msg,$desc=false){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$error=array();
 		$error['time']=time();
 		$error['fctname']=$fctname;
@@ -890,14 +890,14 @@ class ftp_base {
 	}
 
 // Rcupre une erreur externe
-	function PopError(){
+	function PopError(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(count($this->_error_array)) return(array_pop($this->_error_array));
 			else return(false);
 	}
 }
 
 $mod_sockets = extension_loaded( 'sockets' );
-if ( ! $mod_sockets && function_exists( 'dl' ) && is_callable( 'dl' ) ) {
+if ( ! $mod_sockets && function_exists( 'dl' ) && is_callable( 'dl' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$prefix = ( PHP_SHLIB_SUFFIX == 'dll' ) ? 'php_' : '';
 	@dl( $prefix . 'sockets.' . PHP_SHLIB_SUFFIX );
 	$mod_sockets = extension_loaded( 'sockets' );

@@ -21,7 +21,7 @@
  *									 Default current comment.
  * @return string The comment author
  */
-function get_comment_author( $comment_ID = 0 ) {
+function get_comment_author( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 
 	if ( empty( $comment->comment_author ) ) {
@@ -55,7 +55,7 @@ function get_comment_author( $comment_ID = 0 ) {
  * @param int|WP_Comment $comment_ID Optional. WP_Comment or the ID of the comment for which to print the author.
  *									 Default current comment.
  */
-function comment_author( $comment_ID = 0 ) {
+function comment_author( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 	$author  = get_comment_author( $comment );
 
@@ -81,7 +81,7 @@ function comment_author( $comment_ID = 0 ) {
  *									 Default current comment.
  * @return string The current comment author's email
  */
-function get_comment_author_email( $comment_ID = 0 ) {
+function get_comment_author_email( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 
 	/**
@@ -112,7 +112,7 @@ function get_comment_author_email( $comment_ID = 0 ) {
  * @param int|WP_Comment $comment_ID Optional. WP_Comment or the ID of the comment for which to print the author's email.
  *									 Default current comment.
  */
-function comment_author_email( $comment_ID = 0 ) {
+function comment_author_email( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment      = get_comment( $comment_ID );
 	$author_email = get_comment_author_email( $comment );
 
@@ -146,7 +146,7 @@ function comment_author_email( $comment_ID = 0 ) {
  * @param string         $after    Optional. Text or HTML to display after the email link. Default empty.
  * @param int|WP_Comment $comment  Optional. Comment ID or WP_Comment object. Default is the current comment.
  */
-function comment_author_email_link( $linktext = '', $before = '', $after = '', $comment = null ) {
+function comment_author_email_link( $linktext = '', $before = '', $after = '', $comment = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $link = get_comment_author_email_link( $linktext, $before, $after, $comment ) ) {
 		echo $link;
 	}
@@ -172,7 +172,7 @@ function comment_author_email_link( $linktext = '', $before = '', $after = '', $
  * @return string HTML markup for the comment author email link. By default, the email address is obfuscated
  *                via the {@see 'comment_email'} filter with antispambot().
  */
-function get_comment_author_email_link( $linktext = '', $before = '', $after = '', $comment = null ) {
+function get_comment_author_email_link( $linktext = '', $before = '', $after = '', $comment = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment );
 
 	/**
@@ -213,7 +213,7 @@ function get_comment_author_email_link( $linktext = '', $before = '', $after = '
  *									 Default current comment.
  * @return string The comment author name or HTML link for author's URL.
  */
-function get_comment_author_link( $comment_ID = 0 ) {
+function get_comment_author_link( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 	$url     = get_comment_author_url( $comment );
 	$author  = get_comment_author( $comment );
@@ -246,7 +246,7 @@ function get_comment_author_link( $comment_ID = 0 ) {
  * @param int|WP_Comment $comment_ID Optional. WP_Comment or the ID of the comment for which to print the author's link.
  *									 Default current comment.
  */
-function comment_author_link( $comment_ID = 0 ) {
+function comment_author_link( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_comment_author_link( $comment_ID );
 }
 
@@ -260,7 +260,7 @@ function comment_author_link( $comment_ID = 0 ) {
  *									 Default current comment.
  * @return string Comment author's IP address.
  */
-function get_comment_author_IP( $comment_ID = 0 ) {
+function get_comment_author_IP( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 
 	/**
@@ -285,7 +285,7 @@ function get_comment_author_IP( $comment_ID = 0 ) {
  * @param int|WP_Comment $comment_ID Optional. WP_Comment or the ID of the comment for which to print the author's IP address.
  *									 Default current comment.
  */
-function comment_author_IP( $comment_ID = 0 ) {
+function comment_author_IP( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo esc_html( get_comment_author_IP( $comment_ID ) );
 }
 
@@ -299,7 +299,7 @@ function comment_author_IP( $comment_ID = 0 ) {
  *									 Default current comment.
  * @return string Comment author URL.
  */
-function get_comment_author_url( $comment_ID = 0 ) {
+function get_comment_author_url( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 	$url = '';
 	$id = 0;
@@ -331,7 +331,7 @@ function get_comment_author_url( $comment_ID = 0 ) {
  * @param int|WP_Comment $comment_ID Optional. WP_Comment or the ID of the comment for which to print the author's URL.
  *									 Default current comment.
  */
-function comment_author_url( $comment_ID = 0 ) {
+function comment_author_url( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment    = get_comment( $comment_ID );
 	$author_url = get_comment_author_url( $comment );
 
@@ -370,7 +370,7 @@ function comment_author_url( $comment_ID = 0 ) {
  *                                 Default is the current comment.
  * @return string The HTML link between the $before and $after parameters.
  */
-function get_comment_author_url_link( $linktext = '', $before = '', $after = '', $comment = 0 ) {
+function get_comment_author_url_link( $linktext = '', $before = '', $after = '', $comment = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$url = get_comment_author_url( $comment );
 	$display = ($linktext != '') ? $linktext : $url;
 	$display = str_replace( 'http://www.', '', $display );
@@ -407,7 +407,7 @@ function get_comment_author_url_link( $linktext = '', $before = '', $after = '',
  * @param int|WP_Comment $comment  Optional. Comment ID or WP_Comment object.
  *                                 Default is the current comment.
  */
-function comment_author_url_link( $linktext = '', $before = '', $after = '', $comment = 0 ) {
+function comment_author_url_link( $linktext = '', $before = '', $after = '', $comment = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_comment_author_url_link( $linktext, $before, $after, $comment );
 }
 
@@ -425,7 +425,7 @@ function comment_author_url_link( $linktext = '', $before = '', $after = '', $co
  *                                 Default true.
  * @return string If `$echo` is false, the class will be returned. Void otherwise.
  */
-function comment_class( $class = '', $comment = null, $post_id = null, $echo = true ) {
+function comment_class( $class = '', $comment = null, $post_id = null, $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Separates classes with a single space, collates classes for comment DIV
 	$class = 'class="' . join( ' ', get_comment_class( $class, $comment, $post_id ) ) . '"';
 	if ( $echo)
@@ -449,7 +449,7 @@ function comment_class( $class = '', $comment = null, $post_id = null, $echo = t
  * @param int|WP_Post    $post_id    Post ID or WP_Post object. Default current post.
  * @return array An array of classes.
  */
-function get_comment_class( $class = '', $comment_id = null, $post_id = null ) {
+function get_comment_class( $class = '', $comment_id = null, $post_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $comment_alt, $comment_depth, $comment_thread_alt;
 
 	$classes = array();
@@ -536,7 +536,7 @@ function get_comment_class( $class = '', $comment_id = null, $post_id = null ) {
  *                                    Default current comment.
  * @return string The comment's date.
  */
-function get_comment_date( $d = '', $comment_ID = 0 ) {
+function get_comment_date( $d = '', $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 	if ( '' == $d )
 		$date = mysql2date(get_option('date_format'), $comment->comment_date);
@@ -564,7 +564,7 @@ function get_comment_date( $d = '', $comment_ID = 0 ) {
  * @param int|WP_Comment $comment_ID WP_Comment or ID of the comment for which to print the date.
  *                                   Default current comment.
  */
-function comment_date( $d = '', $comment_ID = 0 ) {
+function comment_date( $d = '', $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_comment_date( $d, $comment_ID );
 }
 
@@ -582,7 +582,7 @@ function comment_date( $d = '', $comment_ID = 0 ) {
  *                                    Default current comment.
  * @return string The maybe truncated comment with 20 words or less.
  */
-function get_comment_excerpt( $comment_ID = 0 ) {
+function get_comment_excerpt( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 	$comment_text = strip_tags( str_replace( array( "\n", "\r" ), ' ', $comment->comment_content ) );
 	$words = explode( ' ', $comment_text );
@@ -627,7 +627,7 @@ function get_comment_excerpt( $comment_ID = 0 ) {
  * @param int|WP_Comment $comment_ID  WP_Comment or ID of the comment for which to print the excerpt.
  *                                    Default current comment.
  */
-function comment_excerpt( $comment_ID = 0 ) {
+function comment_excerpt( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment         = get_comment( $comment_ID );
 	$comment_excerpt = get_comment_excerpt( $comment );
 
@@ -650,7 +650,7 @@ function comment_excerpt( $comment_ID = 0 ) {
  *
  * @return int The comment ID.
  */
-function get_comment_ID() {
+function get_comment_ID() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment();
 
 	/**
@@ -670,7 +670,7 @@ function get_comment_ID() {
  *
  * @since 0.71
  */
-function comment_ID() {
+function comment_ID() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_comment_ID();
 }
 
@@ -699,7 +699,7 @@ function comment_ID() {
  * }
  * @return string The permalink to the given comment.
  */
-function get_comment_link( $comment = null, $args = array() ) {
+function get_comment_link( $comment = null, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_rewrite, $in_comment_loop;
 
 	$comment = get_comment($comment);
@@ -798,7 +798,7 @@ function get_comment_link( $comment = null, $args = array() ) {
  * @param int|WP_Post $post_id Optional. Post ID or WP_Post object. Default is global $post.
  * @return string The link to the comments.
  */
-function get_comments_link( $post_id = 0 ) {
+function get_comments_link( $post_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$hash = get_comments_number( $post_id ) ? '#comments' : '#respond';
 	$comments_link = get_permalink( $post_id ) . $hash;
 
@@ -821,7 +821,7 @@ function get_comments_link( $post_id = 0 ) {
  * @param string $deprecated   Not Used.
  * @param string $deprecated_2 Not Used.
  */
-function comments_link( $deprecated = '', $deprecated_2 = '' ) {
+function comments_link( $deprecated = '', $deprecated_2 = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !empty( $deprecated ) )
 		_deprecated_argument( __FUNCTION__, '0.72' );
 	if ( !empty( $deprecated_2 ) )
@@ -837,7 +837,7 @@ function comments_link( $deprecated = '', $deprecated_2 = '' ) {
  * @param int|WP_Post $post_id Optional. Post ID or WP_Post object. Default is global $post.
  * @return int The number of comments a post has.
  */
-function get_comments_number( $post_id = 0 ) {
+function get_comments_number( $post_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $post_id );
 
 	if ( ! $post ) {
@@ -868,7 +868,7 @@ function get_comments_number( $post_id = 0 ) {
  * @param string $more       Optional. Text for more than one comment. Default false.
  * @param string $deprecated Not used.
  */
-function comments_number( $zero = false, $one = false, $more = false, $deprecated = '' ) {
+function comments_number( $zero = false, $one = false, $more = false, $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $deprecated ) ) {
 		_deprecated_argument( __FUNCTION__, '1.3.0' );
 	}
@@ -884,7 +884,7 @@ function comments_number( $zero = false, $one = false, $more = false, $deprecate
  * @param string $one  Optional. Text for one comment. Default false.
  * @param string $more Optional. Text for more than one comment. Default false.
  */
-function get_comments_number_text( $zero = false, $one = false, $more = false ) {
+function get_comments_number_text( $zero = false, $one = false, $more = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$number = get_comments_number();
 
 	if ( $number > 1 ) {
@@ -948,7 +948,7 @@ function get_comments_number_text( $zero = false, $one = false, $more = false ) 
  * @param array           $args       Optional. An array of arguments. Default empty.
  * @return string The comment content.
  */
-function get_comment_text( $comment_ID = 0, $args = array() ) {
+function get_comment_text( $comment_ID = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 
 	/**
@@ -977,7 +977,7 @@ function get_comment_text( $comment_ID = 0, $args = array() ) {
  *                                    Default current comment.
  * @param array           $args       Optional. An array of arguments. Default empty array. Default empty.
  */
-function comment_text( $comment_ID = 0, $args = array() ) {
+function comment_text( $comment_ID = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 
 	$comment_text = get_comment_text( $comment, $args );
@@ -1006,7 +1006,7 @@ function comment_text( $comment_ID = 0, $args = array() ) {
  *                          Default true.
  * @return string The formatted time.
  */
-function get_comment_time( $d = '', $gmt = false, $translate = true ) {
+function get_comment_time( $d = '', $gmt = false, $translate = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment();
 
 	$comment_date = $gmt ? $comment->comment_date_gmt : $comment->comment_date;
@@ -1036,7 +1036,7 @@ function get_comment_time( $d = '', $gmt = false, $translate = true ) {
  *
  * @param string $d Optional. The format of the time. Default user's settings.
  */
-function comment_time( $d = '' ) {
+function comment_time( $d = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_comment_time($d);
 }
 
@@ -1050,7 +1050,7 @@ function comment_time( $d = '' ) {
  *                                   Default current comment.
  * @return string The comment type.
  */
-function get_comment_type( $comment_ID = 0 ) {
+function get_comment_type( $comment_ID = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 	if ( '' == $comment->comment_type )
 		$comment->comment_type = 'comment';
@@ -1077,7 +1077,7 @@ function get_comment_type( $comment_ID = 0 ) {
  * @param string $trackbacktxt Optional. String to display for trackback type. Default false.
  * @param string $pingbacktxt  Optional. String to display for pingback type. Default false.
  */
-function comment_type( $commenttxt = false, $trackbacktxt = false, $pingbacktxt = false ) {
+function comment_type( $commenttxt = false, $trackbacktxt = false, $pingbacktxt = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( false === $commenttxt ) $commenttxt = _x( 'Comment', 'noun' );
 	if ( false === $trackbacktxt ) $trackbacktxt = __( 'Trackback' );
 	if ( false === $pingbacktxt ) $pingbacktxt = __( 'Pingback' );
@@ -1105,7 +1105,7 @@ function comment_type( $commenttxt = false, $trackbacktxt = false, $pingbacktxt 
  *
  * @return string The trackback URL after being filtered.
  */
-function get_trackback_url() {
+function get_trackback_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( '' != get_option('permalink_structure') )
 		$tb_url = trailingslashit(get_permalink()) . user_trailingslashit('trackback', 'single_trackback');
 	else
@@ -1130,7 +1130,7 @@ function get_trackback_url() {
  * @return void|string Should only be used to echo the trackback URL, use get_trackback_url()
  *                     for the result instead.
  */
-function trackback_url( $deprecated_echo = true ) {
+function trackback_url( $deprecated_echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( true !== $deprecated_echo ) {
 		_deprecated_argument( __FUNCTION__, '2.5.0',
 			/* translators: %s: get_trackback_url() */
@@ -1156,7 +1156,7 @@ function trackback_url( $deprecated_echo = true ) {
  *
  * @param int $deprecated Not used (Was $timezone = 0).
  */
-function trackback_rdf( $deprecated = '' ) {
+function trackback_rdf( $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $deprecated ) ) {
 		_deprecated_argument( __FUNCTION__, '2.5.0' );
 	}
@@ -1187,7 +1187,7 @@ function trackback_rdf( $deprecated = '' ) {
  * @param int|WP_Post $post_id Post ID or WP_Post object. Default current post.
  * @return bool True if the comments are open.
  */
-function comments_open( $post_id = null ) {
+function comments_open( $post_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	$_post = get_post($post_id);
 
@@ -1212,7 +1212,7 @@ function comments_open( $post_id = null ) {
  * @param int|WP_Post $post_id Post ID or WP_Post object. Default current post.
  * @return bool True if pings are accepted
  */
-function pings_open( $post_id = null ) {
+function pings_open( $post_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	$_post = get_post($post_id);
 
@@ -1243,13 +1243,13 @@ function pings_open( $post_id = null ) {
  *
  * @since 2.1.3
  */
-function wp_comment_form_unfiltered_html_nonce() {
+function wp_comment_form_unfiltered_html_nonce() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post();
 	$post_id = $post ? $post->ID : 0;
 
 	if ( current_user_can( 'unfiltered_html' ) ) {
 		wp_nonce_field( 'unfiltered-html-comment_' . $post_id, '_wp_unfiltered_html_comment_disabled', false );
-		echo "<script>(function(){if(window===window.parent){document.getElementById('_wp_unfiltered_html_comment_disabled').name='_wp_unfiltered_html_comment';}})();</script>\n";
+		echo "<script>(function(){if(window===window.parent){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);document.getElementById('_wp_unfiltered_html_comment_disabled').name='_wp_unfiltered_html_comment';}})();</script>\n";
 	}
 }
 
@@ -1288,7 +1288,7 @@ function wp_comment_form_unfiltered_html_nonce() {
  * @param bool   $separate_comments Optional. Whether to separate the comments by comment type.
  *                                  Default false.
  */
-function comments_template( $file = '/comments.php', $separate_comments = false ) {
+function comments_template( $file = '/comments.php', $separate_comments = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query, $withcomments, $post, $wpdb, $id, $comment, $user_login, $user_ID, $user_identity, $overridden_cpage;
 
 	if ( !(is_single() || is_page() || $withcomments) || empty($post) )
@@ -1487,7 +1487,7 @@ function comments_template( $file = '/comments.php', $separate_comments = false 
  * @param string $none      Optional. String to display when comments have been turned off.
  *                          Default false.
  */
-function comments_popup_link( $zero = false, $one = false, $more = false, $css_class = '', $none = false ) {
+function comments_popup_link( $zero = false, $one = false, $more = false, $css_class = '', $none = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = get_the_ID();
 	$title = get_the_title();
 	$number = get_comments_number( $id );
@@ -1587,7 +1587,7 @@ function comments_popup_link( $zero = false, $one = false, $more = false, $css_c
  *                                Default current post.
  * @return void|false|string Link to show comment form, if successful. False, if comments are closed.
  */
-function get_comment_reply_link( $args = array(), $comment = null, $post = null ) {
+function get_comment_reply_link( $args = array(), $comment = null, $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'add_below'     => 'comment',
 		'respond_id'    => 'respond',
@@ -1675,7 +1675,7 @@ function get_comment_reply_link( $args = array(), $comment = null, $post = null 
  *                             Default current post.
  * @return mixed Link to show comment form, if successful. False, if comments are closed.
  */
-function comment_reply_link($args = array(), $comment = null, $post = null) {
+function comment_reply_link($args = array(), $comment = null, $post = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_comment_reply_link($args, $comment, $post);
 }
 
@@ -1702,7 +1702,7 @@ function comment_reply_link($args = array(), $comment = null, $post = null) {
  *                             Default current post.
  * @return false|null|string Link to show comment form, if successful. False, if comments are closed.
  */
-function get_post_reply_link($args = array(), $post = null) {
+function get_post_reply_link($args = array(), $post = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'add_below'  => 'post',
 		'respond_id' => 'respond',
@@ -1761,7 +1761,7 @@ function get_post_reply_link($args = array(), $post = null) {
  *                          Default current post.
  * @return string|bool|null Link to show comment form, if successful. False, if comments are closed.
  */
-function post_reply_link($args = array(), $post = null) {
+function post_reply_link($args = array(), $post = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_post_reply_link($args, $post);
 }
 
@@ -1773,7 +1773,7 @@ function post_reply_link($args = array(), $post = null) {
  * @param string $text Optional. Text to display for cancel reply link. Default empty.
  * @return string
  */
-function get_cancel_comment_reply_link( $text = '' ) {
+function get_cancel_comment_reply_link( $text = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty($text) )
 		$text = __('Click here to cancel reply.');
 
@@ -1801,7 +1801,7 @@ function get_cancel_comment_reply_link( $text = '' ) {
  *
  * @param string $text Optional. Text to display for cancel reply link. Default empty.
  */
-function cancel_comment_reply_link( $text = '' ) {
+function cancel_comment_reply_link( $text = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_cancel_comment_reply_link($text);
 }
 
@@ -1813,7 +1813,7 @@ function cancel_comment_reply_link( $text = '' ) {
  * @param int $id Optional. Post ID. Default current post ID.
  * @return string Hidden input HTML for replying to comments
  */
-function get_comment_id_fields( $id = 0 ) {
+function get_comment_id_fields( $id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $id ) )
 		$id = get_the_ID();
 
@@ -1840,7 +1840,7 @@ function get_comment_id_fields( $id = 0 ) {
  *
  * @param int $id Optional. Post ID. Default current post ID.
  */
-function comment_id_fields( $id = 0 ) {
+function comment_id_fields( $id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_comment_id_fields( $id );
 }
 
@@ -1864,7 +1864,7 @@ function comment_id_fields( $id = 0 ) {
  * @param string $linktoparent Optional. Boolean to control making the author's name a link
  *                             to their comment. Default true.
  */
-function comment_form_title( $noreplytext = false, $replytext = false, $linktoparent = true ) {
+function comment_form_title( $noreplytext = false, $replytext = false, $linktoparent = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $comment;
 
 	if ( false === $noreplytext ) $noreplytext = __( 'Leave a Reply' );
@@ -1920,7 +1920,7 @@ function comment_form_title( $noreplytext = false, $replytext = false, $linktopa
  * }
  * @param array $comments Optional. Array of WP_Comment objects.
  */
-function wp_list_comments( $args = array(), $comments = null ) {
+function wp_list_comments( $args = array(), $comments = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query, $comment_alt, $comment_depth, $comment_thread_alt, $overridden_cpage, $in_comment_loop;
 
 	$in_comment_loop = true;
@@ -2106,7 +2106,7 @@ function wp_list_comments( $args = array(), $comments = null ) {
  * Outputs a complete commenting form for use within a template.
  *
  * Most strings and form fields may be controlled through the $args array passed
- * into the function, while you may also choose to use the {@see 'comment_form_default_fields'}
+ * into the function, while you may also choose to use the {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);@see 'comment_form_default_fields'}
  * filter to modify the array of default fields if you'd just like to add a new
  * one or remove a single field. All fields are also individually passed through
  * a filter of the {@see 'comment_form_field_$name'} where $name is the key used
@@ -2164,7 +2164,7 @@ function wp_list_comments( $args = array(), $comments = null ) {
  * }
  * @param int|WP_Post $post_id Post ID or WP_Post object to generate the form for. Default current post.
  */
-function comment_form( $args = array(), $post_id = null ) {
+function comment_form( $args = array(), $post_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( null === $post_id )
 		$post_id = get_the_ID();
 

@@ -22,7 +22,7 @@ class getid3_ac3 extends getid3_handler
 
     const syncword = "\x0B\x77";
 
-	public function Analyze() {
+	public function Analyze() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		///AH
@@ -234,14 +234,14 @@ class getid3_ac3 extends getid3_handler
 		return true;
 	}
 
-	private function readHeaderBSI($length) {
+	private function readHeaderBSI($length) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$data = substr($this->AC3header['bsi'], $this->BSIoffset, $length);
 		$this->BSIoffset += $length;
 
 		return bindec($data);
 	}
 
-	public static function sampleRateCodeLookup($fscod) {
+	public static function sampleRateCodeLookup($fscod) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $sampleRateCodeLookup = array(
 			0 => 48000,
 			1 => 44100,
@@ -251,7 +251,7 @@ class getid3_ac3 extends getid3_handler
 		return (isset($sampleRateCodeLookup[$fscod]) ? $sampleRateCodeLookup[$fscod] : false);
 	}
 
-	public static function serviceTypeLookup($bsmod, $acmod) {
+	public static function serviceTypeLookup($bsmod, $acmod) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $serviceTypeLookup = array();
 		if (empty($serviceTypeLookup)) {
 			for ($i = 0; $i <= 7; $i++) {
@@ -272,7 +272,7 @@ class getid3_ac3 extends getid3_handler
 		return (isset($serviceTypeLookup[$bsmod][$acmod]) ? $serviceTypeLookup[$bsmod][$acmod] : false);
 	}
 
-	public static function audioCodingModeLookup($acmod) {
+	public static function audioCodingModeLookup($acmod) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// array(channel configuration, # channels (not incl LFE), channel order)
 		static $audioCodingModeLookup = array (
 			0 => array('channel_config'=>'1+1', 'num_channels'=>2, 'channel_order'=>'Ch1,Ch2'),
@@ -287,7 +287,7 @@ class getid3_ac3 extends getid3_handler
 		return (isset($audioCodingModeLookup[$acmod]) ? $audioCodingModeLookup[$acmod] : false);
 	}
 
-	public static function centerMixLevelLookup($cmixlev) {
+	public static function centerMixLevelLookup($cmixlev) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $centerMixLevelLookup;
 		if (empty($centerMixLevelLookup)) {
 			$centerMixLevelLookup = array(
@@ -300,7 +300,7 @@ class getid3_ac3 extends getid3_handler
 		return (isset($centerMixLevelLookup[$cmixlev]) ? $centerMixLevelLookup[$cmixlev] : false);
 	}
 
-	public static function surroundMixLevelLookup($surmixlev) {
+	public static function surroundMixLevelLookup($surmixlev) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $surroundMixLevelLookup;
 		if (empty($surroundMixLevelLookup)) {
 			$surroundMixLevelLookup = array(
@@ -313,7 +313,7 @@ class getid3_ac3 extends getid3_handler
 		return (isset($surroundMixLevelLookup[$surmixlev]) ? $surroundMixLevelLookup[$surmixlev] : false);
 	}
 
-	public static function dolbySurroundModeLookup($dsurmod) {
+	public static function dolbySurroundModeLookup($dsurmod) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $dolbySurroundModeLookup = array(
 			0 => 'not indicated',
 			1 => 'Not Dolby Surround encoded',
@@ -323,7 +323,7 @@ class getid3_ac3 extends getid3_handler
 		return (isset($dolbySurroundModeLookup[$dsurmod]) ? $dolbySurroundModeLookup[$dsurmod] : false);
 	}
 
-	public static function channelsEnabledLookup($acmod, $lfeon) {
+	public static function channelsEnabledLookup($acmod, $lfeon) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$lookup = array(
 			'ch1'=>(bool) ($acmod == 0),
 			'ch2'=>(bool) ($acmod == 0),
@@ -348,7 +348,7 @@ class getid3_ac3 extends getid3_handler
 		return $lookup;
 	}
 
-	public static function heavyCompression($compre) {
+	public static function heavyCompression($compre) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// The first four bits indicate gain changes in 6.02dB increments which can be
 		// implemented with an arithmetic shift operation. The following four bits
 		// indicate linear gain changes, and require a 5-bit multiply.
@@ -398,7 +398,7 @@ class getid3_ac3 extends getid3_handler
 		return $log_gain - $lin_gain;
 	}
 
-	public static function roomTypeLookup($roomtyp) {
+	public static function roomTypeLookup($roomtyp) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $roomTypeLookup = array(
 			0 => 'not indicated',
 			1 => 'large room, X curve monitor',
@@ -408,7 +408,7 @@ class getid3_ac3 extends getid3_handler
 		return (isset($roomTypeLookup[$roomtyp]) ? $roomTypeLookup[$roomtyp] : false);
 	}
 
-	public static function frameSizeLookup($frmsizecod, $fscod) {
+	public static function frameSizeLookup($frmsizecod, $fscod) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$padding     = (bool) ($frmsizecod % 2);
 		$framesizeid =   floor($frmsizecod / 2);
 
@@ -443,7 +443,7 @@ class getid3_ac3 extends getid3_handler
 		return (isset($frameSizeLookup[$framesizeid][$fscod]) ? $frameSizeLookup[$framesizeid][$fscod] : false);
 	}
 
-	public static function bitrateLookup($frmsizecod) {
+	public static function bitrateLookup($frmsizecod) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$framesizeid =   floor($frmsizecod / 2);
 
 		static $bitrateLookup = array(

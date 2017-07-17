@@ -58,11 +58,11 @@ class MagpieRSS {
 	/**
 	 * PHP5 constructor.
 	 */
-	function __construct( $source ) {
+	function __construct( $source ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		# Check if PHP xml isn't compiled
 		#
-		if ( ! function_exists('xml_parser_create') ) {
+		if ( ! function_exists('xml_parser_create') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			return trigger_error( "PHP's XML extension is not available. Please contact your hosting provider to enable PHP's XML extension." );
 		}
 
@@ -101,11 +101,11 @@ class MagpieRSS {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function MagpieRSS( $source ) {
+	public function MagpieRSS( $source ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $source );
 	}
 
-	function feed_start_element($p, $element, &$attrs) {
+	function feed_start_element($p, $element, &$attrs) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$el = $element = strtolower($element);
 		$attrs = array_change_key_case($attrs, CASE_LOWER);
 
@@ -216,7 +216,7 @@ class MagpieRSS {
 		}
 	}
 
-	function feed_cdata ($p, $text) {
+	function feed_cdata ($p, $text) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		if ($this->feed_type == ATOM and $this->incontent)
 		{
@@ -228,7 +228,7 @@ class MagpieRSS {
 		}
 	}
 
-	function feed_end_element ($p, $el) {
+	function feed_end_element ($p, $el) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$el = strtolower($el);
 
 		if ( $el == 'item' or $el == 'entry' )
@@ -273,14 +273,14 @@ class MagpieRSS {
 		$this->current_namespace = false;
 	}
 
-	function concat (&$str1, $str2="") {
+	function concat (&$str1, $str2="") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (!isset($str1) ) {
 			$str1="";
 		}
 		$str1 .= $str2;
 	}
 
-	function append_content($text) {
+	function append_content($text) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->initem ) {
 			$this->concat( $this->current_item[ $this->incontent ], $text );
 		}
@@ -290,7 +290,7 @@ class MagpieRSS {
 	}
 
 	// smart append - field and namespace aware
-	function append($el, $text) {
+	function append($el, $text) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (!$el) {
 			return;
 		}
@@ -334,7 +334,7 @@ class MagpieRSS {
 		}
 	}
 
-	function normalize () {
+	function normalize () {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// if atom populate rss fields
 		if ( $this->is_atom() ) {
 			$this->channel['descripton'] = $this->channel['tagline'];
@@ -362,7 +362,7 @@ class MagpieRSS {
 		}
 	}
 
-	function is_rss () {
+	function is_rss () {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->feed_type == RSS ) {
 			return $this->feed_version;
 		}
@@ -371,7 +371,7 @@ class MagpieRSS {
 		}
 	}
 
-	function is_atom() {
+	function is_atom() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->feed_type == ATOM ) {
 			return $this->feed_version;
 		}
@@ -380,11 +380,11 @@ class MagpieRSS {
 		}
 	}
 
-	function map_attrs($k, $v) {
+	function map_attrs($k, $v) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return "$k=\"$v\"";
 	}
 
-	function error( $errormsg, $lvl = E_USER_WARNING ) {
+	function error( $errormsg, $lvl = E_USER_WARNING ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// append PHP's error message if track_errors enabled
 		if ( isset($php_errormsg) ) {
 			$errormsg .= " ($php_errormsg)";
@@ -409,7 +409,7 @@ if ( !function_exists('fetch_rss') ) :
  * @param string $url URL to retrieve feed
  * @return bool|MagpieRSS false on failure or MagpieRSS object on success.
  */
-function fetch_rss ($url) {
+function fetch_rss ($url) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// initialize constants
 	init();
 
@@ -547,7 +547,7 @@ endif;
  * @param array $headers Optional. Headers to send to the URL.
  * @return Snoopy style response
  */
-function _fetch_remote_file($url, $headers = "" ) {
+function _fetch_remote_file($url, $headers = "" ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$resp = wp_safe_remote_request( $url, array( 'headers' => $headers, 'timeout' => MAGPIE_FETCH_TIME_OUT ) );
 	if ( is_wp_error($resp) ) {
 		$error = array_shift($resp->errors);
@@ -590,7 +590,7 @@ function _fetch_remote_file($url, $headers = "" ) {
  * @param array $resp
  * @return MagpieRSS|bool
  */
-function _response_to_rss ($resp) {
+function _response_to_rss ($resp) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$rss = new MagpieRSS( $resp->results );
 
 	// if RSS parsed successfully
@@ -637,7 +637,7 @@ function _response_to_rss ($resp) {
  * @package External
  * @subpackage MagpieRSS
  */
-function init () {
+function init () {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( defined('MAGPIE_INITALIZED') ) {
 		return;
 	}
@@ -688,27 +688,27 @@ function init () {
 	}
 }
 
-function is_info ($sc) {
+function is_info ($sc) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return $sc >= 100 && $sc < 200;
 }
 
-function is_success ($sc) {
+function is_success ($sc) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return $sc >= 200 && $sc < 300;
 }
 
-function is_redirect ($sc) {
+function is_redirect ($sc) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return $sc >= 300 && $sc < 400;
 }
 
-function is_error ($sc) {
+function is_error ($sc) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return $sc >= 400 && $sc < 600;
 }
 
-function is_client_error ($sc) {
+function is_client_error ($sc) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return $sc >= 400 && $sc < 500;
 }
 
-function is_server_error ($sc) {
+function is_server_error ($sc) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return $sc >= 500 && $sc < 600;
 }
 
@@ -720,7 +720,7 @@ class RSSCache {
 	/**
 	 * PHP5 constructor.
 	 */
-	function __construct( $base = '', $age = '' ) {
+	function __construct( $base = '', $age = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->BASE_CACHE = WP_CONTENT_DIR . '/cache';
 		if ( $base ) {
 			$this->BASE_CACHE = $base;
@@ -734,7 +734,7 @@ class RSSCache {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function RSSCache( $base = '', $age = '' ) {
+	public function RSSCache( $base = '', $age = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $base, $age );
 	}
 
@@ -744,7 +744,7 @@ class RSSCache {
 	Input:		url from which the rss file was fetched
 	Output:		true on success
 \*=======================================================================*/
-	function set ($url, $rss) {
+	function set ($url, $rss) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$cache_option = 'rss_' . $this->file_name( $url );
 
 		set_transient($cache_option, $rss, $this->MAX_AGE);
@@ -758,7 +758,7 @@ class RSSCache {
 	Input:		url from which the rss file was fetched
 	Output:		cached object on HIT, false on MISS
 \*=======================================================================*/
-	function get ($url) {
+	function get ($url) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->ERROR = "";
 		$cache_option = 'rss_' . $this->file_name( $url );
 
@@ -779,7 +779,7 @@ class RSSCache {
 	Input:		url from which the rss file was fetched
 	Output:		cached object on HIT, false on MISS
 \*=======================================================================*/
-	function check_cache ( $url ) {
+	function check_cache ( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->ERROR = "";
 		$cache_option = 'rss_' . $this->file_name( $url );
 
@@ -795,14 +795,14 @@ class RSSCache {
 /*=======================================================================*\
 	Function:	serialize
 \*=======================================================================*/
-	function serialize ( $rss ) {
+	function serialize ( $rss ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return serialize( $rss );
 	}
 
 /*=======================================================================*\
 	Function:	unserialize
 \*=======================================================================*/
-	function unserialize ( $data ) {
+	function unserialize ( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return unserialize( $data );
 	}
 
@@ -812,7 +812,7 @@ class RSSCache {
 	Input:		url from which the rss file was fetched
 	Output:		a file name
 \*=======================================================================*/
-	function file_name ($url) {
+	function file_name ($url) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return md5( $url );
 	}
 
@@ -820,7 +820,7 @@ class RSSCache {
 	Function:	error
 	Purpose:	register error
 \*=======================================================================*/
-	function error ($errormsg, $lvl=E_USER_WARNING) {
+	function error ($errormsg, $lvl=E_USER_WARNING) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// append PHP's error message if track_errors enabled
 		if ( isset($php_errormsg) ) {
 			$errormsg .= " ($php_errormsg)";
@@ -833,7 +833,7 @@ class RSSCache {
 			error_log( $errormsg, 0);
 		}
 	}
-			function debug ($debugmsg, $lvl=E_USER_NOTICE) {
+			function debug ($debugmsg, $lvl=E_USER_NOTICE) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( MAGPIE_DEBUG ) {
 			$this->error("MagpieRSS [debug] $debugmsg", $lvl);
 		}
@@ -841,7 +841,7 @@ class RSSCache {
 }
 
 if ( !function_exists('parse_w3cdtf') ) :
-function parse_w3cdtf ( $date_str ) {
+function parse_w3cdtf ( $date_str ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	# regex to match wc3dtf
 	$pat = "/(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(:(\d{2}))?(?:([-+])(\d{2}):?(\d{2})|(Z))?/";
@@ -895,7 +895,7 @@ if ( !function_exists('wp_rss') ) :
  * @param string $url URL of feed to display. Will not auto sense feed URL.
  * @param int $num_items Optional. Number of items to display, default is all.
  */
-function wp_rss( $url, $num_items = -1 ) {
+function wp_rss( $url, $num_items = -1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $rss = fetch_rss( $url ) ) {
 		echo '<ul>';
 
@@ -936,7 +936,7 @@ if ( !function_exists('get_rss') ) :
  * @param int $num_items Optional. Number of items to display, default is all.
  * @return bool False on failure.
  */
-function get_rss ($url, $num_items = 5) { // Like get posts, but for RSS
+function get_rss ($url, $num_items = 5) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); // Like get posts, but for RSS
 	$rss = fetch_rss($url);
 	if ( $rss ) {
 		$rss->items = array_slice($rss->items, 0, $num_items);

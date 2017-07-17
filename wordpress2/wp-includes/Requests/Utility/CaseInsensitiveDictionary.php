@@ -25,7 +25,7 @@ class Requests_Utility_CaseInsensitiveDictionary implements ArrayAccess, Iterato
 	 *
 	 * @param array $data Dictionary/map to convert to case-insensitive
 	 */
-	public function __construct(array $data = array()) {
+	public function __construct(array $data = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ($data as $key => $value) {
 			$this->offsetSet($key, $value);
 		}
@@ -37,7 +37,7 @@ class Requests_Utility_CaseInsensitiveDictionary implements ArrayAccess, Iterato
 	 * @param string $key Item key
 	 * @return boolean Does the item exist?
 	 */
-	public function offsetExists($key) {
+	public function offsetExists($key) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$key = strtolower($key);
 		return isset($this->data[$key]);
 	}
@@ -48,7 +48,7 @@ class Requests_Utility_CaseInsensitiveDictionary implements ArrayAccess, Iterato
 	 * @param string $key Item key
 	 * @return string Item value
 	 */
-	public function offsetGet($key) {
+	public function offsetGet($key) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$key = strtolower($key);
 		if (!isset($this->data[$key])) {
 			return null;
@@ -65,7 +65,7 @@ class Requests_Utility_CaseInsensitiveDictionary implements ArrayAccess, Iterato
 	 * @param string $key Item name
 	 * @param string $value Item value
 	 */
-	public function offsetSet($key, $value) {
+	public function offsetSet($key, $value) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($key === null) {
 			throw new Requests_Exception('Object is a dictionary, not a list', 'invalidset');
 		}
@@ -79,7 +79,7 @@ class Requests_Utility_CaseInsensitiveDictionary implements ArrayAccess, Iterato
 	 *
 	 * @param string $key
 	 */
-	public function offsetUnset($key) {
+	public function offsetUnset($key) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset($this->data[strtolower($key)]);
 	}
 
@@ -88,7 +88,7 @@ class Requests_Utility_CaseInsensitiveDictionary implements ArrayAccess, Iterato
 	 *
 	 * @return ArrayIterator
 	 */
-	public function getIterator() {
+	public function getIterator() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return new ArrayIterator($this->data);
 	}
 
@@ -97,7 +97,7 @@ class Requests_Utility_CaseInsensitiveDictionary implements ArrayAccess, Iterato
 	 *
 	 * @return array Header data
 	 */
-	public function getAll() {
+	public function getAll() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->data;
 	}
 }

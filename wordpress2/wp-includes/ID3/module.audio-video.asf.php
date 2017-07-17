@@ -18,7 +18,7 @@ getid3_lib::IncludeDependency(GETID3_INCLUDEPATH.'module.audio-video.riff.php', 
 
 class getid3_asf extends getid3_handler {
 
-	public function __construct(getID3 $getid3) {
+	public function __construct(getID3 $getid3) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct($getid3);  // extends getid3_handler::__construct()
 
 		// initialize all GUID constants
@@ -30,7 +30,7 @@ class getid3_asf extends getid3_handler {
 		}
 	}
 
-	public function Analyze() {
+	public function Analyze() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		// Shortcuts
@@ -1440,7 +1440,7 @@ class getid3_asf extends getid3_handler {
 		return true;
 	}
 
-	public static function codecListObjectTypeLookup($CodecListType) {
+	public static function codecListObjectTypeLookup($CodecListType) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0x0001 => 'Video Codec',
 			0x0002 => 'Audio Codec',
@@ -1450,7 +1450,7 @@ class getid3_asf extends getid3_handler {
 		return (isset($lookup[$CodecListType]) ? $lookup[$CodecListType] : 'Invalid Codec Type');
 	}
 
-	public static function KnownGUIDs() {
+	public static function KnownGUIDs() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $GUIDarray = array(
 			'GETID3_ASF_Extended_Stream_Properties_Object'   => '14E6A5CB-C672-4332-8399-A96952065B5A',
 			'GETID3_ASF_Padding_Object'                      => '1806D474-CADF-4509-A4BA-9AABCB96AAE8',
@@ -1564,7 +1564,7 @@ class getid3_asf extends getid3_handler {
 		return $GUIDarray;
 	}
 
-	public static function GUIDname($GUIDstring) {
+	public static function GUIDname($GUIDstring) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $GUIDarray = array();
 		if (empty($GUIDarray)) {
 			$GUIDarray = self::KnownGUIDs();
@@ -1572,7 +1572,7 @@ class getid3_asf extends getid3_handler {
 		return array_search($GUIDstring, $GUIDarray);
 	}
 
-	public static function ASFIndexObjectIndexTypeLookup($id) {
+	public static function ASFIndexObjectIndexTypeLookup($id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $ASFIndexObjectIndexTypeLookup = array();
 		if (empty($ASFIndexObjectIndexTypeLookup)) {
 			$ASFIndexObjectIndexTypeLookup[1] = 'Nearest Past Data Packet';
@@ -1582,7 +1582,7 @@ class getid3_asf extends getid3_handler {
 		return (isset($ASFIndexObjectIndexTypeLookup[$id]) ? $ASFIndexObjectIndexTypeLookup[$id] : 'invalid');
 	}
 
-	public static function GUIDtoBytestring($GUIDstring) {
+	public static function GUIDtoBytestring($GUIDstring) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Microsoft defines these 16-byte (128-bit) GUIDs in the strangest way:
 		// first 4 bytes are in little-endian order
 		// next 2 bytes are appended in little-endian order
@@ -1617,7 +1617,7 @@ class getid3_asf extends getid3_handler {
 		return $hexbytecharstring;
 	}
 
-	public static function BytestringToGUID($Bytestring) {
+	public static function BytestringToGUID($Bytestring) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$GUIDstring  = str_pad(dechex(ord($Bytestring{3})),  2, '0', STR_PAD_LEFT);
 		$GUIDstring .= str_pad(dechex(ord($Bytestring{2})),  2, '0', STR_PAD_LEFT);
 		$GUIDstring .= str_pad(dechex(ord($Bytestring{1})),  2, '0', STR_PAD_LEFT);
@@ -1642,7 +1642,7 @@ class getid3_asf extends getid3_handler {
 		return strtoupper($GUIDstring);
 	}
 
-	public static function FILETIMEtoUNIXtime($FILETIME, $round=true) {
+	public static function FILETIMEtoUNIXtime($FILETIME, $round=true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// FILETIME is a 64-bit unsigned integer representing
 		// the number of 100-nanosecond intervals since January 1, 1601
 		// UNIX timestamp is number of seconds since January 1, 1970
@@ -1653,7 +1653,7 @@ class getid3_asf extends getid3_handler {
 		return ($FILETIME - 116444736000000000) / 10000000;
 	}
 
-	public static function WMpictureTypeLookup($WMpictureType) {
+	public static function WMpictureTypeLookup($WMpictureType) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = null;
 		if ($lookup === null) {
 			$lookup = array(
@@ -1676,7 +1676,7 @@ class getid3_asf extends getid3_handler {
 				0x13 => 'Band Logotype',
 				0x14 => 'Publisher Logotype'
 			);
-			$lookup = array_map(function($str) {
+			$lookup = array_map(function($str) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				return getid3_lib::iconv_fallback('UTF-8', 'UTF-16LE', $str);
 			}, $lookup);
 		}
@@ -1684,7 +1684,7 @@ class getid3_asf extends getid3_handler {
 		return (isset($lookup[$WMpictureType]) ? $lookup[$WMpictureType] : '');
 	}
 
-	public function HeaderExtensionObjectDataParse(&$asf_header_extension_object_data, &$unhandled_sections) {
+	public function HeaderExtensionObjectDataParse(&$asf_header_extension_object_data, &$unhandled_sections) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// http://msdn.microsoft.com/en-us/library/bb643323.aspx
 
 		$offset = 0;
@@ -1931,7 +1931,7 @@ class getid3_asf extends getid3_handler {
 	}
 
 
-	public static function metadataLibraryObjectDataTypeLookup($id) {
+	public static function metadataLibraryObjectDataTypeLookup($id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0x0000 => 'Unicode string', // The data consists of a sequence of Unicode characters
 			0x0001 => 'BYTE array',     // The type of the data is implementation-specific
@@ -1944,7 +1944,7 @@ class getid3_asf extends getid3_handler {
 		return (isset($lookup[$id]) ? $lookup[$id] : 'invalid');
 	}
 
-	public function ASF_WMpicture(&$data) {
+	public function ASF_WMpicture(&$data) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		//typedef struct _WMPicture{
 		//  LPWSTR  pwszMIMEType;
 		//  BYTE  bPictureType;
@@ -1996,13 +1996,13 @@ class getid3_asf extends getid3_handler {
 
 
 	// Remove terminator 00 00 and convert UTF-16LE to Latin-1
-	public static function TrimConvert($string) {
+	public static function TrimConvert($string) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return trim(getid3_lib::iconv_fallback('UTF-16LE', 'ISO-8859-1', self::TrimTerm($string)), ' ');
 	}
 
 
 	// Remove terminator 00 00
-	public static function TrimTerm($string) {
+	public static function TrimTerm($string) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// remove terminator, only if present (it should be, but...)
 		if (substr($string, -2) === "\x00\x00") {
 			$string = substr($string, 0, -2);

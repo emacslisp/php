@@ -168,7 +168,7 @@ class WP_Customize_Section {
 	 * @param string               $id      An specific ID of the section.
 	 * @param array                $args    Section arguments.
 	 */
-	public function __construct( $manager, $id, $args = array() ) {
+	public function __construct( $manager, $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$keys = array_keys( get_object_vars( $this ) );
 		foreach ( $keys as $key ) {
 			if ( isset( $args[ $key ] ) ) {
@@ -195,7 +195,7 @@ class WP_Customize_Section {
 	 *
 	 * @return bool Whether the section is active to the current preview.
 	 */
-	final public function active() {
+	final public function active() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$section = $this;
 		$active = call_user_func( $this->active_callback, $this );
 
@@ -223,7 +223,7 @@ class WP_Customize_Section {
 	 *
 	 * @return true Always true.
 	 */
-	public function active_callback() {
+	public function active_callback() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return true;
 	}
 
@@ -234,7 +234,7 @@ class WP_Customize_Section {
 	 *
 	 * @return array The array to be exported to the client as JSON.
 	 */
-	public function json() {
+	public function json() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$array = wp_array_slice_assoc( (array) $this, array( 'id', 'description', 'priority', 'panel', 'type', 'description_hidden' ) );
 		$array['title'] = html_entity_decode( $this->title, ENT_QUOTES, get_bloginfo( 'charset' ) );
 		$array['content'] = $this->get_content();
@@ -259,7 +259,7 @@ class WP_Customize_Section {
 	 *
 	 * @return bool False if theme doesn't support the section or user doesn't have the capability.
 	 */
-	final public function check_capabilities() {
+	final public function check_capabilities() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->capability && ! call_user_func_array( 'current_user_can', (array) $this->capability ) ) {
 			return false;
 		}
@@ -278,7 +278,7 @@ class WP_Customize_Section {
 	 *
 	 * @return string Contents of the section.
 	 */
-	final public function get_content() {
+	final public function get_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		ob_start();
 		$this->maybe_render();
 		return trim( ob_get_clean() );
@@ -289,7 +289,7 @@ class WP_Customize_Section {
 	 *
 	 * @since 3.4.0
 	 */
-	final public function maybe_render() {
+	final public function maybe_render() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->check_capabilities() ) {
 			return;
 		}
@@ -322,7 +322,7 @@ class WP_Customize_Section {
 	 *
 	 * @since 3.4.0
 	 */
-	protected function render() {}
+	protected function render() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Render the section's JS template.
@@ -335,7 +335,7 @@ class WP_Customize_Section {
 	 *
 	 * @see WP_Customize_Manager::render_template()
 	 */
-	public function print_template() {
+	public function print_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<script type="text/html" id="tmpl-customize-section-<?php echo $this->type; ?>">
 			<?php $this->render_template(); ?>
@@ -354,7 +354,7 @@ class WP_Customize_Section {
 	 *
 	 * @see WP_Customize_Section::print_template()
 	 */
-	protected function render_template() {
+	protected function render_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
 			<h3 class="accordion-section-title" tabindex="0">

@@ -16,7 +16,7 @@
  * @param int|object $category Category ID or object.
  * @return string Link on success, empty string if category does not exist.
  */
-function get_category_link( $category ) {
+function get_category_link( $category ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_object( $category ) )
 		$category = (int) $category;
 
@@ -40,7 +40,7 @@ function get_category_link( $category ) {
  * @param array $visited Optional. Already linked to categories to prevent duplicates.
  * @return string|WP_Error A list of category parents on success, WP_Error on failure.
  */
-function get_category_parents( $id, $link = false, $separator = '/', $nicename = false, $visited = array() ) {
+function get_category_parents( $id, $link = false, $separator = '/', $nicename = false, $visited = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$chain = '';
 	$parent = get_term( $id, 'category' );
 	if ( is_wp_error( $parent ) )
@@ -76,7 +76,7 @@ function get_category_parents( $id, $link = false, $separator = '/', $nicename =
  * @param int $id Optional, default to current post ID. The post ID.
  * @return array Array of WP_Term objects, one for each category assigned to the post.
  */
-function get_the_category( $id = false ) {
+function get_the_category( $id = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$categories = get_the_terms( $id, 'category' );
 	if ( ! $categories || is_wp_error( $categories ) )
 		$categories = array();
@@ -107,7 +107,7 @@ function get_the_category( $id = false ) {
  * @param int $cat_ID Category ID.
  * @return string|WP_Error Category name on success, WP_Error on failure.
  */
-function get_the_category_by_ID( $cat_ID ) {
+function get_the_category_by_ID( $cat_ID ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$cat_ID = (int) $cat_ID;
 	$category = get_term( $cat_ID, 'category' );
 
@@ -129,7 +129,7 @@ function get_the_category_by_ID( $cat_ID ) {
  * @param int $post_id Optional. Post ID to retrieve categories.
  * @return string
  */
-function get_the_category_list( $separator = '', $parents='', $post_id = false ) {
+function get_the_category_list( $separator = '', $parents='', $post_id = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_rewrite;
 	if ( ! is_object_in_taxonomy( get_post_type( $post_id ), 'category' ) ) {
 		/** This filter is documented in wp-includes/category-template.php */
@@ -233,7 +233,7 @@ function get_the_category_list( $separator = '', $parents='', $post_id = false )
  * @param int|object $post Optional. Post to check instead of the current post. (since 2.7.0)
  * @return bool True if the current post is in any of the given categories.
  */
-function in_category( $category, $post = null ) {
+function in_category( $category, $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $category ) )
 		return false;
 
@@ -249,7 +249,7 @@ function in_category( $category, $post = null ) {
  * @param string $parents Optional. How to display the parents.
  * @param int $post_id Optional. Post ID to retrieve categories.
  */
-function the_category( $separator = '', $parents='', $post_id = false ) {
+function the_category( $separator = '', $parents='', $post_id = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_the_category_list( $separator, $parents, $post_id );
 }
 
@@ -261,7 +261,7 @@ function the_category( $separator = '', $parents='', $post_id = false ) {
  * @param int $category Optional. Category ID. Will use global category ID by default.
  * @return string Category description, available.
  */
-function category_description( $category = 0 ) {
+function category_description( $category = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return term_description( $category, 'category' );
 }
 
@@ -318,7 +318,7 @@ function category_description( $category = 0 ) {
  * }
  * @return string HTML content only if 'echo' argument is 0.
  */
-function wp_dropdown_categories( $args = '' ) {
+function wp_dropdown_categories( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'show_option_all'   => '',
 		'show_option_none'  => '',
@@ -502,7 +502,7 @@ function wp_dropdown_categories( $args = '' ) {
  * }
  * @return false|string HTML content only if 'echo' argument is 0.
  */
-function wp_list_categories( $args = '' ) {
+function wp_list_categories( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'child_of'            => 0,
 		'current_category'    => 0,
@@ -679,7 +679,7 @@ function wp_list_categories( $args = '' ) {
  * @return void|array Generated tag cloud, only if no failures and 'array' is set for the 'format' argument.
  *                    Otherwise, this function outputs the tag cloud.
  */
-function wp_tag_cloud( $args = '' ) {
+function wp_tag_cloud( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'smallest' => 8, 'largest' => 22, 'unit' => 'pt', 'number' => 45,
 		'format' => 'flat', 'separator' => "\n", 'orderby' => 'name', 'order' => 'ASC',
@@ -728,7 +728,7 @@ function wp_tag_cloud( $args = '' ) {
  * @param int $count number of posts with that tag
  * @return int scaled count
  */
-function default_topic_count_scale( $count ) {
+function default_topic_count_scale( $count ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return round(log10($count + 1) * 100);
 }
 
@@ -775,7 +775,7 @@ function default_topic_count_scale( $count ) {
  * }
  * @return string|array Tag cloud as a string or an array, depending on 'format' argument.
  */
-function wp_generate_tag_cloud( $tags, $args = '' ) {
+function wp_generate_tag_cloud( $tags, $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'smallest' => 8, 'largest' => 22, 'unit' => 'pt', 'number' => 0,
 		'format' => 'flat', 'separator' => "\n", 'orderby' => 'name', 'order' => 'ASC',
@@ -957,7 +957,7 @@ function wp_generate_tag_cloud( $tags, $args = '' ) {
  * @return int Negative number if `$a->name` is less than `$b->name`, zero if they are equal,
  *             or greater than zero if `$a->name` is greater than `$b->name`.
  */
-function _wp_object_name_sort_cb( $a, $b ) {
+function _wp_object_name_sort_cb( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return strnatcasecmp( $a->name, $b->name );
 }
 
@@ -973,7 +973,7 @@ function _wp_object_name_sort_cb( $a, $b ) {
  * @param object $b The second object to compare.
  * @return bool Whether the count value for `$a` is greater than the count value for `$b`.
  */
-function _wp_object_count_sort_cb( $a, $b ) {
+function _wp_object_count_sort_cb( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return ( $a->count > $b->count );
 }
 
@@ -989,7 +989,7 @@ function _wp_object_count_sort_cb( $a, $b ) {
  * @see Walker_Category::walk() for parameters and return description.
  * @return string
  */
-function walk_category_tree() {
+function walk_category_tree() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$args = func_get_args();
 	// the user's options are the third parameter
 	if ( empty( $args[2]['walker'] ) || ! ( $args[2]['walker'] instanceof Walker ) ) {
@@ -1008,7 +1008,7 @@ function walk_category_tree() {
  * @see Walker_CategoryDropdown::walk() for parameters and return description.
  * @return string
  */
-function walk_category_dropdown_tree() {
+function walk_category_dropdown_tree() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$args = func_get_args();
 	// the user's options are the third parameter
 	if ( empty( $args[2]['walker'] ) || ! ( $args[2]['walker'] instanceof Walker ) ) {
@@ -1032,7 +1032,7 @@ function walk_category_dropdown_tree() {
  * @param int|object $tag Tag ID or object.
  * @return string Link on success, empty string if tag does not exist.
  */
-function get_tag_link( $tag ) {
+function get_tag_link( $tag ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_object( $tag ) )
 		$tag = (int) $tag;
 
@@ -1052,7 +1052,7 @@ function get_tag_link( $tag ) {
  * @param int $id Post ID.
  * @return array|false|WP_Error Array of tag objects on success, false on failure.
  */
-function get_the_tags( $id = 0 ) {
+function get_the_tags( $id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	/**
 	 * Filters the array of tags for the given post.
@@ -1077,7 +1077,7 @@ function get_the_tags( $id = 0 ) {
  * @param int $id Optional. Post ID. Defaults to the current post.
  * @return string|false|WP_Error A list of tags on success, false if there are no terms, WP_Error on failure.
  */
-function get_the_tag_list( $before = '', $sep = '', $after = '', $id = 0 ) {
+function get_the_tag_list( $before = '', $sep = '', $after = '', $id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	/**
 	 * Filters the tags list for a given post.
@@ -1102,7 +1102,7 @@ function get_the_tag_list( $before = '', $sep = '', $after = '', $id = 0 ) {
  * @param string $sep Optional. Separate items using this.
  * @param string $after Optional. After list.
  */
-function the_tags( $before = null, $sep = ', ', $after = '' ) {
+function the_tags( $before = null, $sep = ', ', $after = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( null === $before )
 		$before = __('Tags: ');
 
@@ -1121,7 +1121,7 @@ function the_tags( $before = null, $sep = ', ', $after = '' ) {
  * @param int $tag Optional. Tag ID. Will use global tag ID by default.
  * @return string Tag description, available.
  */
-function tag_description( $tag = 0 ) {
+function tag_description( $tag = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return term_description( $tag );
 }
 
@@ -1134,7 +1134,7 @@ function tag_description( $tag = 0 ) {
  * @param string $taxonomy Optional taxonomy name. Defaults to 'post_tag'.
  * @return string Term description, available.
  */
-function term_description( $term = 0, $taxonomy = 'post_tag' ) {
+function term_description( $term = 0, $taxonomy = 'post_tag' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $term && ( is_tax() || is_tag() || is_category() ) ) {
 		$term = get_queried_object();
 		if ( $term ) {
@@ -1156,7 +1156,7 @@ function term_description( $term = 0, $taxonomy = 'post_tag' ) {
  * @return array|false|WP_Error Array of WP_Term objects on success, false if there are no terms
  *                              or the post does not exist, WP_Error on failure.
  */
-function get_the_terms( $post, $taxonomy ) {
+function get_the_terms( $post, $taxonomy ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $post = get_post( $post ) )
 		return false;
 
@@ -1198,7 +1198,7 @@ function get_the_terms( $post, $taxonomy ) {
  * @param string $after Optional. After list.
  * @return string|false|WP_Error A list of terms on success, false if there are no terms, WP_Error on failure.
  */
-function get_the_term_list( $id, $taxonomy, $before = '', $sep = '', $after = '' ) {
+function get_the_term_list( $id, $taxonomy, $before = '', $sep = '', $after = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$terms = get_the_terms( $id, $taxonomy );
 
 	if ( is_wp_error( $terms ) )
@@ -1244,7 +1244,7 @@ function get_the_term_list( $id, $taxonomy, $before = '', $sep = '', $after = ''
  * @param string $after Optional. After list.
  * @return false|void False on WordPress error.
  */
-function the_terms( $id, $taxonomy, $before = '', $sep = ', ', $after = '' ) {
+function the_terms( $id, $taxonomy, $before = '', $sep = ', ', $after = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$term_list = get_the_term_list( $id, $taxonomy, $before, $sep, $after );
 
 	if ( is_wp_error( $term_list ) )
@@ -1273,7 +1273,7 @@ function the_terms( $id, $taxonomy, $before = '', $sep = ', ', $after = '' ) {
  * @param int|object $post Optional. Post to check instead of the current post.
  * @return bool True if the current post has any of the given categories (or any category, if no category specified).
  */
-function has_category( $category = '', $post = null ) {
+function has_category( $category = '', $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return has_term( $category, 'category', $post );
 }
 
@@ -1294,7 +1294,7 @@ function has_category( $category = '', $post = null ) {
  * @param int|object $post Optional. Post to check instead of the current post. (since 2.7.0)
  * @return bool True if the current post has any of the given tags (or any tag, if no tag specified).
  */
-function has_tag( $tag = '', $post = null ) {
+function has_tag( $tag = '', $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return has_term( $tag, 'post_tag', $post );
 }
 
@@ -1312,7 +1312,7 @@ function has_tag( $tag = '', $post = null ) {
  * @param int|object $post Optional. Post to check instead of the current post.
  * @return bool True if the current post has any of the given tags (or any tag, if no tag specified).
  */
-function has_term( $term = '', $taxonomy = '', $post = null ) {
+function has_term( $term = '', $taxonomy = '', $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post($post);
 
 	if ( !$post )

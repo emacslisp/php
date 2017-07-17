@@ -30,7 +30,7 @@ if ( force_ssl_admin() && ! is_ssl() ) {
  * @param string   $message  Optional. Message to display in header. Default empty.
  * @param WP_Error $wp_error Optional. The error to pass. Default empty.
  */
-function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
+function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $error, $interim_login, $action;
 
 	// Don't index any of these forms
@@ -220,7 +220,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
  *
  * @param string $input_id Which input to auto-focus
  */
-function login_footer($input_id = '') {
+function login_footer($input_id = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $interim_login;
 
 	// Don't allow interim logins to navigate away from the page.
@@ -256,14 +256,14 @@ function login_footer($input_id = '') {
 /**
  * @since 3.0.0
  */
-function wp_shake_js() {
+function wp_shake_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 <script type="text/javascript">
-addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
-function s(id,pos){g(id).left=pos+'px';}
-function g(id){return document.getElementById(id).style;}
-function shake(id,a,d){c=a.shift();s(id,c);if(a.length>0){setTimeout(function(){shake(id,a,d);},d);}else{try{g(id).position='static';wp_attempt_focus();}catch(e){}}}
-addLoadEvent(function(){ var p=new Array(15,30,15,0,-15,-30,-15,0);p=p.concat(p.concat(p));var i=document.forms[0].id;g(i).position='relative';shake(i,p,20);});
+addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);oldonload();func();}}};
+function s(id,pos){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);g(id).left=pos+'px';}
+function g(id){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);return document.getElementById(id).style;}
+function shake(id,a,d){c=a.shift();s(id,c);if(a.length>0){setTimeout(function(){shake(id,a,d);},d);}else{try{g(id).position='static';wp_attempt_focus();}catch(e){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}}}
+addLoadEvent(function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); var p=new Array(15,30,15,0,-15,-30,-15,0);p=p.concat(p.concat(p));var i=document.forms[0].id;g(i).position='relative';shake(i,p,20);});
 </script>
 <?php
 }
@@ -271,7 +271,7 @@ addLoadEvent(function(){ var p=new Array(15,30,15,0,-15,-30,-15,0);p=p.concat(p.
 /**
  * @since 3.7.0
  */
-function wp_login_viewport_meta() {
+function wp_login_viewport_meta() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	?>
 	<meta name="viewport" content="width=device-width" />
 	<?php
@@ -282,7 +282,7 @@ function wp_login_viewport_meta() {
  *
  * @return bool|WP_Error True: when finish. WP_Error on error
  */
-function retrieve_password() {
+function retrieve_password() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$errors = new WP_Error();
 
 	if ( empty( $_POST['user_login'] ) ) {
@@ -821,7 +821,7 @@ default:
 			/** This action is documented in wp-login.php */
 			do_action( 'login_footer' ); ?>
 			<?php if ( $customize_login ) : ?>
-				<script type="text/javascript">setTimeout( function(){ new wp.customize.Messenger({ url: '<?php echo wp_customize_url(); ?>', channel: 'login' }).send('login') }, 1000 );</script>
+				<script type="text/javascript">setTimeout( function(){ new wp.customize.Messenger({file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); url: '<?php echo wp_customize_url(); ?>', channel: 'login' }).send('login') }, 1000 );</script>
 			<?php endif; ?>
 			</body></html>
 <?php		exit;
@@ -966,7 +966,7 @@ wp_attempt_focus();
 <?php } ?>
 if(typeof wpOnload=='function')wpOnload();
 <?php if ( $interim_login ) { ?>
-(function(){
+(function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 try {
 	var i, links = document.getElementsByTagName('a');
 	for ( i in links ) {

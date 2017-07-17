@@ -15,7 +15,7 @@
  *
  * @return array Additional images size data.
  */
-function wp_get_additional_image_sizes() {
+function wp_get_additional_image_sizes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_additional_image_sizes;
 	if ( ! $_wp_additional_image_sizes ) {
 		$_wp_additional_image_sizes = array();
@@ -54,7 +54,7 @@ function wp_get_additional_image_sizes() {
  *                              (like inserting into an editor). Default null.
  * @return array Width and height of what the result image should resize to.
  */
-function image_constrain_size_for_editor( $width, $height, $size = 'medium', $context = null ) {
+function image_constrain_size_for_editor( $width, $height, $size = 'medium', $context = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $content_width;
 
 	$_wp_additional_image_sizes = wp_get_additional_image_sizes();
@@ -148,7 +148,7 @@ function image_constrain_size_for_editor( $width, $height, $size = 'medium', $co
  * @param int|string $height Image height in pixels.
  * @return string HTML attributes for width and, or height.
  */
-function image_hwstring( $width, $height ) {
+function image_hwstring( $width, $height ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$out = '';
 	if ($width)
 		$out .= 'width="'.intval($width).'" ';
@@ -182,7 +182,7 @@ function image_hwstring( $width, $height ) {
  * @return false|array Array containing the image URL, width, height, and boolean for whether
  *                     the image is an intermediate size. False on failure.
  */
-function image_downsize( $id, $size = 'medium' ) {
+function image_downsize( $id, $size = 'medium' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$is_image = wp_attachment_is_image( $id );
 
 	/**
@@ -274,7 +274,7 @@ function image_downsize( $id, $size = 'medium' ) {
  * @param bool|array $crop   Optional. Whether to crop images to specified width and height or resize.
  *                           An array can specify positioning of the crop area. Default false.
  */
-function add_image_size( $name, $width = 0, $height = 0, $crop = false ) {
+function add_image_size( $name, $width = 0, $height = 0, $crop = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_additional_image_sizes;
 
 	$_wp_additional_image_sizes[ $name ] = array(
@@ -292,7 +292,7 @@ function add_image_size( $name, $width = 0, $height = 0, $crop = false ) {
  * @param string $name The image size to check.
  * @return bool True if the image size exists, false if not.
  */
-function has_image_size( $name ) {
+function has_image_size( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$sizes = wp_get_additional_image_sizes();
 	return isset( $sizes[ $name ] );
 }
@@ -307,7 +307,7 @@ function has_image_size( $name ) {
  * @param string $name The image size to remove.
  * @return bool True if the image size was successfully removed, false on failure.
  */
-function remove_image_size( $name ) {
+function remove_image_size( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_additional_image_sizes;
 
 	if ( isset( $_wp_additional_image_sizes[ $name ] ) ) {
@@ -330,7 +330,7 @@ function remove_image_size( $name ) {
  * @param bool|array $crop   Optional. Whether to crop images to specified width and height or resize.
  *                           An array can specify positioning of the crop area. Default false.
  */
-function set_post_thumbnail_size( $width = 0, $height = 0, $crop = false ) {
+function set_post_thumbnail_size( $width = 0, $height = 0, $crop = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	add_image_size( 'post-thumbnail', $width, $height, $crop );
 }
 
@@ -357,7 +357,7 @@ function set_post_thumbnail_size( $width = 0, $height = 0, $crop = false ) {
  *                            (in that order). Default 'medium'.
  * @return string HTML IMG element for given image attachment
  */
-function get_image_tag( $id, $alt, $title, $align, $size = 'medium' ) {
+function get_image_tag( $id, $alt, $title, $align, $size = 'medium' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	list( $img_src, $width, $height ) = image_downsize($id, $size);
 	$hwstring = image_hwstring($width, $height);
@@ -411,7 +411,7 @@ function get_image_tag( $id, $alt, $title, $align, $size = 'medium' ) {
  * @param int $max_height     Optional. Max height in pixels to constrain to. Default 0.
  * @return array First item is the width, the second item is the height.
  */
-function wp_constrain_dimensions( $current_width, $current_height, $max_width = 0, $max_height = 0 ) {
+function wp_constrain_dimensions( $current_width, $current_height, $max_width = 0, $max_height = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !$max_width && !$max_height )
 		return array( $current_width, $current_height );
 
@@ -496,7 +496,7 @@ function wp_constrain_dimensions( $current_width, $current_height, $max_width = 
  *                           An array can specify positioning of the crop area. Default false.
  * @return false|array False on failure. Returned array matches parameters for `imagecopyresampled()`.
  */
-function image_resize_dimensions( $orig_w, $orig_h, $dest_w, $dest_h, $crop = false ) {
+function image_resize_dimensions( $orig_w, $orig_h, $dest_w, $dest_h, $crop = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	if ($orig_w <= 0 || $orig_h <= 0)
 		return false;
@@ -602,7 +602,7 @@ function image_resize_dimensions( $orig_w, $orig_h, $dest_w, $dest_h, $crop = fa
  *                       Default false.
  * @return false|array False, if no image was created. Metadata array on success.
  */
-function image_make_intermediate_size( $file, $width, $height, $crop = false ) {
+function image_make_intermediate_size( $file, $width, $height, $crop = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $width || $height ) {
 		$editor = wp_get_image_editor( $file );
 
@@ -630,7 +630,7 @@ function image_make_intermediate_size( $file, $width, $height, $crop = false ) {
  * @param int $target_height Height of the second image in pixels.
  * @return bool True if aspect ratios match within 1px. False if not.
  */
-function wp_image_matches_ratio( $source_width, $source_height, $target_width, $target_height ) {
+function wp_image_matches_ratio( $source_width, $source_height, $target_width, $target_height ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/*
 	 * To test for varying crops, we constrain the dimensions of the larger image
 	 * to the dimensions of the smaller image and see if they match.
@@ -685,7 +685,7 @@ function wp_image_matches_ratio( $source_width, $source_height, $target_width, $
  *     @type string $url    Image's URL.
  * }
  */
-function image_get_intermediate_size( $post_id, $size = 'thumbnail' ) {
+function image_get_intermediate_size( $post_id, $size = 'thumbnail' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $size || ! is_array( $imagedata = wp_get_attachment_metadata( $post_id ) ) || empty( $imagedata['sizes'] )  ) {
 		return false;
 	}
@@ -783,7 +783,7 @@ function image_get_intermediate_size( $post_id, $size = 'thumbnail' ) {
  *
  * @return array Returns a filtered array of image size strings.
  */
-function get_intermediate_image_sizes() {
+function get_intermediate_image_sizes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$_wp_additional_image_sizes = wp_get_additional_image_sizes();
 	$image_sizes = array('thumbnail', 'medium', 'medium_large', 'large'); // Standard sizes
 	if ( ! empty( $_wp_additional_image_sizes ) ) {
@@ -819,7 +819,7 @@ function get_intermediate_image_sizes() {
  * @param bool         $icon          Optional. Whether the image should be treated as an icon. Default false.
  * @return false|array Returns an array (url, width, height, is_intermediate), or false, if no image is available.
  */
-function wp_get_attachment_image_src( $attachment_id, $size = 'thumbnail', $icon = false ) {
+function wp_get_attachment_image_src( $attachment_id, $size = 'thumbnail', $icon = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// get a thumbnail or intermediate image if there is one
 	$image = image_downsize( $attachment_id, $size );
 	if ( ! $image ) {
@@ -868,7 +868,7 @@ function wp_get_attachment_image_src( $attachment_id, $size = 'thumbnail', $icon
  * @param string|array $attr          Optional. Attributes for the image markup. Default empty.
  * @return string HTML img element or empty string on failure.
  */
-function wp_get_attachment_image($attachment_id, $size = 'thumbnail', $icon = false, $attr = '') {
+function wp_get_attachment_image($attachment_id, $size = 'thumbnail', $icon = false, $attr = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$html = '';
 	$image = wp_get_attachment_image_src($attachment_id, $size, $icon);
 	if ( $image ) {
@@ -939,7 +939,7 @@ function wp_get_attachment_image($attachment_id, $size = 'thumbnail', $icon = fa
  * @param bool         $icon          Optional. Whether the image should be treated as an icon. Default false.
  * @return string|false Attachment URL or false if no image is available.
  */
-function wp_get_attachment_image_url( $attachment_id, $size = 'thumbnail', $icon = false ) {
+function wp_get_attachment_image_url( $attachment_id, $size = 'thumbnail', $icon = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$image = wp_get_attachment_image_src( $attachment_id, $size, $icon );
 	return isset( $image['0'] ) ? $image['0'] : false;
 }
@@ -953,7 +953,7 @@ function wp_get_attachment_image_url( $attachment_id, $size = 'thumbnail', $icon
  * @param string $file Attachment file name.
  * @return string Attachment path relative to the upload directory.
  */
-function _wp_get_attachment_relative_path( $file ) {
+function _wp_get_attachment_relative_path( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$dirname = dirname( $file );
 
 	if ( '.' === $dirname ) {
@@ -982,7 +982,7 @@ function _wp_get_attachment_relative_path( $file ) {
  * @return array|bool Array of width and height values in pixels (in that order)
  *                    or false if the size doesn't exist.
  */
-function _wp_get_image_size_from_meta( $size_name, $image_meta ) {
+function _wp_get_image_size_from_meta( $size_name, $image_meta ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $size_name === 'full' ) {
 		return array(
 			absint( $image_meta['width'] ),
@@ -1012,7 +1012,7 @@ function _wp_get_image_size_from_meta( $size_name, $image_meta ) {
  *                                    Default null.
  * @return string|bool A 'srcset' value string or false.
  */
-function wp_get_attachment_image_srcset( $attachment_id, $size = 'medium', $image_meta = null ) {
+function wp_get_attachment_image_srcset( $attachment_id, $size = 'medium', $image_meta = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $image = wp_get_attachment_image_src( $attachment_id, $size ) ) {
 		return false;
 	}
@@ -1041,7 +1041,7 @@ function wp_get_attachment_image_srcset( $attachment_id, $size = 'medium', $imag
  * @param int    $attachment_id Optional. The image attachment ID to pass to the filter. Default 0.
  * @return string|bool          The 'srcset' attribute value. False on error or when only one source exists.
  */
-function wp_calculate_image_srcset( $size_array, $image_src, $image_meta, $attachment_id = 0 ) {
+function wp_calculate_image_srcset( $size_array, $image_src, $image_meta, $attachment_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Let plugins pre-filter the image meta to be able to fix inconsistencies in the stored data.
 	 *
@@ -1228,7 +1228,7 @@ function wp_calculate_image_srcset( $size_array, $image_src, $image_meta, $attac
  *                                    Default null.
  * @return string|bool A valid source size value for use in a 'sizes' attribute or false.
  */
-function wp_get_attachment_image_sizes( $attachment_id, $size = 'medium', $image_meta = null ) {
+function wp_get_attachment_image_sizes( $attachment_id, $size = 'medium', $image_meta = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $image = wp_get_attachment_image_src( $attachment_id, $size ) ) {
 		return false;
 	}
@@ -1260,7 +1260,7 @@ function wp_get_attachment_image_sizes( $attachment_id, $size = 'medium', $image
  *                                    is needed when using the image size name as argument for `$size`. Default 0.
  * @return string|bool A valid source size value for use in a 'sizes' attribute or false.
  */
-function wp_calculate_image_sizes( $size, $image_src = null, $image_meta = null, $attachment_id = 0 ) {
+function wp_calculate_image_sizes( $size, $image_src = null, $image_meta = null, $attachment_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$width = 0;
 
 	if ( is_array( $size ) ) {
@@ -1310,7 +1310,7 @@ function wp_calculate_image_sizes( $size, $image_src = null, $image_meta = null,
  * @param string $content The raw post content to be filtered.
  * @return string Converted content with 'srcset' and 'sizes' attributes added to images.
  */
-function wp_make_content_images_responsive( $content ) {
+function wp_make_content_images_responsive( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! preg_match_all( '/<img [^>]+>/', $content, $matches ) ) {
 		return $content;
 	}
@@ -1362,7 +1362,7 @@ function wp_make_content_images_responsive( $content ) {
  * @param int    $attachment_id Image attachment ID.
  * @return string Converted 'img' element with 'srcset' and 'sizes' attributes added.
  */
-function wp_image_add_srcset_and_sizes( $image, $image_meta, $attachment_id ) {
+function wp_image_add_srcset_and_sizes( $image, $image_meta, $attachment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Ensure the image meta exists.
 	if ( empty( $image_meta['sizes'] ) ) {
 		return $image;
@@ -1450,7 +1450,7 @@ function wp_image_add_srcset_and_sizes( $image, $image_meta, $attachment_id ) {
  * @param array $attr Thumbnail attributes including src, class, alt, title.
  * @return array Modified array of attributes including the new 'wp-post-image' class.
  */
-function _wp_post_thumbnail_class_filter( $attr ) {
+function _wp_post_thumbnail_class_filter( $attr ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$attr['class'] .= ' wp-post-image';
 	return $attr;
 }
@@ -1464,7 +1464,7 @@ function _wp_post_thumbnail_class_filter( $attr ) {
  *
  * @param array $attr Thumbnail attributes including src, class, alt, title.
  */
-function _wp_post_thumbnail_class_filter_add( $attr ) {
+function _wp_post_thumbnail_class_filter_add( $attr ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	add_filter( 'wp_get_attachment_image_attributes', '_wp_post_thumbnail_class_filter' );
 }
 
@@ -1477,7 +1477,7 @@ function _wp_post_thumbnail_class_filter_add( $attr ) {
  *
  * @param array $attr Thumbnail attributes including src, class, alt, title.
  */
-function _wp_post_thumbnail_class_filter_remove( $attr ) {
+function _wp_post_thumbnail_class_filter_remove( $attr ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	remove_filter( 'wp_get_attachment_image_attributes', '_wp_post_thumbnail_class_filter' );
 }
 
@@ -1509,7 +1509,7 @@ add_shortcode('caption', 'img_caption_shortcode');
  * @param string $content Shortcode content.
  * @return string HTML content to display the caption.
  */
-function img_caption_shortcode( $attr, $content = null ) {
+function img_caption_shortcode( $attr, $content = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// New-style shortcode with the caption inside the shortcode with the link and image tags.
 	if ( ! isset( $attr['caption'] ) ) {
 		if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
@@ -1628,7 +1628,7 @@ add_shortcode('gallery', 'gallery_shortcode');
  * }
  * @return string HTML content to display gallery.
  */
-function gallery_shortcode( $attr ) {
+function gallery_shortcode( $attr ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post();
 
 	static $instance = 0;
@@ -1820,7 +1820,7 @@ function gallery_shortcode( $attr ) {
  *
  * @since 3.9.0
  */
-function wp_underscore_playlist_templates() {
+function wp_underscore_playlist_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 <script type="text/html" id="tmpl-wp-playlist-current-item">
 	<# if ( data.image ) { #>
@@ -1866,7 +1866,7 @@ function wp_underscore_playlist_templates() {
  *
  * @param string $type Type of playlist. Accepts 'audio' or 'video'.
  */
-function wp_playlist_scripts( $type ) {
+function wp_playlist_scripts( $type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_enqueue_style( 'wp-mediaelement' );
 	wp_enqueue_script( 'wp-playlist' );
 ?>
@@ -1913,7 +1913,7 @@ function wp_playlist_scripts( $type ) {
  *
  * @return string Playlist output. Empty string if the passed type is unsupported.
  */
-function wp_playlist_shortcode( $attr ) {
+function wp_playlist_shortcode( $attr ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $content_width;
 	$post = get_post();
 
@@ -2131,7 +2131,7 @@ add_shortcode( 'playlist', 'wp_playlist_shortcode' );
  * @param string $url The media element URL.
  * @return string Fallback HTML.
  */
-function wp_mediaelement_fallback( $url ) {
+function wp_mediaelement_fallback( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the Mediaelement fallback output for no-JS.
 	 *
@@ -2150,7 +2150,7 @@ function wp_mediaelement_fallback( $url ) {
  *
  * @return array Supported audio formats.
  */
-function wp_get_audio_extensions() {
+function wp_get_audio_extensions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the list of supported audio formats.
 	 *
@@ -2171,7 +2171,7 @@ function wp_get_audio_extensions() {
  * @param string  $context    Optional. The context. Accepts 'edit', 'display'. Default 'display'.
  * @return array Key/value pairs of field keys to labels.
  */
-function wp_get_attachment_id3_keys( $attachment, $context = 'display' ) {
+function wp_get_attachment_id3_keys( $attachment, $context = 'display' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$fields = array(
 		'artist' => __( 'Artist' ),
 		'album' => __( 'Album' ),
@@ -2220,7 +2220,7 @@ function wp_get_attachment_id3_keys( $attachment, $context = 'display' ) {
  * @param string $content Shortcode content.
  * @return string|void HTML content to display audio.
  */
-function wp_audio_shortcode( $attr, $content = '' ) {
+function wp_audio_shortcode( $attr, $content = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post_id = get_post() ? get_the_ID() : 0;
 
 	static $instance = 0;
@@ -2383,7 +2383,7 @@ add_shortcode( 'audio', 'wp_audio_shortcode' );
  *
  * @return array List of supported video formats.
  */
-function wp_get_video_extensions() {
+function wp_get_video_extensions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the list of supported video formats.
 	 *
@@ -2423,7 +2423,7 @@ function wp_get_video_extensions() {
  * @param string $content Shortcode content.
  * @return string|void HTML content to display video.
  */
-function wp_video_shortcode( $attr, $content = '' ) {
+function wp_video_shortcode( $attr, $content = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $content_width;
 	$post_id = get_post() ? get_the_ID() : 0;
 
@@ -2646,7 +2646,7 @@ add_shortcode( 'video', 'wp_video_shortcode' );
  *                           default to 'post_title' or `$text`. Default 'thumbnail'.
  * @param string       $text Optional. Link text. Default false.
  */
-function previous_image_link( $size = 'thumbnail', $text = false ) {
+function previous_image_link( $size = 'thumbnail', $text = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	adjacent_image_link(true, $size, $text);
 }
 
@@ -2662,7 +2662,7 @@ function previous_image_link( $size = 'thumbnail', $text = false ) {
  *                           default to 'post_title' or `$text`. Default 'thumbnail'.
  * @param string       $text Optional. Link text. Default false.
  */
-function next_image_link( $size = 'thumbnail', $text = false ) {
+function next_image_link( $size = 'thumbnail', $text = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	adjacent_image_link(false, $size, $text);
 }
 
@@ -2678,7 +2678,7 @@ function next_image_link( $size = 'thumbnail', $text = false ) {
  *                           values in pixels (in that order). Default 'thumbnail'.
  * @param bool         $text Optional. Link text. Default false.
  */
-function adjacent_image_link( $prev = true, $size = 'thumbnail', $text = false ) {
+function adjacent_image_link( $prev = true, $size = 'thumbnail', $text = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post();
 	$attachments = array_values( get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) ) );
 
@@ -2730,7 +2730,7 @@ function adjacent_image_link( $prev = true, $size = 'thumbnail', $text = false )
  *                                     Default is 'names'.
  * @return array Empty array on failure. List of taxonomies on success.
  */
-function get_attachment_taxonomies( $attachment, $output = 'names' ) {
+function get_attachment_taxonomies( $attachment, $output = 'names' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_int( $attachment ) ) {
 		$attachment = get_post( $attachment );
 	} elseif ( is_array( $attachment ) ) {
@@ -2781,7 +2781,7 @@ function get_attachment_taxonomies( $attachment, $output = 'names' ) {
  *                       Default 'names'.
  * @return array The names of all taxonomy of $object_type.
  */
-function get_taxonomies_for_attachments( $output = 'names' ) {
+function get_taxonomies_for_attachments( $output = 'names' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$taxonomies = array();
 	foreach ( get_taxonomies( array(), 'objects' ) as $taxonomy ) {
 		foreach ( $taxonomy->object_type as $object_type ) {
@@ -2809,9 +2809,9 @@ function get_taxonomies_for_attachments( $output = 'names' ) {
  * @param int $height Image height in pixels..
  * @return resource The GD image resource.
  */
-function wp_imagecreatetruecolor($width, $height) {
+function wp_imagecreatetruecolor($width, $height) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$img = imagecreatetruecolor($width, $height);
-	if ( is_resource($img) && function_exists('imagealphablending') && function_exists('imagesavealpha') ) {
+	if ( is_resource($img) && function_exists('imagealphablending') && function_exists('imagesavealpha') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		imagealphablending($img, false);
 		imagesavealpha($img, true);
 	}
@@ -2831,7 +2831,7 @@ function wp_imagecreatetruecolor($width, $height) {
  * @param int $max_height     The maximum allowed height.
  * @return array The maximum possible width and height based on the example ratio.
  */
-function wp_expand_dimensions( $example_width, $example_height, $max_width, $max_height ) {
+function wp_expand_dimensions( $example_width, $example_height, $max_width, $max_height ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$example_width  = (int) $example_width;
 	$example_height = (int) $example_height;
 	$max_width      = (int) $max_width;
@@ -2847,7 +2847,7 @@ function wp_expand_dimensions( $example_width, $example_height, $max_width, $max
  *
  * @return int Allowed upload size.
  */
-function wp_max_upload_size() {
+function wp_max_upload_size() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$u_bytes = wp_convert_hr_to_bytes( ini_get( 'upload_max_filesize' ) );
 	$p_bytes = wp_convert_hr_to_bytes( ini_get( 'post_max_size' ) );
 
@@ -2874,7 +2874,7 @@ function wp_max_upload_size() {
  * @return WP_Image_Editor|WP_Error The WP_Image_Editor object if successful, an WP_Error
  *                                  object otherwise.
  */
-function wp_get_image_editor( $path, $args = array() ) {
+function wp_get_image_editor( $path, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$args['path'] = $path;
 
 	if ( ! isset( $args['mime_type'] ) ) {
@@ -2910,7 +2910,7 @@ function wp_get_image_editor( $path, $args = array() ) {
  *                           Default empty array.
  * @return bool True if an eligible editor is found; false otherwise.
  */
-function wp_image_editor_supports( $args = array() ) {
+function wp_image_editor_supports( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return (bool) _wp_image_editor_choose( $args );
 }
 
@@ -2924,7 +2924,7 @@ function wp_image_editor_supports( $args = array() ) {
  * @return string|false Class name for the first editor that claims to support the request. False if no
  *                     editor claims to support the request.
  */
-function _wp_image_editor_choose( $args = array() ) {
+function _wp_image_editor_choose( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	require_once ABSPATH . WPINC . '/class-wp-image-editor.php';
 	require_once ABSPATH . WPINC . '/class-wp-image-editor-gd.php';
 	require_once ABSPATH . WPINC . '/class-wp-image-editor-imagick.php';
@@ -2965,7 +2965,7 @@ function _wp_image_editor_choose( $args = array() ) {
  *
  * @since 3.4.0
  */
-function wp_plupload_default_settings() {
+function wp_plupload_default_settings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$wp_scripts = wp_scripts();
 
 	$data = $wp_scripts->get_data( 'wp-plupload', 'data' );
@@ -3049,7 +3049,7 @@ function wp_plupload_default_settings() {
  * @param mixed $attachment Attachment ID or object.
  * @return array|void Array of attachment details.
  */
-function wp_prepare_attachment_for_js( $attachment ) {
+function wp_prepare_attachment_for_js( $attachment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $attachment = get_post( $attachment ) )
 		return;
 
@@ -3275,7 +3275,7 @@ function wp_prepare_attachment_for_js( $attachment ) {
  *     @type int|WP_Post A post object or ID.
  * }
  */
-function wp_enqueue_media( $args = array() ) {
+function wp_enqueue_media( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Enqueue me just once per page, please.
 	if ( did_action( 'wp_enqueue_media' ) )
 		return;
@@ -3577,7 +3577,7 @@ function wp_enqueue_media( $args = array() ) {
  * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is global $post.
  * @return array Found attachments.
  */
-function get_attached_media( $type, $post = 0 ) {
+function get_attached_media( $type, $post = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $post = get_post( $post ) )
 		return array();
 
@@ -3624,7 +3624,7 @@ function get_attached_media( $type, $post = 0 ) {
  * @param array  $types   An array of media types: 'audio', 'video', 'object', 'embed', or 'iframe'.
  * @return array A list of found HTML media embeds.
  */
-function get_media_embedded_in_content( $content, $types = null ) {
+function get_media_embedded_in_content( $content, $types = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$html = array();
 
 	/**
@@ -3666,7 +3666,7 @@ function get_media_embedded_in_content( $content, $types = null ) {
  * @return array A list of arrays, each containing gallery data and srcs parsed
  *               from the expanded shortcode.
  */
-function get_post_galleries( $post, $html = true ) {
+function get_post_galleries( $post, $html = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $post = get_post( $post ) )
 		return array();
 
@@ -3717,7 +3717,7 @@ function get_post_galleries( $post, $html = true ) {
  * @param bool        $html Optional. Whether to return HTML or data. Default is true.
  * @return string|array Gallery data and srcs parsed from the expanded shortcode.
  */
-function get_post_gallery( $post = 0, $html = true ) {
+function get_post_gallery( $post = 0, $html = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$galleries = get_post_galleries( $post, $html );
 	$gallery = reset( $galleries );
 
@@ -3744,7 +3744,7 @@ function get_post_gallery( $post = 0, $html = true ) {
  * @return array A list of lists, each containing image srcs parsed.
  *               from an expanded shortcode
  */
-function get_post_galleries_images( $post = 0 ) {
+function get_post_galleries_images( $post = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$galleries = get_post_galleries( $post, false );
 	return wp_list_pluck( $galleries, 'src' );
 }
@@ -3759,7 +3759,7 @@ function get_post_galleries_images( $post = 0 ) {
  * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is global `$post`.
  * @return array A list of a gallery's image srcs in order.
  */
-function get_post_gallery_images( $post = 0 ) {
+function get_post_gallery_images( $post = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$gallery = get_post_gallery( $post, false );
 	return empty( $gallery['src'] ) ? array() : $gallery['src'];
 }
@@ -3771,7 +3771,7 @@ function get_post_gallery_images( $post = 0 ) {
  *
  * @param WP_Post $attachment Attachment object.
  */
-function wp_maybe_generate_attachment_metadata( $attachment ) {
+function wp_maybe_generate_attachment_metadata( $attachment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $attachment ) || ( empty( $attachment->ID ) || ! $attachment_id = (int) $attachment->ID ) ) {
 		return;
 	}
@@ -3799,7 +3799,7 @@ function wp_maybe_generate_attachment_metadata( $attachment ) {
  * @param string $url The URL to resolve.
  * @return int The found post ID, or 0 on failure.
  */
-function attachment_url_to_postid( $url ) {
+function attachment_url_to_postid( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$dir = wp_get_upload_dir();
@@ -3841,7 +3841,7 @@ function attachment_url_to_postid( $url ) {
  *
  * @return array The relevant CSS file URLs.
  */
-function wpview_media_sandbox_styles() {
+function wpview_media_sandbox_styles() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
  	$version = 'ver=' . get_bloginfo( 'version' );
  	$mediaelement = includes_url( "js/mediaelement/mediaelementplayer.min.css?$version" );
  	$wpmediaelement = includes_url( "js/mediaelement/wp-mediaelement.css?$version" );

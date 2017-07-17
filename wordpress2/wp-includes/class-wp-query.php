@@ -494,7 +494,7 @@ class WP_Query {
 	 * @since 2.0.0
 	 * @access private
 	 */
-	private function init_query_flags() {
+	private function init_query_flags() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->is_single = false;
 		$this->is_preview = false;
 		$this->is_page = false;
@@ -529,7 +529,7 @@ class WP_Query {
 	 * @since 1.5.0
 	 * @access public
 	 */
-	public function init() {
+	public function init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset($this->posts);
 		unset($this->query);
 		$this->query_vars = array();
@@ -557,7 +557,7 @@ class WP_Query {
 	 * @since 1.5.0
 	 * @access public
 	 */
-	public function parse_query_vars() {
+	public function parse_query_vars() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->parse_query();
 	}
 
@@ -571,7 +571,7 @@ class WP_Query {
 	 * @param array $array Defined query variables.
 	 * @return array Complete query variables with undefined ones filled in empty.
 	 */
-	public function fill_query_vars($array) {
+	public function fill_query_vars($array) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$keys = array(
 			'error'
 			, 'm'
@@ -748,7 +748,7 @@ class WP_Query {
 	 *     @type int          $year                    The four-digit year. Default empty. Accepts any four-digit year.
 	 * }
 	 */
-	public function parse_query( $query =  '' ) {
+	public function parse_query( $query =  '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! empty( $query ) ) {
 			$this->init();
 			$this->query = $this->query_vars = wp_parse_args( $query );
@@ -1063,7 +1063,7 @@ class WP_Query {
 	 *
 	 * @param array $q The query variables. Passed by reference.
 	 */
-	public function parse_tax_query( &$q ) {
+	public function parse_tax_query( &$q ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! empty( $q['tax_query'] ) && is_array( $q['tax_query'] ) ) {
 			$tax_query = $q['tax_query'];
 		} else {
@@ -1291,7 +1291,7 @@ class WP_Query {
 	 * @param array $q Query variables.
 	 * @return string WHERE clause.
 	 */
-	protected function parse_search( &$q ) {
+	protected function parse_search( &$q ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$search = '';
@@ -1375,7 +1375,7 @@ class WP_Query {
 	 * @param array $terms Terms to check.
 	 * @return array Terms that are not stopwords.
 	 */
-	protected function parse_search_terms( $terms ) {
+	protected function parse_search_terms( $terms ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$strtolower = function_exists( 'mb_strtolower' ) ? 'mb_strtolower' : 'strtolower';
 		$checked = array();
 
@@ -1408,7 +1408,7 @@ class WP_Query {
 	 *
 	 * @return array Stopwords.
 	 */
-	protected function get_search_stopwords() {
+	protected function get_search_stopwords() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->stopwords ) )
 			return $this->stopwords;
 
@@ -1443,7 +1443,7 @@ class WP_Query {
 	 * @param array $q Query variables.
 	 * @return string ORDER BY clause.
 	 */
-	protected function parse_search_order( &$q ) {
+	protected function parse_search_order( &$q ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		if ( $q['search_terms_count'] > 1 ) {
@@ -1499,7 +1499,7 @@ class WP_Query {
 	 * @param string $orderby Alias for the field to order by.
 	 * @return string|false Table-prefixed value to used in the ORDER clause. False otherwise.
 	 */
-	protected function parse_orderby( $orderby ) {
+	protected function parse_orderby( $orderby ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		// Used to filter values.
@@ -1591,7 +1591,7 @@ class WP_Query {
 	 * @param string $order The 'order' query variable.
 	 * @return string The sanitized 'order' query variable.
 	 */
-	protected function parse_order( $order ) {
+	protected function parse_order( $order ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_string( $order ) || empty( $order ) ) {
 			return 'DESC';
 		}
@@ -1609,7 +1609,7 @@ class WP_Query {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function set_404() {
+	public function set_404() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$is_feed = $this->is_feed;
 
 		$this->init_query_flags();
@@ -1630,7 +1630,7 @@ class WP_Query {
 	 * @param mixed  $default   Optional. Value to return if the query variable is not set. Default empty.
 	 * @return mixed Contents of the query variable.
 	 */
-	public function get( $query_var, $default = '' ) {
+	public function get( $query_var, $default = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->query_vars[ $query_var ] ) ) {
 			return $this->query_vars[ $query_var ];
 		}
@@ -1647,7 +1647,7 @@ class WP_Query {
 	 * @param string $query_var Query variable key.
 	 * @param mixed  $value     Query variable value.
 	 */
-	public function set($query_var, $value) {
+	public function set($query_var, $value) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_vars[$query_var] = $value;
 	}
 
@@ -1662,7 +1662,7 @@ class WP_Query {
 	 *
 	 * @return array List of posts.
 	 */
-	public function get_posts() {
+	public function get_posts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$this->parse_query();
@@ -3030,7 +3030,7 @@ class WP_Query {
 	 * @param array  $q      Query variables.
 	 * @param string $limits LIMIT clauses of the query.
 	 */
-	private function set_found_posts( $q, $limits ) {
+	private function set_found_posts( $q, $limits ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 		// Bail if posts is an empty array. Continue if posts is an empty string,
 		// null, or false to accommodate caching plugins that fill posts later.
@@ -3073,7 +3073,7 @@ class WP_Query {
 	 *
 	 * @return WP_Post Next post.
 	 */
-	public function next_post() {
+	public function next_post() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$this->current_post++;
 
@@ -3092,7 +3092,7 @@ class WP_Query {
 	 *
 	 * @global WP_Post $post
 	 */
-	public function the_post() {
+	public function the_post() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $post;
 		$this->in_the_loop = true;
 
@@ -3120,7 +3120,7 @@ class WP_Query {
 	 *
 	 * @return bool True if posts are available, false if end of loop.
 	 */
-	public function have_posts() {
+	public function have_posts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->current_post + 1 < $this->post_count ) {
 			return true;
 		} elseif ( $this->current_post + 1 == $this->post_count && $this->post_count > 0 ) {
@@ -3146,7 +3146,7 @@ class WP_Query {
 	 * @since 1.5.0
 	 * @access public
 	 */
-	public function rewind_posts() {
+	public function rewind_posts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->current_post = -1;
 		if ( $this->post_count > 0 ) {
 			$this->post = $this->posts[0];
@@ -3161,7 +3161,7 @@ class WP_Query {
 	 *
 	 * @return WP_Comment Comment object.
 	 */
-	public function next_comment() {
+	public function next_comment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->current_comment++;
 
 		$this->comment = $this->comments[$this->current_comment];
@@ -3175,7 +3175,7 @@ class WP_Query {
 	 * @access public
 	 * @global WP_Comment $comment Current comment.
 	 */
-	public function the_comment() {
+	public function the_comment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $comment;
 
 		$comment = $this->next_comment();
@@ -3200,7 +3200,7 @@ class WP_Query {
 	 *
 	 * @return bool True, if more comments. False, if no more posts.
 	 */
-	public function have_comments() {
+	public function have_comments() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->current_comment + 1 < $this->comment_count ) {
 			return true;
 		} elseif ( $this->current_comment + 1 == $this->comment_count ) {
@@ -3216,7 +3216,7 @@ class WP_Query {
 	 * @since 2.2.0
 	 * @access public
 	 */
-	public function rewind_comments() {
+	public function rewind_comments() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->current_comment = -1;
 		if ( $this->comment_count > 0 ) {
 			$this->comment = $this->comments[0];
@@ -3232,7 +3232,7 @@ class WP_Query {
 	 * @param string $query URL query string.
 	 * @return array List of posts.
 	 */
-	public function query( $query ) {
+	public function query( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->init();
 		$this->query = $this->query_vars = wp_parse_args( $query );
 		return $this->get_posts();
@@ -3250,7 +3250,7 @@ class WP_Query {
 	 *
 	 * @return object
 	 */
-	public function get_queried_object() {
+	public function get_queried_object() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset($this->queried_object) )
 			return $this->queried_object;
 
@@ -3322,7 +3322,7 @@ class WP_Query {
 	 *
 	 * @return int
 	 */
-	public function get_queried_object_id() {
+	public function get_queried_object_id() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->get_queried_object();
 
 		if ( isset($this->queried_object_id) ) {
@@ -3342,7 +3342,7 @@ class WP_Query {
 	 *
 	 * @param string|array $query URL query string or array of vars.
 	 */
-	public function __construct( $query = '' ) {
+	public function __construct( $query = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! empty( $query ) ) {
 			$this->query( $query );
 		}
@@ -3357,7 +3357,7 @@ class WP_Query {
 	 * @param string $name Property to get.
 	 * @return mixed Property.
 	 */
-	public function __get( $name ) {
+	public function __get( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return $this->$name;
 		}
@@ -3372,7 +3372,7 @@ class WP_Query {
 	 * @param string $name Property to check if set.
 	 * @return bool Whether the property is set.
 	 */
-	public function __isset( $name ) {
+	public function __isset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return isset( $this->$name );
 		}
@@ -3388,7 +3388,7 @@ class WP_Query {
 	 * @param array    $arguments Arguments to pass when calling.
 	 * @return mixed|false Return value of the callback, false otherwise.
 	 */
-	public function __call( $name, $arguments ) {
+	public function __call( $name, $arguments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_methods ) ) {
 			return call_user_func_array( array( $this, $name ), $arguments );
 		}
@@ -3404,7 +3404,7 @@ class WP_Query {
  	 *
  	 * @return bool
  	 */
-	public function is_archive() {
+	public function is_archive() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_archive;
 	}
 
@@ -3416,7 +3416,7 @@ class WP_Query {
 	 * @param mixed $post_types Optional. Post type or array of posts types to check against.
 	 * @return bool
 	 */
-	public function is_post_type_archive( $post_types = '' ) {
+	public function is_post_type_archive( $post_types = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $post_types ) || ! $this->is_post_type_archive )
 			return (bool) $this->is_post_type_archive;
 
@@ -3436,7 +3436,7 @@ class WP_Query {
 	 * @param mixed $attachment Attachment ID, title, slug, or array of such.
 	 * @return bool
 	 */
-	public function is_attachment( $attachment = '' ) {
+	public function is_attachment( $attachment = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->is_attachment ) {
 			return false;
 		}
@@ -3470,7 +3470,7 @@ class WP_Query {
 	 * @param mixed $author Optional. User ID, nickname, nicename, or array of User IDs, nicknames, and nicenames
 	 * @return bool
 	 */
-	public function is_author( $author = '' ) {
+	public function is_author( $author = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !$this->is_author )
 			return false;
 
@@ -3502,7 +3502,7 @@ class WP_Query {
 	 * @param mixed $category Optional. Category ID, name, slug, or array of Category IDs, names, and slugs.
 	 * @return bool
 	 */
-	public function is_category( $category = '' ) {
+	public function is_category( $category = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !$this->is_category )
 			return false;
 
@@ -3534,7 +3534,7 @@ class WP_Query {
 	 * @param mixed $tag Optional. Tag ID, name, slug, or array of Tag IDs, names, and slugs.
 	 * @return bool
 	 */
-	public function is_tag( $tag = '' ) {
+	public function is_tag( $tag = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->is_tag )
 			return false;
 
@@ -3573,7 +3573,7 @@ class WP_Query {
 	 * @param mixed $term     Optional. Term ID, name, slug or array of Term IDs, names, and slugs.
 	 * @return bool True for custom taxonomy archive pages, false for built-in taxonomies (category and tag archives).
 	 */
-	public function is_tax( $taxonomy = '', $term = '' ) {
+	public function is_tax( $taxonomy = '', $term = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_taxonomies;
 
 		if ( !$this->is_tax )
@@ -3609,7 +3609,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_comments_popup() {
+	public function is_comments_popup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __FUNCTION__, '4.5.0' );
 
 		return false;
@@ -3622,7 +3622,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_date() {
+	public function is_date() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_date;
 	}
 
@@ -3633,7 +3633,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_day() {
+	public function is_day() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_day;
 	}
 
@@ -3645,7 +3645,7 @@ class WP_Query {
 	 * @param string|array $feeds Optional feed types to check.
 	 * @return bool
 	 */
-	public function is_feed( $feeds = '' ) {
+	public function is_feed( $feeds = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $feeds ) || ! $this->is_feed )
 			return (bool) $this->is_feed;
 		$qv = $this->get( 'feed' );
@@ -3661,7 +3661,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_comment_feed() {
+	public function is_comment_feed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_comment_feed;
 	}
 
@@ -3681,7 +3681,7 @@ class WP_Query {
 	 *
 	 * @return bool True, if front of site.
 	 */
-	public function is_front_page() {
+	public function is_front_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// most likely case
 		if ( 'posts' == get_option( 'show_on_front') && $this->is_home() )
 			return true;
@@ -3707,7 +3707,7 @@ class WP_Query {
 	 *
 	 * @return bool True if blog view homepage.
 	 */
-	public function is_home() {
+	public function is_home() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_home;
 	}
 
@@ -3718,7 +3718,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_month() {
+	public function is_month() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_month;
 	}
 
@@ -3736,7 +3736,7 @@ class WP_Query {
 	 * @param int|string|array $page Optional. Page ID, title, slug, path, or array of such. Default empty.
 	 * @return bool Whether the query is for an existing single page.
 	 */
-	public function is_page( $page = '' ) {
+	public function is_page( $page = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !$this->is_page )
 			return false;
 
@@ -3776,7 +3776,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_paged() {
+	public function is_paged() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_paged;
 	}
 
@@ -3787,7 +3787,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_preview() {
+	public function is_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_preview;
 	}
 
@@ -3798,7 +3798,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_robots() {
+	public function is_robots() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_robots;
 	}
 
@@ -3809,7 +3809,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_search() {
+	public function is_search() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_search;
 	}
 
@@ -3829,7 +3829,7 @@ class WP_Query {
 	 * @param int|string|array $post Optional. Post ID, title, slug, path, or array of such. Default empty.
 	 * @return bool Whether the query is for an existing single post.
 	 */
-	public function is_single( $post = '' ) {
+	public function is_single( $post = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !$this->is_single )
 			return false;
 
@@ -3875,7 +3875,7 @@ class WP_Query {
 	 * @param string|array $post_types Optional. Post type or array of post types. Default empty.
 	 * @return bool Whether the query is for an existing single post of any of the given post types.
 	 */
-	public function is_singular( $post_types = '' ) {
+	public function is_singular( $post_types = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $post_types ) || !$this->is_singular )
 			return (bool) $this->is_singular;
 
@@ -3891,7 +3891,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_time() {
+	public function is_time() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_time;
 	}
 
@@ -3902,7 +3902,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_trackback() {
+	public function is_trackback() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_trackback;
 	}
 
@@ -3913,7 +3913,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_year() {
+	public function is_year() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_year;
 	}
 
@@ -3924,7 +3924,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_404() {
+	public function is_404() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_404;
 	}
 
@@ -3935,7 +3935,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_embed() {
+	public function is_embed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (bool) $this->is_embed;
 	}
 
@@ -3948,7 +3948,7 @@ class WP_Query {
 	 *
 	 * @return bool
 	 */
-	public function is_main_query() {
+	public function is_main_query() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_the_query;
 		return $wp_the_query === $this;
 	}
@@ -3972,7 +3972,7 @@ class WP_Query {
 	 * @param WP_Post|object|int $post WP_Post instance or Post ID/object.
 	 * @return true True when finished.
 	 */
-	public function setup_postdata( $post ) {
+	public function setup_postdata( $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $id, $authordata, $currentday, $currentmonth, $page, $pages, $multipage, $more, $numpages;
 
 		if ( ! ( $post instanceof WP_Post ) ) {
@@ -4068,7 +4068,7 @@ class WP_Query {
 	 *
 	 * @global WP_Post $post
 	 */
-	public function reset_postdata() {
+	public function reset_postdata() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! empty( $this->post ) ) {
 			$GLOBALS['post'] = $this->post;
 			$this->setup_postdata( $this->post );
@@ -4085,7 +4085,7 @@ class WP_Query {
 	 * @param int   $term_id
 	 * @return mixed
 	 */
-	public function lazyload_term_meta( $check, $term_id ) {
+	public function lazyload_term_meta( $check, $term_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.5.0' );
 		return $check;
 	}
@@ -4100,7 +4100,7 @@ class WP_Query {
 	 * @param int   $comment_id
 	 * @return mixed
 	 */
-	public function lazyload_comment_meta( $check, $comment_id ) {
+	public function lazyload_comment_meta( $check, $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.5.0' );
 		return $check;
 	}

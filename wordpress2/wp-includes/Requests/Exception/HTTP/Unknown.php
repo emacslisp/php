@@ -34,7 +34,7 @@ class Requests_Exception_HTTP_Unknown extends Requests_Exception_HTTP {
 	 * @param string|null $reason Reason phrase
 	 * @param mixed $data Associated data
 	 */
-	public function __construct($reason = null, $data = null) {
+	public function __construct($reason = null, $data = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($data instanceof Requests_Response) {
 			$this->code = $data->status_code;
 		}

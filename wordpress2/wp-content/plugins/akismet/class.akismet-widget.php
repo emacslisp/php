@@ -4,7 +4,7 @@
  */
 class Akismet_Widget extends WP_Widget {
 
-	function __construct() {
+	function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		load_plugin_textdomain( 'akismet' );
 		
 		parent::__construct(
@@ -18,7 +18,7 @@ class Akismet_Widget extends WP_Widget {
 		}
 	}
 
-	function css() {
+	function css() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 
 <style type="text/css">
@@ -61,7 +61,7 @@ class Akismet_Widget extends WP_Widget {
 <?php
 	}
 
-	function form( $instance ) {
+	function form( $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $instance ) {
 			$title = $instance['title'];
 		}
@@ -78,12 +78,12 @@ class Akismet_Widget extends WP_Widget {
 <?php
 	}
 
-	function update( $new_instance, $old_instance ) {
+	function update( $new_instance, $old_instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		return $instance;
 	}
 
-	function widget( $args, $instance ) {
+	function widget( $args, $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$count = get_option( 'akismet_spam_count' );
 
 		if ( ! isset( $instance['title'] ) ) {
@@ -107,7 +107,7 @@ class Akismet_Widget extends WP_Widget {
 	}
 }
 
-function akismet_register_widgets() {
+function akismet_register_widgets() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	register_widget( 'Akismet_Widget' );
 }
 

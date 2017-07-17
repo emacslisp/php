@@ -144,7 +144,7 @@ class WP_Site_Query {
 	 *     @type bool         $update_site_cache Whether to prime the cache for found sites. Default false.
 	 * }
 	 */
-	public function __construct( $query = '' ) {
+	public function __construct( $query = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_var_defaults = array(
 			'fields'            => '',
 			'ID'                => '',
@@ -191,7 +191,7 @@ class WP_Site_Query {
 	 *
 	 * @param string|array $query Array or string of WP_Site_Query arguments. See WP_Site_Query::__construct().
 	 */
-	public function parse_query( $query = '' ) {
+	public function parse_query( $query = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $query ) ) {
 			$query = $this->query_vars;
 		}
@@ -217,7 +217,7 @@ class WP_Site_Query {
 	 * @param string|array $query Array or URL query string of parameters.
 	 * @return array|int List of sites, or number of sites when 'count' is passed as a query var.
 	 */
-	public function query( $query ) {
+	public function query( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_vars = wp_parse_args( $query );
 
 		return $this->get_sites();
@@ -231,7 +231,7 @@ class WP_Site_Query {
 	 *
 	 * @return array|int List of sites, or number of sites when 'count' is passed as a query var.
 	 */
-	public function get_sites() {
+	public function get_sites() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->parse_query();
 
 		/**
@@ -323,7 +323,7 @@ class WP_Site_Query {
 	 *
 	 * @return int|array A single count of site IDs if a count query. An array of site IDs if a full query.
 	 */
-	protected function get_site_ids() {
+	protected function get_site_ids() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$order = $this->parse_order( $this->query_vars['order'] );
@@ -571,7 +571,7 @@ class WP_Site_Query {
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 */
-	private function set_found_sites() {
+	private function set_found_sites() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		if ( $this->query_vars['number'] && ! $this->query_vars['no_found_rows'] ) {
@@ -601,7 +601,7 @@ class WP_Site_Query {
 	 * @param array  $columns Columns to search.
 	 * @return string Search SQL.
 	 */
-	protected function get_search_sql( $string, $columns ) {
+	protected function get_search_sql( $string, $columns ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		if ( false !== strpos( $string, '*' ) ) {
@@ -629,7 +629,7 @@ class WP_Site_Query {
 	 * @param string $orderby Alias for the field to order by.
 	 * @return string|false Value to used in the ORDER clause. False otherwise.
 	 */
-	protected function parse_orderby( $orderby ) {
+	protected function parse_orderby( $orderby ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$parsed = false;
@@ -675,7 +675,7 @@ class WP_Site_Query {
 	 * @param string $order The 'order' query variable.
 	 * @return string The sanitized 'order' query variable.
 	 */
-	protected function parse_order( $order ) {
+	protected function parse_order( $order ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_string( $order ) || empty( $order ) ) {
 			return 'ASC';
 		}

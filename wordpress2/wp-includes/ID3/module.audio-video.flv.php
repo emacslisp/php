@@ -79,7 +79,7 @@ class getid3_flv extends getid3_handler {
 
 	public $max_frames = 100000; // break out of the loop if too many frames have been scanned; only scan this many if meta frame does not contain useful duration
 
-	public function Analyze() {
+	public function Analyze() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		$this->fseek($info['avdataoffset']);
@@ -333,7 +333,7 @@ class getid3_flv extends getid3_handler {
 	}
 
 
-	public static function audioFormatLookup($id) {
+	public static function audioFormatLookup($id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0  => 'Linear PCM, platform endian',
 			1  => 'ADPCM',
@@ -355,7 +355,7 @@ class getid3_flv extends getid3_handler {
 		return (isset($lookup[$id]) ? $lookup[$id] : false);
 	}
 
-	public static function audioRateLookup($id) {
+	public static function audioRateLookup($id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0 =>  5500,
 			1 => 11025,
@@ -365,7 +365,7 @@ class getid3_flv extends getid3_handler {
 		return (isset($lookup[$id]) ? $lookup[$id] : false);
 	}
 
-	public static function audioBitDepthLookup($id) {
+	public static function audioBitDepthLookup($id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0 =>  8,
 			1 => 16,
@@ -373,7 +373,7 @@ class getid3_flv extends getid3_handler {
 		return (isset($lookup[$id]) ? $lookup[$id] : false);
 	}
 
-	public static function videoCodecLookup($id) {
+	public static function videoCodecLookup($id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			GETID3_FLV_VIDEO_H263         => 'Sorenson H.263',
 			GETID3_FLV_VIDEO_SCREEN       => 'Screen video',
@@ -390,79 +390,79 @@ class AMFStream {
 	public $bytes;
 	public $pos;
 
-	public function __construct(&$bytes) {
+	public function __construct(&$bytes) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->bytes =& $bytes;
 		$this->pos = 0;
 	}
 
-	public function readByte() {
+	public function readByte() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return getid3_lib::BigEndian2Int(substr($this->bytes, $this->pos++, 1));
 	}
 
-	public function readInt() {
+	public function readInt() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return ($this->readByte() << 8) + $this->readByte();
 	}
 
-	public function readLong() {
+	public function readLong() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return ($this->readByte() << 24) + ($this->readByte() << 16) + ($this->readByte() << 8) + $this->readByte();
 	}
 
-	public function readDouble() {
+	public function readDouble() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return getid3_lib::BigEndian2Float($this->read(8));
 	}
 
-	public function readUTF() {
+	public function readUTF() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$length = $this->readInt();
 		return $this->read($length);
 	}
 
-	public function readLongUTF() {
+	public function readLongUTF() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$length = $this->readLong();
 		return $this->read($length);
 	}
 
-	public function read($length) {
+	public function read($length) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$val = substr($this->bytes, $this->pos, $length);
 		$this->pos += $length;
 		return $val;
 	}
 
-	public function peekByte() {
+	public function peekByte() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$pos = $this->pos;
 		$val = $this->readByte();
 		$this->pos = $pos;
 		return $val;
 	}
 
-	public function peekInt() {
+	public function peekInt() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$pos = $this->pos;
 		$val = $this->readInt();
 		$this->pos = $pos;
 		return $val;
 	}
 
-	public function peekLong() {
+	public function peekLong() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$pos = $this->pos;
 		$val = $this->readLong();
 		$this->pos = $pos;
 		return $val;
 	}
 
-	public function peekDouble() {
+	public function peekDouble() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$pos = $this->pos;
 		$val = $this->readDouble();
 		$this->pos = $pos;
 		return $val;
 	}
 
-	public function peekUTF() {
+	public function peekUTF() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$pos = $this->pos;
 		$val = $this->readUTF();
 		$this->pos = $pos;
 		return $val;
 	}
 
-	public function peekLongUTF() {
+	public function peekLongUTF() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$pos = $this->pos;
 		$val = $this->readLongUTF();
 		$this->pos = $pos;
@@ -473,11 +473,11 @@ class AMFStream {
 class AMFReader {
 	public $stream;
 
-	public function __construct(&$stream) {
+	public function __construct(&$stream) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->stream =& $stream;
 	}
 
-	public function readData() {
+	public function readData() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$value = null;
 
 		$type = $this->stream->readByte();
@@ -547,19 +547,19 @@ class AMFReader {
 		return $value;
 	}
 
-	public function readDouble() {
+	public function readDouble() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->stream->readDouble();
 	}
 
-	public function readBoolean() {
+	public function readBoolean() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->stream->readByte() == 1;
 	}
 
-	public function readString() {
+	public function readString() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->stream->readUTF();
 	}
 
-	public function readObject() {
+	public function readObject() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Get highest numerical index - ignored
 //		$highestIndex = $this->stream->readLong();
 
@@ -576,7 +576,7 @@ class AMFReader {
 		return $data;
 	}
 
-	public function readMixedArray() {
+	public function readMixedArray() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Get highest numerical index - ignored
 		$highestIndex = $this->stream->readLong();
 
@@ -597,7 +597,7 @@ class AMFReader {
 		return $data;
 	}
 
-	public function readArray() {
+	public function readArray() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$length = $this->stream->readLong();
 		$data = array();
 
@@ -607,21 +607,21 @@ class AMFReader {
 		return $data;
 	}
 
-	public function readDate() {
+	public function readDate() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$timestamp = $this->stream->readDouble();
 		$timezone = $this->stream->readInt();
 		return $timestamp;
 	}
 
-	public function readLongString() {
+	public function readLongString() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->stream->readLongUTF();
 	}
 
-	public function readXML() {
+	public function readXML() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->stream->readLongUTF();
 	}
 
-	public function readTypedObject() {
+	public function readTypedObject() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$className = $this->stream->readUTF();
 		return $this->readObject();
 	}
@@ -635,11 +635,11 @@ class AVCSequenceParameterSetReader {
 	public $width;
 	public $height;
 
-	public function __construct($sps) {
+	public function __construct($sps) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->sps = $sps;
 	}
 
-	public function readData() {
+	public function readData() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->skipBits(8);
 		$this->skipBits(8);
 		$profile = $this->getBits(8);                               // read profile
@@ -691,19 +691,19 @@ class AVCSequenceParameterSetReader {
 		}
 	}
 
-	public function skipBits($bits) {
+	public function skipBits($bits) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$newBits = $this->currentBits + $bits;
 		$this->currentBytes += (int)floor($newBits / 8);
 		$this->currentBits = $newBits % 8;
 	}
 
-	public function getBit() {
+	public function getBit() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$result = (getid3_lib::BigEndian2Int(substr($this->sps, $this->currentBytes, 1)) >> (7 - $this->currentBits)) & 0x01;
 		$this->skipBits(1);
 		return $result;
 	}
 
-	public function getBits($bits) {
+	public function getBits($bits) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$result = 0;
 		for ($i = 0; $i < $bits; $i++) {
 			$result = ($result << 1) + $this->getBit();
@@ -711,7 +711,7 @@ class AVCSequenceParameterSetReader {
 		return $result;
 	}
 
-	public function expGolombUe() {
+	public function expGolombUe() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$significantBits = 0;
 		$bit = $this->getBit();
 		while ($bit == 0) {
@@ -726,7 +726,7 @@ class AVCSequenceParameterSetReader {
 		return (1 << $significantBits) + $this->getBits($significantBits) - 1;
 	}
 
-	public function expGolombSe() {
+	public function expGolombSe() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$result = $this->expGolombUe();
 		if (($result & 0x01) == 0) {
 			return -($result >> 1);
@@ -735,11 +735,11 @@ class AVCSequenceParameterSetReader {
 		}
 	}
 
-	public function getWidth() {
+	public function getWidth() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->width;
 	}
 
-	public function getHeight() {
+	public function getHeight() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->height;
 	}
 }

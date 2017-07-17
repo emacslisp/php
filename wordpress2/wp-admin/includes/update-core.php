@@ -796,7 +796,7 @@ $_new_bundled_files = array(
  * @param string $to   Path to old WordPress installation.
  * @return WP_Error|null WP_Error on failure, null on success.
  */
-function update_core($from, $to) {
+function update_core($from, $to) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filesystem, $_old_files, $_new_bundled_files, $wpdb;
 
 	@set_time_limit( 300 );
@@ -884,7 +884,7 @@ function update_core($from, $to) {
 	$check_is_writable = array();
 
 	// Check to see which files don't really need updating - only available for 3.7 and higher
-	if ( function_exists( 'get_core_checksums' ) ) {
+	if ( function_exists( 'get_core_checksums' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Find the local version of the working directory
 		$working_dir_local = WP_CONTENT_DIR . '/upgrade/' . basename( $from ) . $distro;
 
@@ -1148,7 +1148,7 @@ function update_core($from, $to) {
  * @param array $skip_list a list of files/folders to skip copying
  * @return mixed WP_Error on failure, True on success.
  */
-function _copy_dir($from, $to, $skip_list = array() ) {
+function _copy_dir($from, $to, $skip_list = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filesystem;
 
 	$dirlist = $wp_filesystem->dirlist($from);
@@ -1204,7 +1204,7 @@ function _copy_dir($from, $to, $skip_list = array() ) {
  *
  * @param string $new_version
  */
-function _redirect_to_about_wordpress( $new_version ) {
+function _redirect_to_about_wordpress( $new_version ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_version, $pagenow, $action;
 
 	if ( version_compare( $wp_version, '3.4-RC1', '>=' ) )
@@ -1246,7 +1246,7 @@ window.location = 'about.php?updated';
  * @global array              $wp_theme_directories
  * @global WP_Filesystem_Base $wp_filesystem
  */
-function _upgrade_422_remove_genericons() {
+function _upgrade_422_remove_genericons() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_theme_directories, $wp_filesystem;
 
 	// A list of the affected files using the filesystem absolute paths.
@@ -1290,7 +1290,7 @@ function _upgrade_422_remove_genericons() {
  * @param string $directory Directory path. Expects trailingslashed.
  * @return array
  */
-function _upgrade_422_find_genericons_files_in_folder( $directory ) {
+function _upgrade_422_find_genericons_files_in_folder( $directory ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$directory = trailingslashit( $directory );
 	$files     = array();
 
@@ -1312,7 +1312,7 @@ function _upgrade_422_find_genericons_files_in_folder( $directory ) {
  * @ignore
  * @since 4.4.0
  */
-function _upgrade_440_force_deactivate_incompatible_plugins() {
+function _upgrade_440_force_deactivate_incompatible_plugins() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( defined( 'REST_API_VERSION' ) && version_compare( REST_API_VERSION, '2.0-beta4', '<=' ) ) {
 		deactivate_plugins( array( 'rest-api/plugin.php' ), true );
 	}

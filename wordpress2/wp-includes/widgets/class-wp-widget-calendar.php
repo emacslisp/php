@@ -32,7 +32,7 @@ class WP_Widget_Calendar extends WP_Widget {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$widget_ops = array(
 			'classname' => 'widget_calendar',
 			'description' => __( 'A calendar of your site&#8217;s Posts.' ),
@@ -51,7 +51,7 @@ class WP_Widget_Calendar extends WP_Widget {
 	 *                        'before_widget', and 'after_widget'.
 	 * @param array $instance The settings for the particular instance of the widget.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
@@ -82,7 +82,7 @@ class WP_Widget_Calendar extends WP_Widget {
 	 * @param array $old_instance Old settings for this instance.
 	 * @return array Updated settings to save.
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 
@@ -97,7 +97,7 @@ class WP_Widget_Calendar extends WP_Widget {
 	 *
 	 * @param array $instance Current settings.
 	 */
-	public function form( $instance ) {
+	public function form( $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
 		$title = sanitize_text_field( $instance['title'] );
 		?>

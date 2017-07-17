@@ -13,7 +13,7 @@
  *
  * @return int|WP_Error WP_Error or User ID.
  */
-function add_user() {
+function add_user() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return edit_user();
 }
 
@@ -27,7 +27,7 @@ function add_user() {
  * @param int $user_id Optional. User ID.
  * @return int|WP_Error user id of the updated user
  */
-function edit_user( $user_id = 0 ) {
+function edit_user( $user_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$wp_roles = wp_roles();
 	$user = new stdClass;
 	if ( $user_id ) {
@@ -228,7 +228,7 @@ function edit_user( $user_id = 0 ) {
  *
  * @return array
  */
-function get_editable_roles() {
+function get_editable_roles() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$all_roles = wp_roles()->roles;
 
 	/**
@@ -251,7 +251,7 @@ function get_editable_roles() {
  * @param int $user_id User ID.
  * @return WP_User|bool WP_User object on success, false on failure.
  */
-function get_user_to_edit( $user_id ) {
+function get_user_to_edit( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user = get_userdata( $user_id );
 
 	if ( $user )
@@ -270,7 +270,7 @@ function get_user_to_edit( $user_id ) {
  * @param int $user_id User ID.
  * @return array
  */
-function get_users_drafts( $user_id ) {
+function get_users_drafts( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	$query = $wpdb->prepare("SELECT ID, post_title FROM $wpdb->posts WHERE post_type = 'post' AND post_status = 'draft' AND post_author = %d ORDER BY post_modified DESC", $user_id);
 
@@ -301,7 +301,7 @@ function get_users_drafts( $user_id ) {
  * @param int $reassign Optional. Reassign posts and links to new User ID.
  * @return bool True when finished.
  */
-function wp_delete_user( $id, $reassign = null ) {
+function wp_delete_user( $id, $reassign = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( ! is_numeric( $id ) ) {
@@ -414,7 +414,7 @@ function wp_delete_user( $id, $reassign = null ) {
  *
  * @param int $id User ID.
  */
-function wp_revoke_user($id) {
+function wp_revoke_user($id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = (int) $id;
 
 	$user = new WP_User($id);
@@ -428,7 +428,7 @@ function wp_revoke_user($id) {
  *
  * @param false $errors Deprecated.
  */
-function default_password_nag_handler($errors = false) {
+function default_password_nag_handler($errors = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $user_ID;
 	// Short-circuit it.
 	if ( ! get_user_option('default_password_nag') )
@@ -447,7 +447,7 @@ function default_password_nag_handler($errors = false) {
  * @param int    $user_ID
  * @param object $old_data
  */
-function default_password_nag_edit_user($user_ID, $old_data) {
+function default_password_nag_edit_user($user_ID, $old_data) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Short-circuit it.
 	if ( ! get_user_option('default_password_nag', $user_ID) )
 		return;
@@ -466,7 +466,7 @@ function default_password_nag_edit_user($user_ID, $old_data) {
  *
  * @global string $pagenow
  */
-function default_password_nag() {
+function default_password_nag() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $pagenow;
 	// Short-circuit it.
 	if ( 'profile.php' == $pagenow || ! get_user_option('default_password_nag') )
@@ -486,14 +486,14 @@ function default_password_nag() {
  * @since 3.5.0
  * @access private
  */
-function delete_users_add_js() { ?>
+function delete_users_add_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); ?>
 <script>
-jQuery(document).ready( function($) {
+jQuery(document).ready( function($) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	var submit = $('#submit').prop('disabled', true);
-	$('input[name="delete_option"]').one('change', function() {
+	$('input[name="delete_option"]').one('change', function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		submit.prop('disabled', false);
 	});
-	$('#reassign_user').focus( function() {
+	$('#reassign_user').focus( function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$('#delete_option1').prop('checked', true).trigger('change');
 	});
 });
@@ -510,7 +510,7 @@ jQuery(document).ready( function($) {
  *
  * @param object $user User data object
  */
-function use_ssl_preference($user) {
+function use_ssl_preference($user) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 	<tr class="user-use-ssl-wrap">
 		<th scope="row"><?php _e('Use https')?></th>
@@ -524,7 +524,7 @@ function use_ssl_preference($user) {
  * @param string $text
  * @return string
  */
-function admin_created_user_email( $text ) {
+function admin_created_user_email( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$roles = get_editable_roles();
 	$role = $roles[ $_REQUEST['role'] ];
 	/* translators: 1: Site name, 2: site URL, 3: role */

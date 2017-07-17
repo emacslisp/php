@@ -38,7 +38,7 @@ EOD;
 	/**
 	 * PHP4 constructor.
 	 */
-	public function IXR_Request( $method, $args ) {
+	public function IXR_Request( $method, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $method, $args );
 	}
 

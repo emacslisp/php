@@ -14,7 +14,7 @@
  * @global array $wp_registered_widgets
  * @global array $wp_registered_widget_controls
  */
-function wp_list_widgets() {
+function wp_list_widgets() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_registered_widgets, $wp_registered_widget_controls;
 
 	$sort = $wp_registered_widgets;
@@ -57,7 +57,7 @@ function wp_list_widgets() {
  *
  * @return int
  */
-function _sort_name_callback( $a, $b ) {
+function _sort_name_callback( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return strnatcasecmp( $a['name'], $b['name'] );
 }
 
@@ -70,7 +70,7 @@ function _sort_name_callback( $a, $b ) {
  * @param string $sidebar      Sidebar ID.
  * @param string $sidebar_name Optional. Sidebar name. Default empty.
  */
-function wp_list_widget_controls( $sidebar, $sidebar_name = '' ) {
+function wp_list_widget_controls( $sidebar, $sidebar_name = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	add_filter( 'dynamic_sidebar_params', 'wp_list_widget_controls_dynamic_sidebar' );
 
 	$description = wp_sidebar_description( $sidebar );
@@ -111,7 +111,7 @@ function wp_list_widget_controls( $sidebar, $sidebar_name = '' ) {
  * @param array $params
  * @return array
  */
-function wp_list_widget_controls_dynamic_sidebar( $params ) {
+function wp_list_widget_controls_dynamic_sidebar( $params ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_registered_widgets;
 	static $i = 0;
 	$i++;
@@ -139,7 +139,7 @@ function wp_list_widget_controls_dynamic_sidebar( $params ) {
  * @param string $id_base
  * @return int
  */
-function next_widget_id_number( $id_base ) {
+function next_widget_id_number( $id_base ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_registered_widgets;
 	$number = 1;
 
@@ -166,7 +166,7 @@ function next_widget_id_number( $id_base ) {
  * @param array $sidebar_args
  * @return array
  */
-function wp_widget_control( $sidebar_args ) {
+function wp_widget_control( $sidebar_args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_registered_widgets, $wp_registered_widget_controls, $sidebars_widgets;
 
 	$widget_id = $sidebar_args['widget_id'];
@@ -276,6 +276,6 @@ function wp_widget_control( $sidebar_args ) {
  * @param string $classes
  * @return string
  */
-function wp_widgets_access_body_class($classes) {
+function wp_widgets_access_body_class($classes) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return "$classes widgets_access ";
 }

@@ -208,7 +208,7 @@ final class WP_Taxonomy {
 	 * @param array|string $args        Optional. Array or query string of arguments for registering a taxonomy.
 	 *                                  Default empty array.
 	 */
-	public function __construct( $taxonomy, $object_type, $args = array() ) {
+	public function __construct( $taxonomy, $object_type, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->name = $taxonomy;
 
 		$this->set_props( $object_type, $args );
@@ -223,7 +223,7 @@ final class WP_Taxonomy {
 	 * @param array|string $object_type Name of the object type for the taxonomy object.
 	 * @param array|string $args        Array or query string of arguments for registering a taxonomy.
 	 */
-	public function set_props( $object_type, $args ) {
+	public function set_props( $object_type, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = wp_parse_args( $args );
 
 		/**
@@ -349,7 +349,7 @@ final class WP_Taxonomy {
 	 *
 	 * @global WP $wp Current WordPress environment instance.
 	 */
-	public function add_rewrite_rules() {
+	public function add_rewrite_rules() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/* @var WP $wp */
 		global $wp;
 
@@ -378,7 +378,7 @@ final class WP_Taxonomy {
 	 *
 	 * @global WP $wp Current WordPress environment instance.
 	 */
-	public function remove_rewrite_rules() {
+	public function remove_rewrite_rules() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/* @var WP $wp */
 		global $wp;
 
@@ -400,7 +400,7 @@ final class WP_Taxonomy {
 	 * @since 4.7.0
 	 * @access public
 	 */
-	public function add_hooks() {
+	public function add_hooks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		add_filter( 'wp_ajax_add-' . $this->name, '_wp_ajax_add_hierarchical_term' );
 	}
 
@@ -410,7 +410,7 @@ final class WP_Taxonomy {
 	 * @since 4.7.0
 	 * @access public
 	 */
-	public function remove_hooks() {
+	public function remove_hooks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		remove_filter( 'wp_ajax_add-' . $this->name, '_wp_ajax_add_hierarchical_term' );
 	}
 }

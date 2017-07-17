@@ -60,7 +60,7 @@ class Walker {
 	 * @param int    $depth  Depth of the item.
 	 * @param array  $args   An array of additional arguments.
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {}
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Ends the list of after the elements are added.
@@ -75,7 +75,7 @@ class Walker {
 	 * @param int    $depth  Depth of the item.
 	 * @param array  $args   An array of additional arguments.
 	 */
-	public function end_lvl( &$output, $depth = 0, $args = array() ) {}
+	public function end_lvl( &$output, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Start the element output.
@@ -92,7 +92,7 @@ class Walker {
 	 * @param array  $args              An array of additional arguments.
 	 * @param int    $current_object_id ID of the current item.
 	 */
-	public function start_el( &$output, $object, $depth = 0, $args = array(), $current_object_id = 0 ) {}
+	public function start_el( &$output, $object, $depth = 0, $args = array(), $current_object_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Ends the element output, if needed.
@@ -107,7 +107,7 @@ class Walker {
 	 * @param int    $depth  Depth of the item.
 	 * @param array  $args   An array of additional arguments.
 	 */
-	public function end_el( &$output, $object, $depth = 0, $args = array() ) {}
+	public function end_el( &$output, $object, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Traverse elements to create list from elements.
@@ -128,7 +128,7 @@ class Walker {
 	 * @param array  $args              An array of arguments.
 	 * @param string $output            Passed by reference. Used to append additional content.
 	 */
-	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $element ) {
 			return;
 		}
@@ -187,7 +187,7 @@ class Walker {
 	 * @param int   $max_depth The maximum hierarchical depth.
 	 * @return string The hierarchical item output.
 	 */
-	public function walk( $elements, $max_depth ) {
+	public function walk( $elements, $max_depth ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = array_slice(func_get_args(), 2);
 		$output = '';
 
@@ -275,7 +275,7 @@ class Walker {
 	 * @param int   $per_page
 	 * @return string XHTML of the specified page of elements
 	 */
-	public function paged_walk( $elements, $max_depth, $page_num, $per_page ) {
+	public function paged_walk( $elements, $max_depth, $page_num, $per_page ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $elements ) || $max_depth < -1 ) {
 			return '';
 		}
@@ -390,7 +390,7 @@ class Walker {
 	 * @param array $elements Elements to list.
 	 * @return int Number of root elements.
 	 */
-	public function get_number_of_root_elements( $elements ){
+	public function get_number_of_root_elements( $elements ){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$num = 0;
 		$parent_field = $this->db_fields['parent'];
 
@@ -407,7 +407,7 @@ class Walker {
 	 * @param object $e
 	 * @param array $children_elements
 	 */
-	public function unset_children( $e, &$children_elements ){
+	public function unset_children( $e, &$children_elements ){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $e || ! $children_elements ) {
 			return;
 		}

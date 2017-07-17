@@ -27,7 +27,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @param array $args An associative array of arguments.
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( array(
 			'plural' => 'bookmarks',
 			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
@@ -38,7 +38,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @return bool
 	 */
-	public function ajax_user_can() {
+	public function ajax_user_can() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return current_user_can( 'manage_links' );
 	}
 
@@ -49,7 +49,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 * @global string $orderby
 	 * @global string $order
 	 */
-	public function prepare_items() {
+	public function prepare_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $cat_id, $s, $orderby, $order;
 
 		wp_reset_vars( array( 'action', 'cat_id', 'link_id', 'orderby', 'order', 's' ) );
@@ -71,7 +71,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function no_items() {
+	public function no_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_e( 'No links found.' );
 	}
 
@@ -79,7 +79,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_bulk_actions() {
+	protected function get_bulk_actions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$actions = array();
 		$actions['delete'] = __( 'Delete' );
 
@@ -91,7 +91,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 * @global int $cat_id
 	 * @param string $which
 	 */
-	protected function extra_tablenav( $which ) {
+	protected function extra_tablenav( $which ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $cat_id;
 
 		if ( 'top' != $which )
@@ -122,7 +122,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	public function get_columns() {
+	public function get_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array(
 			'cb'         => '<input type="checkbox" />',
 			'name'       => _x( 'Name', 'link name' ),
@@ -138,7 +138,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_sortable_columns() {
+	protected function get_sortable_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array(
 			'name'    => 'name',
 			'url'     => 'url',
@@ -155,7 +155,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @return string Name of the default primary column, in this case, 'name'.
 	 */
-	protected function get_default_primary_column_name() {
+	protected function get_default_primary_column_name() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'name';
 	}
 
@@ -167,7 +167,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @param object $link The current link object.
 	 */
-	public function column_cb( $link ) {
+	public function column_cb( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<label class="screen-reader-text" for="cb-select-<?php echo $link->link_id; ?>"><?php echo sprintf( __( 'Select %s' ), $link->link_name ); ?></label>
 		<input type="checkbox" name="linkcheck[]" id="cb-select-<?php echo $link->link_id; ?>" value="<?php echo esc_attr( $link->link_id ); ?>" />
@@ -182,7 +182,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @param object $link The current link object.
 	 */
-	public function column_name( $link ) {
+	public function column_name( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$edit_link = get_edit_bookmark_link( $link );
 		printf( '<strong><a class="row-title" href="%s" aria-label="%s">%s</a></strong>',
 			$edit_link,
@@ -200,7 +200,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @param object $link The current link object.
 	 */
-	public function column_url( $link ) {
+	public function column_url( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$short_url = url_shorten( $link->link_url );
 		echo "<a href='$link->link_url'>$short_url</a>";
 	}
@@ -215,7 +215,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @param object $link The current link object.
 	 */
-	public function column_categories( $link ) {
+	public function column_categories( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $cat_id;
 
 		$cat_names = array();
@@ -241,7 +241,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @param object $link The current link object.
 	 */
-	public function column_rel( $link ) {
+	public function column_rel( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo empty( $link->link_rel ) ? '<br />' : $link->link_rel;
 	}
 
@@ -253,7 +253,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @param object $link The current link object.
 	 */
-	public function column_visible( $link ) {
+	public function column_visible( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'Y' === $link->link_visible ) {
 			_e( 'Yes' );
 		} else {
@@ -269,7 +269,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 *
 	 * @param object $link The current link object.
 	 */
-	public function column_rating( $link ) {
+	public function column_rating( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo $link->link_rating;
 	}
 
@@ -282,7 +282,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 * @param object $link        Link object.
 	 * @param string $column_name Current column name.
 	 */
-	public function column_default( $link, $column_name ) {
+	public function column_default( $link, $column_name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/**
 		 * Fires for each registered custom link column.
 		 *
@@ -294,7 +294,7 @@ class WP_Links_List_Table extends WP_List_Table {
 		do_action( 'manage_link_custom_column', $column_name, $link->link_id );
 	}
 
-	public function display_rows() {
+	public function display_rows() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->items as $link ) {
 			$link = sanitize_bookmark( $link );
 			$link->link_name = esc_attr( $link->link_name );
@@ -318,7 +318,7 @@ class WP_Links_List_Table extends WP_List_Table {
 	 * @param string $primary     Primary column name.
 	 * @return string Row action output for links.
 	 */
-	protected function handle_row_actions( $link, $column_name, $primary ) {
+	protected function handle_row_actions( $link, $column_name, $primary ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $primary !== $column_name ) {
 			return '';
 		}

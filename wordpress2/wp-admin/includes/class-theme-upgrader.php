@@ -45,7 +45,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function upgrade_strings() {
+	public function upgrade_strings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->strings['up_to_date'] = __('The theme is at the latest version.');
 		$this->strings['no_package'] = __('Update package not available.');
 		$this->strings['downloading_package'] = __('Downloading update from <span class="code">%s</span>&#8230;');
@@ -62,7 +62,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function install_strings() {
+	public function install_strings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->strings['no_package'] = __('Install package not available.');
 		$this->strings['downloading_package'] = __('Downloading install package from <span class="code">%s</span>&#8230;');
 		$this->strings['unpack_package'] = __('Unpacking the package&#8230;');
@@ -95,7 +95,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @param array $child_result
 	 * @return type
 	 */
-	public function check_parent_theme_filter( $install_result, $hook_extra, $child_result ) {
+	public function check_parent_theme_filter( $install_result, $hook_extra, $child_result ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Check to see if we need to install a parent theme
 		$theme_info = $this->theme_info();
 
@@ -167,7 +167,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @param array $actions Preview actions.
 	 * @return array
 	 */
-	public function hide_activate_preview_actions( $actions ) {
+	public function hide_activate_preview_actions( $actions ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset($actions['activate'], $actions['preview']);
 		return $actions;
 	}
@@ -189,7 +189,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 *
 	 * @return bool|WP_Error True if the install was successful, false or a WP_Error object otherwise.
 	 */
-	public function install( $package, $args = array() ) {
+	public function install( $package, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$defaults = array(
 			'clear_update_cache' => true,
@@ -246,7 +246,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * }
 	 * @return bool|WP_Error True if the upgrade was successful, false or a WP_Error object otherwise.
 	 */
-	public function upgrade( $theme, $args = array() ) {
+	public function upgrade( $theme, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$defaults = array(
 			'clear_update_cache' => true,
@@ -317,7 +317,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * }
 	 * @return array[]|false An array of results, or false if unable to connect to the filesystem.
 	 */
-	public function bulk_upgrade( $themes, $args = array() ) {
+	public function bulk_upgrade( $themes, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$defaults = array(
 			'clear_update_cache' => true,
@@ -434,7 +434,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @param string $source The full path to the package source.
 	 * @return string|WP_Error The source or a WP_Error.
 	 */
-	public function check_package( $source ) {
+	public function check_package( $source ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_filesystem;
 
 		if ( is_wp_error($source) )
@@ -492,7 +492,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @param array          $theme
 	 * @return bool|WP_Error
 	 */
-	public function current_before($return, $theme) {
+	public function current_before($return, $theme) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_wp_error($return) )
 			return $return;
 
@@ -520,7 +520,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @param array          $theme
 	 * @return bool|WP_Error
 	 */
-	public function current_after($return, $theme) {
+	public function current_after($return, $theme) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_wp_error($return) )
 			return $return;
 
@@ -559,7 +559,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @param array  $theme
 	 * @return bool
 	 */
-	public function delete_old_theme( $removed, $local_destination, $remote_destination, $theme ) {
+	public function delete_old_theme( $removed, $local_destination, $remote_destination, $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_filesystem;
 
 		if ( is_wp_error( $removed ) )
@@ -590,7 +590,7 @@ class Theme_Upgrader extends WP_Upgrader {
 	 * @return WP_Theme|false The theme's info object, or false `$theme` is not supplied
 	 *                        and the last result isn't set.
 	 */
-	public function theme_info($theme = null) {
+	public function theme_info($theme = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		if ( empty($theme) ) {
 			if ( !empty($this->result['destination_name']) )

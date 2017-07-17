@@ -24,7 +24,7 @@ class Akismet_Admin {
 	    'strong' => array(),
 	);
 
-	public static function init() {
+	public static function init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! self::$initiated ) {
 			self::init_hooks();
 		}
@@ -34,7 +34,7 @@ class Akismet_Admin {
 		}
 	}
 
-	public static function init_hooks() {
+	public static function init_hooks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// The standalone stats page was removed in 3.0 for an all-in-one config and stats page.
 		// Redirect any links that might have been bookmarked or in browser history.
 		if ( isset( $_GET['page'] ) && 'akismet-stats-display' == $_GET['page'] ) {
@@ -65,30 +65,30 @@ class Akismet_Admin {
 		add_filter( 'wxr_export_skip_commentmeta', array( 'Akismet_Admin', 'exclude_commentmeta_from_export' ), 10, 3 );
 	}
 
-	public static function admin_init() {
+	public static function admin_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		load_plugin_textdomain( 'akismet' );
 		add_meta_box( 'akismet-status', __('Comment History', 'akismet'), array( 'Akismet_Admin', 'comment_status_meta_box' ), 'comment', 'normal' );
 	}
 
-	public static function admin_menu() {
+	public static function admin_menu() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( class_exists( 'Jetpack' ) )
 			add_action( 'jetpack_admin_menu', array( 'Akismet_Admin', 'load_menu' ) );
 		else
 			self::load_menu();
 	}
 
-	public static function admin_head() {
+	public static function admin_head() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !current_user_can( 'manage_options' ) )
 			return;
 	}
 	
-	public static function admin_plugin_settings_link( $links ) { 
+	public static function admin_plugin_settings_link( $links ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); 
   		$settings_link = '<a href="'.esc_url( self::get_page_url() ).'">'.__('Settings', 'akismet').'</a>';
   		array_unshift( $links, $settings_link ); 
   		return $links; 
 	}
 
-	public static function load_menu() {
+	public static function load_menu() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( class_exists( 'Jetpack' ) )
 			$hook = add_submenu_page( 'jetpack', __( 'Akismet' , 'akismet'), __( 'Akismet' , 'akismet'), 'manage_options', 'akismet-key-config', array( 'Akismet_Admin', 'display_page' ) );
 		else
@@ -99,7 +99,7 @@ class Akismet_Admin {
 		}
 	}
 
-	public static function load_resources() {
+	public static function load_resources() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $hook_suffix;
 
 		if ( in_array( $hook_suffix, array(
@@ -134,7 +134,7 @@ class Akismet_Admin {
 	 *
 	 * @return false if not the Akismet page
 	 */
-	public static function admin_help() {
+	public static function admin_help() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$current_screen = get_current_screen();
 
 		// Screen Content
@@ -236,7 +236,7 @@ class Akismet_Admin {
 		);
 	}
 
-	public static function enter_api_key() {
+	public static function enter_api_key() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( function_exists('current_user_can') && !current_user_can('manage_options') )
 			die(__('Cheatin&#8217; uh?', 'akismet'));
 
@@ -266,7 +266,7 @@ class Akismet_Admin {
 		return true;
 	}
 
-	public static function save_key( $api_key ) {
+	public static function save_key( $api_key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$key_status = Akismet::verify_key( $api_key );
 
 		if ( $key_status == 'valid' ) {
@@ -290,7 +290,7 @@ class Akismet_Admin {
 			self::$notices['status'] = 'new-key-'.$key_status;
 	}
 
-	public static function dashboard_stats() {
+	public static function dashboard_stats() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !function_exists('did_action') || did_action( 'rightnow_end' ) )
 			return; // We already displayed this info in the "Right Now" section
 
@@ -309,7 +309,7 @@ class Akismet_Admin {
 	}
 
 	// WP 2.5+
-	public static function rightnow_stats() {
+	public static function rightnow_stats() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $count = get_option('akismet_spam_count') ) {
 			$intro = sprintf( _n(
 				'<a href="%1$s">Akismet</a> has protected your site from %2$s spam comment already. ',
@@ -336,7 +336,7 @@ class Akismet_Admin {
 		echo "<p class='akismet-right-now'>$text</p>\n";
 	}
 
-	public static function check_for_spam_button( $comment_status ) {
+	public static function check_for_spam_button( $comment_status ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// The "Check for Spam" button should only appear when the page might be showing
 		// a comment with comment_approved=0, which means an un-trashed, un-spammed,
 		// not-yet-moderated comment.
@@ -352,7 +352,7 @@ class Akismet_Admin {
 		echo '</div><div class="alignleft"><a class="button-secondary checkforspam" href="' . esc_url( $link ) . '">' . esc_html__('Check for Spam', 'akismet') . '</a><span class="checkforspam-spinner"></span>';
 	}
 
-	public static function recheck_queue() {
+	public static function recheck_queue() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		Akismet::fix_scheduled_recheck();
@@ -375,7 +375,7 @@ class Akismet_Admin {
 		}
 	}
 	
-	public static function recheck_queue_portion( $start = 0, $limit = 100 ) {
+	public static function recheck_queue_portion( $start = 0, $limit = 100 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 		
 		$paginate = '';
@@ -415,7 +415,7 @@ class Akismet_Admin {
 	}
 
 	// Adds an 'x' link next to author URLs, clicking will remove the author URL and show an undo link
-	public static function remove_comment_author_url() {
+	public static function remove_comment_author_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !empty( $_POST['id'] ) && check_admin_referer( 'comment_author_url_nonce' ) ) {
 			$comment_id = intval( $_POST['id'] );
 			$comment = get_comment( $comment_id, ARRAY_A );
@@ -428,7 +428,7 @@ class Akismet_Admin {
 		}
 	}
 
-	public static function add_comment_author_url() {
+	public static function add_comment_author_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !empty( $_POST['id'] ) && !empty( $_POST['url'] ) && check_admin_referer( 'comment_author_url_nonce' ) ) {
 			$comment_id = intval( $_POST['id'] );
 			$comment = get_comment( $comment_id, ARRAY_A );
@@ -441,7 +441,7 @@ class Akismet_Admin {
 		}
 	}
 
-	public static function comment_row_action( $a, $comment ) {
+	public static function comment_row_action( $a, $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// failsafe for old WP versions
 		if ( !function_exists('add_comment_meta') )
@@ -499,7 +499,7 @@ class Akismet_Admin {
 		return $a;
 	}
 
-	public static function comment_status_meta_box( $comment ) {
+	public static function comment_status_meta_box( $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$history = Akismet::get_comment_history( $comment->comment_ID );
 
 		if ( $history ) {
@@ -597,7 +597,7 @@ class Akismet_Admin {
 		}
 	}
 
-	public static function plugin_action_links( $links, $file ) {
+	public static function plugin_action_links( $links, $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $file == plugin_basename( plugin_dir_url( __FILE__ ) . '/akismet.php' ) ) {
 			$links[] = '<a href="' . esc_url( self::get_page_url() ) . '">'.esc_html__( 'Settings' , 'akismet').'</a>';
 		}
@@ -607,13 +607,13 @@ class Akismet_Admin {
 
 	// Total spam in queue
 	// get_option( 'akismet_spam_count' ) is the total caught ever
-	public static function get_spam_count( $type = false ) {
+	public static function get_spam_count( $type = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		if ( !$type ) { // total
 			$count = wp_cache_get( 'akismet_spam_count', 'widget' );
 			if ( false === $count ) {
-				if ( function_exists('wp_count_comments') ) {
+				if ( function_exists('wp_count_comments') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 					$count = wp_count_comments();
 					$count = $count->spam;
 				} else {
@@ -631,12 +631,12 @@ class Akismet_Admin {
 
 	// Check connectivity between the WordPress blog and Akismet's servers.
 	// Returns an associative array of server IP addresses, where the key is the IP address, and value is true (available) or false (unable to connect).
-	public static function check_server_ip_connectivity() {
+	public static function check_server_ip_connectivity() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		
 		$servers = $ips = array();
 
 		// Some web hosts may disable this function
-		if ( function_exists('gethostbynamel') ) {	
+		if ( function_exists('gethostbynamel') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);	
 			
 			$ips = gethostbynamel( 'rest.akismet.com' );
 			if ( $ips && is_array($ips) && count($ips) ) {
@@ -657,7 +657,7 @@ class Akismet_Admin {
 	}
 	
 	// Simpler connectivity check
-	public static function check_server_connectivity($cache_timeout = 86400) {
+	public static function check_server_connectivity($cache_timeout = 86400) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		
 		$debug = array();
 		$debug[ 'PHP_VERSION' ]         = PHP_VERSION;
@@ -674,7 +674,7 @@ class Akismet_Admin {
 			update_option('akismet_connectivity_time', time());
 		}
 
-		if ( function_exists( 'wp_http_supports' ) && ( wp_http_supports( array( 'ssl' ) ) ) ) {
+		if ( function_exists( 'wp_http_supports' ) && ( wp_http_supports( array( 'ssl' ) ) ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			$response = wp_remote_get( 'https://rest.akismet.com/1.1/test' );
 		}
 		else {
@@ -694,16 +694,16 @@ class Akismet_Admin {
 	}
 
 	// Check the server connectivity and store the available servers in an option. 
-	public static function get_server_connectivity($cache_timeout = 86400) {
+	public static function get_server_connectivity($cache_timeout = 86400) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return self::check_server_connectivity( $cache_timeout );
 	}
 
-	public static function get_number_spam_waiting() {
+	public static function get_number_spam_waiting() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 		return (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$wpdb->commentmeta} WHERE meta_key = 'akismet_error'" );
 	}
 
-	public static function get_page_url( $page = 'config' ) {
+	public static function get_page_url( $page = 'config' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$args = array( 'page' => 'akismet-key-config' );
 
@@ -717,7 +717,7 @@ class Akismet_Admin {
 		return $url;
 	}
 	
-	public static function get_akismet_user( $api_key ) {
+	public static function get_akismet_user( $api_key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$akismet_user = false;
 
 		$subscription_verification = Akismet::http_post( Akismet::build_query( array( 'key' => $api_key, 'blog' => get_option( 'home' ) ) ), 'get-subscription' );
@@ -731,7 +731,7 @@ class Akismet_Admin {
 		return $akismet_user;
 	}
 	
-	public static function get_stats( $api_key ) {
+	public static function get_stats( $api_key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$stat_totals = array();
 
 		foreach( array( '6-months', 'all' ) as $interval ) {
@@ -745,7 +745,7 @@ class Akismet_Admin {
 		return $stat_totals;
 	}
 	
-	public static function verify_wpcom_key( $api_key, $user_id, $extra = array() ) {
+	public static function verify_wpcom_key( $api_key, $user_id, $extra = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$akismet_account = Akismet::http_post( Akismet::build_query( array_merge( array(
 			'user_id'          => $user_id,
 			'api_key'          => $api_key,
@@ -760,7 +760,7 @@ class Akismet_Admin {
 		return $akismet_account;
 	}
 	
-	public static function connect_jetpack_user() {
+	public static function connect_jetpack_user() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	
 		if ( $jetpack_user = self::get_jetpack_user() ) {
 			if ( isset( $jetpack_user['user_id'] ) && isset(  $jetpack_user['api_key'] ) ) {
@@ -776,7 +776,7 @@ class Akismet_Admin {
 		return false;
 	}
 
-	public static function display_alert() {
+	public static function display_alert() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		Akismet::view( 'notice', array(
 			'type' => 'alert',
 			'code' => (int) get_option( 'akismet_alert_code' ),
@@ -784,7 +784,7 @@ class Akismet_Admin {
 		) );
 	}
 
-	public static function display_spam_check_warning() {
+	public static function display_spam_check_warning() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		Akismet::fix_scheduled_recheck();
 
 		if ( wp_next_scheduled('akismet_schedule_cron_recheck') > time() && self::get_number_spam_waiting() > 0 ) {
@@ -793,15 +793,15 @@ class Akismet_Admin {
 		}
 	}
 
-	public static function display_invalid_version() {
+	public static function display_invalid_version() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		Akismet::view( 'notice', array( 'type' => 'version' ) );
 	}
 
-	public static function display_api_key_warning() {
+	public static function display_api_key_warning() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		Akismet::view( 'notice', array( 'type' => 'plugin' ) );
 	}
 
-	public static function display_page() {
+	public static function display_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !Akismet::get_api_key() || ( isset( $_GET['view'] ) && $_GET['view'] == 'start' ) )
 			self::display_start_page();
 		elseif ( isset( $_GET['view'] ) && $_GET['view'] == 'stats' )
@@ -810,7 +810,7 @@ class Akismet_Admin {
 			self::display_configuration_page();
 	}
 
-	public static function display_start_page() {
+	public static function display_start_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $_GET['action'] ) ) {
 			if ( $_GET['action'] == 'delete-key' ) {
 				if ( isset( $_GET['_wpnonce'] ) && wp_verify_nonce( $_GET['_wpnonce'], self::NONCE ) )
@@ -852,11 +852,11 @@ class Akismet_Admin {
 		Akismet::view( 'start', compact( 'akismet_user' ) );
 	}
 
-	public static function display_stats_page() {
+	public static function display_stats_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		Akismet::view( 'stats' );
 	}
 
-	public static function display_configuration_page() {
+	public static function display_configuration_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$api_key      = Akismet::get_api_key();
 		$akismet_user = self::get_akismet_user( $api_key );
 		
@@ -908,7 +908,7 @@ class Akismet_Admin {
 		Akismet::view( 'config', compact( 'api_key', 'akismet_user', 'stat_totals' ) );
 	}
 
-	public static function display_notice() {
+	public static function display_notice() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $hook_suffix;
 
 		if ( in_array( $hook_suffix, array( 'jetpack_page_akismet-key-config', 'settings_page_akismet-key-config', 'edit-comments.php' ) ) && (int) get_option( 'akismet_alert_code' ) > 0 ) {
@@ -928,7 +928,7 @@ class Akismet_Admin {
 		}
 	}
 
-	public static function display_status() {
+	public static function display_status() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$type = '';
 
 		if ( !self::get_server_connectivity() )
@@ -958,7 +958,7 @@ class Akismet_Admin {
 		}
 	}
 
-	private static function get_jetpack_user() {
+	private static function get_jetpack_user() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !class_exists('Jetpack') )
 			return false;
 
@@ -990,7 +990,7 @@ class Akismet_Admin {
 	 * @param object $meta The meta object
 	 * @return bool Whether to exclude this meta entry from the export.
 	 */
-	public static function exclude_commentmeta_from_export( $exclude, $key, $meta ) {
+	public static function exclude_commentmeta_from_export( $exclude, $key, $meta ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $key, array( 'akismet_as_submitted', 'akismet_rechecking', 'akismet_delayed_moderation_email' ) ) ) {
 			return true;
 		}

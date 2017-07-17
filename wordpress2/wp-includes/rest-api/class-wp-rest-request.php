@@ -118,7 +118,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $route      Optional. Request route. Default empty.
 	 * @param array  $attributes Optional. Request attributes. Default empty array.
 	 */
-	public function __construct( $method = '', $route = '', $attributes = array() ) {
+	public function __construct( $method = '', $route = '', $attributes = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->params = array(
 			'URL'   => array(),
 			'GET'   => array(),
@@ -144,7 +144,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return string HTTP method.
 	 */
-	public function get_method() {
+	public function get_method() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->method;
 	}
 
@@ -156,7 +156,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param string $method HTTP method.
 	 */
-	public function set_method( $method ) {
+	public function set_method( $method ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->method = strtoupper( $method );
 	}
 
@@ -168,7 +168,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Map of key to value. Key is always lowercase, as per HTTP specification.
 	 */
-	public function get_headers() {
+	public function get_headers() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->headers;
 	}
 
@@ -192,7 +192,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $key Header name.
 	 * @return string Canonicalized name.
 	 */
-	public static function canonicalize_header_name( $key ) {
+	public static function canonicalize_header_name( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$key = strtolower( $key );
 		$key = str_replace( '-', '_', $key );
 
@@ -212,7 +212,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $key Header name, will be canonicalized to lowercase.
 	 * @return string|null String value if set, null otherwise.
 	 */
-	public function get_header( $key ) {
+	public function get_header( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$key = $this->canonicalize_header_name( $key );
 
 		if ( ! isset( $this->headers[ $key ] ) ) {
@@ -231,7 +231,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $key Header name, will be canonicalized to lowercase.
 	 * @return array|null List of string values if set, null otherwise.
 	 */
-	public function get_header_as_array( $key ) {
+	public function get_header_as_array( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$key = $this->canonicalize_header_name( $key );
 
 		if ( ! isset( $this->headers[ $key ] ) ) {
@@ -250,7 +250,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $key   Header name.
 	 * @param string $value Header value, or list of values.
 	 */
-	public function set_header( $key, $value ) {
+	public function set_header( $key, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$key = $this->canonicalize_header_name( $key );
 		$value = (array) $value;
 
@@ -266,7 +266,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $key   Header name.
 	 * @param string $value Header value, or list of values.
 	 */
-	public function add_header( $key, $value ) {
+	public function add_header( $key, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$key = $this->canonicalize_header_name( $key );
 		$value = (array) $value;
 
@@ -285,7 +285,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param string $key Header name.
 	 */
-	public function remove_header( $key ) {
+	public function remove_header( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->headers[ $key ] );
 	}
 
@@ -298,7 +298,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param array $headers  Map of header name to value.
 	 * @param bool  $override If true, replace the request's headers. Otherwise, merge with existing.
 	 */
-	public function set_headers( $headers, $override = true ) {
+	public function set_headers( $headers, $override = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( true === $override ) {
 			$this->headers = array();
 		}
@@ -316,7 +316,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Map containing 'value' and 'parameters' keys.
 	 */
-	public function get_content_type() {
+	public function get_content_type() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$value = $this->get_header( 'content-type' );
 		if ( empty( $value ) ) {
 			return null;
@@ -351,7 +351,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array List of types to check, in order of priority.
 	 */
-	protected function get_parameter_order() {
+	protected function get_parameter_order() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$order = array();
 		$order[] = 'JSON';
 
@@ -400,7 +400,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $key Parameter name.
 	 * @return mixed|null Value if set, null otherwise.
 	 */
-	public function get_param( $key ) {
+	public function get_param( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$order = $this->get_parameter_order();
 
 		foreach ( $order as $type ) {
@@ -422,7 +422,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $key   Parameter name.
 	 * @param mixed  $value Parameter value.
 	 */
-	public function set_param( $key, $value ) {
+	public function set_param( $key, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ( $this->method ) {
 			case 'POST':
 				$this->params['POST'][ $key ] = $value;
@@ -445,7 +445,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Map of key to value.
 	 */
-	public function get_params() {
+	public function get_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$order = $this->get_parameter_order();
 		$order = array_reverse( $order, true );
 
@@ -471,7 +471,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Parameter map of key to value.
 	 */
-	public function get_url_params() {
+	public function get_url_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->params['URL'];
 	}
 
@@ -485,7 +485,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param array $params Parameter map of key to value.
 	 */
-	public function set_url_params( $params ) {
+	public function set_url_params( $params ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->params['URL'] = $params;
 	}
 
@@ -499,7 +499,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Parameter map of key to value
 	 */
-	public function get_query_params() {
+	public function get_query_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->params['GET'];
 	}
 
@@ -513,7 +513,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param array $params Parameter map of key to value.
 	 */
-	public function set_query_params( $params ) {
+	public function set_query_params( $params ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->params['GET'] = $params;
 	}
 
@@ -527,7 +527,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Parameter map of key to value.
 	 */
-	public function get_body_params() {
+	public function get_body_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->params['POST'];
 	}
 
@@ -541,7 +541,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param array $params Parameter map of key to value.
 	 */
-	public function set_body_params( $params ) {
+	public function set_body_params( $params ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->params['POST'] = $params;
 	}
 
@@ -555,7 +555,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Parameter map of key to value
 	 */
-	public function get_file_params() {
+	public function get_file_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->params['FILES'];
 	}
 
@@ -569,7 +569,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param array $params Parameter map of key to value.
 	 */
-	public function set_file_params( $params ) {
+	public function set_file_params( $params ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->params['FILES'] = $params;
 	}
 
@@ -583,7 +583,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Parameter map of key to value
 	 */
-	public function get_default_params() {
+	public function get_default_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->params['defaults'];
 	}
 
@@ -597,7 +597,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param array $params Parameter map of key to value.
 	 */
-	public function set_default_params( $params ) {
+	public function set_default_params( $params ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->params['defaults'] = $params;
 	}
 
@@ -609,7 +609,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return string Binary data from the request body.
 	 */
-	public function get_body() {
+	public function get_body() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->body;
 	}
 
@@ -621,7 +621,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param string $data Binary data from the request body.
 	 */
-	public function set_body( $data ) {
+	public function set_body( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->body = $data;
 
 		// Enable lazy parsing.
@@ -638,7 +638,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Parameter map of key to value.
 	 */
-	public function get_json_params() {
+	public function get_json_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Ensure the parameters have been parsed out.
 		$this->parse_json_params();
 
@@ -655,7 +655,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @access protected
 	 * @return true|WP_Error True if the JSON data was passed or no JSON data was provided, WP_Error if invalid JSON was passed.
 	 */
-	protected function parse_json_params() {
+	protected function parse_json_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->parsed_json ) {
 			return true;
 		}
@@ -682,14 +682,14 @@ class WP_REST_Request implements ArrayAccess {
 		 * Note that due to WP's JSON compatibility functions, json_last_error
 		 * might not be defined: https://core.trac.wordpress.org/ticket/27799
 		 */
-		if ( null === $params && ( ! function_exists( 'json_last_error' ) || JSON_ERROR_NONE !== json_last_error() ) ) {
+		if ( null === $params && ( ! function_exists( 'json_last_error' ) || JSON_ERROR_NONE !== json_last_error() ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			// Ensure subsequent calls receive error instance.
 			$this->parsed_json = false;
 
 			$error_data = array(
 				'status' => WP_Http::BAD_REQUEST,
 			);
-			if ( function_exists( 'json_last_error' ) ) {
+			if ( function_exists( 'json_last_error' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				$error_data['json_error_code'] = json_last_error();
 				$error_data['json_error_message'] = json_last_error_msg();
 			}
@@ -710,7 +710,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @since 4.4.0
 	 * @access protected
 	 */
-	protected function parse_body_params() {
+	protected function parse_body_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->parsed_body ) {
 			return;
 		}
@@ -753,7 +753,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return string Route matching regex.
 	 */
-	public function get_route() {
+	public function get_route() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->route;
 	}
 
@@ -765,7 +765,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param string $route Route matching regex.
 	 */
-	public function set_route( $route ) {
+	public function set_route( $route ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->route = $route;
 	}
 
@@ -779,7 +779,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return array Attributes for the request.
 	 */
-	public function get_attributes() {
+	public function get_attributes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->attributes;
 	}
 
@@ -791,7 +791,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param array $attributes Attributes for the request.
 	 */
-	public function set_attributes( $attributes ) {
+	public function set_attributes( $attributes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->attributes = $attributes;
 	}
 
@@ -806,7 +806,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @return true|WP_Error True if parameters were sanitized, WP_Error if an error occurred during sanitization.
 	 */
-	public function sanitize_params() {
+	public function sanitize_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$attributes = $this->get_attributes();
 
 		// No arguments set, skip sanitizing.
@@ -863,7 +863,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @return bool|WP_Error True if there are no parameters to validate or if all pass validation,
 	 *                       WP_Error if required parameters are missing.
 	 */
-	public function has_valid_params() {
+	public function has_valid_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// If JSON data was passed, check for errors.
 		$json_error = $this->parse_json_params();
 		if ( is_wp_error( $json_error ) ) {
@@ -931,7 +931,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $offset Parameter name.
 	 * @return bool Whether the parameter is set.
 	 */
-	public function offsetExists( $offset ) {
+	public function offsetExists( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$order = $this->get_parameter_order();
 
 		foreach ( $order as $type ) {
@@ -952,7 +952,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $offset Parameter name.
 	 * @return mixed|null Value if set, null otherwise.
 	 */
-	public function offsetGet( $offset ) {
+	public function offsetGet( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->get_param( $offset );
 	}
 
@@ -965,7 +965,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $offset Parameter name.
 	 * @param mixed  $value  Parameter value.
 	 */
-	public function offsetSet( $offset, $value ) {
+	public function offsetSet( $offset, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->set_param( $offset, $value );
 	}
 
@@ -977,7 +977,7 @@ class WP_REST_Request implements ArrayAccess {
 	 *
 	 * @param string $offset Parameter name.
 	 */
-	public function offsetUnset( $offset ) {
+	public function offsetUnset( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$order = $this->get_parameter_order();
 
 		// Remove the offset from every group.
@@ -996,7 +996,7 @@ class WP_REST_Request implements ArrayAccess {
 	 * @param string $url URL with protocol, domain, path and query args.
 	 * @return WP_REST_Request|false WP_REST_Request object on success, false on failure.
 	 */
-	public static function from_url( $url ) {
+	public static function from_url( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$bits = parse_url( $url );
 		$query_params = array();
 

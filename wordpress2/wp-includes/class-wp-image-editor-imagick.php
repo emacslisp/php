@@ -23,7 +23,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 */
 	protected $image;
 
-	public function __destruct() {
+	public function __destruct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->image instanceof Imagick ) {
 			// we don't need the original in memory anymore
 			$this->image->clear();
@@ -45,7 +45,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param array $args
 	 * @return bool
 	 */
-	public static function test( $args = array() ) {
+	public static function test( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// First, test Imagick's extension and classes.
 		if ( ! extension_loaded( 'imagick' ) || ! class_exists( 'Imagick', false ) || ! class_exists( 'ImagickPixel', false ) )
@@ -104,7 +104,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param string $mime_type
 	 * @return bool
 	 */
-	public static function supports_mime_type( $mime_type ) {
+	public static function supports_mime_type( $mime_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$imagick_extension = strtoupper( self::get_extension( $mime_type ) );
 
 		if ( ! $imagick_extension )
@@ -131,7 +131,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 *
 	 * @return true|WP_Error True if loaded; WP_Error on failure.
 	 */
-	public function load() {
+	public function load() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->image instanceof Imagick )
 			return true;
 
@@ -187,7 +187,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param int $quality Compression Quality. Range: [1,100]
 	 * @return true|WP_Error True if set successfully; WP_Error on failure.
 	 */
-	public function set_quality( $quality = null ) {
+	public function set_quality( $quality = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$quality_result = parent::set_quality( $quality );
 		if ( is_wp_error( $quality_result ) ) {
 			return $quality_result;
@@ -222,7 +222,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 *
 	 * @return true|WP_Error
 	 */
-	protected function update_size( $width = null, $height = null ) {
+	protected function update_size( $width = null, $height = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$size = null;
 		if ( !$width || !$height ) {
 			try {
@@ -257,7 +257,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param  bool     $crop
 	 * @return bool|WP_Error
 	 */
-	public function resize( $max_w, $max_h, $crop = false ) {
+	public function resize( $max_w, $max_h, $crop = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ( $this->size['width'] == $max_w ) && ( $this->size['height'] == $max_h ) )
 			return true;
 
@@ -294,7 +294,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param bool   $strip_meta  Optional. Strip all profiles, excluding color profiles, from the image. Default true.
 	 * @return bool|WP_Error
 	 */
-	protected function thumbnail_image( $dst_w, $dst_h, $filter_name = 'FILTER_TRIANGLE', $strip_meta = true ) {
+	protected function thumbnail_image( $dst_w, $dst_h, $filter_name = 'FILTER_TRIANGLE', $strip_meta = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$allowed_filters = array(
 			'FILTER_POINT',
 			'FILTER_BOX',
@@ -437,7 +437,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * }
 	 * @return array An array of resized images' metadata by size.
 	 */
-	public function multi_resize( $sizes ) {
+	public function multi_resize( $sizes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$metadata = array();
 		$orig_size = $this->size;
 		$orig_image = $this->image->getImage();
@@ -500,7 +500,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param bool $src_abs Optional. If the source crop points are absolute.
 	 * @return bool|WP_Error
 	 */
-	public function crop( $src_x, $src_y, $src_w, $src_h, $dst_w = null, $dst_h = null, $src_abs = false ) {
+	public function crop( $src_x, $src_y, $src_w, $src_h, $dst_w = null, $dst_h = null, $src_abs = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $src_abs ) {
 			$src_w -= $src_x;
 			$src_h -= $src_y;
@@ -541,7 +541,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param float $angle
 	 * @return true|WP_Error
 	 */
-	public function rotate( $angle ) {
+	public function rotate( $angle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/**
 		 * $angle is 360-$angle because Imagick rotates clockwise
 		 * (GD rotates counter-clockwise)
@@ -572,7 +572,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param bool $vert Flip along Vertical Axis
 	 * @return true|WP_Error
 	 */
-	public function flip( $horz, $vert ) {
+	public function flip( $horz, $vert ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		try {
 			if ( $horz )
 				$this->image->flipImage();
@@ -596,7 +596,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param string $mime_type
 	 * @return array|WP_Error {'path'=>string, 'file'=>string, 'width'=>int, 'height'=>int, 'mime-type'=>string}
 	 */
-	public function save( $destfilename = null, $mime_type = null ) {
+	public function save( $destfilename = null, $mime_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$saved = $this->_save( $this->image, $destfilename, $mime_type );
 
 		if ( ! is_wp_error( $saved ) ) {
@@ -621,7 +621,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param string $mime_type
 	 * @return array|WP_Error
 	 */
-	protected function _save( $image, $filename = null, $mime_type = null ) {
+	protected function _save( $image, $filename = null, $mime_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		list( $filename, $extension, $mime_type ) = $this->get_output_format( $filename, $mime_type );
 
 		if ( ! $filename )
@@ -665,7 +665,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 * @param string $mime_type
 	 * @return true|WP_Error
 	 */
-	public function stream( $mime_type = null ) {
+	public function stream( $mime_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		list( $filename, $extension, $mime_type ) = $this->get_output_format( null, $mime_type );
 
 		try {
@@ -694,7 +694,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 *
 	 * @return true|WP_Error True if stripping metadata was successful. WP_Error object on error.
 	 */
-	protected function strip_meta() {
+	protected function strip_meta() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		if ( ! is_callable( array( $this->image, 'getImageProfiles' ) ) ) {
 			/* translators: %s: ImageMagick method name */
@@ -747,7 +747,7 @@ class WP_Image_Editor_Imagick extends WP_Image_Editor {
 	 *
 	 * @return string|WP_Error File to load or WP_Error on failure.
 	 */
-	protected function pdf_setup() {
+	protected function pdf_setup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		try {
 			// By default, PDFs are rendered in a very low resolution.
 			// We want the thumbnail to be readable, so increase the rendering DPI.

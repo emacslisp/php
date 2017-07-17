@@ -207,7 +207,7 @@ final class WP_Post {
 	 * @param int $post_id Post ID.
 	 * @return WP_Post|false Post object, false otherwise.
 	 */
-	public static function get_instance( $post_id ) {
+	public static function get_instance( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$post_id = (int) $post_id;
@@ -237,7 +237,7 @@ final class WP_Post {
 	 *
 	 * @param WP_Post|object $post Post object.
 	 */
-	public function __construct( $post ) {
+	public function __construct( $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( get_object_vars( $post ) as $key => $value )
 			$this->$key = $value;
 	}
@@ -248,7 +248,7 @@ final class WP_Post {
 	 * @param string $key Property to check if set.
 	 * @return bool
 	 */
-	public function __isset( $key ) {
+	public function __isset( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'ancestors' == $key )
 			return true;
 
@@ -270,7 +270,7 @@ final class WP_Post {
 	 * @param string $key Key to get.
 	 * @return mixed
 	 */
-	public function __get( $key ) {
+	public function __get( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'page_template' == $key && $this->__isset( $key ) ) {
 			return get_post_meta( $this->ID, '_wp_page_template', true );
 		}
@@ -313,7 +313,7 @@ final class WP_Post {
 	 * @param string $filter Filter.
 	 * @return self|array|bool|object|WP_Post
 	 */
-	public function filter( $filter ) {
+	public function filter( $filter ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->filter == $filter )
 			return $this;
 
@@ -328,7 +328,7 @@ final class WP_Post {
 	 *
 	 * @return array Object as array.
 	 */
-	public function to_array() {
+	public function to_array() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$post = get_object_vars( $this );
 
 		foreach ( array( 'ancestors', 'page_template', 'post_category', 'tags_input' ) as $key ) {

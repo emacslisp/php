@@ -74,7 +74,7 @@ class WP_Roles {
 	 *
 	 * @since 2.0.0
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->_init();
 	}
 
@@ -88,7 +88,7 @@ class WP_Roles {
 	 * @param array    $arguments Arguments to pass when calling.
 	 * @return mixed|false Return value of the callback, false otherwise.
 	 */
-	public function __call( $name, $arguments ) {
+	public function __call( $name, $arguments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( '_init' === $name ) {
 			return call_user_func_array( array( $this, $name ), $arguments );
 		}
@@ -107,7 +107,7 @@ class WP_Roles {
 	 *
 	 * @global array $wp_user_roles Used to set the 'roles' property value.
 	 */
-	protected function _init() {
+	protected function _init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_user_roles, $wpdb;
 
 		$this->role_key = $wpdb->get_blog_prefix() . 'user_roles';
@@ -148,7 +148,7 @@ class WP_Roles {
 	 * @deprecated 4.7.0 Use new WP_Roles()
 	 * @access public
 	 */
-	public function reinit() {
+	public function reinit() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.7.0', 'new WP_Roles()' );
 		$this->_init();
 	}
@@ -169,7 +169,7 @@ class WP_Roles {
 	 * @param array $capabilities List of role capabilities in the above format.
 	 * @return WP_Role|void WP_Role object, if role is added.
 	 */
-	public function add_role( $role, $display_name, $capabilities = array() ) {
+	public function add_role( $role, $display_name, $capabilities = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $role ) || isset( $this->roles[ $role ] ) ) {
 			return;
 		}
@@ -193,7 +193,7 @@ class WP_Roles {
 	 *
 	 * @param string $role Role name.
 	 */
-	public function remove_role( $role ) {
+	public function remove_role( $role ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $this->role_objects[$role] ) )
 			return;
 
@@ -218,7 +218,7 @@ class WP_Roles {
 	 * @param string $cap Capability name.
 	 * @param bool $grant Optional, default is true. Whether role is capable of performing capability.
 	 */
-	public function add_cap( $role, $cap, $grant = true ) {
+	public function add_cap( $role, $cap, $grant = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $this->roles[$role] ) )
 			return;
 
@@ -236,7 +236,7 @@ class WP_Roles {
 	 * @param string $role Role name.
 	 * @param string $cap Capability name.
 	 */
-	public function remove_cap( $role, $cap ) {
+	public function remove_cap( $role, $cap ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $this->roles[$role] ) )
 			return;
 
@@ -254,7 +254,7 @@ class WP_Roles {
 	 * @param string $role Role name.
 	 * @return WP_Role|null WP_Role object if found, null if the role does not exist.
 	 */
-	public function get_role( $role ) {
+	public function get_role( $role ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->role_objects[$role] ) )
 			return $this->role_objects[$role];
 		else
@@ -269,7 +269,7 @@ class WP_Roles {
 	 *
 	 * @return array List of role names.
 	 */
-	public function get_names() {
+	public function get_names() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->role_names;
 	}
 
@@ -282,7 +282,7 @@ class WP_Roles {
 	 * @param string $role Role name to look up.
 	 * @return bool
 	 */
-	public function is_role( $role ) {
+	public function is_role( $role ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $this->role_names[$role] );
 	}
 }

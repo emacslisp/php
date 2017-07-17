@@ -28,7 +28,7 @@ $temp_dir = ini_get('upload_tmp_dir');
 if ($temp_dir && (!is_dir($temp_dir) || !is_readable($temp_dir))) {
 	$temp_dir = '';
 }
-if (!$temp_dir && function_exists('sys_get_temp_dir')) { // sys_get_temp_dir added in PHP v5.2.1
+if (!$temp_dir && function_exists('sys_get_temp_dir')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); // sys_get_temp_dir added in PHP v5.2.1
 	// sys_get_temp_dir() may give inaccessible temp dir, e.g. with open_basedir on virtual hosts
 	$temp_dir = sys_get_temp_dir();
 }
@@ -116,7 +116,7 @@ class getID3
 	const ATTACHMENTS_INLINE = true;
 
 	// public: constructor
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// Check memory
 		$this->memory_limit = ini_get('memory_limit');
@@ -145,14 +145,14 @@ class getID3
 		}
 
 		// Check for magic_quotes_runtime
-		if (function_exists('get_magic_quotes_runtime')) {
+		if (function_exists('get_magic_quotes_runtime')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			if (get_magic_quotes_runtime()) {
 				return $this->startup_error('magic_quotes_runtime must be disabled before running getID3(). Surround getid3 block by set_magic_quotes_runtime(0) and set_magic_quotes_runtime(1).');
 			}
 		}
 
 		// Check for magic_quotes_gpc
-		if (function_exists('magic_quotes_gpc')) {
+		if (function_exists('magic_quotes_gpc')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			if (get_magic_quotes_gpc()) {
 				return $this->startup_error('magic_quotes_gpc must be disabled before running getID3(). Surround getid3 block by set_magic_quotes_gpc(0) and set_magic_quotes_gpc(1).');
 			}
@@ -212,17 +212,17 @@ class getID3
 		return true;
 	}
 
-	public function version() {
+	public function version() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return self::VERSION;
 	}
 
-	public function fread_buffer_size() {
+	public function fread_buffer_size() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->option_fread_buffer_size;
 	}
 
 
 	// public: setOption
-	public function setOption($optArray) {
+	public function setOption($optArray) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (!is_array($optArray) || empty($optArray)) {
 			return false;
 		}
@@ -236,7 +236,7 @@ class getID3
 	}
 
 
-	public function openfile($filename) {
+	public function openfile($filename) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		try {
 			if (!empty($this->startup_error)) {
 				throw new getid3_exception($this->startup_error);
@@ -335,7 +335,7 @@ class getID3
 	}
 
 	// public: analyze file
-	public function analyze($filename) {
+	public function analyze($filename) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		try {
 			if (!$this->openfile($filename)) {
 				return $this->info;
@@ -421,7 +421,7 @@ class getID3
 
 			// module requires iconv support
 			// Check encoding/iconv support
-			if (!empty($determined_format['iconv_req']) && !function_exists('iconv') && !in_array($this->encoding, array('ISO-8859-1', 'UTF-8', 'UTF-16LE', 'UTF-16BE', 'UTF-16'))) {
+			if (!empty($determined_format['iconv_req']) && !function_exists('iconv') && !in_array($this->encoding, array('ISO-8859-1', 'UTF-8', 'UTF-16LE', 'UTF-16BE', 'UTF-16'))) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				$errormessage = 'iconv() support is required for this module ('.$determined_format['include'].') for encodings other than ISO-8859-1, UTF-8, UTF-16LE, UTF16-BE, UTF-16. ';
 				if (GETID3_OS_ISWINDOWS) {
 					$errormessage .= 'PHP does not have iconv() support. Please enable php_iconv.dll in php.ini, and copy iconv.dll from c:/php/dlls to c:/windows/system32';
@@ -486,7 +486,7 @@ class getID3
 
 
 	// private: error handling
-	public function error($message) {
+	public function error($message) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->CleanUp();
 		if (!isset($this->info['error'])) {
 			$this->info['error'] = array();
@@ -497,14 +497,14 @@ class getID3
 
 
 	// private: warning handling
-	public function warning($message) {
+	public function warning($message) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->info['warning'][] = $message;
 		return true;
 	}
 
 
 	// private: CleanUp
-	private function CleanUp() {
+	private function CleanUp() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// remove possible empty keys
 		$AVpossibleEmptyKeys = array('dataformat', 'bits_per_sample', 'encoder_options', 'streams', 'bitrate');
@@ -552,7 +552,7 @@ class getID3
 
 
 	// return array containing information about all supported formats
-	public function GetFileFormatArray() {
+	public function GetFileFormatArray() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $format_info = array();
 		if (empty($format_info)) {
 			$format_info = array(
@@ -1097,7 +1097,7 @@ class getID3
 
 
 
-	public function GetFileFormat(&$filedata, $filename='') {
+	public function GetFileFormat(&$filedata, $filename='') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// this function will determine the format of a file based on usually
 		// the first 2-4 bytes of the file (8 bytes for PNG, 16 bytes for JPG,
 		// and in the case of ISO CD image, 6 bytes offset 32kb from the start
@@ -1136,7 +1136,7 @@ class getID3
 
 
 	// converts array to $encoding charset from $this->encoding
-	public function CharConvert(&$array, $encoding) {
+	public function CharConvert(&$array, $encoding) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// identical encoding - end here
 		if ($encoding == $this->encoding) {
@@ -1159,7 +1159,7 @@ class getID3
 	}
 
 
-	public function HandleAllTags() {
+	public function HandleAllTags() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// key name => array (tag name, character encoding)
 		static $tags;
@@ -1280,7 +1280,7 @@ class getID3
 		return true;
 	}
 
-	public function getHashdata($algorithm) {
+	public function getHashdata($algorithm) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ($algorithm) {
 			case 'md5':
 			case 'sha1':
@@ -1404,7 +1404,7 @@ class getID3
 	}
 
 
-	public function ChannelsBitratePlaytimeCalculations() {
+	public function ChannelsBitratePlaytimeCalculations() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// set channelmode on audio
 		if (!empty($this->info['audio']['channelmode']) || !isset($this->info['audio']['channels'])) {
@@ -1469,7 +1469,7 @@ class getID3
 	}
 
 
-	public function CalculateCompressionRatioVideo() {
+	public function CalculateCompressionRatioVideo() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (empty($this->info['video'])) {
 			return false;
 		}
@@ -1517,7 +1517,7 @@ class getID3
 	}
 
 
-	public function CalculateCompressionRatioAudio() {
+	public function CalculateCompressionRatioAudio() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (empty($this->info['audio']['bitrate']) || empty($this->info['audio']['channels']) || empty($this->info['audio']['sample_rate']) || !is_numeric($this->info['audio']['sample_rate'])) {
 			return false;
 		}
@@ -1534,7 +1534,7 @@ class getID3
 	}
 
 
-	public function CalculateReplayGain() {
+	public function CalculateReplayGain() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (isset($this->info['replay_gain'])) {
 			if (!isset($this->info['replay_gain']['reference_volume'])) {
 				$this->info['replay_gain']['reference_volume'] = (double) 89.0;
@@ -1556,7 +1556,7 @@ class getID3
 		return true;
 	}
 
-	public function ProcessAudioStreams() {
+	public function ProcessAudioStreams() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (!empty($this->info['audio']['bitrate']) || !empty($this->info['audio']['channels']) || !empty($this->info['audio']['sample_rate'])) {
 			if (!isset($this->info['audio']['streams'])) {
 				foreach ($this->info['audio'] as $key => $value) {
@@ -1569,11 +1569,11 @@ class getID3
 		return true;
 	}
 
-	public function getid3_tempnam() {
+	public function getid3_tempnam() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return tempnam($this->tempdir, 'gI3');
 	}
 
-	public function include_module($name) {
+	public function include_module($name) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		//if (!file_exists($this->include_path.'module.'.$name.'.php')) {
 		if (!file_exists(GETID3_INCLUDEPATH.'module.'.$name.'.php')) {
 			throw new getid3_exception('Required module.'.$name.'.php is missing.');
@@ -1600,7 +1600,7 @@ abstract class getid3_handler {
 	private $dependency_to = null;
 
 
-	public function __construct(getID3 $getid3, $call_module=null) {
+	public function __construct(getID3 $getid3, $call_module=null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->getid3 = $getid3;
 
 		if ($call_module) {
@@ -1614,7 +1614,7 @@ abstract class getid3_handler {
 
 
 	// Analyze from string instead
-	public function AnalyzeString($string) {
+	public function AnalyzeString($string) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Enter string mode
 		$this->setStringMode($string);
 
@@ -1639,20 +1639,20 @@ abstract class getid3_handler {
 		$this->data_string_flag = false;
 	}
 
-	public function setStringMode($string) {
+	public function setStringMode($string) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->data_string_flag   = true;
 		$this->data_string        = $string;
 		$this->data_string_length = strlen($string);
 	}
 
-	protected function ftell() {
+	protected function ftell() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($this->data_string_flag) {
 			return $this->data_string_position;
 		}
 		return ftell($this->getid3->fp);
 	}
 
-	protected function fread($bytes) {
+	protected function fread($bytes) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($this->data_string_flag) {
 			$this->data_string_position += $bytes;
 			return substr($this->data_string, $this->data_string_position - $bytes, $bytes);
@@ -1664,7 +1664,7 @@ abstract class getid3_handler {
 		return fread($this->getid3->fp, $bytes);
 	}
 
-	protected function fseek($bytes, $whence=SEEK_SET) {
+	protected function fseek($bytes, $whence=SEEK_SET) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($this->data_string_flag) {
 			switch ($whence) {
 				case SEEK_SET:
@@ -1694,32 +1694,32 @@ abstract class getid3_handler {
 		return fseek($this->getid3->fp, $bytes, $whence);
 	}
 
-	protected function feof() {
+	protected function feof() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($this->data_string_flag) {
 			return $this->data_string_position >= $this->data_string_length;
 		}
 		return feof($this->getid3->fp);
 	}
 
-	final protected function isDependencyFor($module) {
+	final protected function isDependencyFor($module) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->dependency_to == $module;
 	}
 
-	protected function error($text) {
+	protected function error($text) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->getid3->info['error'][] = $text;
 
 		return false;
 	}
 
-	protected function warning($text) {
+	protected function warning($text) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->getid3->warning($text);
 	}
 
-	protected function notice($text) {
+	protected function notice($text) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// does nothing for now
 	}
 
-	public function saveAttachment($name, $offset, $length, $image_mime=null) {
+	public function saveAttachment($name, $offset, $length, $image_mime=null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		try {
 
 			// do not extract at all

@@ -43,7 +43,7 @@ class WP_Role {
 	 * @param string $role Role name.
 	 * @param array $capabilities List of capabilities.
 	 */
-	public function __construct( $role, $capabilities ) {
+	public function __construct( $role, $capabilities ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->name = $role;
 		$this->capabilities = $capabilities;
 	}
@@ -57,7 +57,7 @@ class WP_Role {
 	 * @param string $cap Capability name.
 	 * @param bool $grant Whether role has capability privilege.
 	 */
-	public function add_cap( $cap, $grant = true ) {
+	public function add_cap( $cap, $grant = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->capabilities[$cap] = $grant;
 		wp_roles()->add_cap( $this->name, $cap, $grant );
 	}
@@ -75,7 +75,7 @@ class WP_Role {
 	 *
 	 * @param string $cap Capability name.
 	 */
-	public function remove_cap( $cap ) {
+	public function remove_cap( $cap ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->capabilities[$cap] );
 		wp_roles()->remove_cap( $this->name, $cap );
 	}
@@ -94,7 +94,7 @@ class WP_Role {
 	 * @param string $cap Capability name.
 	 * @return bool True if the role has the given capability. False otherwise.
 	 */
-	public function has_cap( $cap ) {
+	public function has_cap( $cap ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/**
 		 * Filters which capabilities a role has.
 		 *

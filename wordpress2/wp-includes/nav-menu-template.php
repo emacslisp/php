@@ -45,7 +45,7 @@ require_once ABSPATH . WPINC . '/class-walker-nav-menu.php';
  * }
  * @return object|false|void Menu output if $echo is false, false if there are no items or no menu was found.
  */
-function wp_nav_menu( $args = array() ) {
+function wp_nav_menu( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $menu_id_slugs = array();
 
 	$defaults = array( 'menu' => '', 'container' => 'div', 'container_class' => '', 'container_id' => '', 'menu_class' => 'menu', 'menu_id' => '',
@@ -269,7 +269,7 @@ function wp_nav_menu( $args = array() ) {
  *
  * @param array $menu_items The current menu item objects to which to add the class property information.
  */
-function _wp_menu_item_classes_by_context( &$menu_items ) {
+function _wp_menu_item_classes_by_context( &$menu_items ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query, $wp_rewrite;
 
 	$queried_object = $wp_query->get_queried_object();
@@ -508,7 +508,7 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
  * @param stdClass $r     An object containing wp_nav_menu() arguments.
  * @return string The HTML list content for the menu items.
  */
-function walk_nav_menu_tree( $items, $depth, $r ) {
+function walk_nav_menu_tree( $items, $depth, $r ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$walker = ( empty($r->walker) ) ? new Walker_Nav_Menu : $r->walker;
 	$args = array( $items, $depth, $r );
 
@@ -526,7 +526,7 @@ function walk_nav_menu_tree( $items, $depth, $r ) {
  * @param object $item
  * @return string
  */
-function _nav_menu_item_id_use_once( $id, $item ) {
+function _nav_menu_item_id_use_once( $id, $item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $_used_ids = array();
 	if ( in_array( $item->ID, $_used_ids ) ) {
 		return '';

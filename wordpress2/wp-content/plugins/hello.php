@@ -12,7 +12,7 @@ Version: 1.6
 Author URI: http://ma.tt/
 */
 
-function hello_dolly_get_lyric() {
+function hello_dolly_get_lyric() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/** These are the lyrics to Hello Dolly */
 	$lyrics = "Hello, Dolly
 Well, hello, Dolly
@@ -51,7 +51,7 @@ Dolly'll never go away again";
 }
 
 // This just echoes the chosen line, we'll position it later
-function hello_dolly() {
+function hello_dolly() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$chosen = hello_dolly_get_lyric();
 	echo "<p id='dolly'>$chosen</p>";
 }
@@ -60,7 +60,7 @@ function hello_dolly() {
 add_action( 'admin_notices', 'hello_dolly' );
 
 // We need some CSS to position the paragraph
-function dolly_css() {
+function dolly_css() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// This makes sure that the positioning is also good for right-to-left languages
 	$x = is_rtl() ? 'left' : 'right';
 

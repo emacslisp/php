@@ -73,7 +73,7 @@ class WP_Http_Curl {
 	 * @param string|array $args Optional. Override the defaults.
 	 * @return array|WP_Error Array containing 'headers', 'body', 'response', 'cookies', 'filename'. A WP_Error instance upon error
 	 */
-	public function request($url, $args = array()) {
+	public function request($url, $args = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array(
 			'method' => 'GET', 'timeout' => 5,
 			'redirection' => 5, 'httpversion' => '1.0',
@@ -310,7 +310,7 @@ class WP_Http_Curl {
 	 * @param string   $headers cURL request headers.
 	 * @return int Length of the request headers.
 	 */
-	private function stream_headers( $handle, $headers ) {
+	private function stream_headers( $handle, $headers ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->headers .= $headers;
 		return strlen( $headers );
 	}
@@ -329,7 +329,7 @@ class WP_Http_Curl {
 	 * @param string   $data    cURL request body.
 	 * @return int Total bytes of data written.
 	 */
-	private function stream_body( $handle, $data ) {
+	private function stream_body( $handle, $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$data_length = strlen( $data );
 
 		if ( $this->max_body_length && ( $this->bytes_written_total + $data_length ) > $this->max_body_length ) {
@@ -359,7 +359,7 @@ class WP_Http_Curl {
 	 * @param array $args Optional. Array of request arguments. Default empty array.
 	 * @return bool False means this class can not be used, true means it can.
 	 */
-	public static function test( $args = array() ) {
+	public static function test( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! function_exists( 'curl_init' ) || ! function_exists( 'curl_exec' ) )
 			return false;
 

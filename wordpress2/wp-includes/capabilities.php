@@ -26,7 +26,7 @@
  *                          'edit_others_posts', etc. The parameter is accessed via func_get_args().
  * @return array Actual capabilities for meta capability.
  */
-function map_meta_cap( $cap, $user_id ) {
+function map_meta_cap( $cap, $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$args = array_slice( func_get_args(), 2 );
 	$caps = array();
 
@@ -518,7 +518,7 @@ function map_meta_cap( $cap, $user_id ) {
  * @return bool Whether the current user has the given capability. If `$capability` is a meta cap and `$object_id` is
  *              passed, whether the current user has the given meta capability for the given object.
  */
-function current_user_can( $capability ) {
+function current_user_can( $capability ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current_user = wp_get_current_user();
 
 	if ( empty( $current_user ) )
@@ -539,7 +539,7 @@ function current_user_can( $capability ) {
  * @param string $capability Capability or role name.
  * @return bool
  */
-function current_user_can_for_blog( $blog_id, $capability ) {
+function current_user_can_for_blog( $blog_id, $capability ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$switched = is_multisite() ? switch_to_blog( $blog_id ) : false;
 
 	$current_user = wp_get_current_user();
@@ -572,7 +572,7 @@ function current_user_can_for_blog( $blog_id, $capability ) {
  * @param string $capability Capability or role name.
  * @return bool
  */
-function author_can( $post, $capability ) {
+function author_can( $post, $capability ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !$post = get_post($post) )
 		return false;
 
@@ -596,7 +596,7 @@ function author_can( $post, $capability ) {
  * @param string $capability Capability or role name.
  * @return bool
  */
-function user_can( $user, $capability ) {
+function user_can( $user, $capability ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_object( $user ) )
 		$user = get_userdata( $user );
 
@@ -618,7 +618,7 @@ function user_can( $user, $capability ) {
  *
  * @return WP_Roles WP_Roles global instance if not already instantiated.
  */
-function wp_roles() {
+function wp_roles() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_roles;
 
 	if ( ! isset( $wp_roles ) ) {
@@ -635,7 +635,7 @@ function wp_roles() {
  * @param string $role Role name.
  * @return WP_Role|null WP_Role object if found, null if the role does not exist.
  */
-function get_role( $role ) {
+function get_role( $role ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return wp_roles()->get_role( $role );
 }
 
@@ -649,7 +649,7 @@ function get_role( $role ) {
  * @param array $capabilities List of capabilities, e.g. array( 'edit_posts' => true, 'delete_posts' => false );
  * @return WP_Role|null WP_Role object if role is added, null if already exists.
  */
-function add_role( $role, $display_name, $capabilities = array() ) {
+function add_role( $role, $display_name, $capabilities = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $role ) ) {
 		return;
 	}
@@ -663,7 +663,7 @@ function add_role( $role, $display_name, $capabilities = array() ) {
  *
  * @param string $role Role name.
  */
-function remove_role( $role ) {
+function remove_role( $role ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_roles()->remove_role( $role );
 }
 
@@ -676,7 +676,7 @@ function remove_role( $role ) {
  *
  * @return array List of super admin logins
  */
-function get_super_admins() {
+function get_super_admins() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $super_admins;
 
 	if ( isset($super_admins) )
@@ -693,7 +693,7 @@ function get_super_admins() {
  * @param int $user_id (Optional) The ID of a user. Defaults to the current user.
  * @return bool True if the user is a site admin.
  */
-function is_super_admin( $user_id = false ) {
+function is_super_admin( $user_id = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $user_id || $user_id == get_current_user_id() )
 		$user = wp_get_current_user();
 	else
@@ -725,7 +725,7 @@ function is_super_admin( $user_id = false ) {
  * @return bool True on success, false on failure. This can fail when the user is
  *              already a super admin or when the `$super_admins` global is defined.
  */
-function grant_super_admin( $user_id ) {
+function grant_super_admin( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// If global super_admins override is defined, there is nothing to do here.
 	if ( isset( $GLOBALS['super_admins'] ) || ! is_multisite() ) {
 		return false;
@@ -772,7 +772,7 @@ function grant_super_admin( $user_id ) {
  * @return bool True on success, false on failure. This can fail when the user's email
  *              is the network admin email or when the `$super_admins` global is defined.
  */
-function revoke_super_admin( $user_id ) {
+function revoke_super_admin( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// If global super_admins override is defined, there is nothing to do here.
 	if ( isset( $GLOBALS['super_admins'] ) || ! is_multisite() ) {
 		return false;

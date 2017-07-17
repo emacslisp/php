@@ -104,7 +104,7 @@ for ( $i = 1; $i <= $count; $i++ ) {
 				$subject = trim($line);
 				$subject = substr($subject, 9, strlen($subject) - 9);
 				// Captures any text in the subject before $phone_delim as the subject
-				if ( function_exists('iconv_mime_decode') ) {
+				if ( function_exists('iconv_mime_decode') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 					$subject = iconv_mime_decode($subject, 2, get_option('blog_charset'));
 				} else {
 					$subject = wp_iso_descrambler($subject);
@@ -184,7 +184,7 @@ for ( $i = 1; $i <= $count; $i++ ) {
 		$content = quoted_printable_decode($content);
 	}
 
-	if ( function_exists('iconv') && ! empty( $charset ) ) {
+	if ( function_exists('iconv') && ! empty( $charset ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$content = iconv($charset, get_option('blog_charset'), $content);
 	}
 

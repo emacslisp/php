@@ -122,7 +122,7 @@ $is_iis7 = $is_IIS && intval( substr( $_SERVER['SERVER_SOFTWARE'], strpos( $_SER
  *
  * @return bool
  */
-function wp_is_mobile() {
+function wp_is_mobile() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty($_SERVER['HTTP_USER_AGENT']) ) {
 		$is_mobile = false;
 	} elseif ( strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') !== false // many mobile devices (all iPhone, iPad, etc.)

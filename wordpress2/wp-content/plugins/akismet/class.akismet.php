@@ -11,7 +11,7 @@ class Akismet {
 	private static $last_comment_result = null;
 	private static $comment_as_submitted_allowed_keys = array( 'blog' => '', 'blog_charset' => '', 'blog_lang' => '', 'blog_ua' => '', 'comment_agent' => '', 'comment_author' => '', 'comment_author_IP' => '', 'comment_author_email' => '', 'comment_author_url' => '', 'comment_content' => '', 'comment_date_gmt' => '', 'comment_tags' => '', 'comment_type' => '', 'guid' => '', 'is_test' => '', 'permalink' => '', 'reporter' => '', 'site_domain' => '', 'submit_referer' => '', 'submit_uri' => '', 'user_ID' => '', 'user_agent' => '', 'user_id' => '', 'user_ip' => '' );
 
-	public static function init() {
+	public static function init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! self::$initiated ) {
 			self::init_hooks();
 		}
@@ -20,7 +20,7 @@ class Akismet {
 	/**
 	 * Initializes WordPress hooks
 	 */
-	private static function init_hooks() {
+	private static function init_hooks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::$initiated = true;
 
 		add_action( 'wp_insert_comment', array( 'Akismet', 'auto_check_update_meta' ), 10, 2 );
@@ -59,15 +59,15 @@ class Akismet {
 		add_action( 'update_option_wordpress_api_key', array( 'Akismet', 'updated_option' ), 10, 2 );
 	}
 
-	public static function get_api_key() {
+	public static function get_api_key() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return apply_filters( 'akismet_get_api_key', defined('WPCOM_API_KEY') ? constant('WPCOM_API_KEY') : get_option('wordpress_api_key') );
 	}
 
-	public static function check_key_status( $key, $ip = null ) {
+	public static function check_key_status( $key, $ip = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return self::http_post( Akismet::build_query( array( 'key' => $key, 'blog' => get_option( 'home' ) ) ), 'verify-key', $ip );
 	}
 
-	public static function verify_key( $key, $ip = null ) {
+	public static function verify_key( $key, $ip = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$response = self::check_key_status( $key, $ip );
 
 		if ( $response[1] != 'valid' && $response[1] != 'invalid' )
@@ -76,7 +76,7 @@ class Akismet {
 		return $response[1];
 	}
 
-	public static function deactivate_key( $key ) {
+	public static function deactivate_key( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$response = self::http_post( Akismet::build_query( array( 'key' => $key, 'blog' => get_option( 'home' ) ) ), 'deactivate' );
 
 		if ( $response[1] != 'deactivated' )
@@ -91,7 +91,7 @@ class Akismet {
 	 * @param array $options The list of whitelisted option names.
 	 * @return array The updated whitelist
 	 */
-	public static function add_to_jetpack_options_whitelist( $options ) {
+	public static function add_to_jetpack_options_whitelist( $options ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$options[] = 'wordpress_api_key';
 		return $options;
 	}
@@ -105,7 +105,7 @@ class Akismet {
 	 * @param mixed  $old_value   The old option value.
 	 * @param mixed  $value       The new option value.
 	 */
-	public static function updated_option( $old_value, $value ) {
+	public static function updated_option( $old_value, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Not an API call
 		if ( ! class_exists( 'WPCOM_JSON_API_Update_Option_Endpoint' ) ) {
 			return;
@@ -116,7 +116,7 @@ class Akismet {
 		}
 	}
 
-	public static function auto_check_comment( $commentdata ) {
+	public static function auto_check_comment( $commentdata ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::$last_comment_result = null;
 
 		$comment = $commentdata;
@@ -211,7 +211,7 @@ class Akismet {
 				// Comment status should be moderated
 				self::$last_comment_result = '0';
 			}
-			if ( function_exists('wp_next_scheduled') && function_exists('wp_schedule_single_event') ) {
+			if ( function_exists('wp_next_scheduled') && function_exists('wp_schedule_single_event') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				if ( !wp_next_scheduled( 'akismet_schedule_cron_recheck' ) ) {
 					wp_schedule_single_event( time() + 1200, 'akismet_schedule_cron_recheck' );
 					do_action( 'akismet_scheduled_recheck', 'invalid-response-' . $response[1] );
@@ -221,7 +221,7 @@ class Akismet {
 			self::$prevent_moderation_email_for_these_comments[] = $commentdata;
 		}
 
-		if ( function_exists('wp_next_scheduled') && function_exists('wp_schedule_event') ) {
+		if ( function_exists('wp_next_scheduled') && function_exists('wp_schedule_event') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			// WP 2.1+: delete old comments daily
 			if ( !wp_next_scheduled( 'akismet_scheduled_delete' ) )
 				wp_schedule_event( time(), 'daily', 'akismet_scheduled_delete' );
@@ -237,11 +237,11 @@ class Akismet {
 		return $commentdata;
 	}
 	
-	public static function get_last_comment() {
+	public static function get_last_comment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return self::$last_comment;
 	}
 	
-	public static function set_last_comment( $comment ) {
+	public static function set_last_comment( $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_null( $comment ) ) {
 			self::$last_comment = null;
 		}
@@ -259,7 +259,7 @@ class Akismet {
 
 	// this fires on wp_insert_comment.  we can't update comment_meta when auto_check_comment() runs
 	// because we don't know the comment ID at that point.
-	public static function auto_check_update_meta( $id, $comment ) {
+	public static function auto_check_update_meta( $id, $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// failsafe for old WP versions
 		if ( !function_exists('add_comment_meta') )
@@ -318,7 +318,7 @@ class Akismet {
 		}
 	}
 
-	public static function delete_old_comments() {
+	public static function delete_old_comments() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		/**
@@ -360,7 +360,7 @@ class Akismet {
 			$wpdb->query("OPTIMIZE TABLE {$wpdb->comments}");
 	}
 
-	public static function delete_old_comments_meta() {
+	public static function delete_old_comments_meta() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$interval = apply_filters( 'akismet_delete_commentmeta_interval', 15 );
@@ -388,7 +388,7 @@ class Akismet {
 	}
 
 	// how many approved comments does this author have?
-	public static function get_user_comments_approved( $user_id, $comment_author_email, $comment_author, $comment_author_url ) {
+	public static function get_user_comments_approved( $user_id, $comment_author_email, $comment_author, $comment_author_url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		if ( !empty( $user_id ) )
@@ -401,7 +401,7 @@ class Akismet {
 	}
 
 	// get the full comment history for a given comment, as an array in reverse chronological order
-	public static function get_comment_history( $comment_id ) {
+	public static function get_comment_history( $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// failsafe for old WP versions
 		if ( !function_exists('add_comment_meta') )
@@ -420,7 +420,7 @@ class Akismet {
 	 * @param string $event The event code.
 	 * @param array $meta Metadata about the history entry. e.g., the user that reported or changed the status of a given comment.
 	 */
-	public static function update_comment_history( $comment_id, $message, $event=null, $meta=null ) {
+	public static function update_comment_history( $comment_id, $message, $event=null, $meta=null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $current_user;
 
 		// failsafe for old WP versions
@@ -446,7 +446,7 @@ class Akismet {
 		$r = add_comment_meta( $comment_id, 'akismet_history', $event, false );
 	}
 
-	public static function check_db_comment( $id, $recheck_reason = 'recheck_queue' ) {
+	public static function check_db_comment( $id, $recheck_reason = 'recheck_queue' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$c = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->comments} WHERE comment_ID = %d", $id ), ARRAY_A );
@@ -480,7 +480,7 @@ class Akismet {
 		return false;
 	}
 	
-	public static function recheck_comment( $id, $recheck_reason = 'recheck_queue' ) {
+	public static function recheck_comment( $id, $recheck_reason = 'recheck_queue' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		add_comment_meta( $id, 'akismet_rechecking', true );
 		
 		$api_response = self::check_db_comment( $id, $recheck_reason );
@@ -517,7 +517,7 @@ class Akismet {
 		return $api_response;
 	}
 
-	public static function transition_comment_status( $new_status, $old_status, $comment ) {
+	public static function transition_comment_status( $new_status, $old_status, $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		
 		if ( $new_status == $old_status )
 			return;
@@ -565,7 +565,7 @@ class Akismet {
 		self::update_comment_history( $comment->comment_ID, '', 'status-' . $new_status );
 	}
 	
-	public static function submit_spam_comment( $comment_id ) {
+	public static function submit_spam_comment( $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb, $current_user, $current_site;
 
 		$comment_id = (int) $comment_id;
@@ -615,7 +615,7 @@ class Akismet {
 		do_action('akismet_submit_spam_comment', $comment_id, $response[1]);
 	}
 
-	public static function submit_nonspam_comment( $comment_id ) {
+	public static function submit_nonspam_comment( $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb, $current_user, $current_site;
 
 		$comment_id = (int) $comment_id;
@@ -661,7 +661,7 @@ class Akismet {
 		do_action('akismet_submit_nonspam_comment', $comment_id, $response[1]);
 	}
 
-	public static function cron_recheck() {
+	public static function cron_recheck() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$api_key = self::get_api_key();
@@ -745,7 +745,7 @@ class Akismet {
 		}
 	}
 
-	public static function fix_scheduled_recheck() {
+	public static function fix_scheduled_recheck() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$future_check = wp_next_scheduled( 'akismet_schedule_cron_recheck' );
 		if ( !$future_check ) {
 			return;
@@ -763,17 +763,17 @@ class Akismet {
 		}
 	}
 
-	public static function add_comment_nonce( $post_id ) {
+	public static function add_comment_nonce( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo '<p style="display: none;">';
 		wp_nonce_field( 'akismet_comment_nonce_' . $post_id, 'akismet_comment_nonce', FALSE );
 		echo '</p>';
 	}
 
-	public static function is_test_mode() {
+	public static function is_test_mode() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return defined('AKISMET_TEST_MODE') && AKISMET_TEST_MODE;
 	}
 	
-	public static function allow_discard() {
+	public static function allow_discard() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
 			return false;
 		if ( is_user_logged_in() )
@@ -782,7 +782,7 @@ class Akismet {
 		return ( get_option( 'akismet_strictness' ) === '1'  );
 	}
 
-	public static function get_ip_address() {
+	public static function get_ip_address() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : null;
 	}
 	
@@ -793,7 +793,7 @@ class Akismet {
 	 * @param mixed $comment2 A comment object or array.
 	 * @return bool Whether the two comments should be treated as the same comment.
 	 */
-	private static function comments_match( $comment1, $comment2 ) {
+	private static function comments_match( $comment1, $comment2 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$comment1 = (array) $comment1;
 		$comment2 = (array) $comment2;
 		
@@ -829,23 +829,23 @@ class Akismet {
 	}
 	
 	// Does the supplied comment match the details of the one most recently stored in self::$last_comment?
-	public static function matches_last_comment( $comment ) {
+	public static function matches_last_comment( $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_object( $comment ) )
 			$comment = (array) $comment;
 
 		return self::comments_match( self::$last_comment, $comment );
 	}
 
-	private static function get_user_agent() {
+	private static function get_user_agent() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : null;
 	}
 
-	private static function get_referer() {
+	private static function get_referer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : null;
 	}
 
 	// return a comma-separated list of role names for the given user
-	public static function get_user_roles( $user_id ) {
+	public static function get_user_roles( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$roles = false;
 
 		if ( !class_exists('WP_User') )
@@ -870,7 +870,7 @@ class Akismet {
 	}
 
 	// filter handler used to return a spam result to pre_comment_approved
-	public static function last_comment_status( $approved, $comment ) {
+	public static function last_comment_status( $approved, $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_null( self::$last_comment_result ) ) {
 			// We didn't have reason to store the result of the last check.
 			return $approved;
@@ -901,7 +901,7 @@ class Akismet {
 	 * @param int $comment_id The ID of the relevant comment.
 	 * @return array An array of email addresses that the moderation email will be sent to.
 	 */
-	public static function disable_moderation_emails_if_unreachable( $emails, $comment_id ) {
+	public static function disable_moderation_emails_if_unreachable( $emails, $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! empty( self::$prevent_moderation_email_for_these_comments ) && ! empty( $emails ) ) {
 			$comment = get_comment( $comment_id );
 
@@ -916,11 +916,11 @@ class Akismet {
 		return $emails;
 	}
 
-	public static function _cmp_time( $a, $b ) {
+	public static function _cmp_time( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $a['time'] > $b['time'] ? -1 : 1;
 	}
 
-	public static function _get_microtime() {
+	public static function _get_microtime() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$mtime = explode( ' ', microtime() );
 		return $mtime[1] + $mtime[0];
 	}
@@ -933,7 +933,7 @@ class Akismet {
 	 * @param string $ip The specific IP address to hit.
 	 * @return array A two-member array consisting of the headers and the response body, both empty in the case of a failure.
 	 */
-	public static function http_post( $request, $path, $ip=null ) {
+	public static function http_post( $request, $path, $ip=null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$akismet_ua = sprintf( 'WordPress/%s | Akismet/%s', $GLOBALS['wp_version'], constant( 'AKISMET_VERSION' ) );
 		$akismet_ua = apply_filters( 'akismet_ua', $akismet_ua );
@@ -983,7 +983,7 @@ class Akismet {
 			do_action( 'akismet_ssl_disabled' );
 		}
 
-		if ( ! $ssl_disabled && function_exists( 'wp_http_supports') && ( $ssl = wp_http_supports( array( 'ssl' ) ) ) ) {
+		if ( ! $ssl_disabled && function_exists( 'wp_http_supports') && ( $ssl = wp_http_supports( array( 'ssl' ) ) ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			$akismet_url = set_url_scheme( $akismet_url, 'https' );
 
 			do_action( 'akismet_https_request_pre' );
@@ -1038,7 +1038,7 @@ class Akismet {
 	}
 
 	// given a response from an API call like check_key_status(), update the alert code options if an alert is present.
-	private static function update_alert( $response ) {
+	private static function update_alert( $response ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$code = $msg = null;
 		if ( isset( $response[0]['x-akismet-alert-code'] ) ) {
 			$code = $response[0]['x-akismet-alert-code'];
@@ -1058,7 +1058,7 @@ class Akismet {
 		}
 	}
 
-	public static function load_form_js() {
+	public static function load_form_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// WP < 3.3 can't enqueue a script this late in the game and still have it appear in the footer.
 		// Once we drop support for everything pre-3.3, this can change back to a single enqueue call.
 		wp_register_script( 'akismet-form', plugin_dir_url( __FILE__ ) . '_inc/form.js', array(), AKISMET_VERSION, true );
@@ -1066,17 +1066,17 @@ class Akismet {
 		add_action( 'admin_footer', array( 'Akismet', 'print_form_js' ) );
 	}
 	
-	public static function print_form_js() {
+	public static function print_form_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_print_scripts( 'akismet-form' );
 	}
 
-	public static function inject_ak_js( $fields ) {
+	public static function inject_ak_js( $fields ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo '<p style="display: none;">';
 		echo '<input type="hidden" id="ak_js" name="ak_js" value="' . mt_rand( 0, 250 ) . '"/>';
 		echo '</p>';
 	}
 
-	private static function bail_on_activation( $message, $deactivate = true ) {
+	private static function bail_on_activation( $message, $deactivate = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 <!doctype html>
 <html>
@@ -1117,7 +1117,7 @@ p {
 		exit;
 	}
 
-	public static function view( $name, array $args = array() ) {
+	public static function view( $name, array $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = apply_filters( 'akismet_view_arguments', $args, $name );
 		
 		foreach ( $args AS $key => $val ) {
@@ -1135,7 +1135,7 @@ p {
 	 * Attached to activate_{ plugin_basename( __FILES__ ) } by register_activation_hook()
 	 * @static
 	 */
-	public static function plugin_activation() {
+	public static function plugin_activation() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( version_compare( $GLOBALS['wp_version'], AKISMET__MINIMUM_WP_VERSION, '<' ) ) {
 			load_plugin_textdomain( 'akismet' );
 			
@@ -1149,7 +1149,7 @@ p {
 	 * Removes all connection options
 	 * @static
 	 */
-	public static function plugin_deactivation( ) {
+	public static function plugin_deactivation( ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return self::deactivate_key( self::get_api_key() );
 	}
 	
@@ -1159,7 +1159,7 @@ p {
 	 * @param array $args An array of key => value pairs
 	 * @return string A string ready for use as a URL query string.
 	 */
-	public static function build_query( $args ) {
+	public static function build_query( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return _http_build_query( $args, '', '&' );
 	}
 
@@ -1172,13 +1172,13 @@ p {
 	 *
 	 * @param mixed $akismet_debug The data to log.
 	 */
-	public static function log( $akismet_debug ) {
+	public static function log( $akismet_debug ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( apply_filters( 'akismet_debug_log', defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) ) {
 			error_log( print_r( compact( 'akismet_debug' ), true ) );
 		}
 	}
 
-	public static function pre_check_pingback( $method ) {
+	public static function pre_check_pingback( $method ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $method !== 'pingback.ping' )
 			return;
 
@@ -1217,7 +1217,7 @@ p {
 		}
 	}
 	
-	public static function pingback_forwarded_for( $r, $url ) {
+	public static function pingback_forwarded_for( $r, $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $urls = array();
 	
 		// Call this with $r == null to prime the callback to add headers on a specific URL
@@ -1245,7 +1245,7 @@ p {
 	 * @param mixed $meta_value
 	 * @return mixed
 	 */
-	private static function sanitize_comment_as_submitted( $meta_value ) {
+	private static function sanitize_comment_as_submitted( $meta_value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $meta_value ) ) {
 			return $meta_value;
 		}

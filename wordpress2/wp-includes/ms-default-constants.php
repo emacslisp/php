@@ -17,7 +17,7 @@
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  */
-function ms_upload_constants() {
+function ms_upload_constants() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	// This filter is attached in ms-default-filters.php but that file is not included during SHORTINIT.
@@ -46,7 +46,7 @@ function ms_upload_constants() {
  *
  * @since 3.0.0
  */
-function ms_cookie_constants(  ) {
+function ms_cookie_constants(  ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current_network = get_network();
 
 	/**
@@ -91,7 +91,7 @@ function ms_cookie_constants(  ) {
  *
  * @since 3.0.0
  */
-function ms_file_constants() {
+function ms_file_constants() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Optional support for X-Sendfile header
 	 * @since 3.0.0
@@ -120,7 +120,7 @@ function ms_file_constants() {
  * @staticvar bool $subdomain_error
  * @staticvar bool $subdomain_error_warn
  */
-function ms_subdomain_constants() {
+function ms_subdomain_constants() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $subdomain_error = null;
 	static $subdomain_error_warn = null;
 

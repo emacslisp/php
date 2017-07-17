@@ -35,7 +35,7 @@ class WP_HTTP_Requests_Hooks extends Requests_Hooks {
 	 * @param string $url URL to request.
 	 * @param array $request Request data in WP_Http format.
 	 */
-	public function __construct( $url, $request ) {
+	public function __construct( $url, $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->url = $url;
 		$this->request = $request;
 	}
@@ -47,7 +47,7 @@ class WP_HTTP_Requests_Hooks extends Requests_Hooks {
 	 * @param array $parameters Parameters to pass to callbacks.
 	 * @return boolean True if hooks were run, false if nothing was hooked.
 	 */
-	public function dispatch( $hook, $parameters = array() ) {
+	public function dispatch( $hook, $parameters = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$result = parent::dispatch( $hook, $parameters );
 
 		// Handle back-compat actions

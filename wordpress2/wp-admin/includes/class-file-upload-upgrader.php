@@ -54,7 +54,7 @@ class File_Upload_Upgrader {
 	 * @param string $form      The name of the form the file was uploaded from.
 	 * @param string $urlholder The name of the `GET` parameter that holds the filename.
 	 */
-	public function __construct( $form, $urlholder ) {
+	public function __construct( $form, $urlholder ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		if ( empty($_FILES[$form]['name']) && empty($_GET[$urlholder]) )
 			wp_die(__('Please select a file'));
@@ -117,7 +117,7 @@ class File_Upload_Upgrader {
 	 *
 	 * @return bool Whether the cleanup was successful.
 	 */
-	public function cleanup() {
+	public function cleanup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->id )
 			wp_delete_attachment( $this->id );
 

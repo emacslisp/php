@@ -40,7 +40,7 @@ class WP_Widget_Area_Customize_Control extends WP_Customize_Control {
 	 * @since 3.9.0
 	 * @access public
 	 */
-	public function to_json() {
+	public function to_json() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::to_json();
 		$exported_properties = array( 'sidebar_id' );
 		foreach ( $exported_properties as $key ) {
@@ -54,7 +54,7 @@ class WP_Widget_Area_Customize_Control extends WP_Customize_Control {
 	 * @since 3.9.0
 	 * @access public
 	 */
-	public function render_content() {
+	public function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$id = 'reorder-widgets-desc-' . str_replace( array( '[', ']' ), array( '-', '' ), $this->id );
 		?>
 		<button type="button" class="button add-new-widget" aria-expanded="false" aria-controls="available-widgets">

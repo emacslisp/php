@@ -27,7 +27,7 @@
  */
 class ftp_pure extends ftp_base {
 
-	function __construct($verb=FALSE, $le=FALSE) {
+	function __construct($verb=FALSE, $le=FALSE) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct(false, $verb, $le);
 	}
 
@@ -35,7 +35,7 @@ class ftp_pure extends ftp_base {
 // <!--       Private functions                                                                 -->
 // <!-- --------------------------------------------------------------------------------------- -->
 
-	function _settimeout($sock) {
+	function _settimeout($sock) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!@stream_set_timeout($sock, $this->_timeout)) {
 			$this->PushError('_settimeout','socket set send timeout');
 			$this->_quit();
@@ -44,7 +44,7 @@ class ftp_pure extends ftp_base {
 		return TRUE;
 	}
 
-	function _connect($host, $port) {
+	function _connect($host, $port) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->SendMSG("Creating socket");
 		$sock = @fsockopen($host, $port, $errno, $errstr, $this->_timeout);
 		if (!$sock) {
@@ -55,7 +55,7 @@ class ftp_pure extends ftp_base {
 		return $sock;
 	}
 
-	function _readmsg($fnction="_readmsg"){
+	function _readmsg($fnction="_readmsg"){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_connected) {
 			$this->PushError($fnction, 'Connect first');
 			return FALSE;
@@ -79,7 +79,7 @@ class ftp_pure extends ftp_base {
 		return $result;
 	}
 
-	function _exec($cmd, $fnction="_exec") {
+	function _exec($cmd, $fnction="_exec") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_ready) {
 			$this->PushError($fnction,'Connect first');
 			return FALSE;
@@ -95,7 +95,7 @@ class ftp_pure extends ftp_base {
 		return TRUE;
 	}
 
-	function _data_prepare($mode=FTP_ASCII) {
+	function _data_prepare($mode=FTP_ASCII) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_settype($mode)) return FALSE;
 		if($this->_passive) {
 			if(!$this->_exec("PASV", "pasv")) {
@@ -124,7 +124,7 @@ class ftp_pure extends ftp_base {
 		return TRUE;
 	}
 
-	function _data_read($mode=FTP_ASCII, $fp=NULL) {
+	function _data_read($mode=FTP_ASCII, $fp=NULL) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(is_resource($fp)) $out=0;
 		else $out="";
 		if(!$this->_passive) {
@@ -140,7 +140,7 @@ class ftp_pure extends ftp_base {
 		return $out;
 	}
 
-	function _data_write($mode=FTP_ASCII, $fp=NULL) {
+	function _data_write($mode=FTP_ASCII, $fp=NULL) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(is_resource($fp)) $out=0;
 		else $out="";
 		if(!$this->_passive) {
@@ -156,7 +156,7 @@ class ftp_pure extends ftp_base {
 		return TRUE;
 	}
 
-	function _data_write_block($mode, $block) {
+	function _data_write_block($mode, $block) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if($mode!=FTP_BINARY) $block=preg_replace("/\r\n|\r|\n/", $this->_eol_code[$this->OS_remote], $block);
 		do {
 			if(($t=@fwrite($this->_ftp_data_sock, $block))===FALSE) {
@@ -168,13 +168,13 @@ class ftp_pure extends ftp_base {
 		return true;
 	}
 
-	function _data_close() {
+	function _data_close() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		@fclose($this->_ftp_data_sock);
 		$this->SendMSG("Disconnected data from remote host");
 		return TRUE;
 	}
 
-	function _quit($force=FALSE) {
+	function _quit($force=FALSE) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if($this->_connected or $force) {
 			@fclose($this->_ftp_control_sock);
 			$this->_connected=false;

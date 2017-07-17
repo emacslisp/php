@@ -58,7 +58,7 @@ class Text_Diff {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function Text_Diff( $engine, $params ) {
+	public function Text_Diff( $engine, $params ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $engine, $params );
 	}
 
@@ -397,7 +397,7 @@ class Text_Diff_Op_copy extends Text_Diff_Op {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function Text_Diff_Op_copy( $orig, $final = false ) {
+	public function Text_Diff_Op_copy( $orig, $final = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $orig, $final );
 	}
 
@@ -429,7 +429,7 @@ class Text_Diff_Op_delete extends Text_Diff_Op {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function Text_Diff_Op_delete( $lines ) {
+	public function Text_Diff_Op_delete( $lines ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $lines );
 	}
 
@@ -461,7 +461,7 @@ class Text_Diff_Op_add extends Text_Diff_Op {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function Text_Diff_Op_add( $lines ) {
+	public function Text_Diff_Op_add( $lines ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $lines );
 	}
 
@@ -493,7 +493,7 @@ class Text_Diff_Op_change extends Text_Diff_Op {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function Text_Diff_Op_change( $orig, $final ) {
+	public function Text_Diff_Op_change( $orig, $final ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $orig, $final );
 	}
 

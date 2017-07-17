@@ -14,7 +14,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Customizer object.
  */
-function twentyfifteen_customize_register( $wp_customize ) {
+function twentyfifteen_customize_register( $wp_customize ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$color_scheme = twentyfifteen_get_color_scheme();
 
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
@@ -90,7 +90,7 @@ add_action( 'customize_register', 'twentyfifteen_customize_register', 11 );
  *
  * @return void
  */
-function twentyfifteen_customize_partial_blogname() {
+function twentyfifteen_customize_partial_blogname() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	bloginfo( 'name' );
 }
 
@@ -102,7 +102,7 @@ function twentyfifteen_customize_partial_blogname() {
  *
  * @return void
  */
-function twentyfifteen_customize_partial_blogdescription() {
+function twentyfifteen_customize_partial_blogdescription() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	bloginfo( 'description' );
 }
 
@@ -123,7 +123,7 @@ function twentyfifteen_customize_partial_blogdescription() {
  *
  * @return array An associative array of color scheme options.
  */
-function twentyfifteen_get_color_schemes() {
+function twentyfifteen_get_color_schemes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filter the color schemes registered for use with Twenty Fifteen.
 	 *
@@ -223,7 +223,7 @@ if ( ! function_exists( 'twentyfifteen_get_color_scheme' ) ) :
  *
  * @return array An associative array of either the current or default color scheme hex values.
  */
-function twentyfifteen_get_color_scheme() {
+function twentyfifteen_get_color_scheme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
 	$color_schemes       = twentyfifteen_get_color_schemes();
 
@@ -243,7 +243,7 @@ if ( ! function_exists( 'twentyfifteen_get_color_scheme_choices' ) ) :
  *
  * @return array Array of color schemes.
  */
-function twentyfifteen_get_color_scheme_choices() {
+function twentyfifteen_get_color_scheme_choices() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$color_schemes                = twentyfifteen_get_color_schemes();
 	$color_scheme_control_options = array();
 
@@ -264,7 +264,7 @@ if ( ! function_exists( 'twentyfifteen_sanitize_color_scheme' ) ) :
  * @param string $value Color scheme name value.
  * @return string Color scheme name.
  */
-function twentyfifteen_sanitize_color_scheme( $value ) {
+function twentyfifteen_sanitize_color_scheme( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$color_schemes = twentyfifteen_get_color_scheme_choices();
 
 	if ( ! array_key_exists( $value, $color_schemes ) ) {
@@ -282,7 +282,7 @@ endif; // twentyfifteen_sanitize_color_scheme
  *
  * @see wp_add_inline_style()
  */
-function twentyfifteen_color_scheme_css() {
+function twentyfifteen_color_scheme_css() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
 
 	// Don't do anything if the default color scheme is selected.
@@ -323,7 +323,7 @@ add_action( 'wp_enqueue_scripts', 'twentyfifteen_color_scheme_css' );
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_customize_control_js() {
+function twentyfifteen_customize_control_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_enqueue_script( 'color-scheme-control', get_template_directory_uri() . '/js/color-scheme-control.js', array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), '20141216', true );
 	wp_localize_script( 'color-scheme-control', 'colorScheme', twentyfifteen_get_color_schemes() );
 }
@@ -334,7 +334,7 @@ add_action( 'customize_controls_enqueue_scripts', 'twentyfifteen_customize_contr
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_customize_preview_js() {
+function twentyfifteen_customize_preview_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_enqueue_script( 'twentyfifteen-customize-preview', get_template_directory_uri() . '/js/customize-preview.js', array( 'customize-preview' ), '20141216', true );
 }
 add_action( 'customize_preview_init', 'twentyfifteen_customize_preview_js' );
@@ -347,7 +347,7 @@ add_action( 'customize_preview_init', 'twentyfifteen_customize_preview_js' );
  * @param array $colors Color scheme colors.
  * @return string Color scheme CSS.
  */
-function twentyfifteen_get_color_scheme_css( $colors ) {
+function twentyfifteen_get_color_scheme_css( $colors ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$colors = wp_parse_args( $colors, array(
 		'background_color'            => '',
 		'header_background_color'     => '',
@@ -749,7 +749,7 @@ CSS;
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_color_scheme_css_template() {
+function twentyfifteen_color_scheme_css_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$colors = array(
 		'background_color'            => '{{ data.background_color }}',
 		'header_background_color'     => '{{ data.header_background_color }}',

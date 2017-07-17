@@ -13,7 +13,7 @@
  *
  * @since 3.9.0
  */
-function wp_underscore_audio_template() {
+function wp_underscore_audio_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$audio_types = wp_get_audio_extensions();
 ?>
 <audio style="visibility: hidden"
@@ -47,7 +47,7 @@ function wp_underscore_audio_template() {
  *
  * @since 3.9.0
  */
-function wp_underscore_video_template() {
+function wp_underscore_video_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$video_types = wp_get_video_extensions();
 ?>
 <#  var w_rule = '', classes = [],
@@ -136,7 +136,7 @@ function wp_underscore_video_template() {
  *
  * @global bool $is_IE
  */
-function wp_print_media_templates() {
+function wp_print_media_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $is_IE;
 	$class = 'media-modal wp-core-ui';
 	if ( $is_IE && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7') !== false )
@@ -1068,7 +1068,7 @@ function wp_print_media_templates() {
 				<div class="setting">
 					<span><?php _e( 'Add alternate sources for maximum HTML5 playback:' ) ?></span>
 					<div class="button-large">
-					<# _.each( html5types, function (mime, type) { #>
+					<# _.each( html5types, function (mime, type) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); #>
 					<button class="button add-media-source" data-mime="{{ mime }}">{{ type }}</button>
 					<# } ) #>
 					</div>
@@ -1150,7 +1150,7 @@ function wp_print_media_templates() {
 				<div class="setting">
 					<span><?php _e( 'Add alternate sources for maximum HTML5 playback:' ); ?></span>
 					<div class="button-large">
-					<# _.each( html5types, function (mime, type) { #>
+					<# _.each( html5types, function (mime, type) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); #>
 					<button class="button add-media-source" data-mime="{{ mime }}">{{ type }}</button>
 					<# } ) #>
 					</div>
@@ -1189,7 +1189,7 @@ function wp_print_media_templates() {
 					var content = '';
 					if ( ! _.isEmpty( data.model.content ) ) {
 						var tracks = jQuery( data.model.content ).filter( 'track' );
-						_.each( tracks.toArray(), function (track) {
+						_.each( tracks.toArray(), function (track) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 							content += track.outerHTML; #>
 						<p>
 							<input class="content-track" type="text" value="{{ track.outerHTML }}" />
@@ -1208,7 +1208,7 @@ function wp_print_media_templates() {
 	<script type="text/html" id="tmpl-editor-gallery">
 		<# if ( data.attachments.length ) { #>
 			<div class="gallery gallery-columns-{{ data.columns }}">
-				<# _.each( data.attachments, function( attachment, index ) { #>
+				<# _.each( data.attachments, function( attachment, index ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); #>
 					<dl class="gallery-item">
 						<dt class="gallery-icon">
 							<# if ( attachment.thumbnail ) { #>

@@ -18,7 +18,7 @@
  *
  * @since Twenty Sixteen 1.0
  */
-function twentysixteen_switch_theme() {
+function twentysixteen_switch_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	switch_theme( WP_DEFAULT_THEME, WP_DEFAULT_THEME );
 
 	unset( $_GET['activated'] );
@@ -37,7 +37,7 @@ add_action( 'after_switch_theme', 'twentysixteen_switch_theme' );
  *
  * @global string $wp_version WordPress version.
  */
-function twentysixteen_upgrade_notice() {
+function twentysixteen_upgrade_notice() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$message = sprintf( __( 'Twenty Sixteen requires at least WordPress version 4.4. You are running version %s. Please upgrade and try again.', 'twentysixteen' ), $GLOBALS['wp_version'] );
 	printf( '<div class="error"><p>%s</p></div>', $message );
 }
@@ -49,7 +49,7 @@ function twentysixteen_upgrade_notice() {
  *
  * @global string $wp_version WordPress version.
  */
-function twentysixteen_customize() {
+function twentysixteen_customize() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_die( sprintf( __( 'Twenty Sixteen requires at least WordPress version 4.4. You are running version %s. Please upgrade and try again.', 'twentysixteen' ), $GLOBALS['wp_version'] ), '', array(
 		'back_link' => true,
 	) );
@@ -63,7 +63,7 @@ add_action( 'load-customize.php', 'twentysixteen_customize' );
  *
  * @global string $wp_version WordPress version.
  */
-function twentysixteen_preview() {
+function twentysixteen_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $_GET['preview'] ) ) {
 		wp_die( sprintf( __( 'Twenty Sixteen requires at least WordPress version 4.4. You are running version %s. Please upgrade and try again.', 'twentysixteen' ), $GLOBALS['wp_version'] ) );
 	}

@@ -72,10 +72,10 @@ function random_bytes($bytes)
              * 
              * stream_set_read_buffer returns 0 on success
              */
-            if (function_exists('stream_set_read_buffer')) {
+            if (function_exists('stream_set_read_buffer')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
                 stream_set_read_buffer($fp, RANDOM_COMPAT_READ_BUFFER);
             }
-            if (function_exists('stream_set_chunk_size')) {
+            if (function_exists('stream_set_chunk_size')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
                 stream_set_chunk_size($fp, RANDOM_COMPAT_READ_BUFFER);
             }
         }

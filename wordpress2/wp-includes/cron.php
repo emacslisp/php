@@ -24,7 +24,7 @@
  * @param array $args Optional. Arguments to pass to the hook's callback function.
  * @return false|void False if the event does not get scheduled.
  */
-function wp_schedule_single_event( $timestamp, $hook, $args = array()) {
+function wp_schedule_single_event( $timestamp, $hook, $args = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Make sure timestamp is a positive integer
 	if ( ! is_numeric( $timestamp ) || $timestamp <= 0 ) {
 		return false;
@@ -85,7 +85,7 @@ function wp_schedule_single_event( $timestamp, $hook, $args = array()) {
  * @param array $args Optional. Arguments to pass to the hook's callback function.
  * @return false|void False if the event does not get scheduled.
  */
-function wp_schedule_event( $timestamp, $recurrence, $hook, $args = array()) {
+function wp_schedule_event( $timestamp, $recurrence, $hook, $args = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Make sure timestamp is a positive integer
 	if ( ! is_numeric( $timestamp ) || $timestamp <= 0 ) {
 		return false;
@@ -123,7 +123,7 @@ function wp_schedule_event( $timestamp, $recurrence, $hook, $args = array()) {
  * @param array $args Optional. Arguments to pass to the hook's callback function.
  * @return false|void False if the event does not get rescheduled.
  */
-function wp_reschedule_event( $timestamp, $recurrence, $hook, $args = array() ) {
+function wp_reschedule_event( $timestamp, $recurrence, $hook, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Make sure timestamp is a positive integer
 	if ( ! is_numeric( $timestamp ) || $timestamp <= 0 ) {
 		return false;
@@ -174,7 +174,7 @@ function wp_reschedule_event( $timestamp, $recurrence, $hook, $args = array() ) 
  * as those used when originally scheduling the event.
  * @return false|void False if the event does not get unscheduled.
  */
-function wp_unschedule_event( $timestamp, $hook, $args = array() ) {
+function wp_unschedule_event( $timestamp, $hook, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Make sure timestamp is a positive integer
 	if ( ! is_numeric( $timestamp ) || $timestamp <= 0 ) {
 		return false;
@@ -198,7 +198,7 @@ function wp_unschedule_event( $timestamp, $hook, $args = array() ) {
  * @param string $hook Action hook, the execution of which will be unscheduled.
  * @param array $args Optional. Arguments that were to be passed to the hook's callback function.
  */
-function wp_clear_scheduled_hook( $hook, $args = array() ) {
+function wp_clear_scheduled_hook( $hook, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Backward compatibility
 	// Previously this function took the arguments as discrete vars rather than an array like the rest of the API
 	if ( !is_array($args) ) {
@@ -230,7 +230,7 @@ function wp_clear_scheduled_hook( $hook, $args = array() ) {
  * @param array $args Optional. Arguments to pass to the hook's callback function.
  * @return false|int The Unix timestamp of the next time the scheduled event will occur.
  */
-function wp_next_scheduled( $hook, $args = array() ) {
+function wp_next_scheduled( $hook, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$crons = _get_cron_array();
 	$key = md5(serialize($args));
 	if ( empty($crons) )
@@ -249,7 +249,7 @@ function wp_next_scheduled( $hook, $args = array() ) {
  *
  * @param int $gmt_time Optional. Unix timestamp (UTC). Default 0 (current time is used).
  */
-function spawn_cron( $gmt_time = 0 ) {
+function spawn_cron( $gmt_time = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $gmt_time )
 		$gmt_time = microtime( true );
 
@@ -345,7 +345,7 @@ function spawn_cron( $gmt_time = 0 ) {
  *
  * @since 2.1.0
  */
-function wp_cron() {
+function wp_cron() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Prevent infinite loops caused by lack of wp-cron.php
 	if ( strpos($_SERVER['REQUEST_URI'], '/wp-cron.php') !== false || ( defined('DISABLE_WP_CRON') && DISABLE_WP_CRON ) )
 		return;
@@ -400,7 +400,7 @@ function wp_cron() {
  *
  * @return array
  */
-function wp_get_schedules() {
+function wp_get_schedules() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$schedules = array(
 		'hourly'     => array( 'interval' => HOUR_IN_SECONDS,      'display' => __( 'Once Hourly' ) ),
 		'twicedaily' => array( 'interval' => 12 * HOUR_IN_SECONDS, 'display' => __( 'Twice Daily' ) ),
@@ -427,7 +427,7 @@ function wp_get_schedules() {
  * @param array $args Optional. Arguments passed to the event's callback function.
  * @return string|false False, if no schedule. Schedule name on success.
  */
-function wp_get_schedule($hook, $args = array()) {
+function wp_get_schedule($hook, $args = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$crons = _get_cron_array();
 	$key = md5(serialize($args));
 	if ( empty($crons) )
@@ -451,7 +451,7 @@ function wp_get_schedule($hook, $args = array()) {
  *
  * @return false|array CRON info array.
  */
-function _get_cron_array()  {
+function _get_cron_array()  {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$cron = get_option('cron');
 	if ( ! is_array($cron) )
 		return false;
@@ -472,7 +472,7 @@ function _get_cron_array()  {
  *
  * @param array $cron Cron info array from _get_cron_array().
  */
-function _set_cron_array($cron) {
+function _set_cron_array($cron) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$cron['version'] = 2;
 	update_option( 'cron', $cron );
 }
@@ -488,7 +488,7 @@ function _set_cron_array($cron) {
  * @param array $cron Cron info array from _get_cron_array().
  * @return array An upgraded Cron info array.
  */
-function _upgrade_cron_array($cron) {
+function _upgrade_cron_array($cron) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset($cron['version']) && 2 == $cron['version'])
 		return $cron;
 

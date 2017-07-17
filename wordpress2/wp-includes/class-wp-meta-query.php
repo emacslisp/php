@@ -136,7 +136,7 @@ class WP_Meta_Query {
 	 *     }
 	 * }
 	 */
-	public function __construct( $meta_query = false ) {
+	public function __construct( $meta_query = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !$meta_query )
 			return;
 
@@ -160,7 +160,7 @@ class WP_Meta_Query {
 	 * @param array $queries Array of query clauses.
 	 * @return array Sanitized array of query clauses.
 	 */
-	public function sanitize_query( $queries ) {
+	public function sanitize_query( $queries ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$clean_queries = array();
 
 		if ( ! is_array( $queries ) ) {
@@ -229,7 +229,7 @@ class WP_Meta_Query {
 	 * @param array $query Meta query arguments.
 	 * @return bool Whether the query clause is a first-order clause.
 	 */
-	protected function is_first_order_clause( $query ) {
+	protected function is_first_order_clause( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $query['key'] ) || isset( $query['value'] );
 	}
 
@@ -241,7 +241,7 @@ class WP_Meta_Query {
 	 *
 	 * @param array $qv The query variables
 	 */
-	public function parse_query_vars( $qv ) {
+	public function parse_query_vars( $qv ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$meta_query = array();
 
 		/*
@@ -290,7 +290,7 @@ class WP_Meta_Query {
 	 * @param string $type MySQL type to cast meta_value.
 	 * @return string MySQL type.
 	 */
-	public function get_cast_for_type( $type = '' ) {
+	public function get_cast_for_type( $type = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $type ) )
 			return 'CHAR';
 
@@ -322,7 +322,7 @@ class WP_Meta_Query {
 	 *     @type string $where SQL fragment to append to the main WHERE clause.
 	 * }
 	 */
-	public function get_sql( $type, $primary_table, $primary_id_column, $context = null ) {
+	public function get_sql( $type, $primary_table, $primary_id_column, $context = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $meta_table = _get_meta_table( $type ) ) {
 			return false;
 		}
@@ -376,7 +376,7 @@ class WP_Meta_Query {
 	 *     @type string $where SQL fragment to append to the main WHERE clause.
 	 * }
 	 */
-	protected function get_sql_clauses() {
+	protected function get_sql_clauses() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/*
 		 * $queries are passed by reference to get_sql_for_query() for recursion.
 		 * To keep $this->queries unaltered, pass a copy.
@@ -410,7 +410,7 @@ class WP_Meta_Query {
 	 *     @type string $where SQL fragment to append to the main WHERE clause.
 	 * }
 	 */
-	protected function get_sql_for_query( &$query, $depth = 0 ) {
+	protected function get_sql_for_query( &$query, $depth = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$sql_chunks = array(
 			'join'  => array(),
 			'where' => array(),
@@ -497,7 +497,7 @@ class WP_Meta_Query {
 	 *     @type string $where SQL fragment to append to the main WHERE clause.
 	 * }
 	 */
-	public function get_sql_for_clause( &$clause, $parent_query, $clause_key = '' ) {
+	public function get_sql_for_clause( &$clause, $parent_query, $clause_key = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$sql_chunks = array(
@@ -664,7 +664,7 @@ class WP_Meta_Query {
 	 *
 	 * @return array Meta clauses.
 	 */
-	public function get_clauses() {
+	public function get_clauses() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->clauses;
 	}
 
@@ -689,7 +689,7 @@ class WP_Meta_Query {
 	 * @param  array       $parent_query Parent query of $clause.
 	 * @return string|bool Table alias if found, otherwise false.
 	 */
-	protected function find_compatible_table_alias( $clause, $parent_query ) {
+	protected function find_compatible_table_alias( $clause, $parent_query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$alias = false;
 
 		foreach ( $parent_query as $sibling ) {
@@ -746,7 +746,7 @@ class WP_Meta_Query {
 	 *
 	 * @return bool True if the query contains any `OR` relations, otherwise false.
 	 */
-	public function has_or_relation() {
+	public function has_or_relation() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->has_or_relation;
 	}
 }

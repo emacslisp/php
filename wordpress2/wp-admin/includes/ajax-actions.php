@@ -19,7 +19,7 @@
  *
  * @since 3.6.0
  */
-function wp_ajax_nopriv_heartbeat() {
+function wp_ajax_nopriv_heartbeat() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$response = array();
 
 	// screen_id is the same as $current_screen->id and the JS global 'pagenow'.
@@ -80,7 +80,7 @@ function wp_ajax_nopriv_heartbeat() {
  *
  * @since 3.1.0
  */
-function wp_ajax_fetch_list() {
+function wp_ajax_fetch_list() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$list_class = $_GET['list_args']['class'];
 	check_ajax_referer( "fetch-list-$list_class", '_ajax_fetch_list_nonce' );
 
@@ -103,7 +103,7 @@ function wp_ajax_fetch_list() {
  *
  * @since 3.1.0
  */
-function wp_ajax_ajax_tag_search() {
+function wp_ajax_ajax_tag_search() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! isset( $_GET['tax'] ) ) {
 		wp_die( 0 );
 	}
@@ -159,7 +159,7 @@ function wp_ajax_ajax_tag_search() {
  *
  * @since 3.1.0
  */
-function wp_ajax_wp_compression_test() {
+function wp_ajax_wp_compression_test() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !current_user_can( 'manage_options' ) )
 		wp_die( -1 );
 
@@ -182,10 +182,10 @@ function wp_ajax_wp_compression_test() {
 		 } elseif ( 2 == $_GET['test'] ) {
 			if ( !isset($_SERVER['HTTP_ACCEPT_ENCODING']) )
 				wp_die( -1 );
-			if ( false !== stripos( $_SERVER['HTTP_ACCEPT_ENCODING'], 'deflate') && function_exists('gzdeflate') && ! $force_gzip ) {
+			if ( false !== stripos( $_SERVER['HTTP_ACCEPT_ENCODING'], 'deflate') && function_exists('gzdeflate') && ! $force_gzip ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				header('Content-Encoding: deflate');
 				$out = gzdeflate( $test_str, 1 );
-			} elseif ( false !== stripos( $_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') && function_exists('gzencode') ) {
+			} elseif ( false !== stripos( $_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') && function_exists('gzencode') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				header('Content-Encoding: gzip');
 				$out = gzencode( $test_str, 1 );
 			} else {
@@ -210,7 +210,7 @@ function wp_ajax_wp_compression_test() {
  *
  * @since 3.1.0
  */
-function wp_ajax_imgedit_preview() {
+function wp_ajax_imgedit_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post_id = intval($_GET['postid']);
 	if ( empty($post_id) || !current_user_can('edit_post', $post_id) )
 		wp_die( -1 );
@@ -231,7 +231,7 @@ function wp_ajax_imgedit_preview() {
  *
  * @global WP_Embed $wp_embed
  */
-function wp_ajax_oembed_cache() {
+function wp_ajax_oembed_cache() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$GLOBALS['wp_embed']->cache_oembed( $_GET['post'] );
 	wp_die( 0 );
 }
@@ -241,7 +241,7 @@ function wp_ajax_oembed_cache() {
  *
  * @since 3.4.0
  */
-function wp_ajax_autocomplete_user() {
+function wp_ajax_autocomplete_user() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_multisite() || ! current_user_can( 'promote_users' ) || wp_is_large_network( 'users' ) )
 		wp_die( -1 );
 
@@ -301,7 +301,7 @@ function wp_ajax_autocomplete_user() {
  *
  * @since 3.4.0
  */
-function wp_ajax_dashboard_widgets() {
+function wp_ajax_dashboard_widgets() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	require_once ABSPATH . 'wp-admin/includes/dashboard.php';
 
 	$pagenow = $_GET['pagenow'];
@@ -322,7 +322,7 @@ function wp_ajax_dashboard_widgets() {
  *
  * @since 3.4.0
  */
-function wp_ajax_logged_in() {
+function wp_ajax_logged_in() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_die( 1 );
 }
 
@@ -341,7 +341,7 @@ function wp_ajax_logged_in() {
  * @param int $comment_id
  * @param int $delta
  */
-function _wp_ajax_delete_comment_response( $comment_id, $delta = -1 ) {
+function _wp_ajax_delete_comment_response( $comment_id, $delta = -1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$total    = isset( $_POST['_total'] )    ? (int) $_POST['_total']    : 0;
 	$per_page = isset( $_POST['_per_page'] ) ? (int) $_POST['_per_page'] : 0;
 	$page     = isset( $_POST['_page'] )     ? (int) $_POST['_page']     : 0;
@@ -450,7 +450,7 @@ function _wp_ajax_delete_comment_response( $comment_id, $delta = -1 ) {
  * @access private
  * @since 3.1.0
  */
-function _wp_ajax_add_hierarchical_term() {
+function _wp_ajax_add_hierarchical_term() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$action = $_POST['action'];
 	$taxonomy = get_taxonomy(substr($action, 4));
 	check_ajax_referer( $action, '_ajax_nonce-add-' . $taxonomy->name );
@@ -542,7 +542,7 @@ function _wp_ajax_add_hierarchical_term() {
  *
  * @since 3.1.0
  */
-function wp_ajax_delete_comment() {
+function wp_ajax_delete_comment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
 
 	if ( !$comment = get_comment( $id ) )
@@ -590,7 +590,7 @@ function wp_ajax_delete_comment() {
  *
  * @since 3.1.0
  */
-function wp_ajax_delete_tag() {
+function wp_ajax_delete_tag() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$tag_id = (int) $_POST['tag_ID'];
 	check_ajax_referer( "delete-tag_$tag_id" );
 
@@ -614,7 +614,7 @@ function wp_ajax_delete_tag() {
  *
  * @since 3.1.0
  */
-function wp_ajax_delete_link() {
+function wp_ajax_delete_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
 
 	check_ajax_referer( "delete-bookmark_$id" );
@@ -636,7 +636,7 @@ function wp_ajax_delete_link() {
  *
  * @since 3.1.0
  */
-function wp_ajax_delete_meta() {
+function wp_ajax_delete_meta() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
 
 	check_ajax_referer( "delete-meta_$id" );
@@ -657,7 +657,7 @@ function wp_ajax_delete_meta() {
  *
  * @param string $action Action to perform.
  */
-function wp_ajax_delete_post( $action ) {
+function wp_ajax_delete_post( $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $action ) )
 		$action = 'delete-post';
 	$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
@@ -682,7 +682,7 @@ function wp_ajax_delete_post( $action ) {
  *
  * @param string $action Action to perform.
  */
-function wp_ajax_trash_post( $action ) {
+function wp_ajax_trash_post( $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $action ) )
 		$action = 'trash-post';
 	$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
@@ -712,7 +712,7 @@ function wp_ajax_trash_post( $action ) {
  *
  * @param string $action Action to perform.
  */
-function wp_ajax_untrash_post( $action ) {
+function wp_ajax_untrash_post( $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $action ) )
 		$action = 'untrash-post';
 	wp_ajax_trash_post( $action );
@@ -723,7 +723,7 @@ function wp_ajax_untrash_post( $action ) {
  *
  * @param string $action
  */
-function wp_ajax_delete_page( $action ) {
+function wp_ajax_delete_page( $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $action ) )
 		$action = 'delete-page';
 	$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
@@ -746,7 +746,7 @@ function wp_ajax_delete_page( $action ) {
  *
  * @since 3.1.0
  */
-function wp_ajax_dim_comment() {
+function wp_ajax_dim_comment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
 
 	if ( !$comment = get_comment( $id ) ) {
@@ -791,7 +791,7 @@ function wp_ajax_dim_comment() {
  *
  * @param string $action Action to perform.
  */
-function wp_ajax_add_link_category( $action ) {
+function wp_ajax_add_link_category( $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $action ) )
 		$action = 'add-link-category';
 	check_ajax_referer( $action );
@@ -829,7 +829,7 @@ function wp_ajax_add_link_category( $action ) {
  *
  * @since 3.1.0
  */
-function wp_ajax_add_tag() {
+function wp_ajax_add_tag() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'add-tag', '_wpnonce_add-tag' );
 	$taxonomy = !empty($_POST['taxonomy']) ? $_POST['taxonomy'] : 'post_tag';
 	$tax = get_taxonomy($taxonomy);
@@ -884,7 +884,7 @@ function wp_ajax_add_tag() {
  *
  * @since 3.1.0
  */
-function wp_ajax_get_tagcloud() {
+function wp_ajax_get_tagcloud() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! isset( $_POST['tax'] ) ) {
 		wp_die( 0 );
 	}
@@ -932,7 +932,7 @@ function wp_ajax_get_tagcloud() {
  *
  * @param string $action Action to perform.
  */
-function wp_ajax_get_comments( $action ) {
+function wp_ajax_get_comments( $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $post_id;
 	if ( empty( $action ) ) {
 		$action = 'get-comments';
@@ -986,7 +986,7 @@ function wp_ajax_get_comments( $action ) {
  *
  * @param string $action Action to perform.
  */
-function wp_ajax_replyto_comment( $action ) {
+function wp_ajax_replyto_comment( $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $action ) )
 		$action = 'replyto-comment';
 
@@ -1104,7 +1104,7 @@ function wp_ajax_replyto_comment( $action ) {
  *
  * @since 3.1.0
  */
-function wp_ajax_edit_comment() {
+function wp_ajax_edit_comment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'replyto-comment', '_ajax_nonce-replyto-comment' );
 
 	$comment_id = (int) $_POST['comment_ID'];
@@ -1147,7 +1147,7 @@ function wp_ajax_edit_comment() {
  *
  * @since 3.1.0
  */
-function wp_ajax_add_menu_item() {
+function wp_ajax_add_menu_item() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'add-menu_item', 'menu-settings-column-nonce' );
 
 	if ( ! current_user_can( 'edit_theme_options' ) )
@@ -1228,7 +1228,7 @@ function wp_ajax_add_menu_item() {
  *
  * @since 3.1.0
  */
-function wp_ajax_add_meta() {
+function wp_ajax_add_meta() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'add-meta', '_ajax_nonce-add-meta' );
 	$c = 0;
 	$pid = (int) $_POST['post_id'];
@@ -1321,7 +1321,7 @@ function wp_ajax_add_meta() {
  *
  * @param string $action Action to perform.
  */
-function wp_ajax_add_user( $action ) {
+function wp_ajax_add_user( $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $action ) ) {
 		$action = 'add-user';
 	}
@@ -1365,7 +1365,7 @@ function wp_ajax_add_user( $action ) {
  *
  * @since 3.1.0
  */
-function wp_ajax_closed_postboxes() {
+function wp_ajax_closed_postboxes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'closedpostboxes', 'closedpostboxesnonce' );
 	$closed = isset( $_POST['closed'] ) ? explode( ',', $_POST['closed']) : array();
 	$closed = array_filter($closed);
@@ -1397,7 +1397,7 @@ function wp_ajax_closed_postboxes() {
  *
  * @since 3.1.0
  */
-function wp_ajax_hidden_columns() {
+function wp_ajax_hidden_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'screen-options-nonce', 'screenoptionnonce' );
 	$page = isset( $_POST['page'] ) ? $_POST['page'] : '';
 
@@ -1418,7 +1418,7 @@ function wp_ajax_hidden_columns() {
  *
  * @since 3.1.0
  */
-function wp_ajax_update_welcome_panel() {
+function wp_ajax_update_welcome_panel() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'welcome-panel-nonce', 'welcomepanelnonce' );
 
 	if ( ! current_user_can( 'edit_theme_options' ) )
@@ -1434,7 +1434,7 @@ function wp_ajax_update_welcome_panel() {
  *
  * @since 3.1.0
  */
-function wp_ajax_menu_get_metabox() {
+function wp_ajax_menu_get_metabox() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! current_user_can( 'edit_theme_options' ) )
 		wp_die( -1 );
 
@@ -1482,7 +1482,7 @@ function wp_ajax_menu_get_metabox() {
  *
  * @since 3.1.0
  */
-function wp_ajax_wp_link_ajax() {
+function wp_ajax_wp_link_ajax() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'internal-linking', '_ajax_linking_nonce' );
 
 	$args = array();
@@ -1514,7 +1514,7 @@ function wp_ajax_wp_link_ajax() {
  *
  * @since 3.1.0
  */
-function wp_ajax_menu_locations_save() {
+function wp_ajax_menu_locations_save() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! current_user_can( 'edit_theme_options' ) )
 		wp_die( -1 );
 	check_ajax_referer( 'add-menu_item', 'menu-settings-column-nonce' );
@@ -1529,7 +1529,7 @@ function wp_ajax_menu_locations_save() {
  *
  * @since 3.1.0
  */
-function wp_ajax_meta_box_order() {
+function wp_ajax_meta_box_order() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'meta-box-order' );
 	$order = isset( $_POST['order'] ) ? (array) $_POST['order'] : false;
 	$page_columns = isset( $_POST['page_columns'] ) ? $_POST['page_columns'] : 'auto';
@@ -1559,7 +1559,7 @@ function wp_ajax_meta_box_order() {
  *
  * @since 3.1.0
  */
-function wp_ajax_menu_quick_search() {
+function wp_ajax_menu_quick_search() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! current_user_can( 'edit_theme_options' ) )
 		wp_die( -1 );
 
@@ -1575,7 +1575,7 @@ function wp_ajax_menu_quick_search() {
  *
  * @since 3.1.0
  */
-function wp_ajax_get_permalink() {
+function wp_ajax_get_permalink() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'getpermalink', 'getpermalinknonce' );
 	$post_id = isset($_POST['post_id'])? intval($_POST['post_id']) : 0;
 	wp_die( get_preview_post_link( $post_id ) );
@@ -1586,7 +1586,7 @@ function wp_ajax_get_permalink() {
  *
  * @since 3.1.0
  */
-function wp_ajax_sample_permalink() {
+function wp_ajax_sample_permalink() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'samplepermalink', 'samplepermalinknonce' );
 	$post_id = isset($_POST['post_id'])? intval($_POST['post_id']) : 0;
 	$title = isset($_POST['new_title'])? $_POST['new_title'] : '';
@@ -1599,7 +1599,7 @@ function wp_ajax_sample_permalink() {
  *
  * @since 3.1.0
  */
-function wp_ajax_inline_save() {
+function wp_ajax_inline_save() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $mode;
 
 	check_ajax_referer( 'inlineeditnonce', '_inline_edit' );
@@ -1697,7 +1697,7 @@ function wp_ajax_inline_save() {
  *
  * @since 3.1.0
  */
-function wp_ajax_inline_save_tax() {
+function wp_ajax_inline_save_tax() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'taxinlineeditnonce', '_inline_edit' );
 
 	$taxonomy = sanitize_key( $_POST['taxonomy'] );
@@ -1749,7 +1749,7 @@ function wp_ajax_inline_save_tax() {
  *
  * @since 3.1.0
  */
-function wp_ajax_find_posts() {
+function wp_ajax_find_posts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'find-posts' );
 
 	$post_types = get_post_types( array( 'public' => true ), 'objects' );
@@ -1813,7 +1813,7 @@ function wp_ajax_find_posts() {
  *
  * @since 3.1.0
  */
-function wp_ajax_widgets_order() {
+function wp_ajax_widgets_order() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'save-sidebar-widgets', 'savewidgets' );
 
 	if ( !current_user_can('edit_theme_options') )
@@ -1853,7 +1853,7 @@ function wp_ajax_widgets_order() {
  * @global array $wp_registered_widget_controls
  * @global array $wp_registered_widget_updates
  */
-function wp_ajax_save_widget() {
+function wp_ajax_save_widget() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_registered_widgets, $wp_registered_widget_controls, $wp_registered_widget_updates;
 
 	check_ajax_referer( 'save-sidebar-widgets', 'savewidgets' );
@@ -1948,7 +1948,7 @@ function wp_ajax_save_widget() {
  *
  * @global WP_Customize_Manager $wp_customize
  */
-function wp_ajax_update_widget() {
+function wp_ajax_update_widget() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_customize;
 	$wp_customize->widgets->wp_ajax_update_widget();
 }
@@ -1958,7 +1958,7 @@ function wp_ajax_update_widget() {
  *
  * @since 4.4.0
  */
-function wp_ajax_delete_inactive_widgets() {
+function wp_ajax_delete_inactive_widgets() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'remove-inactive-widgets', 'removeinactivewidgets' );
 
 	if ( ! current_user_can( 'edit_theme_options' ) ) {
@@ -1993,7 +1993,7 @@ function wp_ajax_delete_inactive_widgets() {
  *
  * @since 3.3.0
  */
-function wp_ajax_upload_attachment() {
+function wp_ajax_upload_attachment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'media-form' );
 	/*
 	 * This function does not use wp_send_json_success() / wp_send_json_error()
@@ -2086,7 +2086,7 @@ function wp_ajax_upload_attachment() {
  *
  * @since 3.1.0
  */
-function wp_ajax_image_editor() {
+function wp_ajax_image_editor() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$attachment_id = intval($_POST['postid']);
 	if ( empty($attachment_id) || !current_user_can('edit_post', $attachment_id) )
 		wp_die( -1 );
@@ -2118,7 +2118,7 @@ function wp_ajax_image_editor() {
  *
  * @since 3.1.0
  */
-function wp_ajax_set_post_thumbnail() {
+function wp_ajax_set_post_thumbnail() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$json = ! empty( $_REQUEST['json'] ); // New-style request
 
 	$post_ID = intval( $_POST['post_id'] );
@@ -2154,7 +2154,7 @@ function wp_ajax_set_post_thumbnail() {
  *
  * @since 4.6.0
  */
-function wp_ajax_get_post_thumbnail_html() {
+function wp_ajax_get_post_thumbnail_html() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post_ID = intval( $_POST['post_id'] );
 
 	check_ajax_referer( "update-post_$post_ID" );
@@ -2181,7 +2181,7 @@ function wp_ajax_get_post_thumbnail_html() {
  *
  * @see set_post_thumbnail()
  */
-function wp_ajax_set_attachment_thumbnail() {
+function wp_ajax_set_attachment_thumbnail() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $_POST['urls'] ) || ! is_array( $_POST['urls'] ) ) {
 		wp_send_json_error();
 	}
@@ -2230,7 +2230,7 @@ function wp_ajax_set_attachment_thumbnail() {
  *
  * @since 3.1.0
  */
-function wp_ajax_date_format() {
+function wp_ajax_date_format() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_die( date_i18n( sanitize_option( 'date_format', wp_unslash( $_POST['date'] ) ) ) );
 }
 
@@ -2239,7 +2239,7 @@ function wp_ajax_date_format() {
  *
  * @since 3.1.0
  */
-function wp_ajax_time_format() {
+function wp_ajax_time_format() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_die( date_i18n( sanitize_option( 'time_format', wp_unslash( $_POST['date'] ) ) ) );
 }
 
@@ -2249,7 +2249,7 @@ function wp_ajax_time_format() {
  * @since 3.1.0
  * @deprecated 4.3.0
  */
-function wp_ajax_wp_fullscreen_save_post() {
+function wp_ajax_wp_fullscreen_save_post() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post_id = isset( $_POST['post_ID'] ) ? (int) $_POST['post_ID'] : 0;
 
 	$post = null;
@@ -2288,7 +2288,7 @@ function wp_ajax_wp_fullscreen_save_post() {
  *
  * @since 3.1.0
  */
-function wp_ajax_wp_remove_post_lock() {
+function wp_ajax_wp_remove_post_lock() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $_POST['post_ID'] ) || empty( $_POST['active_post_lock'] ) )
 		wp_die( 0 );
 	$post_id = (int) $_POST['post_ID'];
@@ -2322,7 +2322,7 @@ function wp_ajax_wp_remove_post_lock() {
  *
  * @since 3.1.0
  */
-function wp_ajax_dismiss_wp_pointer() {
+function wp_ajax_dismiss_wp_pointer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$pointer = $_POST['pointer'];
 	if ( $pointer != sanitize_key( $pointer ) )
 		wp_die( 0 );
@@ -2346,7 +2346,7 @@ function wp_ajax_dismiss_wp_pointer() {
  *
  * @since 3.5.0
  */
-function wp_ajax_get_attachment() {
+function wp_ajax_get_attachment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! isset( $_REQUEST['id'] ) )
 		wp_send_json_error();
 
@@ -2373,7 +2373,7 @@ function wp_ajax_get_attachment() {
  *
  * @since 3.5.0
  */
-function wp_ajax_query_attachments() {
+function wp_ajax_query_attachments() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! current_user_can( 'upload_files' ) )
 		wp_send_json_error();
 
@@ -2430,7 +2430,7 @@ function wp_ajax_query_attachments() {
  *
  * @since 3.5.0
  */
-function wp_ajax_save_attachment() {
+function wp_ajax_save_attachment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! isset( $_REQUEST['id'] ) || ! isset( $_REQUEST['changes'] ) )
 		wp_send_json_error();
 
@@ -2504,7 +2504,7 @@ function wp_ajax_save_attachment() {
  *
  * @since 3.5.0
  */
-function wp_ajax_save_attachment_compat() {
+function wp_ajax_save_attachment_compat() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! isset( $_REQUEST['id'] ) )
 		wp_send_json_error();
 
@@ -2551,7 +2551,7 @@ function wp_ajax_save_attachment_compat() {
  *
  * @since 3.5.0
  */
-function wp_ajax_save_attachment_order() {
+function wp_ajax_save_attachment_order() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! isset( $_REQUEST['post_id'] ) )
 		wp_send_json_error();
 
@@ -2591,7 +2591,7 @@ function wp_ajax_save_attachment_order() {
  *
  * @since 3.5.0
  */
-function wp_ajax_send_attachment_to_editor() {
+function wp_ajax_send_attachment_to_editor() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'media-send-to-editor', 'nonce' );
 
 	$attachment = wp_unslash( $_POST['attachment'] );
@@ -2661,7 +2661,7 @@ function wp_ajax_send_attachment_to_editor() {
  * @global WP_Post  $post
  * @global WP_Embed $wp_embed
  */
-function wp_ajax_send_link_to_editor() {
+function wp_ajax_send_link_to_editor() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $post, $wp_embed;
 
 	check_ajax_referer( 'media-send-to-editor', 'nonce' );
@@ -2714,7 +2714,7 @@ function wp_ajax_send_link_to_editor() {
  *
  * @since 3.6.0
  */
-function wp_ajax_heartbeat() {
+function wp_ajax_heartbeat() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $_POST['_nonce'] ) ) {
 		wp_send_json_error();
 	}
@@ -2789,7 +2789,7 @@ function wp_ajax_heartbeat() {
  *
  * @since 3.6.0
  */
-function wp_ajax_get_revision_diffs() {
+function wp_ajax_get_revision_diffs() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	require ABSPATH . 'wp-admin/includes/revision.php';
 
 	if ( ! $post = get_post( (int) $_REQUEST['post_id'] ) )
@@ -2824,7 +2824,7 @@ function wp_ajax_get_revision_diffs() {
  *
  * @global array $_wp_admin_css_colors
  */
-function wp_ajax_save_user_color_scheme() {
+function wp_ajax_save_user_color_scheme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_admin_css_colors;
 
 	check_ajax_referer( 'save-color-scheme', 'nonce' );
@@ -2852,7 +2852,7 @@ function wp_ajax_save_user_color_scheme() {
  * @global array $themes_allowedtags
  * @global array $theme_field_defaults
  */
-function wp_ajax_query_themes() {
+function wp_ajax_query_themes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $themes_allowedtags, $theme_field_defaults;
 
 	if ( ! current_user_can( 'install_themes' ) ) {
@@ -2932,7 +2932,7 @@ function wp_ajax_query_themes() {
  * @global WP_Embed   $wp_embed   Embed API instance.
  * @global WP_Scripts $wp_scripts
  */
-function wp_ajax_parse_embed() {
+function wp_ajax_parse_embed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $post, $wp_embed;
 
 	if ( ! $post = get_post( (int) $_POST['post_ID'] ) ) {
@@ -3024,7 +3024,7 @@ function wp_ajax_parse_embed() {
  * @global WP_Post    $post
  * @global WP_Scripts $wp_scripts
  */
-function wp_ajax_parse_media_shortcode() {
+function wp_ajax_parse_media_shortcode() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $post, $wp_scripts;
 
 	if ( empty( $_POST['shortcode'] ) ) {
@@ -3089,7 +3089,7 @@ function wp_ajax_parse_media_shortcode() {
  *
  * @since 4.1.0
  */
-function wp_ajax_destroy_sessions() {
+function wp_ajax_destroy_sessions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user = get_userdata( (int) $_POST['user_id'] );
 	if ( $user ) {
 		if ( ! current_user_can( 'edit_user', $user->ID ) ) {
@@ -3124,7 +3124,7 @@ function wp_ajax_destroy_sessions() {
  *
  * @since 4.2.0
  */
-function wp_ajax_press_this_save_post() {
+function wp_ajax_press_this_save_post() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	include( ABSPATH . 'wp-admin/includes/class-wp-press-this.php' );
 	$wp_press_this = new WP_Press_This();
 	$wp_press_this->save_post();
@@ -3135,7 +3135,7 @@ function wp_ajax_press_this_save_post() {
  *
  * @since 4.2.0
  */
-function wp_ajax_press_this_add_category() {
+function wp_ajax_press_this_add_category() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	include( ABSPATH . 'wp-admin/includes/class-wp-press-this.php' );
 	$wp_press_this = new WP_Press_This();
 	$wp_press_this->add_category();
@@ -3146,7 +3146,7 @@ function wp_ajax_press_this_add_category() {
  *
  * @since 4.3.0
  */
-function wp_ajax_crop_image() {
+function wp_ajax_crop_image() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$attachment_id = absint( $_POST['id'] );
 
 	check_ajax_referer( 'image_editor-' . $attachment_id, 'nonce' );
@@ -3258,7 +3258,7 @@ function wp_ajax_crop_image() {
  *
  * @since 4.4.0
  */
-function wp_ajax_generate_password() {
+function wp_ajax_generate_password() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_send_json_success( wp_generate_password( 24 ) );
 }
 
@@ -3267,7 +3267,7 @@ function wp_ajax_generate_password() {
  *
  * @since 4.4.0
  */
-function wp_ajax_save_wporg_username() {
+function wp_ajax_save_wporg_username() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! current_user_can( 'install_themes' ) && ! current_user_can( 'install_plugins' ) ) {
 		wp_send_json_error();
 	}
@@ -3290,7 +3290,7 @@ function wp_ajax_save_wporg_username() {
  *
  * @see Theme_Upgrader
  */
-function wp_ajax_install_theme() {
+function wp_ajax_install_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'updates' );
 
 	if ( empty( $_POST['slug'] ) ) {
@@ -3397,7 +3397,7 @@ function wp_ajax_install_theme() {
  *
  * @see Theme_Upgrader
  */
-function wp_ajax_update_theme() {
+function wp_ajax_update_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'updates' );
 
 	if ( empty( $_POST['slug'] ) ) {
@@ -3482,7 +3482,7 @@ function wp_ajax_update_theme() {
  *
  * @see delete_theme()
  */
-function wp_ajax_delete_theme() {
+function wp_ajax_delete_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'updates' );
 
 	if ( empty( $_POST['slug'] ) ) {
@@ -3550,7 +3550,7 @@ function wp_ajax_delete_theme() {
  *
  * @see Plugin_Upgrader
  */
-function wp_ajax_install_plugin() {
+function wp_ajax_install_plugin() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'updates' );
 
 	if ( empty( $_POST['slug'] ) ) {
@@ -3649,7 +3649,7 @@ function wp_ajax_install_plugin() {
  *
  * @see Plugin_Upgrader
  */
-function wp_ajax_update_plugin() {
+function wp_ajax_update_plugin() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'updates' );
 
 	if ( empty( $_POST['plugin'] ) || empty( $_POST['slug'] ) ) {
@@ -3752,7 +3752,7 @@ function wp_ajax_update_plugin() {
  *
  * @see delete_plugins()
  */
-function wp_ajax_delete_plugin() {
+function wp_ajax_delete_plugin() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'updates' );
 
 	if ( empty( $_POST['slug'] ) || empty( $_POST['plugin'] ) ) {
@@ -3823,7 +3823,7 @@ function wp_ajax_delete_plugin() {
  *
  * @global string $s Search term.
  */
-function wp_ajax_search_plugins() {
+function wp_ajax_search_plugins() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'updates' );
 
 	$pagenow = isset( $_POST['pagenow'] ) ? sanitize_key( $_POST['pagenow'] ) : '';
@@ -3866,7 +3866,7 @@ function wp_ajax_search_plugins() {
  *
  * @since 4.6.0
  */
-function wp_ajax_search_install_plugins() {
+function wp_ajax_search_install_plugins() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	check_ajax_referer( 'updates' );
 
 	$pagenow = isset( $_POST['pagenow'] ) ? sanitize_key( $_POST['pagenow'] ) : '';

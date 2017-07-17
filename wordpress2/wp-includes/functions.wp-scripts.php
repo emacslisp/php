@@ -17,7 +17,7 @@
  *
  * @return WP_Scripts WP_Scripts instance.
  */
-function wp_scripts() {
+function wp_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_scripts;
 	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
 		$wp_scripts = new WP_Scripts();
@@ -33,7 +33,7 @@ function wp_scripts() {
  *
  * @param string $function Function name.
  */
-function _wp_scripts_maybe_doing_it_wrong( $function ) {
+function _wp_scripts_maybe_doing_it_wrong( $function ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( did_action( 'init' ) || did_action( 'admin_enqueue_scripts' ) || did_action( 'wp_enqueue_scripts' ) || did_action( 'login_enqueue_scripts' ) ) {
 		return;
 	}
@@ -63,7 +63,7 @@ function _wp_scripts_maybe_doing_it_wrong( $function ) {
  * @param string|bool|array $handles Optional. Scripts to be printed. Default 'false'.
  * @return array On success, a processed array of WP_Dependencies items; otherwise, an empty array.
  */
-function wp_print_scripts( $handles = false ) {
+function wp_print_scripts( $handles = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires before scripts in the $handles queue are printed.
 	 *
@@ -104,7 +104,7 @@ function wp_print_scripts( $handles = false ) {
  *                         or after. Default 'after'.
  * @return bool True on success, false on failure.
  */
-function wp_add_inline_script( $handle, $data, $position = 'after' ) {
+function wp_add_inline_script( $handle, $data, $position = 'after' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	if ( false !== stripos( $data, '</script>' ) ) {
@@ -142,7 +142,7 @@ function wp_add_inline_script( $handle, $data, $position = 'after' ) {
  *                                    Default 'false'.
  * @return bool Whether the script has been registered. True on success, false on failure.
  */
-function wp_register_script( $handle, $src, $deps = array(), $ver = false, $in_footer = false ) {
+function wp_register_script( $handle, $src, $deps = array(), $ver = false, $in_footer = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$wp_scripts = wp_scripts();
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
@@ -182,7 +182,7 @@ function wp_register_script( $handle, $src, $deps = array(), $ver = false, $in_f
  * @param array $l10n         The data itself. The data can be either a single or multi-dimensional array.
  * @return bool True if the script was successfully localized, false otherwise.
  */
-function wp_localize_script( $handle, $object_name, $l10n ) {
+function wp_localize_script( $handle, $object_name, $l10n ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_scripts;
 	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
 		_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
@@ -204,7 +204,7 @@ function wp_localize_script( $handle, $object_name, $l10n ) {
  *
  * @param string $handle Name of the script to be removed.
  */
-function wp_deregister_script( $handle ) {
+function wp_deregister_script( $handle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	/**
@@ -261,7 +261,7 @@ function wp_deregister_script( $handle ) {
  * @param bool             $in_footer Optional. Whether to enqueue the script before </body> instead of in the <head>.
  *                                    Default 'false'.
  */
-function wp_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $in_footer = false ) {
+function wp_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $in_footer = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$wp_scripts = wp_scripts();
 
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
@@ -291,7 +291,7 @@ function wp_enqueue_script( $handle, $src = '', $deps = array(), $ver = false, $
  *
  * @param string $handle Name of the script to be removed.
  */
-function wp_dequeue_script( $handle ) {
+function wp_dequeue_script( $handle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	wp_scripts()->dequeue( $handle );
@@ -308,7 +308,7 @@ function wp_dequeue_script( $handle ) {
  *                       Accepts 'enqueued', 'registered', 'queue', 'to_do', and 'done'.
  * @return bool Whether the script is queued.
  */
-function wp_script_is( $handle, $list = 'enqueued' ) {
+function wp_script_is( $handle, $list = 'enqueued' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_wp_scripts_maybe_doing_it_wrong( __FUNCTION__ );
 
 	return (bool) wp_scripts()->query( $handle, $list );
@@ -331,6 +331,6 @@ function wp_script_is( $handle, $list = 'enqueued' ) {
  * @param mixed  $value  String containing the data to be added.
  * @return bool True on success, false on failure.
  */
-function wp_script_add_data( $handle, $key, $value ){
+function wp_script_add_data( $handle, $key, $value ){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return wp_scripts()->add_data( $handle, $key, $value );
 }

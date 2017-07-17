@@ -26,7 +26,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 */
-	public function __construct( $manager ) {
+	public function __construct( $manager ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( $manager, 'header_image', array(
 			'label'    => __( 'Header Image' ),
 			'settings' => array(
@@ -43,7 +43,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * @access public
 	 */
-	public function enqueue() {
+	public function enqueue() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_enqueue_media();
 		wp_enqueue_script( 'customize-views' );
 
@@ -72,7 +72,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	 *
 	 * @global Custom_Image_Header $custom_image_header
 	 */
-	public function prepare_control() {
+	public function prepare_control() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $custom_image_header;
 		if ( empty( $custom_image_header ) ) {
 			return;
@@ -87,7 +87,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * @access public
 	 */
-	public function print_header_image_template() {
+	public function print_header_image_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<script type="text/template" id="tmpl-header-choice">
 			<# if (data.random) { #>
@@ -148,7 +148,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * @return string|void
 	 */
-	public function get_current_image_src() {
+	public function get_current_image_src() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$src = $this->value();
 		if ( isset( $this->get_url ) ) {
 			$src = call_user_func( $this->get_url, $src );
@@ -159,7 +159,7 @@ class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control {
 	/**
 	 * @access public
 	 */
-	public function render_content() {
+	public function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->print_header_image_template();
 		$visibility = $this->get_current_image_src() ? '' : ' style="display:none" ';
 		$width = absint( get_theme_support( 'custom-header', 'width' ) );

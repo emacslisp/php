@@ -166,10 +166,10 @@ if ( isset( $_REQUEST['action'] ) && 'update' === $_REQUEST['action'] ) {
 	if ( '.php' == substr( $real_file, strrpos( $real_file, '.' ) ) ) {
 		$functions = wp_doc_link_parse( $content );
 
-		if ( !empty($functions) ) {
+		if ( !empty($functions) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			$docs_select = '<select name="docs-list" id="docs-list">';
 			$docs_select .= '<option value="">' . __( 'Function Name&hellip;' ) . '</option>';
-			foreach ( $functions as $function) {
+			foreach ( $functions as $function) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				$docs_select .= '<option value="' . esc_attr( $function ) . '">' . esc_html( $function ) . '()</option>';
 			}
 			$docs_select .= '</select>';
@@ -295,8 +295,8 @@ foreach ( $plugin_files as $plugin_file ) :
 <br class="clear" />
 </div>
 <script type="text/javascript">
-jQuery(document).ready(function($){
-	$('#template').submit(function(){ $('#scrollto').val( $('#newcontent').scrollTop() ); });
+jQuery(document).ready(function($){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	$('#template').submit(function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); $('#scrollto').val( $('#newcontent').scrollTop() ); });
 	$('#newcontent').scrollTop( $('#scrollto').val() );
 });
 </script>

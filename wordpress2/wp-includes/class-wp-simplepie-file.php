@@ -33,7 +33,7 @@ class WP_SimplePie_File extends SimplePie_File {
 	 * @param boolean      $force_fsockopen Optional. Whether to force opening internet or unix domain socket
 	 *                                      connection or not. Default false.
 	 */
-	public function __construct($url, $timeout = 10, $redirects = 5, $headers = null, $useragent = null, $force_fsockopen = false) {
+	public function __construct($url, $timeout = 10, $redirects = 5, $headers = null, $useragent = null, $force_fsockopen = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->url = $url;
 		$this->timeout = $timeout;
 		$this->redirects = $redirects;

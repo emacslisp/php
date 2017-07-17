@@ -29,7 +29,7 @@ class Requests_Exception_Transport_cURL extends Requests_Exception_Transport {
 	 */
 	protected $reason = 'Unknown';
 
-	public function __construct($message, $type, $data = null, $code = 0) {
+	public function __construct($message, $type, $data = null, $code = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($type !== null) {
 			$this->type = $type;
 		}
@@ -49,7 +49,7 @@ class Requests_Exception_Transport_cURL extends Requests_Exception_Transport {
 	/**
 	 * Get the error message
 	 */
-	public function getReason() {
+	public function getReason() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->reason;
 	}
 

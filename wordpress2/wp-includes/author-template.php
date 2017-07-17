@@ -20,7 +20,7 @@
  * @param string $deprecated Deprecated.
  * @return string|null The author's display name.
  */
-function get_the_author($deprecated = '') {
+function get_the_author($deprecated = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $authordata;
 
 	if ( !empty( $deprecated ) )
@@ -55,7 +55,7 @@ function get_the_author($deprecated = '') {
  * @param string $deprecated_echo Deprecated. Use get_the_author(). Echo the string or return it.
  * @return string|null The author's display name, from get_the_author().
  */
-function the_author( $deprecated = '', $deprecated_echo = true ) {
+function the_author( $deprecated = '', $deprecated_echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $deprecated ) ) {
 		_deprecated_argument( __FUNCTION__, '2.1.0' );
 	}
@@ -83,7 +83,7 @@ function the_author( $deprecated = '', $deprecated_echo = true ) {
  *
  * @return string|void The author's display name.
  */
-function get_the_modified_author() {
+function get_the_modified_author() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $last_id = get_post_meta( get_post()->ID, '_edit_last', true) ) {
 		$last_user = get_userdata($last_id);
 
@@ -106,7 +106,7 @@ function get_the_modified_author() {
  *
  * @see get_the_author()
  */
-function the_modified_author() {
+function the_modified_author() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_the_modified_author();
 }
 
@@ -121,7 +121,7 @@ function the_modified_author() {
  * @param int $user_id Optional. User ID.
  * @return string The author's field from the current author's DB object.
  */
-function get_the_author_meta( $field = '', $user_id = false ) {
+function get_the_author_meta( $field = '', $user_id = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$original_user_id = $user_id;
 
 	if ( ! $user_id ) {
@@ -161,7 +161,7 @@ function get_the_author_meta( $field = '', $user_id = false ) {
  * @param string $field selects the field of the users record.
  * @param int $user_id Optional. User ID.
  */
-function the_author_meta( $field = '', $user_id = false ) {
+function the_author_meta( $field = '', $user_id = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$author_meta = get_the_author_meta( $field, $user_id );
 
 	/**
@@ -186,7 +186,7 @@ function the_author_meta( $field = '', $user_id = false ) {
  * @return string|null An HTML link if the author's url exist in user meta,
  *                     else the result of get_the_author().
  */
-function get_the_author_link() {
+function get_the_author_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( get_the_author_meta('url') ) {
 		return sprintf( '<a href="%1$s" title="%2$s" rel="author external">%3$s</a>',
 			esc_url( get_the_author_meta('url') ),
@@ -209,7 +209,7 @@ function get_the_author_link() {
  *
  * @since 2.1.0
  */
-function the_author_link() {
+function the_author_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_the_author_link();
 }
 
@@ -220,7 +220,7 @@ function the_author_link() {
  *
  * @return int The number of posts by the author.
  */
-function get_the_author_posts() {
+function get_the_author_posts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post();
 	if ( ! $post ) {
 		return 0;
@@ -234,7 +234,7 @@ function get_the_author_posts() {
  * @link https://codex.wordpress.org/Template_Tags/the_author_posts
  * @since 0.71
  */
-function the_author_posts() {
+function the_author_posts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_the_author_posts();
 }
 
@@ -249,7 +249,7 @@ function the_author_posts() {
  *
  * @return string An HTML link to the author page.
  */
-function get_the_author_posts_link() {
+function get_the_author_posts_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $authordata;
 	if ( ! is_object( $authordata ) ) {
 		return;
@@ -280,7 +280,7 @@ function get_the_author_posts_link() {
  *
  * @param string $deprecated Unused.
  */
-function the_author_posts_link( $deprecated = '' ) {
+function the_author_posts_link( $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $deprecated ) ) {
 		_deprecated_argument( __FUNCTION__, '2.1.0' );
 	}
@@ -298,7 +298,7 @@ function the_author_posts_link( $deprecated = '' ) {
  * @param string $author_nicename Optional. The author's nicename (slug). Default empty.
  * @return string The URL to the author's page.
  */
-function get_author_posts_url( $author_id, $author_nicename = '' ) {
+function get_author_posts_url( $author_id, $author_nicename = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_rewrite;
 	$auth_ID = (int) $author_id;
 	$link = $wp_rewrite->get_author_permastruct();
@@ -365,7 +365,7 @@ function get_author_posts_url( $author_id, $author_nicename = '' ) {
  * }
  * @return string|void The output, if echo is set to false.
  */
-function wp_list_authors( $args = '' ) {
+function wp_list_authors( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$defaults = array(
@@ -480,7 +480,7 @@ function wp_list_authors( $args = '' ) {
  *
  * @return bool Whether or not we have more than one author
  */
-function is_multi_author() {
+function is_multi_author() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( false === ( $is_multi_author = get_transient( 'is_multi_author' ) ) ) {
@@ -504,6 +504,6 @@ function is_multi_author() {
  *
  * @private
  */
-function __clear_multi_author_cache() {
+function __clear_multi_author_cache() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	delete_transient( 'is_multi_author' );
 }

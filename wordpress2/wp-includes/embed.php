@@ -450,7 +450,7 @@ function get_post_embed_html( $width, $height, $post = null ) {
 		 * and edit wp-embed.js directly.
 		 */
 		$output .=<<<JS
-		!function(a,b){"use strict";function c(){if(!e){e=!0;var a,c,d,f,g=-1!==navigator.appVersion.indexOf("MSIE 10"),h=!!navigator.userAgent.match(/Trident.*rv:11\./),i=b.querySelectorAll("iframe.wp-embedded-content");for(c=0;c<i.length;c++){if(d=i[c],!d.getAttribute("data-secret"))f=Math.random().toString(36).substr(2,10),d.src+="#?secret="+f,d.setAttribute("data-secret",f);if(g||h)a=d.cloneNode(!0),a.removeAttribute("security"),d.parentNode.replaceChild(a,d)}}}var d=!1,e=!1;if(b.querySelector)if(a.addEventListener)d=!0;if(a.wp=a.wp||{},!a.wp.receiveEmbedMessage)if(a.wp.receiveEmbedMessage=function(c){var d=c.data;if(d.secret||d.message||d.value)if(!/[^a-zA-Z0-9]/.test(d.secret)){var e,f,g,h,i,j=b.querySelectorAll('iframe[data-secret="'+d.secret+'"]'),k=b.querySelectorAll('blockquote[data-secret="'+d.secret+'"]');for(e=0;e<k.length;e++)k[e].style.display="none";for(e=0;e<j.length;e++)if(f=j[e],c.source===f.contentWindow){if(f.removeAttribute("style"),"height"===d.message){if(g=parseInt(d.value,10),g>1e3)g=1e3;else if(~~g<200)g=200;f.height=g}if("link"===d.message)if(h=b.createElement("a"),i=b.createElement("a"),h.href=f.getAttribute("src"),i.href=d.value,i.host===h.host)if(b.activeElement===f)a.top.location.href=d.value}else;}},d)a.addEventListener("message",a.wp.receiveEmbedMessage,!1),b.addEventListener("DOMContentLoaded",c,!1),a.addEventListener("load",c,!1)}(window,document);
+		!function(a,b){"use strict";function c(){if(!e){e=!0;var a,c,d,f,g=-1!==navigator.appVersion.indexOf("MSIE 10"),h=!!navigator.userAgent.match(/Trident.*rv:11\./),i=b.querySelectorAll("iframe.wp-embedded-content");for(c=0;c<i.length;c++){if(d=i[c],!d.getAttribute("data-secret"))f=Math.random().toString(36).substr(2,10),d.src+="#?secret="+f,d.setAttribute("data-secret",f);if(g||h)a=d.cloneNode(!0),a.removeAttribute("security"),d.parentNode.replaceChild(a,d)}}}var d=!1,e=!1;if(b.querySelector)if(a.addEventListener)d=!0;if(a.wp=a.wp||{},!a.wp.receiveEmbedMessage)if(a.wp.receiveEmbedMessage=function(c){var d=c.data;if(d.secret||d.message||d.value)if(!/[^a-zA-Z0-9]/.test(d.secret)){var e,f,g,h,i,j=b.querySelectorAll('iframe[data-secret="'+d.secret+'"]'),k=b.querySelectorAll('blockquote[data-secret="'+d.secret+'"]');for(e=0;e<k.length;e++)k[e].style.display="none";for(e=0;e<j.length;e++)if(f=j[e],c.source===f.contentWindow){if(f.removeAttribute("style"),"height"===d.message){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);if(g=parseInt(d.value,10),g>1e3)g=1e3;else if(~~g<200)g=200;f.height=g}if("link"===d.message)if(h=b.createElement("a"),i=b.createElement("a"),h.href=f.getAttribute("src"),i.href=d.value,i.host===h.host)if(b.activeElement===f)a.top.location.href=d.value}else;}},d)a.addEventListener("message",a.wp.receiveEmbedMessage,!1),b.addEventListener("DOMContentLoaded",c,!1),a.addEventListener("load",c,!1)}(window,document);
 JS;
 	}
 	$output .= "\n//--><!]]>";
@@ -493,7 +493,7 @@ JS;
  * @param int         $width The requested width.
  * @return array|false Response data on success, false if post doesn't exist.
  */
-function get_oembed_response_data( $post, $width ) {
+function get_oembed_response_data( $post, $width ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post  = get_post( $post );
 	$width = absint( $width );
 
@@ -566,7 +566,7 @@ function get_oembed_response_data( $post, $width ) {
  * @param int     $height The calculated height.
  * @return array The modified response data.
  */
-function get_oembed_response_data_rich( $data, $post, $width, $height ) {
+function get_oembed_response_data_rich( $data, $post, $width, $height ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$data['width']  = absint( $width );
 	$data['height'] = absint( $height );
 	$data['type']   = 'rich';
@@ -606,7 +606,7 @@ function get_oembed_response_data_rich( $data, $post, $width, $height ) {
  * @param string $format The oEmbed response format. Accepts 'json' or 'xml'.
  * @return string The format, either 'xml' or 'json'. Default 'json'.
  */
-function wp_oembed_ensure_format( $format ) {
+function wp_oembed_ensure_format( $format ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! in_array( $format, array( 'json', 'xml' ), true ) ) {
 		return 'json';
 	}
@@ -629,7 +629,7 @@ function wp_oembed_ensure_format( $format ) {
  * @param WP_REST_Server            $server  Server instance.
  * @return true
  */
-function _oembed_rest_pre_serve_request( $served, $result, $request, $server ) {
+function _oembed_rest_pre_serve_request( $served, $result, $request, $server ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$params = $request->get_params();
 
 	if ( '/oembed/1.0/embed' !== $request->get_route() || 'GET' !== $request->get_method() ) {
@@ -675,7 +675,7 @@ function _oembed_rest_pre_serve_request( $served, $result, $request, $server ) {
  * @param SimpleXMLElement $node Optional. XML node to append the result to recursively.
  * @return string|false XML string on success, false on error.
  */
-function _oembed_create_xml( $data, $node = null ) {
+function _oembed_create_xml( $data, $node = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_array( $data ) || empty( $data ) ) {
 		return false;
 	}
@@ -715,7 +715,7 @@ function _oembed_create_xml( $data, $node = null ) {
  * @param string $url    The URL of the content to be embedded.
  * @return string The filtered and sanitized oEmbed result.
  */
-function wp_filter_oembed_result( $result, $data, $url ) {
+function wp_filter_oembed_result( $result, $data, $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( false === $result || ! in_array( $data->type, array( 'rich', 'video' ) ) ) {
 		return $result;
 	}
@@ -786,7 +786,7 @@ function wp_filter_oembed_result( $result, $data, $url ) {
  * @param string $more_string Default 'more' string.
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
-function wp_embed_excerpt_more( $more_string ) {
+function wp_embed_excerpt_more( $more_string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_embed() ) {
 		return $more_string;
 	}
@@ -806,7 +806,7 @@ function wp_embed_excerpt_more( $more_string ) {
  *
  * @since 4.4.0
  */
-function the_excerpt_embed() {
+function the_excerpt_embed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$output = get_the_excerpt();
 
 	/**
@@ -829,7 +829,7 @@ function the_excerpt_embed() {
  * @param string $content The current post excerpt.
  * @return string The modified post excerpt.
  */
-function wp_embed_excerpt_attachment( $content ) {
+function wp_embed_excerpt_attachment( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_attachment() ) {
 		return prepend_attachment( '' );
 	}
@@ -847,7 +847,7 @@ function wp_embed_excerpt_attachment( $content ) {
  *
  * @since 4.4.0
  */
-function enqueue_embed_scripts() {
+function enqueue_embed_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_enqueue_style( 'wp-embed-template-ie' );
 
 	/**
@@ -863,7 +863,7 @@ function enqueue_embed_scripts() {
  *
  * @since 4.4.0
  */
-function print_embed_styles() {
+function print_embed_styles() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	?>
 	<style type="text/css">
 	<?php
@@ -894,7 +894,7 @@ function print_embed_styles() {
  *
  * @since 4.4.0
  */
-function print_embed_scripts() {
+function print_embed_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	?>
 	<script type="text/javascript">
 	<?php
@@ -912,7 +912,7 @@ function print_embed_scripts() {
 			 * and edit wp-embed-template.js directly.
 			 */
 			?>
-			!function(a,b){"use strict";function c(b,c){a.parent.postMessage({message:b,value:c,secret:g},"*")}function d(){function d(){l.className=l.className.replace("hidden",""),b.querySelector('.wp-embed-share-tab-button [aria-selected="true"]').focus()}function e(){l.className+=" hidden",b.querySelector(".wp-embed-share-dialog-open").focus()}function f(a){var c=b.querySelector('.wp-embed-share-tab-button [aria-selected="true"]');c.setAttribute("aria-selected","false"),b.querySelector("#"+c.getAttribute("aria-controls")).setAttribute("aria-hidden","true"),a.target.setAttribute("aria-selected","true"),b.querySelector("#"+a.target.getAttribute("aria-controls")).setAttribute("aria-hidden","false")}function g(a){var c,d,e=a.target,f=e.parentElement.previousElementSibling,g=e.parentElement.nextElementSibling;if(37===a.keyCode)c=f;else{if(39!==a.keyCode)return!1;c=g}"rtl"===b.documentElement.getAttribute("dir")&&(c=c===f?g:f),c&&(d=c.firstElementChild,e.setAttribute("tabindex","-1"),e.setAttribute("aria-selected",!1),b.querySelector("#"+e.getAttribute("aria-controls")).setAttribute("aria-hidden","true"),d.setAttribute("tabindex","0"),d.setAttribute("aria-selected","true"),d.focus(),b.querySelector("#"+d.getAttribute("aria-controls")).setAttribute("aria-hidden","false"))}function h(a){var c=b.querySelector('.wp-embed-share-tab-button [aria-selected="true"]');n!==a.target||a.shiftKey?c===a.target&&a.shiftKey&&(n.focus(),a.preventDefault()):(c.focus(),a.preventDefault())}function i(a){var b,d=a.target;b=d.hasAttribute("href")?d.getAttribute("href"):d.parentElement.getAttribute("href"),b&&(c("link",b),a.preventDefault())}if(!k){k=!0;var j,l=b.querySelector(".wp-embed-share-dialog"),m=b.querySelector(".wp-embed-share-dialog-open"),n=b.querySelector(".wp-embed-share-dialog-close"),o=b.querySelectorAll(".wp-embed-share-input"),p=b.querySelectorAll(".wp-embed-share-tab-button button"),q=b.querySelector(".wp-embed-featured-image img");if(o)for(j=0;j<o.length;j++)o[j].addEventListener("click",function(a){a.target.select()});if(m&&m.addEventListener("click",function(){d()}),n&&n.addEventListener("click",function(){e()}),p)for(j=0;j<p.length;j++)p[j].addEventListener("click",f),p[j].addEventListener("keydown",g);b.addEventListener("keydown",function(a){27===a.keyCode&&-1===l.className.indexOf("hidden")?e():9===a.keyCode&&h(a)},!1),a.self!==a.top&&(c("height",Math.ceil(b.body.getBoundingClientRect().height)),q&&q.addEventListener("load",function(){c("height",Math.ceil(b.body.getBoundingClientRect().height))}),b.addEventListener("click",i))}}function e(){a.self!==a.top&&(clearTimeout(i),i=setTimeout(function(){c("height",Math.ceil(b.body.getBoundingClientRect().height))},100))}function f(){a.self===a.top||g||(g=a.location.hash.replace(/.*secret=([\d\w]{10}).*/,"$1"),clearTimeout(h),h=setTimeout(function(){f()},100))}var g,h,i,j=b.querySelector&&a.addEventListener,k=!1;j&&(f(),b.documentElement.className=b.documentElement.className.replace(/\bno-js\b/,"")+" js",b.addEventListener("DOMContentLoaded",d,!1),a.addEventListener("load",d,!1),a.addEventListener("resize",e,!1))}(window,document);
+			!function(a,b){"use strict";function c(b,c){a.parent.postMessage({message:b,value:c,secret:g},"*")}function d(){function d(){l.className=l.className.replace("hidden",""),b.querySelector('.wp-embed-share-tab-button [aria-selected="true"]').focus()}function e(){l.className+=" hidden",b.querySelector(".wp-embed-share-dialog-open").focus()}function f(a){var c=b.querySelector('.wp-embed-share-tab-button [aria-selected="true"]');c.setAttribute("aria-selected","false"),b.querySelector("#"+c.getAttribute("aria-controls")).setAttribute("aria-hidden","true"),a.target.setAttribute("aria-selected","true"),b.querySelector("#"+a.target.getAttribute("aria-controls")).setAttribute("aria-hidden","false")}function g(a){var c,d,e=a.target,f=e.parentElement.previousElementSibling,g=e.parentElement.nextElementSibling;if(37===a.keyCode)c=f;else{if(39!==a.keyCode)return!1;c=g}"rtl"===b.documentElement.getAttribute("dir")&&(c=c===f?g:f),c&&(d=c.firstElementChild,e.setAttribute("tabindex","-1"),e.setAttribute("aria-selected",!1),b.querySelector("#"+e.getAttribute("aria-controls")).setAttribute("aria-hidden","true"),d.setAttribute("tabindex","0"),d.setAttribute("aria-selected","true"),d.focus(),b.querySelector("#"+d.getAttribute("aria-controls")).setAttribute("aria-hidden","false"))}function h(a){var c=b.querySelector('.wp-embed-share-tab-button [aria-selected="true"]');n!==a.target||a.shiftKey?c===a.target&&a.shiftKey&&(n.focus(),a.preventDefault()):(c.focus(),a.preventDefault())}function i(a){var b,d=a.target;b=d.hasAttribute("href")?d.getAttribute("href"):d.parentElement.getAttribute("href"),b&&(c("link",b),a.preventDefault())}if(!k){k=!0;var j,l=b.querySelector(".wp-embed-share-dialog"),m=b.querySelector(".wp-embed-share-dialog-open"),n=b.querySelector(".wp-embed-share-dialog-close"),o=b.querySelectorAll(".wp-embed-share-input"),p=b.querySelectorAll(".wp-embed-share-tab-button button"),q=b.querySelector(".wp-embed-featured-image img");if(o)for(j=0;j<o.length;j++)o[j].addEventListener("click",function(a){a.target.select()});if(m&&m.addEventListener("click",function(){d()}),n&&n.addEventListener("click",function(){e()}),p)for(j=0;j<p.length;j++)p[j].addEventListener("click",f),p[j].addEventListener("keydown",g);b.addEventListener("keydown",function(a){27===a.keyCode&&-1===l.className.indexOf("hidden")?e():9===a.keyCode&&h(a)},!1),a.self!==a.top&&(c("height",Math.ceil(b.body.getBoundingClientRect().height)),q&&q.addEventListener("load",function(){c("height",Math.ceil(b.body.getBoundingClientRect().height))}),b.addEventListener("click",i))}}function e(){a.self!==a.top&&(clearTimeout(i),i=setTimeout(function(){c("height",Math.ceil(b.body.getBoundingClientRect().height))},100))}function f(){a.self===a.top||g||(g=a.location.hash.replace(/.*secret=([\d\w]{10}).*/,"$1"),clearTimeout(h),h=setTimeout(function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);f()},100))}var g,h,i,j=b.querySelector&&a.addEventListener,k=!1;j&&(f(),b.documentElement.className=b.documentElement.className.replace(/\bno-js\b/,"")+" js",b.addEventListener("DOMContentLoaded",d,!1),a.addEventListener("load",d,!1),a.addEventListener("resize",e,!1))}(window,document);
 			<?php
 		}
 	?>
@@ -929,7 +929,7 @@ function print_embed_scripts() {
  * @param string $content The content to filter.
  * @return string The filtered content.
  */
-function _oembed_filter_feed_content( $content ) {
+function _oembed_filter_feed_content( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return str_replace( '<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" style="position: absolute; clip: rect(1px, 1px, 1px, 1px);"', '<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted"', $content );
 }
 
@@ -938,7 +938,7 @@ function _oembed_filter_feed_content( $content ) {
  *
  * @since 4.4.0
  */
-function print_embed_comments_button() {
+function print_embed_comments_button() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_404() || ! ( get_comments_number() || comments_open() ) ) {
 		return;
 	}
@@ -966,7 +966,7 @@ function print_embed_comments_button() {
  *
  * @since 4.4.0
  */
-function print_embed_sharing_button() {
+function print_embed_sharing_button() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_404() ) {
 		return;
 	}
@@ -984,7 +984,7 @@ function print_embed_sharing_button() {
  *
  * @since 4.4.0
  */
-function print_embed_sharing_dialog() {
+function print_embed_sharing_dialog() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_404() ) {
 		return;
 	}
@@ -1029,7 +1029,7 @@ function print_embed_sharing_dialog() {
  *
  * @since 4.5.0
  */
-function the_embed_site_title() {
+function the_embed_site_title() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$site_title = sprintf(
 		'<a href="%s" target="_top"><img src="%s" srcset="%s 2x" width="32" height="32" alt="" class="wp-embed-site-icon"/><span>%s</span></a>',
 		esc_url( home_url() ),
@@ -1064,7 +1064,7 @@ function the_embed_site_title() {
  * @return null|string The UNSANITIZED (and potentially unsafe) HTML that should be used to embed.
  *                     Null if the URL does not belong to the current site.
  */
-function wp_filter_pre_oembed_result( $result, $url, $args ) {
+function wp_filter_pre_oembed_result( $result, $url, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post_id = url_to_postid( $url );
 
 	/** This filter is documented in wp-includes/class-wp-oembed-controller.php */

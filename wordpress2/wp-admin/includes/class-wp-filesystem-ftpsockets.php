@@ -26,7 +26,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 *
 	 * @param array $opt
 	 */
-	public function __construct( $opt  = '' ) {
+	public function __construct( $opt  = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->method = 'ftpsockets';
 		$this->errors = new WP_Error();
 
@@ -63,7 +63,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 *
 	 * @return bool
 	 */
-	public function connect() {
+	public function connect() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->ftp )
 			return false;
 
@@ -115,7 +115,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @return string|false File contents on success, false if no temp file could be opened,
 	 *                      or if the file doesn't exist.
 	 */
-	public function get_contents( $file ) {
+	public function get_contents( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->exists($file) )
 			return false;
 
@@ -156,7 +156,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return array
 	 */
-	public function get_contents_array($file) {
+	public function get_contents_array($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return explode("\n", $this->get_contents($file) );
 	}
 
@@ -168,7 +168,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param int|bool $mode
 	 * @return bool
 	 */
-	public function put_contents($file, $contents, $mode = false ) {
+	public function put_contents($file, $contents, $mode = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$temp = wp_tempnam( $file );
 		if ( ! $temphandle = @fopen($temp, 'w+') ) {
 			unlink($temp);
@@ -207,7 +207,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 *
 	 * @return string
 	 */
-	public function cwd() {
+	public function cwd() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$cwd = $this->ftp->pwd();
 		if ( $cwd )
 			$cwd = trailingslashit($cwd);
@@ -220,7 +220,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function chdir($file) {
+	public function chdir($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->ftp->chdir($file);
 	}
 
@@ -232,7 +232,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param bool $recursive
 	 * @return bool
 	 */
-	public function chmod($file, $mode = false, $recursive = false ) {
+	public function chmod($file, $mode = false, $recursive = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $mode ) {
 			if ( $this->is_file($file) )
 				$mode = FS_CHMOD_FILE;
@@ -259,7 +259,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return string
 	 */
-	public function owner($file) {
+	public function owner($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$dir = $this->dirlist($file);
 		return $dir[$file]['owner'];
 	}
@@ -270,7 +270,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return string
 	 */
-	public function getchmod($file) {
+	public function getchmod($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$dir = $this->dirlist($file);
 		return $dir[$file]['permsn'];
 	}
@@ -281,7 +281,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return string
 	 */
-	public function group($file) {
+	public function group($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$dir = $this->dirlist($file);
 		return $dir[$file]['group'];
 	}
@@ -295,7 +295,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param int|bool $mode
 	 * @return bool
 	 */
-	public function copy($source, $destination, $overwrite = false, $mode = false) {
+	public function copy($source, $destination, $overwrite = false, $mode = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $overwrite && $this->exists($destination) )
 			return false;
 
@@ -314,7 +314,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param bool   $overwrite
 	 * @return bool
 	 */
-	public function move($source, $destination, $overwrite = false ) {
+	public function move($source, $destination, $overwrite = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->ftp->rename($source, $destination);
 	}
 
@@ -326,7 +326,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $type
 	 * @return bool
 	 */
-	public function delete($file, $recursive = false, $type = false) {
+	public function delete($file, $recursive = false, $type = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty($file) )
 			return false;
 		if ( 'f' == $type || $this->is_file($file) )
@@ -343,7 +343,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function exists( $file ) {
+	public function exists( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$list = $this->ftp->nlist( $file );
 
 		if ( empty( $list ) && $this->is_dir( $file ) ) {
@@ -360,7 +360,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function is_file($file) {
+	public function is_file($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_dir($file) )
 			return false;
 		if ( $this->exists($file) )
@@ -374,7 +374,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $path
 	 * @return bool
 	 */
-	public function is_dir($path) {
+	public function is_dir($path) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$cwd = $this->cwd();
 		if ( $this->chdir($path) ) {
 			$this->chdir($cwd);
@@ -389,7 +389,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function is_readable($file) {
+	public function is_readable($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return true;
 	}
 
@@ -399,7 +399,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function is_writable($file) {
+	public function is_writable($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return true;
 	}
 
@@ -409,7 +409,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function atime($file) {
+	public function atime($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return false;
 	}
 
@@ -419,7 +419,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return int
 	 */
-	public function mtime($file) {
+	public function mtime($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->ftp->mdtm($file);
 	}
 
@@ -427,7 +427,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return int
 	 */
-	public function size($file) {
+	public function size($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->ftp->filesize($file);
 	}
 
@@ -439,7 +439,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param int $atime
 	 * @return bool
 	 */
-	public function touch($file, $time = 0, $atime = 0 ) {
+	public function touch($file, $time = 0, $atime = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return false;
 	}
 
@@ -452,7 +452,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param mixed  $chgrp
 	 * @return bool
 	 */
-	public function mkdir($path, $chmod = false, $chown = false, $chgrp = false ) {
+	public function mkdir($path, $chmod = false, $chown = false, $chgrp = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$path = untrailingslashit($path);
 		if ( empty($path) )
 			return false;
@@ -471,7 +471,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param string $path
 	 * @param bool $recursive
 	 */
-	public function rmdir($path, $recursive = false ) {
+	public function rmdir($path, $recursive = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->delete($path, $recursive);
 	}
 
@@ -483,7 +483,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	 * @param bool   $recursive
 	 * @return bool|array
 	 */
-	public function dirlist($path = '.', $include_hidden = true, $recursive = false ) {
+	public function dirlist($path = '.', $include_hidden = true, $recursive = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_file($path) ) {
 			$limit_file = basename($path);
 			$path = dirname($path) . '/';
@@ -538,7 +538,7 @@ class WP_Filesystem_ftpsockets extends WP_Filesystem_Base {
 	/**
 	 * @access public
 	 */
-	public function __destruct() {
+	public function __destruct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->ftp->quit();
 	}
 }

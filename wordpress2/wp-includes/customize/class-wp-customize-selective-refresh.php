@@ -65,7 +65,7 @@ final class WP_Customize_Selective_Refresh {
 	 *
 	 * @param WP_Customize_Manager $manager Manager instance.
 	 */
-	public function __construct( WP_Customize_Manager $manager ) {
+	public function __construct( WP_Customize_Manager $manager ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->manager = $manager;
 		require_once( ABSPATH . WPINC . '/customize/class-wp-customize-partial.php' );
 
@@ -80,7 +80,7 @@ final class WP_Customize_Selective_Refresh {
 	 *
 	 * @return array Partials.
 	 */
-	public function partials() {
+	public function partials() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->partials;
 	}
 
@@ -94,7 +94,7 @@ final class WP_Customize_Selective_Refresh {
 	 * @param array                       $args Optional. Partial arguments. Default empty array.
 	 * @return WP_Customize_Partial             The instance of the panel that was added.
 	 */
-	public function add_partial( $id, $args = array() ) {
+	public function add_partial( $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $id instanceof WP_Customize_Partial ) {
 			$partial = $id;
 		} else {
@@ -122,7 +122,7 @@ final class WP_Customize_Selective_Refresh {
 	 * @param string $id Customize Partial ID.
 	 * @return WP_Customize_Partial|null The partial, if set. Otherwise null.
 	 */
-	public function get_partial( $id ) {
+	public function get_partial( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->partials[ $id ] ) ) {
 			return $this->partials[ $id ];
 		} else {
@@ -138,7 +138,7 @@ final class WP_Customize_Selective_Refresh {
 	 *
 	 * @param string $id Customize Partial ID.
 	 */
-	public function remove_partial( $id ) {
+	public function remove_partial( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->partials[ $id ] );
 	}
 
@@ -148,7 +148,7 @@ final class WP_Customize_Selective_Refresh {
 	 * @since 4.5.0
 	 * @access public
 	 */
-	public function init_preview() {
+	public function init_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		add_action( 'template_redirect', array( $this, 'handle_render_partials_request' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_preview_scripts' ) );
 	}
@@ -159,7 +159,7 @@ final class WP_Customize_Selective_Refresh {
 	 * @since 4.5.0
 	 * @access public
 	 */
-	public function enqueue_preview_scripts() {
+	public function enqueue_preview_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_enqueue_script( 'customize-selective-refresh' );
 		add_action( 'wp_footer', array( $this, 'export_preview_data' ), 1000 );
 	}
@@ -170,7 +170,7 @@ final class WP_Customize_Selective_Refresh {
 	 * @since 4.5.0
 	 * @access public
 	 */
-	public function export_preview_data() {
+	public function export_preview_data() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$partials = array();
 
 		foreach ( $this->partials() as $partial ) {
@@ -214,7 +214,7 @@ final class WP_Customize_Selective_Refresh {
 	 * @param array $partial_ids The partial ID to add.
 	 * @return array Added WP_Customize_Partial instances.
 	 */
-	public function add_dynamic_partials( $partial_ids ) {
+	public function add_dynamic_partials( $partial_ids ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$new_partials = array();
 
 		foreach ( $partial_ids as $partial_id ) {
@@ -277,7 +277,7 @@ final class WP_Customize_Selective_Refresh {
 	 *
 	 * @return bool Whether the request is for rendering partials.
 	 */
-	public function is_render_partials_request() {
+	public function is_render_partials_request() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return ! empty( $_POST[ self::RENDER_QUERY_VAR ] );
 	}
 
@@ -295,7 +295,7 @@ final class WP_Customize_Selective_Refresh {
 	 * @param string $errline Error line.
 	 * @return true Always true.
 	 */
-	public function handle_error( $errno, $errstr, $errfile = null, $errline = null ) {
+	public function handle_error( $errno, $errstr, $errfile = null, $errline = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->triggered_errors[] = array(
 			'partial'      => $this->current_partial_id,
 			'error_number' => $errno,
@@ -312,7 +312,7 @@ final class WP_Customize_Selective_Refresh {
 	 * @since 4.5.0
 	 * @access public
 	 */
-	public function handle_render_partials_request() {
+	public function handle_render_partials_request() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->is_render_partials_request() ) {
 			return;
 		}

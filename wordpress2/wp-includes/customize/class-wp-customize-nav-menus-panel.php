@@ -33,7 +33,7 @@ class WP_Customize_Nav_Menus_Panel extends WP_Customize_Panel {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function render_screen_options() {
+	public function render_screen_options() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Adds the screen options.
 		require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
 		add_filter( 'manage_nav-menus_columns', 'wp_nav_menu_manage_columns' );
@@ -51,7 +51,7 @@ class WP_Customize_Nav_Menus_Panel extends WP_Customize_Panel {
 	 * @since 4.3.0
 	 * @deprecated 4.5.0 Deprecated in favor of wp_nav_menu_manage_columns().
 	 */
-	public function wp_nav_menu_manage_columns() {
+	public function wp_nav_menu_manage_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.5.0', 'wp_nav_menu_manage_columns' );
 		require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
 		return wp_nav_menu_manage_columns();
@@ -68,7 +68,7 @@ class WP_Customize_Nav_Menus_Panel extends WP_Customize_Panel {
 	 *
 	 * @see WP_Customize_Panel::print_template()
 	 */
-	protected function content_template() {
+	protected function content_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<li class="panel-meta customize-info accordion-section <# if ( ! data.description ) { #> cannot-expand<# } #>">
 			<button type="button" class="customize-panel-back" tabindex="-1">

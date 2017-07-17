@@ -54,7 +54,7 @@ class WP_Feed_Cache_Transient {
 	 * @param string $filename  Unique identifier for cache object.
 	 * @param string $extension 'spi' or 'spc'.
 	 */
-	public function __construct($location, $filename, $extension) {
+	public function __construct($location, $filename, $extension) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->name = 'feed_' . $filename;
 		$this->mod_name = 'feed_mod_' . $filename;
 
@@ -79,7 +79,7 @@ class WP_Feed_Cache_Transient {
 	 * @param SimplePie $data Data to save.
 	 * @return true Always true.
 	 */
-	public function save($data) {
+	public function save($data) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $data instanceof SimplePie ) {
 			$data = $data->data;
 		}
@@ -97,7 +97,7 @@ class WP_Feed_Cache_Transient {
 	 *
 	 * @return mixed Transient value.
 	 */
-	public function load() {
+	public function load() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return get_transient($this->name);
 	}
 
@@ -109,7 +109,7 @@ class WP_Feed_Cache_Transient {
 	 *
 	 * @return mixed Transient value.
 	 */
-	public function mtime() {
+	public function mtime() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return get_transient($this->mod_name);
 	}
 
@@ -121,7 +121,7 @@ class WP_Feed_Cache_Transient {
 	 *
 	 * @return bool False if value was not set and true if value was set.
 	 */
-	public function touch() {
+	public function touch() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return set_transient($this->mod_name, time(), $this->lifetime);
 	}
 
@@ -133,7 +133,7 @@ class WP_Feed_Cache_Transient {
 	 *
 	 * @return true Always true.
 	 */
-	public function unlink() {
+	public function unlink() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		delete_transient($this->name);
 		delete_transient($this->mod_name);
 		return true;

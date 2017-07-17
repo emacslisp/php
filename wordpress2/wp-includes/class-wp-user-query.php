@@ -77,7 +77,7 @@ class WP_User_Query {
 	 *
 	 * @param null|string|array $query Optional. The query variables.
 	 */
-	public function __construct( $query = null ) {
+	public function __construct( $query = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! empty( $query ) ) {
 			$this->prepare_query( $query );
 			$this->query();
@@ -93,7 +93,7 @@ class WP_User_Query {
 	 * @param array $args Query vars, as passed to `WP_User_Query`.
 	 * @return array Complete query variables with undefined ones filled in with defaults.
 	 */
-	public static function fill_query_vars( $args ) {
+	public static function fill_query_vars( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array(
 			'blog_id' => get_current_blog_id(),
 			'role' => '',
@@ -215,7 +215,7 @@ class WP_User_Query {
 	 *                                             logins will not be included in results. Default empty array.
 	 * }
 	 */
-	public function prepare_query( $query = array() ) {
+	public function prepare_query( $query = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		if ( empty( $this->query_vars ) || ! empty( $query ) ) {
@@ -589,7 +589,7 @@ class WP_User_Query {
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 */
-	public function query() {
+	public function query() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$qv =& $this->query_vars;
@@ -641,7 +641,7 @@ class WP_User_Query {
 	 * @param string $query_var Query variable key.
 	 * @return mixed
 	 */
-	public function get( $query_var ) {
+	public function get( $query_var ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->query_vars[$query_var] ) )
 			return $this->query_vars[$query_var];
 
@@ -657,7 +657,7 @@ class WP_User_Query {
 	 * @param string $query_var Query variable key.
 	 * @param mixed $value Query variable value.
 	 */
-	public function set( $query_var, $value ) {
+	public function set( $query_var, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_vars[$query_var] = $value;
 	}
 
@@ -675,7 +675,7 @@ class WP_User_Query {
 	 *                       Single site allows leading and trailing wildcards, Network Admin only trailing.
 	 * @return string
 	 */
-	protected function get_search_sql( $string, $cols, $wild = false ) {
+	protected function get_search_sql( $string, $cols, $wild = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$searches = array();
@@ -702,7 +702,7 @@ class WP_User_Query {
 	 *
 	 * @return array Array of results.
 	 */
-	public function get_results() {
+	public function get_results() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->results;
 	}
 
@@ -714,7 +714,7 @@ class WP_User_Query {
 	 *
 	 * @return int Number of total users.
 	 */
-	public function get_total() {
+	public function get_total() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->total_users;
 	}
 
@@ -729,7 +729,7 @@ class WP_User_Query {
 	 * @param string $orderby Alias for the field to order by.
 	 * @return string Value to used in the ORDER clause, if `$orderby` is valid.
 	 */
-	protected function parse_orderby( $orderby ) {
+	protected function parse_orderby( $orderby ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$meta_query_clauses = $this->meta_query->get_clauses();
@@ -787,7 +787,7 @@ class WP_User_Query {
 	 * @param string $order The 'order' query variable.
 	 * @return string The sanitized 'order' query variable.
 	 */
-	protected function parse_order( $order ) {
+	protected function parse_order( $order ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_string( $order ) || empty( $order ) ) {
 			return 'DESC';
 		}
@@ -808,7 +808,7 @@ class WP_User_Query {
 	 * @param string $name Property to get.
 	 * @return mixed Property.
 	 */
-	public function __get( $name ) {
+	public function __get( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return $this->$name;
 		}
@@ -824,7 +824,7 @@ class WP_User_Query {
 	 * @param mixed  $value Property value.
 	 * @return mixed Newly-set property.
 	 */
-	public function __set( $name, $value ) {
+	public function __set( $name, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return $this->$name = $value;
 		}
@@ -839,7 +839,7 @@ class WP_User_Query {
 	 * @param string $name Property to check if set.
 	 * @return bool Whether the property is set.
 	 */
-	public function __isset( $name ) {
+	public function __isset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return isset( $this->$name );
 		}
@@ -853,7 +853,7 @@ class WP_User_Query {
 	 *
 	 * @param string $name Property to unset.
 	 */
-	public function __unset( $name ) {
+	public function __unset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			unset( $this->$name );
 		}
@@ -869,7 +869,7 @@ class WP_User_Query {
 	 * @param array    $arguments Arguments to pass when calling.
 	 * @return mixed Return value of the callback, false otherwise.
 	 */
-	public function __call( $name, $arguments ) {
+	public function __call( $name, $arguments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'get_search_sql' === $name ) {
 			return call_user_func_array( array( $this, $name ), $arguments );
 		}

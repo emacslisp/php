@@ -116,7 +116,7 @@ class WP_Styles extends WP_Dependencies {
 	 * @since 2.6.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/**
 		 * Fires when the WP_Styles instance is initialized.
 		 *
@@ -138,7 +138,7 @@ class WP_Styles extends WP_Dependencies {
 	 * @param string $handle The style's registered handle.
 	 * @return bool True on success, false on failure.
 	 */
-	public function do_item( $handle ) {
+	public function do_item( $handle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !parent::do_item($handle) )
 			return false;
 
@@ -252,7 +252,7 @@ class WP_Styles extends WP_Dependencies {
 	 * @param string $code   String containing the CSS styles to be added.
 	 * @return bool True on success, false on failure.
 	 */
-	public function add_inline_style( $handle, $code ) {
+	public function add_inline_style( $handle, $code ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $code ) {
 			return false;
 		}
@@ -278,7 +278,7 @@ class WP_Styles extends WP_Dependencies {
 	 *                       Default true.
 	 * @return string|bool False if no data exists, inline styles if `$echo` is true, true otherwise.
 	 */
-	public function print_inline_style( $handle, $echo = true ) {
+	public function print_inline_style( $handle, $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$output = $this->get_data( $handle, 'after' );
 
 		if ( empty( $output ) ) {
@@ -309,7 +309,7 @@ class WP_Styles extends WP_Dependencies {
 	 * @param int|false $group     Group level: (int) level, (false) no groups.
 	 * @return bool True on success, false on failure.
 	 */
-	public function all_deps( $handles, $recursion = false, $group = false ) {
+	public function all_deps( $handles, $recursion = false, $group = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$r = parent::all_deps( $handles, $recursion, $group );
 		if ( ! $recursion ) {
 			/**
@@ -335,7 +335,7 @@ class WP_Styles extends WP_Dependencies {
 	 * @param string $handle The style's registered handle.
 	 * @return string Style's fully-qualified URL.
 	 */
-	public function _css_href( $src, $ver, $handle ) {
+	public function _css_href( $src, $ver, $handle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !is_bool($src) && !preg_match('|^(https?:)?//|', $src) && ! ( $this->content_url && 0 === strpos($src, $this->content_url) ) ) {
 			$src = $this->base_url . $src;
 		}
@@ -364,7 +364,7 @@ class WP_Styles extends WP_Dependencies {
 	 * @param string $src The source of the enqueued style.
 	 * @return bool True if found, false if not.
 	 */
-	public function in_default_dir( $src ) {
+	public function in_default_dir( $src ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->default_dirs )
 			return true;
 
@@ -387,7 +387,7 @@ class WP_Styles extends WP_Dependencies {
 	 *
 	 * @return array Handles of items that have been processed.
 	 */
-	public function do_footer_items() {
+	public function do_footer_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->do_items(false, 1);
 		return $this->done;
 	}
@@ -398,7 +398,7 @@ class WP_Styles extends WP_Dependencies {
 	 * @since 3.3.0
 	 * @access public
 	 */
-	public function reset() {
+	public function reset() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->do_concat = false;
 		$this->concat = '';
 		$this->concat_version = '';

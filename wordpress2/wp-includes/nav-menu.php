@@ -15,7 +15,7 @@
  * @param int|string|WP_Term $menu Menu ID, slug, or name - or the menu object.
  * @return WP_Term|false False if $menu param isn't supplied or term does not exist, menu object if successful.
  */
-function wp_get_nav_menu_object( $menu ) {
+function wp_get_nav_menu_object( $menu ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$menu_obj = false;
 
 	if ( is_object( $menu ) ) {
@@ -59,7 +59,7 @@ function wp_get_nav_menu_object( $menu ) {
  * @param int|string $menu The menu to check (ID, slug, or name).
  * @return bool Whether the menu exists.
  */
-function is_nav_menu( $menu ) {
+function is_nav_menu( $menu ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $menu )
 		return false;
 
@@ -85,7 +85,7 @@ function is_nav_menu( $menu ) {
  *
  * @param array $locations Associative array of menu location identifiers (like a slug) and descriptive text.
  */
-function register_nav_menus( $locations = array() ) {
+function register_nav_menus( $locations = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_registered_nav_menus;
 
 	add_theme_support( 'menus' );
@@ -101,7 +101,7 @@ function register_nav_menus( $locations = array() ) {
  * @param string $location The menu location identifier.
  * @return bool True on success, false on failure.
  */
-function unregister_nav_menu( $location ) {
+function unregister_nav_menu( $location ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_registered_nav_menus;
 
 	if ( is_array( $_wp_registered_nav_menus ) && isset( $_wp_registered_nav_menus[$location] ) ) {
@@ -122,7 +122,7 @@ function unregister_nav_menu( $location ) {
  * @param string $location    Menu location identifier, like a slug.
  * @param string $description Menu location descriptive text.
  */
-function register_nav_menu( $location, $description ) {
+function register_nav_menu( $location, $description ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	register_nav_menus( array( $location => $description ) );
 }
 /**
@@ -134,7 +134,7 @@ function register_nav_menu( $location, $description ) {
  *
  * @return array Registered navigation menu locations. If none are registered, an empty array.
  */
-function get_registered_nav_menus() {
+function get_registered_nav_menus() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_registered_nav_menus;
 	if ( isset( $_wp_registered_nav_menus ) )
 		return $_wp_registered_nav_menus;
@@ -150,7 +150,7 @@ function get_registered_nav_menus() {
  *               If none are registered, an empty array.
  */
 
-function get_nav_menu_locations() {
+function get_nav_menu_locations() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$locations = get_theme_mod( 'nav_menu_locations' );
 	return ( is_array( $locations ) ) ? $locations : array();
 }
@@ -163,7 +163,7 @@ function get_nav_menu_locations() {
  * @param string $location Menu location identifier.
  * @return bool Whether location has a menu.
  */
-function has_nav_menu( $location ) {
+function has_nav_menu( $location ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$has_nav_menu = false;
 
 	$registered_nav_menus = get_registered_nav_menus();
@@ -191,7 +191,7 @@ function has_nav_menu( $location ) {
  * @param int $menu_item_id The ID of the potential nav menu item.
  * @return bool Whether the given ID is that of a nav menu item.
  */
-function is_nav_menu_item( $menu_item_id = 0 ) {
+function is_nav_menu_item( $menu_item_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return ( ! is_wp_error( $menu_item_id ) && ( 'nav_menu_item' == get_post_type( $menu_item_id ) ) );
 }
 
@@ -205,7 +205,7 @@ function is_nav_menu_item( $menu_item_id = 0 ) {
  * @param string $menu_name Menu name.
  * @return int|WP_Error Menu ID on success, WP_Error object on failure.
  */
-function wp_create_nav_menu( $menu_name ) {
+function wp_create_nav_menu( $menu_name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// expected_slashed ($menu_name)
 	return wp_update_nav_menu_object( 0, array( 'menu-name' => $menu_name ) );
 }
@@ -218,7 +218,7 @@ function wp_create_nav_menu( $menu_name ) {
  * @param string $menu Menu ID, slug, or name.
  * @return bool|WP_Error True on success, false or WP_Error object on failure.
  */
-function wp_delete_nav_menu( $menu ) {
+function wp_delete_nav_menu( $menu ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$menu = wp_get_nav_menu_object( $menu );
 	if ( ! $menu )
 		return false;
@@ -265,7 +265,7 @@ function wp_delete_nav_menu( $menu ) {
  * @param array $menu_data The array of menu data.
  * @return int|WP_Error Menu ID on success, WP_Error object on failure.
  */
-function wp_update_nav_menu_object( $menu_id = 0, $menu_data = array() ) {
+function wp_update_nav_menu_object( $menu_id = 0, $menu_data = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// expected_slashed ($menu_data)
 	$menu_id = (int) $menu_id;
 
@@ -362,7 +362,7 @@ function wp_update_nav_menu_object( $menu_id = 0, $menu_data = array() ) {
  * @param array $menu_item_data  The menu item's data.
  * @return int|WP_Error The menu item's database ID or WP_Error object on failure.
  */
-function wp_update_nav_menu_item( $menu_id = 0, $menu_item_db_id = 0, $menu_item_data = array() ) {
+function wp_update_nav_menu_item( $menu_id = 0, $menu_item_db_id = 0, $menu_item_data = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$menu_id = (int) $menu_id;
 	$menu_item_db_id = (int) $menu_item_db_id;
 
@@ -540,7 +540,7 @@ function wp_update_nav_menu_item( $menu_id = 0, $menu_item_db_id = 0, $menu_item
  *                    Default empty array.
  * @return array Menu objects.
  */
-function wp_get_nav_menus( $args = array() ) {
+function wp_get_nav_menus( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array( 'hide_empty' => false, 'orderby' => 'name' );
 	$args = wp_parse_args( $args, $defaults );
 
@@ -568,7 +568,7 @@ function wp_get_nav_menus( $args = array() ) {
  * @param object $item The menu item to check.
  * @return bool False if invalid, otherwise true.
  */
-function _is_valid_nav_menu_item( $item ) {
+function _is_valid_nav_menu_item( $item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return empty( $item->_invalid );
 }
 
@@ -584,7 +584,7 @@ function _is_valid_nav_menu_item( $item ) {
  * @param array  $args Optional. Arguments to pass to get_posts().
  * @return false|array $items Array of menu items, otherwise false.
  */
-function wp_get_nav_menu_items( $menu, $args = array() ) {
+function wp_get_nav_menu_items( $menu, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$menu = wp_get_nav_menu_object( $menu );
 
 	if ( ! $menu ) {
@@ -698,7 +698,7 @@ function wp_get_nav_menu_items( $menu, $args = array() ) {
  * @param object $menu_item The menu item to modify.
  * @return object $menu_item The menu item with standard menu item properties.
  */
-function wp_setup_nav_menu_item( $menu_item ) {
+function wp_setup_nav_menu_item( $menu_item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $menu_item->post_type ) ) {
 		if ( 'nav_menu_item' == $menu_item->post_type ) {
 			$menu_item->db_id = (int) $menu_item->ID;
@@ -863,7 +863,7 @@ function wp_setup_nav_menu_item( $menu_item ) {
  * @param string $taxonomy    If $object_type is "taxonomy", $taxonomy is the name of the tax that $object_id belongs to
  * @return array The array of menu item IDs; empty array if none;
  */
-function wp_get_associated_nav_menu_items( $object_id = 0, $object_type = 'post_type', $taxonomy = '' ) {
+function wp_get_associated_nav_menu_items( $object_id = 0, $object_type = 'post_type', $taxonomy = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$object_id = (int) $object_id;
 	$menu_item_ids = array();
 
@@ -907,7 +907,7 @@ function wp_get_associated_nav_menu_items( $object_id = 0, $object_type = 'post_
  * @param int $object_id The ID of the original object being trashed.
  *
  */
-function _wp_delete_post_menu_item( $object_id = 0 ) {
+function _wp_delete_post_menu_item( $object_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$object_id = (int) $object_id;
 
 	$menu_item_ids = wp_get_associated_nav_menu_items( $object_id, 'post_type' );
@@ -927,7 +927,7 @@ function _wp_delete_post_menu_item( $object_id = 0 ) {
  * @param int    $tt_id     Term taxonomy ID. Unused.
  * @param string $taxonomy  Taxonomy slug.
  */
-function _wp_delete_tax_menu_item( $object_id = 0, $tt_id, $taxonomy ) {
+function _wp_delete_tax_menu_item( $object_id = 0, $tt_id, $taxonomy ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$object_id = (int) $object_id;
 
 	$menu_item_ids = wp_get_associated_nav_menu_items( $object_id, 'taxonomy', $taxonomy );
@@ -947,7 +947,7 @@ function _wp_delete_tax_menu_item( $object_id = 0, $tt_id, $taxonomy ) {
  * @param string $old_status The old status of the post object.
  * @param object $post       The post object being transitioned from one status to another.
  */
-function _wp_auto_add_pages_to_menu( $new_status, $old_status, $post ) {
+function _wp_auto_add_pages_to_menu( $new_status, $old_status, $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'publish' != $new_status || 'publish' == $old_status || 'page' != $post->post_type )
 		return;
 	if ( ! empty( $post->post_parent ) )

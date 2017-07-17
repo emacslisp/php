@@ -22,7 +22,7 @@ final class WP_Customize_Background_Image_Setting extends WP_Customize_Setting {
 	 *
 	 * @param $value
 	 */
-	public function update( $value ) {
+	public function update( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		remove_theme_mod( 'background_image_thumb' );
 	}
 }

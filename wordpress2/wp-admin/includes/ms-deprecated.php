@@ -15,7 +15,7 @@
  *
  * @deprecated 3.0.0
  */
-function wpmu_menu() {
+function wpmu_menu() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function(__FUNCTION__, '3.0.0' );
 	// Deprecated. See #11763.
 }
@@ -26,7 +26,7 @@ function wpmu_menu() {
  * @deprecated 3.0.0 Use is_upload_space_available()
  * @see is_upload_space_available()
  */
-function wpmu_checkAvailableSpace() {
+function wpmu_checkAvailableSpace() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function(__FUNCTION__, '3.0.0', 'is_upload_space_available()' );
 
 	if ( !is_upload_space_available() )
@@ -38,7 +38,7 @@ function wpmu_checkAvailableSpace() {
  *
  * @deprecated 3.0.0
  */
-function mu_options( $options ) {
+function mu_options( $options ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function(__FUNCTION__, '3.0.0' );
 	return $options;
 }
@@ -49,7 +49,7 @@ function mu_options( $options ) {
  * @deprecated 3.0.0 Use activate_plugin()
  * @see activate_plugin()
  */
-function activate_sitewide_plugin() {
+function activate_sitewide_plugin() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function(__FUNCTION__, '3.0.0', 'activate_plugin()' );
 	return false;
 }
@@ -60,7 +60,7 @@ function activate_sitewide_plugin() {
  * @deprecated 3.0.0 Use deactivate_sitewide_plugin()
  * @see deactivate_sitewide_plugin()
  */
-function deactivate_sitewide_plugin( $plugin = false ) {
+function deactivate_sitewide_plugin( $plugin = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function(__FUNCTION__, '3.0.0', 'deactivate_plugin()' );
 }
 
@@ -70,7 +70,7 @@ function deactivate_sitewide_plugin( $plugin = false ) {
  * @deprecated 3.0.0 Use is_network_only_plugin()
  * @see is_network_only_plugin()
  */
-function is_wpmu_sitewide_plugin( $file ) {
+function is_wpmu_sitewide_plugin( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function(__FUNCTION__, '3.0.0', 'is_network_only_plugin()' );
 	return is_network_only_plugin( $file );
 }
@@ -81,7 +81,7 @@ function is_wpmu_sitewide_plugin( $file ) {
  * @deprecated 3.4.0 Use WP_Theme::get_allowed_on_network()
  * @see WP_Theme::get_allowed_on_network()
  */
-function get_site_allowed_themes() {
+function get_site_allowed_themes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'WP_Theme::get_allowed_on_network()' );
 	return array_map( 'intval', WP_Theme::get_allowed_on_network() );
 }
@@ -92,7 +92,7 @@ function get_site_allowed_themes() {
  * @deprecated 3.4.0 Use WP_Theme::get_allowed_on_site()
  * @see WP_Theme::get_allowed_on_site()
  */
-function wpmu_get_blog_allowedthemes( $blog_id = 0 ) {
+function wpmu_get_blog_allowedthemes( $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'WP_Theme::get_allowed_on_site()' );
 	return array_map( 'intval', WP_Theme::get_allowed_on_site( $blog_id ) );
 }
@@ -102,4 +102,4 @@ function wpmu_get_blog_allowedthemes( $blog_id = 0 ) {
  *
  * @deprecated 3.5.0
  */
-function ms_deprecated_blogs_file() {}
+function ms_deprecated_blogs_file() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}

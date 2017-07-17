@@ -23,7 +23,7 @@
  * @param string $show See get_bloginfo() for possible values.
  * @return string
  */
-function get_bloginfo_rss($show = '') {
+function get_bloginfo_rss($show = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$info = strip_tags(get_bloginfo($show));
 	/**
 	 * Filters the bloginfo for use in RSS feeds.
@@ -51,7 +51,7 @@ function get_bloginfo_rss($show = '') {
  *
  * @param string $show See get_bloginfo() for possible values.
  */
-function bloginfo_rss($show = '') {
+function bloginfo_rss($show = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the bloginfo for display in RSS feeds.
 	 *
@@ -75,7 +75,7 @@ function bloginfo_rss($show = '') {
  *
  * @return string Default feed, or for example 'rss2', 'atom', etc.
  */
-function get_default_feed() {
+function get_default_feed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the default feed type.
 	 *
@@ -97,7 +97,7 @@ function get_default_feed() {
  * @param string $deprecated Unused..
  * @return string The document title.
  */
-function get_wp_title_rss( $deprecated = '&#8211;' ) {
+function get_wp_title_rss( $deprecated = '&#8211;' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( '&#8211;' !== $deprecated ) {
 		/* translators: %s: 'document_title_separator' filter name */
 		_deprecated_argument( __FUNCTION__, '4.4.0', sprintf( __( 'Use the %s filter instead.' ), '<code>document_title_separator</code>' ) );
@@ -123,7 +123,7 @@ function get_wp_title_rss( $deprecated = '&#8211;' ) {
  *
  * @param string $deprecated Unused.
  */
-function wp_title_rss( $deprecated = '&#8211;' ) {
+function wp_title_rss( $deprecated = '&#8211;' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( '&#8211;' !== $deprecated ) {
 		/* translators: %s: 'document_title_separator' filter name */
 		_deprecated_argument( __FUNCTION__, '4.4.0', sprintf( __( 'Use the %s filter instead.' ), '<code>document_title_separator</code>' ) );
@@ -150,7 +150,7 @@ function wp_title_rss( $deprecated = '&#8211;' ) {
  *
  * @return string Current post title.
  */
-function get_the_title_rss() {
+function get_the_title_rss() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$title = get_the_title();
 
 	/**
@@ -169,7 +169,7 @@ function get_the_title_rss() {
  *
  * @since 0.71
  */
-function the_title_rss() {
+function the_title_rss() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_the_title_rss();
 }
 
@@ -182,7 +182,7 @@ function the_title_rss() {
  * @param string $feed_type The type of feed. rss2 | atom | rss | rdf
  * @return string The filtered content.
  */
-function get_the_content_feed($feed_type = null) {
+function get_the_content_feed($feed_type = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !$feed_type )
 		$feed_type = get_default_feed();
 
@@ -208,7 +208,7 @@ function get_the_content_feed($feed_type = null) {
  *
  * @param string $feed_type The type of feed. rss2 | atom | rss | rdf
  */
-function the_content_feed($feed_type = null) {
+function the_content_feed($feed_type = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_the_content_feed($feed_type);
 }
 
@@ -217,7 +217,7 @@ function the_content_feed($feed_type = null) {
  *
  * @since 0.71
  */
-function the_excerpt_rss() {
+function the_excerpt_rss() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$output = get_the_excerpt();
 	/**
 	 * Filters the post excerpt for a feed.
@@ -234,7 +234,7 @@ function the_excerpt_rss() {
  *
  * @since 2.3.0
  */
-function the_permalink_rss() {
+function the_permalink_rss() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the permalink to the post for use in feeds.
 	 *
@@ -251,7 +251,7 @@ function the_permalink_rss() {
  * @since 3.0.0
  * @return none
  */
-function comments_link_feed() {
+function comments_link_feed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the comments permalink for the current post.
 	 *
@@ -270,7 +270,7 @@ function comments_link_feed() {
  *
  * @param int|WP_Comment $comment_id Optional comment object or id. Defaults to global comment object.
  */
-function comment_guid($comment_id = null) {
+function comment_guid($comment_id = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo esc_url( get_comment_guid($comment_id) );
 }
 
@@ -282,7 +282,7 @@ function comment_guid($comment_id = null) {
  * @param int|WP_Comment $comment_id Optional comment object or id. Defaults to global comment object.
  * @return false|string false on failure or guid for comment on success.
  */
-function get_comment_guid($comment_id = null) {
+function get_comment_guid($comment_id = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment($comment_id);
 
 	if ( !is_object($comment) )
@@ -299,7 +299,7 @@ function get_comment_guid($comment_id = null) {
  *
  * @param int|WP_Comment $comment Optional. Comment object or id. Defaults to global comment object.
  */
-function comment_link( $comment = null ) {
+function comment_link( $comment = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the current comment's permalink.
 	 *
@@ -319,7 +319,7 @@ function comment_link( $comment = null ) {
  *
  * @return string Comment Author
  */
-function get_comment_author_rss() {
+function get_comment_author_rss() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the current comment author for use in a feed.
 	 *
@@ -337,7 +337,7 @@ function get_comment_author_rss() {
  *
  * @since 1.0.0
  */
-function comment_author_rss() {
+function comment_author_rss() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_comment_author_rss();
 }
 
@@ -346,7 +346,7 @@ function comment_author_rss() {
  *
  * @since 1.0.0
  */
-function comment_text_rss() {
+function comment_text_rss() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment_text = get_comment_text();
 	/**
 	 * Filters the current comment content for use in a feed.
@@ -371,7 +371,7 @@ function comment_text_rss() {
  * @param string $type Optional, default is the type returned by get_default_feed().
  * @return string All of the post categories for displaying in the feed.
  */
-function get_the_category_rss($type = null) {
+function get_the_category_rss($type = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty($type) )
 		$type = get_default_feed();
 	$categories = get_the_category();
@@ -422,7 +422,7 @@ function get_the_category_rss($type = null) {
  *
  * @param string $type Optional, default is the type returned by get_default_feed().
  */
-function the_category_rss($type = null) {
+function the_category_rss($type = null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_the_category_rss($type);
 }
 
@@ -433,7 +433,7 @@ function the_category_rss($type = null) {
  *
  * @since 2.2.0
  */
-function html_type_rss() {
+function html_type_rss() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$type = get_bloginfo('html_type');
 	if (strpos($type, 'xhtml') !== false)
 		$type = 'xhtml';
@@ -456,7 +456,7 @@ function html_type_rss() {
  *
  * @since 1.5.0
  */
-function rss_enclosure() {
+function rss_enclosure() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( post_password_required() )
 		return;
 
@@ -495,7 +495,7 @@ function rss_enclosure() {
  *
  * @since 2.2.0
  */
-function atom_enclosure() {
+function atom_enclosure() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( post_password_required() )
 		return;
 
@@ -533,12 +533,12 @@ function atom_enclosure() {
  * @param string $data Input string
  * @return array array(type, value)
  */
-function prep_atom_text_construct($data) {
+function prep_atom_text_construct($data) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if (strpos($data, '<') === false && strpos($data, '&') === false) {
 		return array('text', $data);
 	}
 
-	if ( ! function_exists( 'xml_parser_create' ) ) {
+	if ( ! function_exists( 'xml_parser_create' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		trigger_error( __( "PHP's XML extension is not available. Please contact your hosting provider to enable PHP's XML extension." ) );
 
 		return array( 'html', "<![CDATA[$data]]>" );
@@ -572,7 +572,7 @@ function prep_atom_text_construct($data) {
  *
  * @see get_site_icon_url()
  */
-function atom_site_icon() {
+function atom_site_icon() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$url = get_site_icon_url( 32 );
 	if ( $url ) {
 		echo "<icon>$url</icon>\n";
@@ -584,7 +584,7 @@ function atom_site_icon() {
  *
  * @since 4.3.0
  */
-function rss2_site_icon() {
+function rss2_site_icon() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$rss_title = get_wp_title_rss();
 	if ( empty( $rss_title ) ) {
 		$rss_title = get_bloginfo_rss( 'name' );
@@ -610,7 +610,7 @@ function rss2_site_icon() {
  *
  * @since 2.5.0
  */
-function self_link() {
+function self_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$host = @parse_url(home_url());
 	/**
 	 * Filters the current feed URL.
@@ -632,7 +632,7 @@ function self_link() {
  *
  * @param string $type Type of feed. Possible values include 'rss', rss2', 'atom', and 'rdf'.
  */
-function feed_content_type( $type = '' ) {
+function feed_content_type( $type = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty($type) )
 		$type = get_default_feed();
 
@@ -668,7 +668,7 @@ function feed_content_type( $type = '' ) {
  *
  * @return WP_Error|SimplePie WP_Error object on failure or SimplePie object on success
  */
-function fetch_feed( $url ) {
+function fetch_feed( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! class_exists( 'SimplePie', false ) ) {
 		require_once( ABSPATH . WPINC . '/class-simplepie.php' );
 	}

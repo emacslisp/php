@@ -23,7 +23,7 @@ class Requests_Hooks implements Requests_Hooker {
 	/**
 	 * Constructor
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// pass
 	}
 
@@ -34,7 +34,7 @@ class Requests_Hooks implements Requests_Hooker {
 	 * @param callback $callback Function/method to call on event
 	 * @param int $priority Priority number. <0 is executed earlier, >0 is executed later
 	 */
-	public function register($hook, $callback, $priority = 0) {
+	public function register($hook, $callback, $priority = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (!isset($this->hooks[$hook])) {
 			$this->hooks[$hook] = array();
 		}
@@ -52,7 +52,7 @@ class Requests_Hooks implements Requests_Hooker {
 	 * @param array $parameters Parameters to pass to callbacks
 	 * @return boolean Successfulness
 	 */
-	public function dispatch($hook, $parameters = array()) {
+	public function dispatch($hook, $parameters = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (empty($this->hooks[$hook])) {
 			return false;
 		}

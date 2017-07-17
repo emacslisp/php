@@ -24,7 +24,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function twentyseventeen_setup() {
+function twentyseventeen_setup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/twentyseventeen
@@ -223,7 +223,7 @@ add_action( 'after_setup_theme', 'twentyseventeen_setup' );
  *
  * @global int $content_width
  */
-function twentyseventeen_content_width() {
+function twentyseventeen_content_width() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	$content_width = $GLOBALS['content_width'];
 
@@ -258,7 +258,7 @@ add_action( 'template_redirect', 'twentyseventeen_content_width', 0 );
 /**
  * Register custom fonts.
  */
-function twentyseventeen_fonts_url() {
+function twentyseventeen_fonts_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$fonts_url = '';
 
 	/**
@@ -293,7 +293,7 @@ function twentyseventeen_fonts_url() {
  * @param string $relation_type  The relation type the URLs are printed.
  * @return array $urls           URLs to print for resource hints.
  */
-function twentyseventeen_resource_hints( $urls, $relation_type ) {
+function twentyseventeen_resource_hints( $urls, $relation_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( wp_style_is( 'twentyseventeen-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
 		$urls[] = array(
 			'href' => 'https://fonts.gstatic.com',
@@ -310,7 +310,7 @@ add_filter( 'wp_resource_hints', 'twentyseventeen_resource_hints', 10, 2 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function twentyseventeen_widgets_init() {
+function twentyseventeen_widgets_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'twentyseventeen' ),
 		'id'            => 'sidebar-1',
@@ -351,7 +351,7 @@ add_action( 'widgets_init', 'twentyseventeen_widgets_init' );
  *
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
-function twentyseventeen_excerpt_more( $link ) {
+function twentyseventeen_excerpt_more( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_admin() ) {
 		return $link;
 	}
@@ -372,13 +372,13 @@ add_filter( 'excerpt_more', 'twentyseventeen_excerpt_more' );
  *
  * @since Twenty Seventeen 1.0
  */
-function twentyseventeen_javascript_detection() {
+function twentyseventeen_javascript_detection() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
 add_action( 'wp_head', 'twentyseventeen_javascript_detection', 0 );
 
 
-function add_google_adsense() {
+function add_google_adsense() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
    echo '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>  (adsbygoogle = window.adsbygoogle || []).push({    google_ad_client: "ca-pub-1491245661992771",    enable_page_level_ads: true  });</script>';
 }
 
@@ -389,7 +389,7 @@ add_action('wp_head', 'add_google_adsense',0 );
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function twentyseventeen_pingback_header() {
+function twentyseventeen_pingback_header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
 	}
@@ -399,7 +399,7 @@ add_action( 'wp_head', 'twentyseventeen_pingback_header' );
 /**
  * Display custom color CSS.
  */
-function twentyseventeen_colors_css_wrap() {
+function twentyseventeen_colors_css_wrap() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'custom' !== get_theme_mod( 'colorscheme' ) && ! is_customize_preview() ) {
 		return;
 	}
@@ -416,7 +416,7 @@ add_action( 'wp_head', 'twentyseventeen_colors_css_wrap' );
 /**
  * Enqueue scripts and styles.
  */
-function twentyseventeen_scripts() {
+function twentyseventeen_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'twentyseventeen-fonts', twentyseventeen_fonts_url(), array(), null );
 
@@ -478,7 +478,7 @@ add_action( 'wp_enqueue_scripts', 'twentyseventeen_scripts' );
  *                      values in pixels (in that order).
  * @return string A source size value for use in a content image 'sizes' attribute.
  */
-function twentyseventeen_content_image_sizes_attr( $sizes, $size ) {
+function twentyseventeen_content_image_sizes_attr( $sizes, $size ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$width = $size[0];
 
 	if ( 740 <= $width ) {
@@ -505,7 +505,7 @@ add_filter( 'wp_calculate_image_sizes', 'twentyseventeen_content_image_sizes_att
  * @param array  $attr   Array of the attributes for the image tag.
  * @return string The filtered header image HTML.
  */
-function twentyseventeen_header_image_tag( $html, $header, $attr ) {
+function twentyseventeen_header_image_tag( $html, $header, $attr ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $attr['sizes'] ) ) {
 		$html = str_replace( $attr['sizes'], '100vw', $html );
 	}
@@ -524,7 +524,7 @@ add_filter( 'get_header_image_tag', 'twentyseventeen_header_image_tag', 10, 3 );
  * @param array $size       Registered image size or flat array of height and width dimensions.
  * @return string A source size value for use in a post thumbnail 'sizes' attribute.
  */
-function twentyseventeen_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+function twentyseventeen_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_archive() || is_search() || is_home() ) {
 		$attr['sizes'] = '(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px';
 	} else {
@@ -544,7 +544,7 @@ add_filter( 'wp_get_attachment_image_attributes', 'twentyseventeen_post_thumbnai
  *
  * @return string The template to be used: blank if is_home() is true (defaults to index.php), else $template.
  */
-function twentyseventeen_front_page_template( $template ) {
+function twentyseventeen_front_page_template( $template ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return is_home() ? '' : $template;
 }
 add_filter( 'frontpage_template',  'twentyseventeen_front_page_template' );

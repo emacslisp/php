@@ -52,7 +52,7 @@ class Walker_Comment extends Walker {
 	 * @param int    $depth  Optional. Depth of the current comment. Default 0.
 	 * @param array  $args   Optional. Uses 'style' argument for type of HTML list. Default empty array.
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$GLOBALS['comment_depth'] = $depth + 1;
 
 		switch ( $args['style'] ) {
@@ -82,7 +82,7 @@ class Walker_Comment extends Walker {
 	 * @param array  $args   Optional. Will only append content if style argument value is 'ol' or 'ul'.
 	 *                       Default empty array.
 	 */
-	public function end_lvl( &$output, $depth = 0, $args = array() ) {
+	public function end_lvl( &$output, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$GLOBALS['comment_depth'] = $depth + 1;
 
 		switch ( $args['style'] ) {
@@ -130,7 +130,7 @@ class Walker_Comment extends Walker {
 	 * @param array      $args              An array of arguments.
 	 * @param string     $output            Used to append additional content. Passed by reference.
 	 */
-	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !$element )
 			return;
 
@@ -170,7 +170,7 @@ class Walker_Comment extends Walker {
 	 * @param array      $args    Optional. An array of arguments. Default empty array.
 	 * @param int        $id      Optional. ID of the current comment. Default 0 (unused).
 	 */
-	public function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {
+	public function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$depth++;
 		$GLOBALS['comment_depth'] = $depth;
 		$GLOBALS['comment'] = $comment;
@@ -211,7 +211,7 @@ class Walker_Comment extends Walker {
 	 * @param int        $depth   Optional. Depth of the current comment. Default 0.
 	 * @param array      $args    Optional. An array of arguments. Default empty array.
 	 */
-	public function end_el( &$output, $comment, $depth = 0, $args = array() ) {
+	public function end_el( &$output, $comment, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !empty( $args['end-callback'] ) ) {
 			ob_start();
 			call_user_func( $args['end-callback'], $comment, $args, $depth );
@@ -236,7 +236,7 @@ class Walker_Comment extends Walker {
 	 * @param int        $depth   Depth of the current comment.
 	 * @param array      $args    An array of arguments.
 	 */
-	protected function ping( $comment, $depth, $args ) {
+	protected function ping( $comment, $depth, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$tag = ( 'div' == $args['style'] ) ? 'div' : 'li';
 ?>
 		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( '', $comment ); ?>>
@@ -258,7 +258,7 @@ class Walker_Comment extends Walker {
 	 * @param int        $depth   Depth of the current comment.
 	 * @param array      $args    An array of arguments.
 	 */
-	protected function comment( $comment, $depth, $args ) {
+	protected function comment( $comment, $depth, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'div' == $args['style'] ) {
 			$tag = 'div';
 			$add_below = 'comment';
@@ -322,7 +322,7 @@ class Walker_Comment extends Walker {
 	 * @param int        $depth   Depth of the current comment.
 	 * @param array      $args    An array of arguments.
 	 */
-	protected function html5_comment( $comment, $depth, $args ) {
+	protected function html5_comment( $comment, $depth, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 ?>
 		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>

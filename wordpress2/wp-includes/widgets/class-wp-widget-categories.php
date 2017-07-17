@@ -22,7 +22,7 @@ class WP_Widget_Categories extends WP_Widget {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$widget_ops = array(
 			'classname' => 'widget_categories',
 			'description' => __( 'A list or dropdown of categories.' ),
@@ -41,7 +41,7 @@ class WP_Widget_Categories extends WP_Widget {
 	 *                        'before_widget', and 'after_widget'.
 	 * @param array $instance Settings for the current Categories widget instance.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $first_dropdown = true;
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
@@ -85,9 +85,9 @@ class WP_Widget_Categories extends WP_Widget {
 
 <script type='text/javascript'>
 /* <![CDATA[ */
-(function() {
+(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	var dropdown = document.getElementById( "<?php echo esc_js( $dropdown_id ); ?>" );
-	function onCatChange() {
+	function onCatChange() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
 			location.href = "<?php echo home_url(); ?>/?cat=" + dropdown.options[ dropdown.selectedIndex ].value;
 		}
@@ -131,7 +131,7 @@ class WP_Widget_Categories extends WP_Widget {
 	 * @param array $old_instance Old settings for this instance.
 	 * @return array Updated settings to save.
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['count'] = !empty($new_instance['count']) ? 1 : 0;
@@ -149,7 +149,7 @@ class WP_Widget_Categories extends WP_Widget {
 	 *
 	 * @param array $instance Current settings.
 	 */
-	public function form( $instance ) {
+	public function form( $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		//Defaults
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '') );
 		$title = sanitize_text_field( $instance['title'] );

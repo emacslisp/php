@@ -28,7 +28,7 @@ final class WP_Internal_Pointers {
 	 *
 	 * @param string $hook_suffix The current admin page.
 	 */
-	public static function enqueue_scripts( $hook_suffix ) {
+	public static function enqueue_scripts( $hook_suffix ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/*
 		 * Register feature pointers
 		 *
@@ -105,20 +105,20 @@ final class WP_Internal_Pointers {
 	 * @param string $selector The HTML elements, on which the pointer should be attached.
 	 * @param array  $args Arguments to be passed to the pointer JS (see wp-pointer.js).
 	 */
-	private static function print_js( $pointer_id, $selector, $args ) {
+	private static function print_js( $pointer_id, $selector, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $pointer_id ) || empty( $selector ) || empty( $args ) || empty( $args['content'] ) )
 			return;
 
 		?>
 		<script type="text/javascript">
-		(function($){
+		(function($){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			var options = <?php echo wp_json_encode( $args ); ?>, setup;
 
 			if ( ! options )
 				return;
 
 			options = $.extend( options, {
-				close: function() {
+				close: function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 					$.post( ajaxurl, {
 						pointer: '<?php echo $pointer_id; ?>',
 						action: 'dismiss-wp-pointer'
@@ -126,7 +126,7 @@ final class WP_Internal_Pointers {
 				}
 			});
 
-			setup = function() {
+			setup = function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				$('<?php echo $selector; ?>').first().pointer( options ).pointer('open');
 			};
 
@@ -140,16 +140,16 @@ final class WP_Internal_Pointers {
 		<?php
 	}
 
-	public static function pointer_wp330_toolbar() {}
-	public static function pointer_wp330_media_uploader() {}
-	public static function pointer_wp330_saving_widgets() {}
-	public static function pointer_wp340_customize_current_theme_link() {}
-	public static function pointer_wp340_choose_image_from_library() {}
-	public static function pointer_wp350_media() {}
-	public static function pointer_wp360_revisions() {}
-	public static function pointer_wp360_locks() {}
-	public static function pointer_wp390_widgets() {}
-	public static function pointer_wp410_dfw() {}
+	public static function pointer_wp330_toolbar() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
+	public static function pointer_wp330_media_uploader() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
+	public static function pointer_wp330_saving_widgets() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
+	public static function pointer_wp340_customize_current_theme_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
+	public static function pointer_wp340_choose_image_from_library() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
+	public static function pointer_wp350_media() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
+	public static function pointer_wp360_revisions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
+	public static function pointer_wp360_locks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
+	public static function pointer_wp390_widgets() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
+	public static function pointer_wp410_dfw() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Prevents new users from seeing existing 'new feature' pointers.
@@ -160,7 +160,7 @@ final class WP_Internal_Pointers {
 	 *
 	 * @param int $user_id User ID.
 	 */
-	public static function dismiss_pointers_for_new_users( $user_id ) {
+	public static function dismiss_pointers_for_new_users( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		add_user_meta( $user_id, 'dismissed_wp_pointers', '' );
 	}
 }

@@ -21,7 +21,7 @@ class IXR_ClientMulticall extends IXR_Client
 	/**
 	 * PHP4 constructor.
 	 */
-	public function IXR_ClientMulticall( $server, $path = false, $port = 80 ) {
+	public function IXR_ClientMulticall( $server, $path = false, $port = 80 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $server, $path, $port );
 	}
 

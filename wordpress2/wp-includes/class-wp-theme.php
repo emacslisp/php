@@ -199,7 +199,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $theme_root Theme root.
 	 * @param WP_Error|void $_child If this theme is a parent theme, the child may be passed for validation purposes.
 	 */
-	public function __construct( $theme_dir, $theme_root, $_child = null ) {
+	public function __construct( $theme_dir, $theme_root, $_child = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_theme_directories;
 
 		// Initialize caching on first run.
@@ -335,7 +335,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return string Theme name, ready for display (translated)
 	 */
-	public function __toString() {
+	public function __toString() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return (string) $this->display('Name');
 	}
 
@@ -347,7 +347,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $offset Property to check if set.
 	 * @return bool Whether the given property is set.
 	 */
-	public function __isset( $offset ) {
+	public function __isset( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $properties = array(
 			'name', 'title', 'version', 'parent_theme', 'template_dir', 'stylesheet_dir', 'template', 'stylesheet',
 			'screenshot', 'description', 'author', 'tags', 'theme_root', 'theme_root_uri',
@@ -362,7 +362,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $offset Property to get.
 	 * @return mixed Property value.
 	 */
-	public function __get( $offset ) {
+	public function __get( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ( $offset ) {
 			case 'name' :
 			case 'title' :
@@ -404,14 +404,14 @@ final class WP_Theme implements ArrayAccess {
 	 * @param mixed $offset
 	 * @param mixed $value
 	 */
-	public function offsetSet( $offset, $value ) {}
+	public function offsetSet( $offset, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Method to implement ArrayAccess for keys formerly returned by get_themes()
 	 *
 	 * @param mixed $offset
 	 */
-	public function offsetUnset( $offset ) {}
+	public function offsetUnset( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Method to implement ArrayAccess for keys formerly returned by get_themes()
@@ -421,7 +421,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param mixed $offset
 	 * @return bool
 	 */
-	public function offsetExists( $offset ) {
+	public function offsetExists( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $keys = array(
 			'Name', 'Version', 'Status', 'Title', 'Author', 'Author Name', 'Author URI', 'Description',
 			'Template', 'Stylesheet', 'Template Files', 'Stylesheet Files', 'Template Dir', 'Stylesheet Dir',
@@ -444,7 +444,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param mixed $offset
 	 * @return mixed
 	 */
-	public function offsetGet( $offset ) {
+	public function offsetGet( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ( $offset ) {
 			case 'Name' :
 			case 'Title' :
@@ -499,7 +499,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return WP_Error|false WP_Error if there are errors, or false.
 	 */
-	public function errors() {
+	public function errors() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return is_wp_error( $this->errors ) ? $this->errors : false;
 	}
 
@@ -514,7 +514,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return bool Whether the theme exists.
 	 */
-	public function exists() {
+	public function exists() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return ! ( $this->errors() && in_array( 'theme_not_found', $this->errors()->get_error_codes() ) );
 	}
 
@@ -526,7 +526,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return WP_Theme|false Parent theme, or false if the current theme is not a child theme.
 	 */
-	public function parent() {
+	public function parent() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $this->parent ) ? $this->parent : false;
 	}
 
@@ -542,7 +542,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $data Data to store
 	 * @return bool Return value from wp_cache_add()
 	 */
-	private function cache_add( $key, $data ) {
+	private function cache_add( $key, $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return wp_cache_add( $key . '-' . $this->cache_hash, $data, 'themes', self::$cache_expiration );
 	}
 
@@ -557,7 +557,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $key Type of data to retrieve (theme, screenshot, headers, post_templates)
 	 * @return mixed Retrieved data
 	 */
-	private function cache_get( $key ) {
+	private function cache_get( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return wp_cache_get( $key . '-' . $this->cache_hash, 'themes' );
 	}
 
@@ -567,7 +567,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @since 3.4.0
 	 * @access public
 	 */
-	public function cache_delete() {
+	public function cache_delete() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( array( 'theme', 'screenshot', 'headers', 'post_templates' ) as $key )
 			wp_cache_delete( $key . '-' . $this->cache_hash, 'themes' );
 		$this->template = $this->textdomain_loaded = $this->theme_root_uri = $this->parent = $this->errors = $this->headers_sanitized = $this->name_translated = null;
@@ -592,7 +592,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $header Theme header. Name, Description, Author, Version, ThemeURI, AuthorURI, Status, Tags.
 	 * @return string|false String on success, false on failure.
 	 */
-	public function get( $header ) {
+	public function get( $header ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $this->headers[ $header ] ) )
 			return false;
 
@@ -628,7 +628,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param bool $translate Optional. Whether to translate the header. Defaults to true.
 	 * @return string|false Processed header, false on failure.
 	 */
-	public function display( $header, $markup = true, $translate = true ) {
+	public function display( $header, $markup = true, $translate = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$value = $this->get( $header );
 		if ( false === $value ) {
 			return false;
@@ -659,7 +659,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $value Value to sanitize.
 	 * @return mixed
 	 */
-	private function sanitize_header( $header, $value ) {
+	private function sanitize_header( $header, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ( $header ) {
 			case 'Status' :
 				if ( ! $value ) {
@@ -718,7 +718,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $translate Whether the header has been translated.
 	 * @return string Value, marked up.
 	 */
-	private function markup_header( $header, $value, $translate ) {
+	private function markup_header( $header, $value, $translate ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ( $header ) {
 			case 'Name' :
 				if ( empty( $value ) ) {
@@ -764,7 +764,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $value Value to translate.
 	 * @return string Translated value.
 	 */
-	private function translate_header( $header, $value ) {
+	private function translate_header( $header, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ( $header ) {
 			case 'Name' :
 				// Cached for sorting reasons.
@@ -773,7 +773,7 @@ final class WP_Theme implements ArrayAccess {
 				$this->name_translated = translate( $value, $this->get('TextDomain' ) );
 				return $this->name_translated;
 			case 'Tags' :
-				if ( empty( $value ) || ! function_exists( 'get_theme_feature_list' ) ) {
+				if ( empty( $value ) || ! function_exists( 'get_theme_feature_list' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 					return $value;
 				}
 
@@ -824,7 +824,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return string Stylesheet
 	 */
-	public function get_stylesheet() {
+	public function get_stylesheet() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->stylesheet;
 	}
 
@@ -839,7 +839,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return string Template
 	 */
-	public function get_template() {
+	public function get_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->template;
 	}
 
@@ -854,7 +854,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return string Absolute path of the stylesheet directory.
 	 */
-	public function get_stylesheet_directory() {
+	public function get_stylesheet_directory() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->errors() && in_array( 'theme_root_missing', $this->errors()->get_error_codes() ) )
 			return '';
 
@@ -872,7 +872,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return string Absolute path of the template directory.
 	 */
-	public function get_template_directory() {
+	public function get_template_directory() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->parent() )
 			$theme_root = $this->parent()->theme_root;
 		else
@@ -892,7 +892,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return string URL to the stylesheet directory.
 	 */
-	public function get_stylesheet_directory_uri() {
+	public function get_stylesheet_directory_uri() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->get_theme_root_uri() . '/' . str_replace( '%2F', '/', rawurlencode( $this->stylesheet ) );
 	}
 
@@ -907,7 +907,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return string URL to the template directory.
 	 */
-	public function get_template_directory_uri() {
+	public function get_template_directory_uri() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->parent() )
 			$theme_root_uri = $this->parent()->get_theme_root_uri();
 		else
@@ -926,7 +926,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return string Theme root.
 	 */
-	public function get_theme_root() {
+	public function get_theme_root() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->theme_root;
 	}
 
@@ -942,7 +942,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return string Theme root URI.
 	 */
-	public function get_theme_root_uri() {
+	public function get_theme_root_uri() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $this->theme_root_uri ) )
 			$this->theme_root_uri = get_theme_root_uri( $this->stylesheet, $this->theme_root );
 		return $this->theme_root_uri;
@@ -962,7 +962,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param string $uri Type of URL to return, either 'relative' or an absolute URI. Defaults to absolute URI.
 	 * @return string|false Screenshot file. False if the theme does not have a screenshot.
 	 */
-	public function get_screenshot( $uri = 'uri' ) {
+	public function get_screenshot( $uri = 'uri' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$screenshot = $this->cache_get( 'screenshot' );
 		if ( $screenshot ) {
 			if ( 'relative' == $uri )
@@ -997,7 +997,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @return array Array of files, keyed by the path to the file relative to the theme's directory, with the values
 	 * 	             being absolute paths.
 	 */
-	public function get_files( $type = null, $depth = 0, $search_parent = false ) {
+	public function get_files( $type = null, $depth = 0, $search_parent = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$files = (array) self::scandir( $this->get_stylesheet_directory(), $type, $depth );
 
 		if ( $search_parent && $this->parent() )
@@ -1015,7 +1015,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @return array Array of page templates, keyed by filename and post type,
 	 *               with the value of the translated header name.
 	 */
-	public function get_post_templates() {
+	public function get_post_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// If you screw up your current theme and we invalidate your parent, most things still work. Let it slide.
 		if ( $this->errors() && $this->errors()->get_error_codes() !== array( 'theme_parent_invalid' ) ) {
 			return array();
@@ -1074,7 +1074,7 @@ final class WP_Theme implements ArrayAccess {
 	 *                                If a post is provided, its post type is used.
 	 * @return array Array of page templates, keyed by filename, with the value of the translated header name.
 	 */
-	public function get_page_templates( $post = null, $post_type = 'page' ) {
+	public function get_page_templates( $post = null, $post_type = 'page' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $post ) {
 			$post_type = get_post_type( $post );
 		}
@@ -1123,7 +1123,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @return array|false Array of files, keyed by the path to the file relative to the `$path` directory prepended
 	 *                     with `$relative_path`, with the values being absolute paths. False otherwise.
 	 */
-	private static function scandir( $path, $extensions = null, $depth = 0, $relative_path = '' ) {
+	private static function scandir( $path, $extensions = null, $depth = 0, $relative_path = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_dir( $path ) )
 			return false;
 
@@ -1167,7 +1167,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @return bool True if the textdomain was successfully loaded or has already been loaded.
 	 * 	False if no textdomain was specified in the file headers, or if the domain could not be loaded.
 	 */
-	public function load_textdomain() {
+	public function load_textdomain() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->textdomain_loaded ) )
 			return $this->textdomain_loaded;
 
@@ -1203,7 +1203,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param int $blog_id Optional. Ignored if only network-wide settings are checked. Defaults to current site.
 	 * @return bool Whether the theme is allowed for the network. Returns true in single-site.
 	 */
-	public function is_allowed( $check = 'both', $blog_id = null ) {
+	public function is_allowed( $check = 'both', $blog_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_multisite() )
 			return true;
 
@@ -1229,7 +1229,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return WP_Theme|false Object, or false if no theme is installed, which would be bad.
 	 */
-	public static function get_core_default_theme() {
+	public static function get_core_default_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( array_reverse( self::$default_themes ) as $slug => $name ) {
 			$theme = wp_get_theme( $slug );
 			if ( $theme->exists() ) {
@@ -1250,7 +1250,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param int $blog_id Optional. ID of the site. Defaults to the current site.
 	 * @return array Array of stylesheet names.
 	 */
-	public static function get_allowed( $blog_id = null ) {
+	public static function get_allowed( $blog_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/**
 		 * Filters the array of themes allowed on the network.
 		 *
@@ -1278,7 +1278,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @return array Array of stylesheet names.
 	 */
-	public static function get_allowed_on_network() {
+	public static function get_allowed_on_network() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $allowed_themes;
 		if ( ! isset( $allowed_themes ) ) {
 			$allowed_themes = (array) get_site_option( 'allowedthemes' );
@@ -1309,7 +1309,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @param int $blog_id Optional. ID of the site. Defaults to the current site.
 	 * @return array Array of stylesheet names.
 	 */
-	public static function get_allowed_on_site( $blog_id = null ) {
+	public static function get_allowed_on_site( $blog_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $allowed_themes = array();
 
 		if ( ! $blog_id || ! is_multisite() )
@@ -1386,7 +1386,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @param string|array $stylesheets Stylesheet name or array of stylesheet names.
 	 */
-	public static function network_enable_theme( $stylesheets ) {
+	public static function network_enable_theme( $stylesheets ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_multisite() ) {
 			return;
 		}
@@ -1412,7 +1412,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @param string|array $stylesheets Stylesheet name or array of stylesheet names.
 	 */
-	public static function network_disable_theme( $stylesheets ) {
+	public static function network_disable_theme( $stylesheets ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_multisite() ) {
 			return;
 		}
@@ -1441,7 +1441,7 @@ final class WP_Theme implements ArrayAccess {
 	 *
 	 * @param array $themes Array of themes to sort, passed by reference.
 	 */
-	public static function sort_by_name( &$themes ) {
+	public static function sort_by_name( &$themes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 0 === strpos( get_user_locale(), 'en_' ) ) {
 			uasort( $themes, array( 'WP_Theme', '_name_sort' ) );
 		} else {
@@ -1465,7 +1465,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @return int Negative if `$a` falls lower in the natural order than `$b`. Zero if they fall equally.
 	 *             Greater than 0 if `$a` falls higher in the natural order than `$b`. Used with usort().
 	 */
-	private static function _name_sort( $a, $b ) {
+	private static function _name_sort( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return strnatcasecmp( $a->headers['Name'], $b->headers['Name'] );
 	}
 
@@ -1482,7 +1482,7 @@ final class WP_Theme implements ArrayAccess {
 	 * @return int Negative if `$a` falls lower in the natural order than `$b`. Zero if they fall equally.
 	 *             Greater than 0 if `$a` falls higher in the natural order than `$b`. Used with usort().
 	 */
-	private static function _name_sort_i18n( $a, $b ) {
+	private static function _name_sort_i18n( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Don't mark up; Do translate.
 		return strnatcasecmp( $a->display( 'Name', false, true ), $b->display( 'Name', false, true ) );
 	}

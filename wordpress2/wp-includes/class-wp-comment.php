@@ -188,7 +188,7 @@ final class WP_Comment {
 	 * @param int $id Comment ID.
 	 * @return WP_Comment|false Comment object, otherwise false.
 	 */
-	public static function get_instance( $id ) {
+	public static function get_instance( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$comment_id = (int) $id;
@@ -221,7 +221,7 @@ final class WP_Comment {
 	 *
 	 * @param WP_Comment $comment Comment object.
 	 */
-	public function __construct( $comment ) {
+	public function __construct( $comment ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( get_object_vars( $comment ) as $key => $value ) {
 			$this->$key = $value;
 		}
@@ -235,7 +235,7 @@ final class WP_Comment {
 	 *
 	 * @return array Object as array.
 	 */
-	public function to_array() {
+	public function to_array() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return get_object_vars( $this );
 	}
 
@@ -276,7 +276,7 @@ final class WP_Comment {
 	 * }
 	 * @return array Array of `WP_Comment` objects.
 	 */
-	public function get_children( $args = array() ) {
+	public function get_children( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array(
 			'format' => 'tree',
 			'status' => 'all',
@@ -322,7 +322,7 @@ final class WP_Comment {
 	 *
 	 * @param WP_Comment $child Child comment.
 	 */
-	public function add_child( WP_Comment $child ) {
+	public function add_child( WP_Comment $child ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->children[ $child->comment_ID ] = $child;
 	}
 
@@ -335,7 +335,7 @@ final class WP_Comment {
 	 * @param int $child_id ID of the child.
 	 * @return WP_Comment|bool Returns the comment object if found, otherwise false.
 	 */
-	public function get_child( $child_id ) {
+	public function get_child( $child_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->children[ $child_id ] ) ) {
 			return $this->children[ $child_id ];
 		}
@@ -353,7 +353,7 @@ final class WP_Comment {
 	 *
 	 * @param bool $set Whether the comment's children have already been populated.
 	 */
-	public function populated_children( $set ) {
+	public function populated_children( $set ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->populated_children = (bool) $set;
 	}
 
@@ -368,7 +368,7 @@ final class WP_Comment {
 	 * @param string $name Property name.
 	 * @return bool
 	 */
-	public function __isset( $name ) {
+	public function __isset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->post_fields ) && 0 !== (int) $this->comment_post_ID ) {
 			$post = get_post( $this->comment_post_ID );
 			return property_exists( $post, $name );
@@ -386,7 +386,7 @@ final class WP_Comment {
 	 * @param string $name
 	 * @return mixed
 	 */
-	public function __get( $name ) {
+	public function __get( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->post_fields ) ) {
 			$post = get_post( $this->comment_post_ID );
 			return $post->$name;

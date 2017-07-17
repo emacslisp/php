@@ -125,7 +125,7 @@ class WP_Upgrader {
 	 * @param WP_Upgrader_Skin $skin The upgrader skin to use. Default is a WP_Upgrader_Skin.
 	 *                               instance.
 	 */
-	public function __construct( $skin = null ) {
+	public function __construct( $skin = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( null == $skin )
 			$this->skin = new WP_Upgrader_Skin();
 		else
@@ -141,7 +141,7 @@ class WP_Upgrader {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function init() {
+	public function init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->skin->set_upgrader($this);
 		$this->generic_strings();
 	}
@@ -152,7 +152,7 @@ class WP_Upgrader {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function generic_strings() {
+	public function generic_strings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->strings['bad_request'] = __('Invalid data provided.');
 		$this->strings['fs_unavailable'] = __('Could not access filesystem.');
 		$this->strings['fs_error'] = __('Filesystem error.');
@@ -190,7 +190,7 @@ class WP_Upgrader {
 	 *                                            Default false.
 	 * @return bool|WP_Error True if able to connect, false or a WP_Error otherwise.
 	 */
-	public function fs_connect( $directories = array(), $allow_relaxed_file_ownership = false ) {
+	public function fs_connect( $directories = array(), $allow_relaxed_file_ownership = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_filesystem;
 
 		if ( false === ( $credentials = $this->skin->request_filesystem_credentials( false, $directories[0], $allow_relaxed_file_ownership ) ) ) {
@@ -249,7 +249,7 @@ class WP_Upgrader {
 	 *                        existing local file, it will be returned untouched.
 	 * @return string|WP_Error The full path to the downloaded package file, or a WP_Error object.
 	 */
-	public function download_package( $package ) {
+	public function download_package( $package ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		/**
 		 * Filters whether to return the package.
@@ -295,7 +295,7 @@ class WP_Upgrader {
 	 *                               to unpack it. Default true.
 	 * @return string|WP_Error The path to the unpacked contents, or a WP_Error on failure.
 	 */
-	public function unpack_package( $package, $delete_package = true ) {
+	public function unpack_package( $package, $delete_package = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_filesystem;
 
 		$this->skin->feedback('unpack_package');
@@ -345,7 +345,7 @@ class WP_Upgrader {
 	 * @param string $remote_destination The location on the remote filesystem to be cleared
 	 * @return bool|WP_Error True upon success, WP_Error on failure.
 	 */
-	public function clear_destination( $remote_destination ) {
+	public function clear_destination( $remote_destination ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_filesystem;
 
 		if ( ! $wp_filesystem->exists( $remote_destination ) ) {
@@ -425,7 +425,7 @@ class WP_Upgrader {
 	 *
 	 * @return array|WP_Error The result (also stored in `WP_Upgrader::$result`), or a WP_Error on failure.
 	 */
-	public function install_package( $args = array() ) {
+	public function install_package( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_filesystem, $wp_theme_directories;
 
 		$defaults = array(
@@ -637,7 +637,7 @@ class WP_Upgrader {
 	 * @return array|false|WP_error The result from self::install_package() on success, otherwise a WP_Error,
 	 *                              or false if unable to connect to the filesystem.
 	 */
-	public function run( $options ) {
+	public function run( $options ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$defaults = array(
 			'package' => '', // Please always pass this.
@@ -808,7 +808,7 @@ class WP_Upgrader {
 	 *
 	 * @param bool $enable True to enable maintenance mode, false to disable.
 	 */
-	public function maintenance_mode( $enable = false ) {
+	public function maintenance_mode( $enable = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_filesystem;
 		$file = $wp_filesystem->abspath() . '.maintenance';
 		if ( $enable ) {
@@ -835,7 +835,7 @@ class WP_Upgrader {
 	 *                                Default: 1 hour.
  	 * @return bool False if a lock couldn't be created or if the lock is still valid. True otherwise.
  	 */
-	public static function create_lock( $lock_name, $release_timeout = null ) {
+	public static function create_lock( $lock_name, $release_timeout = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 		if ( ! $release_timeout ) {
 			$release_timeout = HOUR_IN_SECONDS;
@@ -882,7 +882,7 @@ class WP_Upgrader {
  	 * @param string $lock_name The name of this unique lock.
 	 * @return bool True if the lock was successfully released. False on failure.
  	 */
-	public static function release_lock( $lock_name ) {
+	public static function release_lock( $lock_name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return delete_option( $lock_name . '.lock' );
 	}
 

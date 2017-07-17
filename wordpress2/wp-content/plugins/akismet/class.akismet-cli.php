@@ -22,7 +22,7 @@ class Akismet_CLI extends WP_CLI_Command {
 	 *
 	 * @alias comment-check
 	 */
-	public function check( $args, $assoc_args ) {
+	public function check( $args, $assoc_args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $args as $comment_id ) {
 			if ( isset( $assoc_args['noaction'] ) ) {
 				// Check the comment, but don't reclassify it.
@@ -58,7 +58,7 @@ class Akismet_CLI extends WP_CLI_Command {
 	 *
 	 * @alias recheck-queue
 	 */
-	public function recheck_queue() {
+	public function recheck_queue() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$batch_size = 100;
 		$start = 0;
 		

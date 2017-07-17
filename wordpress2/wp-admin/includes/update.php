@@ -11,7 +11,7 @@
  *
  * @return object|array|false The response from the API on success, false on failure.
  */
-function get_preferred_from_update_core() {
+function get_preferred_from_update_core() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$updates = get_core_updates();
 	if ( ! is_array( $updates ) )
 		return false;
@@ -27,7 +27,7 @@ function get_preferred_from_update_core() {
  * 	                     set $options['available'] to false to skip not-dismissed updates.
  * @return array|false Array of the update objects on success, false on failure.
  */
-function get_core_updates( $options = array() ) {
+function get_core_updates( $options = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$options = array_merge( array( 'available' => true, 'dismissed' => false ), $options );
 	$dismissed = get_site_option( 'dismissed_update_core' );
 
@@ -69,7 +69,7 @@ function get_core_updates( $options = array() ) {
  *
  * @return array|false False on failure, otherwise the core update offering.
  */
-function find_core_auto_update() {
+function find_core_auto_update() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$updates = get_site_transient( 'update_core' );
 	if ( ! $updates || empty( $updates->updates ) )
 		return false;
@@ -100,7 +100,7 @@ function find_core_auto_update() {
  * @param string $locale  Locale to query.
  * @return bool|array False on failure. An array of checksums on success.
  */
-function get_core_checksums( $version, $locale ) {
+function get_core_checksums( $version, $locale ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$url = $http_url = 'http://api.wordpress.org/core/checksums/1.0/?' . http_build_query( compact( 'version', 'locale' ), null, '&' );
 
 	if ( $ssl = wp_http_supports( array( 'ssl' ) ) )
@@ -140,7 +140,7 @@ function get_core_checksums( $version, $locale ) {
  * @param object $update
  * @return bool
  */
-function dismiss_core_update( $update ) {
+function dismiss_core_update( $update ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$dismissed = get_site_option( 'dismissed_update_core' );
 	$dismissed[ $update->current . '|' . $update->locale ] = true;
 	return update_site_option( 'dismissed_update_core', $dismissed );
@@ -152,7 +152,7 @@ function dismiss_core_update( $update ) {
  * @param string $locale
  * @return bool
  */
-function undismiss_core_update( $version, $locale ) {
+function undismiss_core_update( $version, $locale ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$dismissed = get_site_option( 'dismissed_update_core' );
 	$key = $version . '|' . $locale;
 
@@ -169,7 +169,7 @@ function undismiss_core_update( $version, $locale ) {
  * @param string $locale
  * @return object|false
  */
-function find_core_update( $version, $locale ) {
+function find_core_update( $version, $locale ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$from_api = get_site_transient( 'update_core' );
 
 	if ( ! isset( $from_api->updates ) || ! is_array( $from_api->updates ) )
@@ -188,7 +188,7 @@ function find_core_update( $version, $locale ) {
  * @param string $msg
  * @return string
  */
-function core_update_footer( $msg = '' ) {
+function core_update_footer( $msg = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !current_user_can('update_core') )
 		return sprintf( __( 'Version %s' ), get_bloginfo( 'version', 'display' ) );
 
@@ -224,7 +224,7 @@ function core_update_footer( $msg = '' ) {
  * @global string $pagenow
  * @return false|void
  */
-function update_nag() {
+function update_nag() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_multisite() && !current_user_can('update_core') )
 		return false;
 
@@ -267,7 +267,7 @@ function update_nag() {
 }
 
 // Called directly from dashboard
-function update_right_now_message() {
+function update_right_now_message() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$theme_name = wp_get_theme();
 	if ( current_user_can( 'switch_themes' ) ) {
 		$theme_name = sprintf( '<a href="themes.php">%1$s</a>', $theme_name );
@@ -306,7 +306,7 @@ function update_right_now_message() {
  *
  * @return array
  */
-function get_plugin_updates() {
+function get_plugin_updates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$all_plugins = get_plugins();
 	$upgrade_plugins = array();
 	$current = get_site_transient( 'update_plugins' );
@@ -323,7 +323,7 @@ function get_plugin_updates() {
 /**
  * @since 2.9.0
  */
-function wp_plugin_update_rows() {
+function wp_plugin_update_rows() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !current_user_can('update_plugins' ) )
 		return;
 
@@ -343,7 +343,7 @@ function wp_plugin_update_rows() {
  * @param array  $plugin_data Plugin information.
  * @return false|void
  */
-function wp_plugin_update_row( $file, $plugin_data ) {
+function wp_plugin_update_row( $file, $plugin_data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current = get_site_transient( 'update_plugins' );
 	if ( ! isset( $current->response[ $file ] ) ) {
 		return false;
@@ -460,7 +460,7 @@ function wp_plugin_update_row( $file, $plugin_data ) {
  *
  * @return array
  */
-function get_theme_updates() {
+function get_theme_updates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current = get_site_transient('update_themes');
 
 	if ( ! isset( $current->response ) )
@@ -478,7 +478,7 @@ function get_theme_updates() {
 /**
  * @since 3.1.0
  */
-function wp_theme_update_rows() {
+function wp_theme_update_rows() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !current_user_can('update_themes' ) )
 		return;
 
@@ -499,7 +499,7 @@ function wp_theme_update_rows() {
  * @param WP_Theme $theme     Theme object.
  * @return false|void
  */
-function wp_theme_update_row( $theme_key, $theme ) {
+function wp_theme_update_row( $theme_key, $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current = get_site_transient( 'update_themes' );
 
 	if ( ! isset( $current->response[ $theme_key ] ) ) {
@@ -588,7 +588,7 @@ function wp_theme_update_row( $theme_key, $theme ) {
  * @global int $upgrading
  * @return false|void
  */
-function maintenance_nag() {
+function maintenance_nag() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	include( ABSPATH . WPINC . '/version.php' ); // include an unmodified $wp_version
 	global $upgrading;
 	$nag = isset( $upgrading );
@@ -636,7 +636,7 @@ function maintenance_nag() {
  *
  * @since 4.6.0
  */
-function wp_print_admin_notice_templates() {
+function wp_print_admin_notice_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	?>
 	<script id="tmpl-wp-updates-admin-notice" type="text/html">
 		<div <# if ( data.id ) { #>id="{{ data.id }}"<# } #> class="notice {{ data.className }}"><p>{{{ data.message }}}</p></div>
@@ -691,7 +691,7 @@ function wp_print_admin_notice_templates() {
 			</p>
 			<# if ( data.errors ) { #>
 				<ul class="bulk-action-errors hidden">
-					<# _.each( data.errorMessages, function( errorMessage ) { #>
+					<# _.each( data.errorMessages, function( errorMessage ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); #>
 						<li>{{ errorMessage }}</li>
 					<# } ); #>
 				</ul>
@@ -728,7 +728,7 @@ function wp_print_admin_notice_templates() {
  *
  * @since 4.6.0
  */
-function wp_print_update_row_templates() {
+function wp_print_update_row_templates() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	?>
 	<script id="tmpl-item-update-row" type="text/template">
 		<tr class="plugin-update-tr update" id="{{ data.slug }}-update" data-slug="{{ data.slug }}" <# if ( data.plugin ) { #>data-plugin="{{ data.plugin }}"<# } #>>

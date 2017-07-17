@@ -27,7 +27,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 *
 	 * @return bool
 	 */
-	public function ajax_user_can() {
+	public function ajax_user_can() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return current_user_can('install_plugins');
 	}
 
@@ -43,7 +43,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_installed_plugin_slugs() {
+	protected function get_installed_plugin_slugs() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$slugs = array();
 
 		$plugin_info = get_site_transient( 'update_plugins' );
@@ -70,7 +70,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 * @global string $type
 	 * @global string $term
 	 */
-	public function prepare_items() {
+	public function prepare_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		include( ABSPATH . 'wp-admin/includes/plugin-install.php' );
 
 		global $tabs, $tab, $paged, $type, $term;
@@ -230,7 +230,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function no_items() {
+	public function no_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->error ) ) {
 			$message = $this->error->get_error_message() . '<p class="hide-if-no-js"><a href="#" class="button" onclick="document.location.reload(); return false;">' . __( 'Try again' ) . '</a></p>';
 		} else {
@@ -246,7 +246,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_views() {
+	protected function get_views() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $tabs, $tab;
 
 		$display_tabs = array();
@@ -264,7 +264,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	/**
 	 * Override parent views so we can use the filter bar display.
 	 */
-	public function views() {
+	public function views() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$views = $this->get_views();
 
 		/** This filter is documented in wp-admin/inclues/class-wp-list-table.php */
@@ -292,7 +292,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	/**
 	 * Override the parent display() so we can provide a different container.
 	 */
-	public function display() {
+	public function display() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$singular = $this->_args['singular'];
 
 		$data_attr = '';
@@ -321,7 +321,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 *
 	 * @param string $which
 	 */
-	protected function display_tablenav( $which ) {
+	protected function display_tablenav( $which ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $GLOBALS['tab'] === 'featured' ) {
 			return;
 		}
@@ -354,14 +354,14 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	/**
 	 * @return array
 	 */
-	protected function get_table_classes() {
+	protected function get_table_classes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array( 'widefat', $this->_args['plural'] );
 	}
 
 	/**
 	 * @return array
 	 */
-	public function get_columns() {
+	public function get_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array();
 	}
 
@@ -370,7 +370,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 	 * @param object $plugin_b
 	 * @return int
 	 */
-	private function order_callback( $plugin_a, $plugin_b ) {
+	private function order_callback( $plugin_a, $plugin_b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$orderby = $this->orderby;
 		if ( ! isset( $plugin_a->$orderby, $plugin_b->$orderby ) ) {
 			return 0;
@@ -390,7 +390,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 		}
 	}
 
-	public function display_rows() {
+	public function display_rows() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$plugins_allowedtags = array(
 			'a' => array( 'href' => array(),'title' => array(), 'target' => array() ),
 			'abbr' => array( 'title' => array() ),'acronym' => array( 'title' => array() ),

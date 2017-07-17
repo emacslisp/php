@@ -14,7 +14,7 @@
  *
  * @return array Site and user count for the network.
  */
-function get_sitestats() {
+function get_sitestats() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$stats = array(
 		'blogs' => get_blog_count(),
 		'users' => get_user_count(),
@@ -39,7 +39,7 @@ function get_sitestats() {
  * @param int $user_id The unique ID of the user
  * @return WP_Site|void The blog object
  */
-function get_active_blog_for_user( $user_id ) {
+function get_active_blog_for_user( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	$blogs = get_blogs_of_user( $user_id );
 	if ( empty( $blogs ) )
@@ -99,7 +99,7 @@ function get_active_blog_for_user( $user_id ) {
  *
  * @return int
  */
-function get_user_count() {
+function get_user_count() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return get_site_option( 'user_count' );
 }
 
@@ -113,7 +113,7 @@ function get_user_count() {
  * @param int $network_id Deprecated, not supported.
  * @return int
  */
-function get_blog_count( $network_id = 0 ) {
+function get_blog_count( $network_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( func_num_args() )
 		_deprecated_argument( __FUNCTION__, '3.1.0' );
 
@@ -129,7 +129,7 @@ function get_blog_count( $network_id = 0 ) {
  * @param int $post_id ID of the post you're looking for.
  * @return WP_Post|null WP_Post on success or null on failure
  */
-function get_blog_post( $blog_id, $post_id ) {
+function get_blog_post( $blog_id, $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	switch_to_blog( $blog_id );
 	$post = get_post( $post_id );
 	restore_current_blog();
@@ -149,7 +149,7 @@ function get_blog_post( $blog_id, $post_id ) {
  * @param string $role    The role you want the user to have
  * @return true|WP_Error
  */
-function add_user_to_blog( $blog_id, $user_id, $role ) {
+function add_user_to_blog( $blog_id, $user_id, $role ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	switch_to_blog($blog_id);
 
 	$user = get_userdata( $user_id );
@@ -201,7 +201,7 @@ function add_user_to_blog( $blog_id, $user_id, $role ) {
  * @param string $reassign Optional. A user to whom to reassign posts.
  * @return true|WP_Error
  */
-function remove_user_from_blog($user_id, $blog_id = '', $reassign = '') {
+function remove_user_from_blog($user_id, $blog_id = '', $reassign = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	switch_to_blog($blog_id);
 	$user_id = (int) $user_id;
@@ -279,7 +279,7 @@ function remove_user_from_blog($user_id, $blog_id = '', $reassign = '') {
  * @param int $post_id ID of the desired post.
  * @return string The post's permalink
  */
-function get_blog_permalink( $blog_id, $post_id ) {
+function get_blog_permalink( $blog_id, $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	switch_to_blog( $blog_id );
 	$link = get_permalink( $post_id );
 	restore_current_blog();
@@ -303,7 +303,7 @@ function get_blog_permalink( $blog_id, $post_id ) {
  * @param string $path   Optional. Not required for subdomain installations.
  * @return int 0 if no blog found, otherwise the ID of the matching blog
  */
-function get_blog_id_from_url( $domain, $path = '/' ) {
+function get_blog_id_from_url( $domain, $path = '/' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$domain = strtolower( $domain );
 	$path = strtolower( $path );
 	$id = wp_cache_get( md5( $domain . $path ), 'blog-id-cache' );
@@ -346,7 +346,7 @@ function get_blog_id_from_url( $domain, $path = '/' ) {
  * @param string $user_email The email provided by the user at registration.
  * @return bool Returns true when the email address is banned.
  */
-function is_email_address_unsafe( $user_email ) {
+function is_email_address_unsafe( $user_email ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$banned_names = get_site_option( 'banned_email_domains' );
 	if ( $banned_names && ! is_array( $banned_names ) )
 		$banned_names = explode( "\n", $banned_names );
@@ -395,7 +395,7 @@ function is_email_address_unsafe( $user_email ) {
  *
  * The {@see 'wpmu_validate_user_signup'} hook provides an easy way to modify the sign-up
  * process. The value $result, which is passed to the hook, contains both the user-provided
- * info and the error messages created by the function. {@see 'wpmu_validate_user_signup'}
+ * info and the error messages created by the function. {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);@see 'wpmu_validate_user_signup'}
  * allows you to process the data in any way you'd like, and unset the relevant errors if
  * necessary.
  *
@@ -407,7 +407,7 @@ function is_email_address_unsafe( $user_email ) {
  * @param string $user_email The email provided by the user.
  * @return array Contains username, email, and error messages.
  */
-function wpmu_validate_user_signup($user_name, $user_email) {
+function wpmu_validate_user_signup($user_name, $user_email) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$errors = new WP_Error();
@@ -543,7 +543,7 @@ function wpmu_validate_user_signup($user_name, $user_email) {
  * @param WP_User|string $user       Optional. The user object to check against the new site name.
  * @return array Contains the new site data and error messages.
  */
-function wpmu_validate_blog_signup( $blogname, $blog_title, $user = '' ) {
+function wpmu_validate_blog_signup( $blogname, $blog_title, $user = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $domain;
 
 	$current_network = get_network();
@@ -666,7 +666,7 @@ function wpmu_validate_blog_signup( $blogname, $blog_title, $user = '' ) {
  * @param string $user_email The user's email address.
  * @param array  $meta       By default, contains the requested privacy setting and lang_id.
  */
-function wpmu_signup_blog( $domain, $path, $title, $user, $user_email, $meta = array() )  {
+function wpmu_signup_blog( $domain, $path, $title, $user, $user_email, $meta = array() )  {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$key = substr( md5( time() . wp_rand() . $domain ), 0, 16 );
@@ -713,7 +713,7 @@ function wpmu_signup_blog( $domain, $path, $title, $user, $user_email, $meta = a
  * @param string $user_email The user's email address.
  * @param array  $meta       By default, this is an empty array.
  */
-function wpmu_signup_user( $user, $user_email, $meta = array() ) {
+function wpmu_signup_user( $user, $user_email, $meta = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	// Format data
@@ -770,7 +770,7 @@ function wpmu_signup_user( $user, $user_email, $meta = array() ) {
  * @param array  $meta       By default, contains the requested privacy setting and lang_id.
  * @return bool
  */
-function wpmu_signup_blog_notification( $domain, $path, $title, $user_login, $user_email, $key, $meta = array() ) {
+function wpmu_signup_blog_notification( $domain, $path, $title, $user_login, $user_email, $key, $meta = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters whether to bypass the new site email notification.
 	 *
@@ -883,7 +883,7 @@ function wpmu_signup_blog_notification( $domain, $path, $title, $user_login, $us
  * @param array  $meta       By default, an empty array.
  * @return bool
  */
-function wpmu_signup_user_notification( $user_login, $user_email, $key, $meta = array() ) {
+function wpmu_signup_user_notification( $user_login, $user_email, $key, $meta = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters whether to bypass the email notification for new user sign-up.
 	 *
@@ -971,7 +971,7 @@ function wpmu_signup_user_notification( $user_login, $user_email, $key, $meta = 
  * @param string $key The activation key provided to the user.
  * @return array|WP_Error An array containing information about the activated user and/or blog
  */
-function wpmu_activate_signup($key) {
+function wpmu_activate_signup($key) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$signup = $wpdb->get_row( $wpdb->prepare("SELECT * FROM $wpdb->signups WHERE activation_key = %s", $key) );
@@ -1065,7 +1065,7 @@ function wpmu_activate_signup($key) {
  * @param string $email     The new user's email address.
  * @return int|false Returns false on failure, or int $user_id on success
  */
-function wpmu_create_user( $user_name, $password, $email ) {
+function wpmu_create_user( $user_name, $password, $email ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user_name = preg_replace( '/\s+/', '', sanitize_user( $user_name, true ) );
 
 	$user_id = wp_create_user( $user_name, $password, $email );
@@ -1110,7 +1110,7 @@ function wpmu_create_user( $user_name, $password, $email ) {
  * @param int    $site_id Optional. Only relevant on multi-network installs.
  * @return int|WP_Error Returns WP_Error object on failure, int $blog_id on success
  */
-function wpmu_create_blog( $domain, $path, $title, $user_id, $meta = array(), $site_id = 1 ) {
+function wpmu_create_blog( $domain, $path, $title, $user_id, $meta = array(), $site_id = 1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'public' => 0,
 		'WPLANG' => get_site_option( 'WPLANG' ),
@@ -1189,7 +1189,7 @@ function wpmu_create_blog( $domain, $path, $title, $user_id, $meta = array(), $s
  * @param string $deprecated Not used.
  * @return bool
  */
-function newblog_notify_siteadmin( $blog_id, $deprecated = '' ) {
+function newblog_notify_siteadmin( $blog_id, $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( get_site_option( 'registrationnotification' ) != 'yes' )
 		return false;
 
@@ -1235,7 +1235,7 @@ Disable these notifications: %4$s' ), $blogname, $siteurl, wp_unslash( $_SERVER[
  * @param int $user_id The new user's ID.
  * @return bool
  */
-function newuser_notify_siteadmin( $user_id ) {
+function newuser_notify_siteadmin( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( get_site_option( 'registrationnotification' ) != 'yes' )
 		return false;
 
@@ -1282,7 +1282,7 @@ Disable these notifications: %3$s'), $user->user_login, wp_unslash( $_SERVER['RE
  * @param int    $site_id Optional. Relevant only on multi-network installs.
  * @return int
  */
-function domain_exists($domain, $path, $site_id = 1) {
+function domain_exists($domain, $path, $site_id = 1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$path = trailingslashit( $path );
 	$args = array(
 		'network_id' => $site_id,
@@ -1321,7 +1321,7 @@ function domain_exists($domain, $path, $site_id = 1) {
  * @param int    $site_id Unless you're running a multi-network install, be sure to set this value to 1.
  * @return int|false The ID of the new row
  */
-function insert_blog($domain, $path, $site_id) {
+function insert_blog($domain, $path, $site_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$path = trailingslashit($path);
@@ -1354,7 +1354,7 @@ function insert_blog($domain, $path, $site_id) {
  * @param int    $blog_id    The value returned by insert_blog().
  * @param string $blog_title The title of the new site.
  */
-function install_blog( $blog_id, $blog_title = '' ) {
+function install_blog( $blog_id, $blog_title = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $wp_roles;
 
 	// Cast for security
@@ -1421,7 +1421,7 @@ function install_blog( $blog_id, $blog_title = '' ) {
  * @param int $blog_id Ignored in this function.
  * @param int $user_id
  */
-function install_blog_defaults($blog_id, $user_id) {
+function install_blog_defaults($blog_id, $user_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -1450,7 +1450,7 @@ function install_blog_defaults($blog_id, $user_id) {
  * @param array  $meta     Optional. Not used in the default function, but is passed along to hooks for customization.
  * @return bool
  */
-function wpmu_welcome_notification( $blog_id, $user_id, $password, $title, $meta = array() ) {
+function wpmu_welcome_notification( $blog_id, $user_id, $password, $title, $meta = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current_network = get_network();
 
 	/**
@@ -1562,7 +1562,7 @@ We hope you enjoy your new site. Thanks!
  * @param array  $meta     Optional. Not used in the default function, but is passed along to hooks for customization.
  * @return bool
  */
-function wpmu_welcome_user_notification( $user_id, $password, $meta = array() ) {
+function wpmu_welcome_user_notification( $user_id, $password, $meta = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current_network = get_network();
 
 	/**
@@ -1649,7 +1649,7 @@ function wpmu_welcome_user_notification( $user_id, $password, $meta = array() ) 
  *
  * @return WP_Network
  */
-function get_current_site() {
+function get_current_site() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $current_site;
 	return $current_site;
 }
@@ -1667,7 +1667,7 @@ function get_current_site() {
  * @param int $user_id
  * @return array Contains the blog_id, post_id, post_date_gmt, and post_gmt_ts
  */
-function get_most_recent_post_of_user( $user_id ) {
+function get_most_recent_post_of_user( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$user_blogs = get_blogs_of_user( (int) $user_id );
@@ -1713,7 +1713,7 @@ function get_most_recent_post_of_user( $user_id ) {
  * @param string $directory Full path of a directory.
  * @return int Size of the directory in MB.
  */
-function get_dirsize( $directory ) {
+function get_dirsize( $directory ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$dirsize = get_transient( 'dirsize_cache' );
 	if ( is_array( $dirsize ) && isset( $dirsize[ $directory ][ 'size' ] ) )
 		return $dirsize[ $directory ][ 'size' ];
@@ -1746,7 +1746,7 @@ function get_dirsize( $directory ) {
  * @param string $exclude   Optional. Full path of a subdirectory to exclude from the total.
  * @return int|false Size in MB if a valid directory. False if not.
  */
-function recurse_dirsize( $directory, $exclude = null ) {
+function recurse_dirsize( $directory, $exclude = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$size = 0;
 
 	$directory = untrailingslashit( $directory );
@@ -1787,7 +1787,7 @@ function recurse_dirsize( $directory, $exclude = null ) {
  * @param array $mimes
  * @return array
  */
-function check_upload_mimes( $mimes ) {
+function check_upload_mimes( $mimes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$site_exts = explode( ' ', get_site_option( 'upload_filetypes', 'jpg jpeg png gif' ) );
 	$site_mimes = array();
 	foreach ( $site_exts as $ext ) {
@@ -1813,7 +1813,7 @@ function check_upload_mimes( $mimes ) {
  *
  * @param string $deprecated Not used.
  */
-function update_posts_count( $deprecated = '' ) {
+function update_posts_count( $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	update_option( 'post_count', (int) $wpdb->get_var( "SELECT COUNT(ID) FROM {$wpdb->posts} WHERE post_status = 'publish' and post_type = 'post'" ) );
 }
@@ -1828,7 +1828,7 @@ function update_posts_count( $deprecated = '' ) {
  * @param int $blog_id
  * @param int $user_id
  */
-function wpmu_log_new_registrations( $blog_id, $user_id ) {
+function wpmu_log_new_registrations( $blog_id, $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	$user = get_userdata( (int) $user_id );
 	if ( $user )
@@ -1849,7 +1849,7 @@ function wpmu_log_new_registrations( $blog_id, $user_id ) {
  * @param string $deprecated Not used.
  * @return int An ID from the global terms table mapped from $term_id.
  */
-function global_terms( $term_id, $deprecated = '' ) {
+function global_terms( $term_id, $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	static $global_terms_recurse = null;
 
@@ -1918,7 +1918,7 @@ function global_terms( $term_id, $deprecated = '' ) {
  * @param array|string $deprecated Not used.
  * @return array The current site's domain
  */
-function redirect_this_site( $deprecated = '' ) {
+function redirect_this_site( $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return array( get_network()->domain );
 }
 
@@ -1932,7 +1932,7 @@ function redirect_this_site( $deprecated = '' ) {
  * @param array $upload
  * @return string|array If the upload is under the size limit, $upload is returned. Otherwise returns an error message.
  */
-function upload_is_file_too_big( $upload ) {
+function upload_is_file_too_big( $upload ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_array( $upload ) || defined( 'WP_IMPORTING' ) || get_site_option( 'upload_space_check_disabled' ) )
 		return $upload;
 
@@ -1948,7 +1948,7 @@ function upload_is_file_too_big( $upload ) {
  *
  * @since MU
  */
-function signup_nonce_fields() {
+function signup_nonce_fields() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = mt_rand();
 	echo "<input type='hidden' name='signup_form_id' value='{$id}' />";
 	wp_nonce_field('signup_form_' . $id, '_signup_form', false);
@@ -1962,7 +1962,7 @@ function signup_nonce_fields() {
  * @param array $result
  * @return array
  */
-function signup_nonce_check( $result ) {
+function signup_nonce_check( $result ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !strpos( $_SERVER[ 'PHP_SELF' ], 'wp-signup.php' ) )
 		return $result;
 
@@ -1977,7 +1977,7 @@ function signup_nonce_check( $result ) {
  *
  * @since MU
  */
-function maybe_redirect_404() {
+function maybe_redirect_404() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the redirect URL for 404s on the main site.
 	 *
@@ -2004,7 +2004,7 @@ function maybe_redirect_404() {
  *
  * @since MU
  */
-function maybe_add_existing_user_to_blog() {
+function maybe_add_existing_user_to_blog() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( false === strpos( $_SERVER[ 'REQUEST_URI' ], '/newbloguser/' ) )
 		return;
 
@@ -2032,7 +2032,7 @@ function maybe_add_existing_user_to_blog() {
  * @param array $details
  * @return true|WP_Error|void
  */
-function add_existing_user_to_blog( $details = false ) {
+function add_existing_user_to_blog( $details = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_array( $details ) ) {
 		$blog_id = get_current_blog_id();
 		$result = add_user_to_blog( $blog_id, $details[ 'user_id' ], $details[ 'role' ] );
@@ -2062,7 +2062,7 @@ function add_existing_user_to_blog( $details = false ) {
  * @param mixed $password Ignored.
  * @param array $meta
  */
-function add_new_user_to_blog( $user_id, $password, $meta ) {
+function add_new_user_to_blog( $user_id, $password, $meta ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !empty( $meta[ 'add_to_blog' ] ) ) {
 		$blog_id = $meta[ 'add_to_blog' ];
 		$role = $meta[ 'new_role' ];
@@ -2079,7 +2079,7 @@ function add_new_user_to_blog( $user_id, $password, $meta ) {
  *
  * @param PHPMailer $phpmailer The PHPMailer instance, passed by reference.
  */
-function fix_phpmailer_messageid( $phpmailer ) {
+function fix_phpmailer_messageid( $phpmailer ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$phpmailer->Hostname = get_network()->domain;
 }
 
@@ -2092,7 +2092,7 @@ function fix_phpmailer_messageid( $phpmailer ) {
  * 	                           or user login name as a string.
  * @return bool
  */
-function is_user_spammy( $user = null ) {
+function is_user_spammy( $user = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
     if ( ! ( $user instanceof WP_User ) ) {
 		if ( $user ) {
 			$user = get_user_by( 'login', $user );
@@ -2114,7 +2114,7 @@ function is_user_spammy( $user = null ) {
  * @param int $old_value
  * @param int $value     The new public value
  */
-function update_blog_public( $old_value, $value ) {
+function update_blog_public( $old_value, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	update_blog_status( get_current_blog_id(), 'public', (int) $value );
 }
 
@@ -2130,7 +2130,7 @@ function update_blog_public( $old_value, $value ) {
  * @param int    $blog_id Optional. Defaults to current blog.
  * @return bool
  */
-function is_user_option_local( $key, $user_id = 0, $blog_id = 0 ) {
+function is_user_option_local( $key, $user_id = 0, $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$current_user = wp_get_current_user();
@@ -2149,7 +2149,7 @@ function is_user_option_local( $key, $user_id = 0, $blog_id = 0 ) {
  *
  * @return bool
  */
-function users_can_register_signup_filter() {
+function users_can_register_signup_filter() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$registration = get_site_option('registration');
 	return ( $registration == 'all' || $registration == 'user' );
 }
@@ -2162,7 +2162,7 @@ function users_can_register_signup_filter() {
  * @param string $text
  * @return string
  */
-function welcome_user_msg_filter( $text ) {
+function welcome_user_msg_filter( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !$text ) {
 		remove_filter( 'site_option_welcome_user_email', 'welcome_user_msg_filter' );
 
@@ -2194,7 +2194,7 @@ Thanks!
  * @param bool $force
  * @return bool True if forced, false if not forced.
  */
-function force_ssl_content( $force = '' ) {
+function force_ssl_content( $force = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $forced_content = false;
 
 	if ( '' != $force ) {
@@ -2216,7 +2216,7 @@ function force_ssl_content( $force = '' ) {
  * @param string $url URL
  * @return string URL with https as the scheme
  */
-function filter_SSL( $url ) {
+function filter_SSL( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_string( $url ) )
 		return get_bloginfo( 'url' ); // Return home blog url with proper scheme
 
@@ -2231,7 +2231,7 @@ function filter_SSL( $url ) {
  *
  * @since 3.1.0
  */
-function wp_schedule_update_network_counts() {
+function wp_schedule_update_network_counts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !is_main_site() )
 		return;
 
@@ -2244,7 +2244,7 @@ function wp_schedule_update_network_counts() {
  *
  *  @since 3.1.0
  */
-function wp_update_network_counts() {
+function wp_update_network_counts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_update_network_user_counts();
 	wp_update_network_site_counts();
 }
@@ -2257,7 +2257,7 @@ function wp_update_network_counts() {
  *
  * @since 3.7.0
  */
-function wp_maybe_update_network_site_counts() {
+function wp_maybe_update_network_site_counts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$is_small_network = ! wp_is_large_network( 'sites' );
 
 	/**
@@ -2284,7 +2284,7 @@ function wp_maybe_update_network_site_counts() {
  *
  * @since 3.7.0
  */
-function wp_maybe_update_network_user_counts() {
+function wp_maybe_update_network_user_counts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$is_small_network = ! wp_is_large_network( 'users' );
 
 	/** This filter is documented in wp-includes/ms-functions.php */
@@ -2301,7 +2301,7 @@ function wp_maybe_update_network_user_counts() {
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  */
-function wp_update_network_site_counts() {
+function wp_update_network_site_counts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$count = get_sites( array(
@@ -2322,7 +2322,7 @@ function wp_update_network_site_counts() {
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  */
-function wp_update_network_user_counts() {
+function wp_update_network_user_counts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$count = $wpdb->get_var( "SELECT COUNT(ID) as c FROM $wpdb->users WHERE spam = '0' AND deleted = '0'" );
@@ -2336,7 +2336,7 @@ function wp_update_network_user_counts() {
  *
  * @return int Used space in megabytes
  */
-function get_space_used() {
+function get_space_used() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the amount of storage space used by the current site.
 	 *
@@ -2360,7 +2360,7 @@ function get_space_used() {
  *
  * @return int Quota in megabytes
  */
-function get_space_allowed() {
+function get_space_allowed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$space_allowed = get_option( 'blog_upload_space' );
 
 	if ( ! is_numeric( $space_allowed ) )
@@ -2386,7 +2386,7 @@ function get_space_allowed() {
  *
  * @return int of upload space available in bytes
  */
-function get_upload_space_available() {
+function get_upload_space_available() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$allowed = get_space_allowed();
 	if ( $allowed < 0 ) {
 		$allowed = 0;
@@ -2409,7 +2409,7 @@ function get_upload_space_available() {
  * @since 3.0.0
  * @return bool True if space is available, false otherwise.
  */
-function is_upload_space_available() {
+function is_upload_space_available() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( get_site_option( 'upload_space_check_disabled' ) )
 		return true;
 
@@ -2424,7 +2424,7 @@ function is_upload_space_available() {
  * @param  int $size Upload size limit in bytes.
  * @return int       Upload size limit in bytes.
  */
-function upload_size_limit_filter( $size ) {
+function upload_size_limit_filter( $size ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$fileupload_maxk = KB_IN_BYTES * get_site_option( 'fileupload_maxk', 1500 );
 	if ( get_site_option( 'upload_space_check_disabled' ) )
 		return min( $size, $fileupload_maxk );
@@ -2442,7 +2442,7 @@ function upload_size_limit_filter( $size ) {
  * @param string $using 'sites or 'users'. Default is 'sites'.
  * @return bool True if the network meets the criteria for large. False otherwise.
  */
-function wp_is_large_network( $using = 'sites' ) {
+function wp_is_large_network( $using = 'sites' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'users' == $using ) {
 		$count = get_user_count();
 		/**
@@ -2469,7 +2469,7 @@ function wp_is_large_network( $using = 'sites' ) {
  *
  * @return array $names Array of reserved subdirectory names.
  */
-function get_subdirectory_reserved_names() {
+function get_subdirectory_reserved_names() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$names = array(
 		'page', 'comments', 'blog', 'files', 'feed', 'wp-admin',
 		'wp-content', 'wp-includes', 'wp-json', 'embed'

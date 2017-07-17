@@ -72,7 +72,7 @@ class WP_Site_Icon {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		add_action( 'delete_attachment', array( $this, 'delete_attachment_data' ) );
 		add_filter( 'get_post_metadata', array( $this, 'get_post_metadata' ), 10, 4 );
 	}
@@ -86,7 +86,7 @@ class WP_Site_Icon {
 	 * @param int    $parent_attachment_id Attachment ID of parent image.
 	 * @return array Attachment object.
 	 */
-	public function create_attachment_object( $cropped, $parent_attachment_id ) {
+	public function create_attachment_object( $cropped, $parent_attachment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$parent     = get_post( $parent_attachment_id );
 		$parent_url = wp_get_attachment_url( $parent->ID );
 		$url        = str_replace( basename( $parent_url ), basename( $cropped ), $parent_url );
@@ -116,7 +116,7 @@ class WP_Site_Icon {
 	 * @param string $file   File path of the attached image.
 	 * @return int           Attachment ID
 	 */
-	public function insert_attachment( $object, $file ) {
+	public function insert_attachment( $object, $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$attachment_id = wp_insert_attachment( $object, $file );
 		$metadata      = wp_generate_attachment_metadata( $attachment_id, $file );
 
@@ -144,7 +144,7 @@ class WP_Site_Icon {
 	 * @param array $sizes List of additional sizes.
 	 * @return array Additional image sizes.
 	 */
-	public function additional_sizes( $sizes = array() ) {
+	public function additional_sizes( $sizes = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$only_crop_sizes = array();
 
 		/**
@@ -189,7 +189,7 @@ class WP_Site_Icon {
 	 * @param array $sizes List of image sizes.
 	 * @return array List of intermediate image sizes.
 	 */
-	public function intermediate_image_sizes( $sizes = array() ) {
+	public function intermediate_image_sizes( $sizes = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/** This filter is documented in wp-admin/includes/class-wp-site-icon.php */
 		$this->site_icon_sizes = apply_filters( 'site_icon_image_sizes', $this->site_icon_sizes );
 		foreach ( $this->site_icon_sizes as $size ) {
@@ -207,7 +207,7 @@ class WP_Site_Icon {
 	 *
 	 * @param int $post_id Attachment ID.
 	 */
-	public function delete_attachment_data( $post_id ) {
+	public function delete_attachment_data( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$site_icon_id = get_option( 'site_icon' );
 
 		if ( $site_icon_id && $post_id == $site_icon_id ) {
@@ -228,7 +228,7 @@ class WP_Site_Icon {
 	 * @param string|array      $single   Meta value, or an array of values.
 	 * @return array|null|string The attachment metadata value, array of values, or null.
 	 */
-	public function get_post_metadata( $value, $post_id, $meta_key, $single ) {
+	public function get_post_metadata( $value, $post_id, $meta_key, $single ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $single && '_wp_attachment_backup_sizes' === $meta_key ) {
 			$site_icon_id = get_option( 'site_icon' );
 

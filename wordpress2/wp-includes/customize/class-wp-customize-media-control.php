@@ -52,7 +52,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 * @param string               $id      Control ID.
 	 * @param array                $args    Optional. Arguments to override class property defaults.
 	 */
-	public function __construct( $manager, $id, $args = array() ) {
+	public function __construct( $manager, $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( $manager, $id, $args );
 
 		if ( ! ( $this instanceof WP_Customize_Image_Control ) ) {
@@ -74,7 +74,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 * @since 3.4.0
 	 * @since 4.2.0 Moved from WP_Customize_Upload_Control.
 	 */
-	public function enqueue() {
+	public function enqueue() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_enqueue_media();
 	}
 
@@ -86,7 +86,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 *
 	 * @see WP_Customize_Control::to_json()
 	 */
-	public function to_json() {
+	public function to_json() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::to_json();
 		$this->json['label'] = html_entity_decode( $this->label, ENT_QUOTES, get_bloginfo( 'charset' ) );
 		$this->json['mime_type'] = $this->mime_type;
@@ -134,7 +134,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 *
 	 * @see WP_Customize_Media_Control::content_template()
 	 */
-	public function render_content() {}
+	public function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Render a JS template for the content of the media control.
@@ -142,7 +142,7 @@ class WP_Customize_Media_Control extends WP_Customize_Control {
 	 * @since 4.1.0
 	 * @since 4.2.0 Moved from WP_Customize_Upload_Control.
 	 */
-	public function content_template() {
+	public function content_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<label for="{{ data.settings['default'] }}-button">
 			<# if ( data.label ) { #>

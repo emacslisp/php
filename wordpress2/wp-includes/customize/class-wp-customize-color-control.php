@@ -50,7 +50,7 @@ class WP_Customize_Color_Control extends WP_Customize_Control {
 	 * @param string               $id      Control ID.
 	 * @param array                $args    Optional. Arguments to override class property defaults.
 	 */
-	public function __construct( $manager, $id, $args = array() ) {
+	public function __construct( $manager, $id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->statuses = array( '' => __('Default') );
 		parent::__construct( $manager, $id, $args );
 	}
@@ -60,7 +60,7 @@ class WP_Customize_Color_Control extends WP_Customize_Control {
 	 *
 	 * @since 3.4.0
 	 */
-	public function enqueue() {
+	public function enqueue() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_enqueue_script( 'wp-color-picker' );
 		wp_enqueue_style( 'wp-color-picker' );
 	}
@@ -71,7 +71,7 @@ class WP_Customize_Color_Control extends WP_Customize_Control {
 	 * @since 3.4.0
 	 * @uses WP_Customize_Control::to_json()
 	 */
-	public function to_json() {
+	public function to_json() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::to_json();
 		$this->json['statuses'] = $this->statuses;
 		$this->json['defaultValue'] = $this->setting->default;
@@ -83,14 +83,14 @@ class WP_Customize_Color_Control extends WP_Customize_Control {
 	 *
 	 * @since 3.4.0
 	 */
-	public function render_content() {}
+	public function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Render a JS template for the content of the color picker control.
 	 *
 	 * @since 4.1.0
 	 */
-	public function content_template() {
+	public function content_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<# var defaultValue = '',
 			isHueSlider = data.mode === 'hue';

@@ -13,7 +13,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function twentyseventeen_body_classes( $classes ) {
+function twentyseventeen_body_classes( $classes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Add class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -71,7 +71,7 @@ add_filter( 'body_class', 'twentyseventeen_body_classes' );
  *
  * Primarily used to see if we have any panels active, duh.
  */
-function twentyseventeen_panel_count() {
+function twentyseventeen_panel_count() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	$panel_count = 0;
 
@@ -97,6 +97,6 @@ function twentyseventeen_panel_count() {
 /**
  * Checks to see if we're on the homepage or not.
  */
-function twentyseventeen_is_frontpage() {
+function twentyseventeen_is_frontpage() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return ( is_front_page() && ! is_home() );
 }

@@ -19,7 +19,7 @@
  *
  * @param string $name The name of the specialised header.
  */
-function get_header( $name = null ) {
+function get_header( $name = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires before the header template file is loaded.
 	 *
@@ -58,7 +58,7 @@ function get_header( $name = null ) {
  *
  * @param string $name The name of the specialised footer.
  */
-function get_footer( $name = null ) {
+function get_footer( $name = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires before the footer template file is loaded.
 	 *
@@ -97,7 +97,7 @@ function get_footer( $name = null ) {
  *
  * @param string $name The name of the specialised sidebar.
  */
-function get_sidebar( $name = null ) {
+function get_sidebar( $name = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires before the sidebar template file is loaded.
 	 *
@@ -143,7 +143,7 @@ function get_sidebar( $name = null ) {
  * @param string $slug The slug name for the generic template.
  * @param string $name The name of the specialised template.
  */
-function get_template_part( $slug, $name = null ) {
+function get_template_part( $slug, $name = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires before the specified template part file is loaded.
 	 *
@@ -189,7 +189,7 @@ function get_template_part( $slug, $name = null ) {
  * @param bool $echo Default to echo and not return the form.
  * @return string|void String when $echo is false.
  */
-function get_search_form( $echo = true ) {
+function get_search_form( $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires before the search form is retrieved, at the start of get_search_form().
 	 *
@@ -267,7 +267,7 @@ function get_search_form( $echo = true ) {
  * @param bool   $echo     Default to echo and not return the link.
  * @return string|void String when retrieving.
  */
-function wp_loginout($redirect = '', $echo = true) {
+function wp_loginout($redirect = '', $echo = true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_user_logged_in() )
 		$link = '<a href="' . esc_url( wp_login_url($redirect) ) . '">' . __('Log in') . '</a>';
 	else
@@ -298,7 +298,7 @@ function wp_loginout($redirect = '', $echo = true) {
  * @param string $redirect Path to redirect to on logout.
  * @return string The logout URL. Note: HTML-encoded via esc_html() in wp_nonce_url().
  */
-function wp_logout_url($redirect = '') {
+function wp_logout_url($redirect = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$args = array( 'action' => 'logout' );
 	if ( !empty($redirect) ) {
 		$args['redirect_to'] = urlencode( $redirect );
@@ -328,7 +328,7 @@ function wp_logout_url($redirect = '') {
  *                             Default false.
  * @return string The login URL. Not HTML-encoded.
  */
-function wp_login_url($redirect = '', $force_reauth = false) {
+function wp_login_url($redirect = '', $force_reauth = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$login_url = site_url('wp-login.php', 'login');
 
 	if ( !empty($redirect) )
@@ -357,7 +357,7 @@ function wp_login_url($redirect = '', $force_reauth = false) {
  *
  * @return string User registration URL.
  */
-function wp_registration_url() {
+function wp_registration_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the user registration URL.
 	 *
@@ -399,7 +399,7 @@ function wp_registration_url() {
  * }
  * @return string|void String when retrieving.
  */
-function wp_login_form( $args = array() ) {
+function wp_login_form( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'echo' => true,
 		// Default 'redirect' value takes the user back to the request URI.
@@ -501,7 +501,7 @@ function wp_login_form( $args = array() ) {
  * @param string $redirect Path to redirect to on login.
  * @return string Lost password URL.
  */
-function wp_lostpassword_url( $redirect = '' ) {
+function wp_lostpassword_url( $redirect = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$args = array( 'action' => 'lostpassword' );
 	if ( !empty($redirect) ) {
 		$args['redirect_to'] = $redirect;
@@ -533,7 +533,7 @@ function wp_lostpassword_url( $redirect = '' ) {
  * @param bool   $echo   Default to echo and not return the link.
  * @return string|void String when retrieving.
  */
-function wp_register( $before = '<li>', $after = '</li>', $echo = true ) {
+function wp_register( $before = '<li>', $after = '</li>', $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_user_logged_in() ) {
 		if ( get_option('users_can_register') )
 			$link = $before . '<a href="' . esc_url( wp_registration_url() ) . '">' . __('Register') . '</a>' . $after;
@@ -574,7 +574,7 @@ function wp_register( $before = '<li>', $after = '</li>', $echo = true ) {
  *
  * @link https://core.trac.wordpress.org/ticket/1458 Explanation of 'wp_meta' action.
  */
-function wp_meta() {
+function wp_meta() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires before displaying echoed content in the sidebar.
 	 *
@@ -592,7 +592,7 @@ function wp_meta() {
  *
  * @param string $show Optional. Site information to display. Default empty.
  */
-function bloginfo( $show = '' ) {
+function bloginfo( $show = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_bloginfo( $show, 'display' );
 }
 
@@ -643,7 +643,7 @@ function bloginfo( $show = '' ) {
  * @param string $filter Optional. How to filter what is retrieved. Default 'raw'.
  * @return string Mostly string values, might be empty.
  */
-function get_bloginfo( $show = '', $filter = 'raw' ) {
+function get_bloginfo( $show = '', $filter = 'raw' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	switch( $show ) {
 		case 'home' : // DEPRECATED
 		case 'siteurl' : // DEPRECATED
@@ -727,7 +727,7 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 				'<code>bloginfo()</code>',
 				'<code>is_rtl()</code>'
 			) );
-			if ( function_exists( 'is_rtl' ) ) {
+			if ( function_exists( 'is_rtl' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				$output = is_rtl() ? 'rtl' : 'ltr';
 			} else {
 				$output = 'ltr';
@@ -782,7 +782,7 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
  * @param int    $blog_id Optional. ID of the blog to get the site icon for. Default current blog.
  * @return string Site Icon URL.
  */
-function get_site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {
+function get_site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$switched_blog = false;
 
 	if ( is_multisite() && ! empty( $blog_id ) && (int) $blog_id !== get_current_blog_id() ) {
@@ -826,7 +826,7 @@ function get_site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {
  * @param string $url     Optional. Fallback url if no site icon is found. Default empty.
  * @param int    $blog_id Optional. ID of the blog to get the site icon for. Default current blog.
  */
-function site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {
+function site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo esc_url( get_site_icon_url( $size, $url, $blog_id ) );
 }
 
@@ -838,7 +838,7 @@ function site_icon_url( $size = 512, $url = '', $blog_id = 0 ) {
  * @param int $blog_id Optional. ID of the blog in question. Default current blog.
  * @return bool Whether the site has a site icon or not.
  */
-function has_site_icon( $blog_id = 0 ) {
+function has_site_icon( $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return (bool) get_site_icon_url( 512, '', $blog_id );
 }
 
@@ -850,7 +850,7 @@ function has_site_icon( $blog_id = 0 ) {
  * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
  * @return bool Whether the site has a custom logo or not.
  */
-function has_custom_logo( $blog_id = 0 ) {
+function has_custom_logo( $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$switched_blog = false;
 
 	if ( is_multisite() && ! empty( $blog_id ) && (int) $blog_id !== get_current_blog_id() ) {
@@ -875,7 +875,7 @@ function has_custom_logo( $blog_id = 0 ) {
  * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
  * @return string Custom logo markup.
  */
-function get_custom_logo( $blog_id = 0 ) {
+function get_custom_logo( $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$html = '';
 	$switched_blog = false;
 
@@ -927,7 +927,7 @@ function get_custom_logo( $blog_id = 0 ) {
  *
  * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
  */
-function the_custom_logo( $blog_id = 0 ) {
+function the_custom_logo( $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_custom_logo( $blog_id );
 }
 
@@ -941,7 +941,7 @@ function the_custom_logo( $blog_id = 0 ) {
  *
  * @return string Tag with the document title.
  */
-function wp_get_document_title() {
+function wp_get_document_title() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	/**
 	 * Filters the document title before it is generated.
@@ -1065,7 +1065,7 @@ function wp_get_document_title() {
  * @since 4.4.0 Improved title output replaced `wp_title()`.
  * @access private
  */
-function _wp_render_title_tag() {
+function _wp_render_title_tag() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! current_theme_supports( 'title-tag' ) ) {
 		return;
 	}
@@ -1098,7 +1098,7 @@ function _wp_render_title_tag() {
  * @param string $seplocation Optional. Direction to display title, 'right'.
  * @return string|null String on retrieve, null when displaying.
  */
-function wp_title( $sep = '&raquo;', $display = true, $seplocation = '' ) {
+function wp_title( $sep = '&raquo;', $display = true, $seplocation = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_locale;
 
 	$m        = get_query_var( 'm' );
@@ -1241,7 +1241,7 @@ function wp_title( $sep = '&raquo;', $display = true, $seplocation = '' ) {
  * @param bool   $display Optional, default is true. Whether to display or retrieve title.
  * @return string|void Title when retrieving.
  */
-function single_post_title( $prefix = '', $display = true ) {
+function single_post_title( $prefix = '', $display = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$_post = get_queried_object();
 
 	if ( !isset($_post->post_title) )
@@ -1274,7 +1274,7 @@ function single_post_title( $prefix = '', $display = true ) {
  * @param bool   $display Optional, default is true. Whether to display or retrieve title.
  * @return string|void Title when retrieving, null when displaying or failure.
  */
-function post_type_archive_title( $prefix = '', $display = true ) {
+function post_type_archive_title( $prefix = '', $display = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_post_type_archive() )
 		return;
 
@@ -1313,7 +1313,7 @@ function post_type_archive_title( $prefix = '', $display = true ) {
  * @param bool   $display Optional, default is true. Whether to display or retrieve title.
  * @return string|void Title when retrieving.
  */
-function single_cat_title( $prefix = '', $display = true ) {
+function single_cat_title( $prefix = '', $display = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return single_term_title( $prefix, $display );
 }
 
@@ -1330,7 +1330,7 @@ function single_cat_title( $prefix = '', $display = true ) {
  * @param bool   $display Optional, default is true. Whether to display or retrieve title.
  * @return string|void Title when retrieving.
  */
-function single_tag_title( $prefix = '', $display = true ) {
+function single_tag_title( $prefix = '', $display = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return single_term_title( $prefix, $display );
 }
 
@@ -1347,7 +1347,7 @@ function single_tag_title( $prefix = '', $display = true ) {
  * @param bool   $display Optional, default is true. Whether to display or retrieve title.
  * @return string|void Title when retrieving.
  */
-function single_term_title( $prefix = '', $display = true ) {
+function single_term_title( $prefix = '', $display = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$term = get_queried_object();
 
 	if ( !$term )
@@ -1409,7 +1409,7 @@ function single_term_title( $prefix = '', $display = true ) {
  * @param bool   $display Optional, default is true. Whether to display or retrieve title.
  * @return string|void Title when retrieving.
  */
-function single_month_title($prefix = '', $display = true ) {
+function single_month_title($prefix = '', $display = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_locale;
 
 	$m = get_query_var('m');
@@ -1444,7 +1444,7 @@ function single_month_title($prefix = '', $display = true ) {
  * @param string $before Optional. Content to prepend to the title. Default empty.
  * @param string $after  Optional. Content to append to the title. Default empty.
  */
-function the_archive_title( $before = '', $after = '' ) {
+function the_archive_title( $before = '', $after = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$title = get_the_archive_title();
 
 	if ( ! empty( $title ) ) {
@@ -1459,7 +1459,7 @@ function the_archive_title( $before = '', $after = '' ) {
  *
  * @return string Archive title.
  */
-function get_the_archive_title() {
+function get_the_archive_title() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_category() ) {
 		/* translators: Category archive title. 1: Category name */
 		$title = sprintf( __( 'Category: %s' ), single_cat_title( '', false ) );
@@ -1529,7 +1529,7 @@ function get_the_archive_title() {
  * @param string $before Optional. Content to prepend to the description. Default empty.
  * @param string $after  Optional. Content to append to the description. Default empty.
  */
-function the_archive_description( $before = '', $after = '' ) {
+function the_archive_description( $before = '', $after = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$description = get_the_archive_description();
 	if ( $description ) {
 		echo $before . $description . $after;
@@ -1546,7 +1546,7 @@ function the_archive_description( $before = '', $after = '' ) {
  *
  * @return string Archive description.
  */
-function get_the_archive_description() {
+function get_the_archive_description() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_author() ) {
 		$description = get_the_author_meta( 'description' );
 	} else {
@@ -1596,7 +1596,7 @@ function get_the_archive_description() {
  * @param string $after  Optional. Content to append to the description. Default empty.
  * @return string HTML link content for archive.
  */
-function get_archives_link($url, $text, $format = 'html', $before = '', $after = '') {
+function get_archives_link($url, $text, $format = 'html', $before = '', $after = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$text = wptexturize($text);
 	$url = esc_url($url);
 
@@ -1660,7 +1660,7 @@ function get_archives_link($url, $text, $format = 'html', $before = '', $after =
  * }
  * @return string|void String when retrieving.
  */
-function wp_get_archives( $args = '' ) {
+function wp_get_archives( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $wp_locale;
 
 	$defaults = array(
@@ -1862,7 +1862,7 @@ function wp_get_archives( $args = '' ) {
  * @param int $num Number of day.
  * @return int Days since the start of the week.
  */
-function calendar_week_mod($num) {
+function calendar_week_mod($num) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$base = 7;
 	return ($num - $base*floor($num/$base));
 }
@@ -1886,7 +1886,7 @@ function calendar_week_mod($num) {
  * @param bool $echo    Optional, default is true. Set to false for return.
  * @return string|void String when retrieving.
  */
-function get_calendar( $initial = true, $echo = true ) {
+function get_calendar( $initial = true, $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $m, $monthnum, $year, $wp_locale, $posts;
 
 	$key = md5( $m . $monthnum . $year );
@@ -2106,7 +2106,7 @@ function get_calendar( $initial = true, $echo = true ) {
  * @see get_calendar
  * @since 2.1.0
  */
-function delete_get_calendar_cache() {
+function delete_get_calendar_cache() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_cache_delete( 'get_calendar', 'calendar' );
 }
 
@@ -2122,7 +2122,7 @@ function delete_get_calendar_cache() {
  *
  * @return string HTML allowed tags entity encoded.
  */
-function allowed_tags() {
+function allowed_tags() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $allowedtags;
 	$allowed = '';
 	foreach ( (array) $allowedtags as $tag => $attributes ) {
@@ -2144,7 +2144,7 @@ function allowed_tags() {
  *
  * @since 1.0.0
  */
-function the_date_xml() {
+function the_date_xml() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo mysql2date( 'Y-m-d', get_post()->post_date, false );
 }
 
@@ -2171,7 +2171,7 @@ function the_date_xml() {
  * @param bool   $echo   Optional, default is display. Whether to echo the date or return it.
  * @return string|void String if retrieving.
  */
-function the_date( $d = '', $before = '', $after = '', $echo = true ) {
+function the_date( $d = '', $before = '', $after = '', $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $currentday, $previousday;
 
 	if ( is_new_day() ) {
@@ -2210,7 +2210,7 @@ function the_date( $d = '', $before = '', $after = '', $echo = true ) {
  * @param  int|WP_Post $post Optional. Post ID or WP_Post object. Default current post.
  * @return false|string Date the current post was written. False on failure.
  */
-function get_the_date( $d = '', $post = null ) {
+function get_the_date( $d = '', $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $post );
 
 	if ( ! $post ) {
@@ -2247,7 +2247,7 @@ function get_the_date( $d = '', $post = null ) {
  * @param bool   $echo   Optional, default is display. Whether to echo the date or return it.
  * @return string|void String if retrieving.
  */
-function the_modified_date( $d = '', $before = '', $after = '', $echo = true ) {
+function the_modified_date( $d = '', $before = '', $after = '', $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$the_modified_date = $before . get_the_modified_date($d) . $after;
 
 	/**
@@ -2280,7 +2280,7 @@ function the_modified_date( $d = '', $before = '', $after = '', $echo = true ) {
  * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default current post.
  * @return false|string Date the current post was modified. False on failure.
  */
-function get_the_modified_date( $d = '', $post = null ) {
+function get_the_modified_date( $d = '', $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $post );
 
 	if ( ! $post ) {
@@ -2313,7 +2313,7 @@ function get_the_modified_date( $d = '', $post = null ) {
  *
  * @param string $d Either 'G', 'U', or php date format.
  */
-function the_time( $d = '' ) {
+function the_time( $d = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the time a post was written for display.
 	 *
@@ -2337,7 +2337,7 @@ function the_time( $d = '' ) {
  * @param int|WP_Post $post WP_Post object or ID. Default is global $post object.
  * @return string|int|false Formatted date string or Unix timestamp if `$id` is 'U' or 'G'. False on failure.
  */
-function get_the_time( $d = '', $post = null ) {
+function get_the_time( $d = '', $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post($post);
 
 	if ( ! $post ) {
@@ -2375,7 +2375,7 @@ function get_the_time( $d = '', $post = null ) {
  * @param bool        $translate Whether to translate the time string. Default false.
  * @return string|int|false Formatted date string or Unix timestamp if `$id` is 'U' or 'G'. False on failure.
  */
-function get_post_time( $d = 'U', $gmt = false, $post = null, $translate = false ) {
+function get_post_time( $d = 'U', $gmt = false, $post = null, $translate = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post($post);
 
 	if ( ! $post ) {
@@ -2409,7 +2409,7 @@ function get_post_time( $d = 'U', $gmt = false, $post = null, $translate = false
  *
  * @param string $d Optional Either 'G', 'U', or php date format defaults to the value specified in the time_format option.
  */
-function the_modified_time($d = '') {
+function the_modified_time($d = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the localized time a post was last modified, for display.
 	 *
@@ -2435,7 +2435,7 @@ function the_modified_time($d = '') {
  * @param int|WP_Post $post  Optional. Post ID or WP_Post object. Default current post.
  * @return false|string Formatted date string or Unix timestamp. False on failure.
  */
-function get_the_modified_time( $d = '', $post = null ) {
+function get_the_modified_time( $d = '', $post = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $post );
 
 	if ( ! $post ) {
@@ -2474,7 +2474,7 @@ function get_the_modified_time( $d = '', $post = null ) {
  * @param bool        $translate Whether to translate the time string. Default false.
  * @return string|int|false Formatted date string or Unix timestamp if `$id` is 'U' or 'G'. False on failure.
  */
-function get_post_modified_time( $d = 'U', $gmt = false, $post = null, $translate = false ) {
+function get_post_modified_time( $d = 'U', $gmt = false, $post = null, $translate = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post($post);
 
 	if ( ! $post ) {
@@ -2506,7 +2506,7 @@ function get_post_modified_time( $d = 'U', $gmt = false, $post = null, $translat
  *
  * @global WP_Locale $wp_locale
  */
-function the_weekday() {
+function the_weekday() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_locale;
 	$the_weekday = $wp_locale->get_weekday( mysql2date( 'w', get_post()->post_date, false ) );
 
@@ -2535,7 +2535,7 @@ function the_weekday() {
  * @param string $before Optional Output before the date.
  * @param string $after Optional Output after the date.
  */
-function the_weekday_date($before='',$after='') {
+function the_weekday_date($before='',$after='') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_locale, $currentday, $previousweekday;
 	$the_weekday_date = '';
 	if ( $currentday != $previousweekday ) {
@@ -2565,7 +2565,7 @@ function the_weekday_date($before='',$after='') {
  *
  * @since 1.2.0
  */
-function wp_head() {
+function wp_head() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Prints scripts or data in the head tag on the front end.
 	 *
@@ -2581,7 +2581,7 @@ function wp_head() {
  *
  * @since 1.5.1
  */
-function wp_footer() {
+function wp_footer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Prints scripts or data before the closing body tag on the front end.
 	 *
@@ -2597,7 +2597,7 @@ function wp_footer() {
  *
  * @param array $args Optional arguments.
  */
-function feed_links( $args = array() ) {
+function feed_links( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !current_theme_supports('automatic-feed-links') )
 		return;
 
@@ -2642,7 +2642,7 @@ function feed_links( $args = array() ) {
  *
  * @param array $args Optional arguments.
  */
-function feed_links_extra( $args = array() ) {
+function feed_links_extra( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		/* translators: Separator between blog name and feed type in feed links */
 		'separator'   => _x('&raquo;', 'feed link'),
@@ -2724,7 +2724,7 @@ function feed_links_extra( $args = array() ) {
  * @link http://archipelago.phrasewise.com/rsd
  * @since 2.0.0
  */
-function rsd_link() {
+function rsd_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo '<link rel="EditURI" type="application/rsd+xml" title="RSD" href="' . esc_url( site_url( 'xmlrpc.php?rsd', 'rpc' ) ) . '" />' . "\n";
 }
 
@@ -2734,7 +2734,7 @@ function rsd_link() {
  * @link https://msdn.microsoft.com/en-us/library/bb463265.aspx
  * @since 2.3.1
  */
-function wlwmanifest_link() {
+function wlwmanifest_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo '<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="',
 		includes_url( 'wlwmanifest.xml' ), '" /> ', "\n";
 }
@@ -2754,7 +2754,7 @@ function wlwmanifest_link() {
  *
  * @since 2.1.0
  */
-function noindex() {
+function noindex() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// If the blog is not public, tell robots to go away.
 	if ( '0' == get_option('blog_public') )
 		wp_no_robots();
@@ -2768,7 +2768,7 @@ function noindex() {
  *
  * @since 3.3.0
  */
-function wp_no_robots() {
+function wp_no_robots() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo "<meta name='robots' content='noindex,follow' />\n";
 }
 
@@ -2779,7 +2779,7 @@ function wp_no_robots() {
  *
  * @link https://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#rel-icon HTML5 specification link icon.
  */
-function wp_site_icon() {
+function wp_site_icon() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! has_site_icon() && ! is_customize_preview() ) {
 		return;
 	}
@@ -2832,7 +2832,7 @@ function wp_site_icon() {
  *
  * @since 4.6.0
  */
-function wp_resource_hints() {
+function wp_resource_hints() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$hints = array(
 		'dns-prefetch' => wp_dependencies_unique_hosts(),
 		'preconnect'   => array(),
@@ -2936,7 +2936,7 @@ function wp_resource_hints() {
  *
  * @return array A list of unique hosts of enqueued scripts and styles.
  */
-function wp_dependencies_unique_hosts() {
+function wp_dependencies_unique_hosts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_scripts, $wp_styles;
 
 	$unique_hosts = array();
@@ -2979,7 +2979,7 @@ function wp_dependencies_unique_hosts() {
  *
  * @return bool True if the user can access the visual editor, false otherwise.
  */
-function user_can_richedit() {
+function user_can_richedit() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_rich_edit, $is_gecko, $is_opera, $is_safari, $is_chrome, $is_IE, $is_edge;
 
 	if ( !isset($wp_rich_edit) ) {
@@ -3014,7 +3014,7 @@ function user_can_richedit() {
  *
  * @return string Either 'tinymce', or 'html', or 'test'
  */
-function wp_default_editor() {
+function wp_default_editor() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$r = user_can_richedit() ? 'tinymce' : 'html'; // defaults
 	if ( wp_get_current_user() ) { // look for cookie
 		$ed = get_user_setting('editor', 'tinymce');
@@ -3050,7 +3050,7 @@ function wp_default_editor() {
  * @param string $editor_id HTML ID attribute value for the textarea and TinyMCE. Can only be /[a-z]+/.
  * @param array  $settings  See _WP_Editors::editor().
  */
-function wp_editor( $content, $editor_id, $settings = array() ) {
+function wp_editor( $content, $editor_id, $settings = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! class_exists( '_WP_Editors', false ) )
 		require( ABSPATH . WPINC . '/class-wp-editor.php' );
 	_WP_Editors::editor($content, $editor_id, $settings);
@@ -3068,7 +3068,7 @@ function wp_editor( $content, $editor_id, $settings = array() ) {
  * 	                    Only use when you are later escaping it. Do not use unescaped.
  * @return string
  */
-function get_search_query( $escaped = true ) {
+function get_search_query( $escaped = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the contents of the search query variable.
 	 *
@@ -3091,7 +3091,7 @@ function get_search_query( $escaped = true ) {
  *
  * @since 2.1.0
  */
-function the_search_query() {
+function the_search_query() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the contents of the search query variable for display.
 	 *
@@ -3112,7 +3112,7 @@ function the_search_query() {
  *
  * @param string $doctype Optional. The type of html document. Accepts 'xhtml' or 'html'. Default 'html'.
  */
-function get_language_attributes( $doctype = 'html' ) {
+function get_language_attributes( $doctype = 'html' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$attributes = array();
 
 	if ( function_exists( 'is_rtl' ) && is_rtl() )
@@ -3151,7 +3151,7 @@ function get_language_attributes( $doctype = 'html' ) {
  *
  * @param string $doctype Optional. The type of html document. Accepts 'xhtml' or 'html'. Default 'html'.
  */
-function language_attributes( $doctype = 'html' ) {
+function language_attributes( $doctype = 'html' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo get_language_attributes( $doctype );
 }
 
@@ -3230,7 +3230,7 @@ function language_attributes( $doctype = 'html' ) {
  * }
  * @return array|string|void String of page links or array of page links.
  */
-function paginate_links( $args = '' ) {
+function paginate_links( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query, $wp_rewrite;
 
 	// Setting up default values based on the current URL.
@@ -3399,7 +3399,7 @@ function paginate_links( $args = '' ) {
  *     @type string $current SVG icon color of current admin menu link.
  * }
  */
-function wp_admin_css_color( $key, $name, $url, $colors = array(), $icons = array() ) {
+function wp_admin_css_color( $key, $name, $url, $colors = array(), $icons = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_admin_css_colors;
 
 	if ( !isset($_wp_admin_css_colors) )
@@ -3418,7 +3418,7 @@ function wp_admin_css_color( $key, $name, $url, $colors = array(), $icons = arra
  *
  * @since 3.0.0
  */
-function register_admin_color_schemes() {
+function register_admin_color_schemes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$suffix = is_rtl() ? '-rtl' : '';
 	$suffix .= SCRIPT_DEBUG ? '' : '.min';
 
@@ -3487,7 +3487,7 @@ function register_admin_color_schemes() {
  * @param string $file file relative to wp-admin/ without its ".css" extension.
  * @return string
  */
-function wp_admin_css_uri( $file = 'wp-admin' ) {
+function wp_admin_css_uri( $file = 'wp-admin' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( defined('WP_INSTALLING') ) {
 		$_file = "./$file.css";
 	} else {
@@ -3526,7 +3526,7 @@ function wp_admin_css_uri( $file = 'wp-admin' ) {
  * 	                         to wp-admin/. Defaults to 'wp-admin'.
  * @param bool   $force_echo Optional. Force the stylesheet link to be printed rather than enqueued.
  */
-function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
+function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// For backward compatibility
 	$handle = 0 === strpos( $file, 'css/' ) ? substr( $file, 4 ) : $file;
 
@@ -3551,7 +3551,7 @@ function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
 	 */
 	echo apply_filters( 'wp_admin_css', "<link rel='stylesheet' href='" . esc_url( wp_admin_css_uri( $file ) ) . "' type='text/css' />\n", $file );
 
-	if ( function_exists( 'is_rtl' ) && is_rtl() ) {
+	if ( function_exists( 'is_rtl' ) && is_rtl() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/** This filter is documented in wp-includes/general-template.php */
 		echo apply_filters( 'wp_admin_css', "<link rel='stylesheet' href='" . esc_url( wp_admin_css_uri( "$file-rtl" ) ) . "' type='text/css' />\n", "$file-rtl" );
 	}
@@ -3566,7 +3566,7 @@ function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
  *
  * @since 2.5.0
  */
-function add_thickbox() {
+function add_thickbox() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_enqueue_script( 'thickbox' );
 	wp_enqueue_style( 'thickbox' );
 
@@ -3581,7 +3581,7 @@ function add_thickbox() {
  *
  * @since 2.5.0
  */
-function wp_generator() {
+function wp_generator() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the output of the XHTML generator tag.
 	 *
@@ -3602,7 +3602,7 @@ function wp_generator() {
  *
  * @param string $type The type of generator to output - (html|xhtml|atom|rss2|rdf|comment|export).
  */
-function the_generator( $type ) {
+function the_generator( $type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the output of the XHTML generator tag for display.
 	 *
@@ -3627,7 +3627,7 @@ function the_generator( $type ) {
  * @param string $type The type of generator to return - (html|xhtml|atom|rss2|rdf|comment|export).
  * @return string|void The HTML content for the generator.
  */
-function get_the_generator( $type = '' ) {
+function get_the_generator( $type = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $type ) ) {
 
 		$current_filter = current_filter();
@@ -3704,7 +3704,7 @@ function get_the_generator( $type = '' ) {
  * @param bool  $echo    Whether to echo or just return the string
  * @return string html attribute or empty string
  */
-function checked( $checked, $current = true, $echo = true ) {
+function checked( $checked, $current = true, $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return __checked_selected_helper( $checked, $current, $echo, 'checked' );
 }
 
@@ -3720,7 +3720,7 @@ function checked( $checked, $current = true, $echo = true ) {
  * @param bool  $echo     Whether to echo or just return the string
  * @return string html attribute or empty string
  */
-function selected( $selected, $current = true, $echo = true ) {
+function selected( $selected, $current = true, $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return __checked_selected_helper( $selected, $current, $echo, 'selected' );
 }
 
@@ -3736,7 +3736,7 @@ function selected( $selected, $current = true, $echo = true ) {
  * @param bool  $echo     Whether to echo or just return the string
  * @return string html attribute or empty string
  */
-function disabled( $disabled, $current = true, $echo = true ) {
+function disabled( $disabled, $current = true, $echo = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return __checked_selected_helper( $disabled, $current, $echo, 'disabled' );
 }
 
@@ -3754,7 +3754,7 @@ function disabled( $disabled, $current = true, $echo = true ) {
  * @param string $type    The type of checked|selected|disabled we are doing
  * @return string html attribute or empty string
  */
-function __checked_selected_helper( $helper, $current, $echo, $type ) {
+function __checked_selected_helper( $helper, $current, $echo, $type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( (string) $helper === (string) $current )
 		$result = " $type='$type'";
 	else
@@ -3776,7 +3776,7 @@ function __checked_selected_helper( $helper, $current, $echo, $type ) {
  * @param array $settings
  * @return array $settings
  */
-function wp_heartbeat_settings( $settings ) {
+function wp_heartbeat_settings( $settings ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_admin() )
 		$settings['ajaxurl'] = admin_url( 'admin-ajax.php', 'relative' );
 

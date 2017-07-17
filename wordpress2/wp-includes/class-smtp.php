@@ -120,7 +120,7 @@ class SMTP
      *
      * Alternatively, you can provide a callable expecting two params: a message string and the debug level:
      * <code>
-     * $smtp->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";};
+     * $smtp->Debugoutput = function($str, $level) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);echo "debug level $level; message: $str";};
      * </code>
      * @var string|callable
      */
@@ -493,7 +493,7 @@ class SMTP
      */
     protected function hmac($data, $key)
     {
-        if (function_exists('hash_hmac')) {
+        if (function_exists('hash_hmac')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
             return hash_hmac('md5', $data, $key);
         }
 

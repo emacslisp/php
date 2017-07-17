@@ -80,7 +80,7 @@ $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : -1;
  *
  * @param string|array $body_classes
  */
-function setup_config_display_header( $body_classes = array() ) {
+function setup_config_display_header( $body_classes = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$body_classes = (array) $body_classes;
 	$body_classes[] = 'wp-core-ui';
 	if ( is_rtl() ) {
@@ -371,7 +371,7 @@ switch($step) {
 <p><?php _e( 'After you&#8217;ve done that, click &#8220;Run the install.&#8221;' ); ?></p>
 <p class="step"><a href="<?php echo $install; ?>" class="button button-large"><?php _e( 'Run the install' ); ?></a></p>
 <script>
-(function(){
+(function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 if ( ! /iPad|iPod|iPhone/.test( navigator.userAgent ) ) {
 	var el = document.getElementById('wp-config');
 	el.focus();

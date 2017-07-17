@@ -20,7 +20,7 @@
  *
  * Code within certain html blocks are skipped.
  *
- * Do not use this function before the {@see 'init'} action hook; everything will break.
+ * Do not use this function before the {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);@see 'init'} action hook; everything will break.
  *
  * @since 0.71
  *
@@ -38,7 +38,7 @@
  * @param bool   $reset Set to true for unit testing. Translated patterns will reset.
  * @return string The string replaced with html entities
  */
-function wptexturize( $text, $reset = false ) {
+function wptexturize( $text, $reset = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_cockneyreplace, $shortcode_tags;
 	static $static_characters = null,
 		$static_replacements = null,
@@ -303,7 +303,7 @@ function wptexturize( $text, $reset = false ) {
  * @param string $close_quote The closing quote char to use for replacement.
  * @return string The $haystack value after primes and quotes replacements.
  */
-function wptexturize_primes( $haystack, $needle, $prime, $open_quote, $close_quote ) {
+function wptexturize_primes( $haystack, $needle, $prime, $open_quote, $close_quote ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$spaces = wp_spaces_regexp();
 	$flag = '<!--wp-prime-or-quote-->';
 	$quote_pattern = "/$needle(?=\\Z|[.,:;!?)}\\-\\]]|&gt;|" . $spaces . ")/";
@@ -372,7 +372,7 @@ function wptexturize_primes( $haystack, $needle, $prime, $open_quote, $close_quo
  * @param array  $stack List of open tag elements.
  * @param array  $disabled_elements The tag names to match against. Spaces are not allowed in tag names.
  */
-function _wptexturize_pushpop_element( $text, &$stack, $disabled_elements ) {
+function _wptexturize_pushpop_element( $text, &$stack, $disabled_elements ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Is it an opening tag or closing tag?
 	if ( isset( $text[1] ) && '/' !== $text[1] ) {
 		$opening_tag = true;
@@ -426,7 +426,7 @@ function _wptexturize_pushpop_element( $text, &$stack, $disabled_elements ) {
  *                    after paragraphing. Default true.
  * @return string Text which has been converted into correct paragraph tags.
  */
-function wpautop( $pee, $br = true ) {
+function wpautop( $pee, $br = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$pre_tags = array();
 
 	if ( trim($pee) === '' )
@@ -584,7 +584,7 @@ function wpautop( $pee, $br = true ) {
  * @param string $input The text which has to be formatted.
  * @return array The formatted text.
  */
-function wp_html_split( $input ) {
+function wp_html_split( $input ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return preg_split( get_html_split_regex(), $input, -1, PREG_SPLIT_DELIM_CAPTURE );
 }
 
@@ -595,7 +595,7 @@ function wp_html_split( $input ) {
  *
  * @return string The regular expression
  */
-function get_html_split_regex() {
+function get_html_split_regex() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $regex;
 
 	if ( ! isset( $regex ) ) {
@@ -653,7 +653,7 @@ function get_html_split_regex() {
  * @param string $shortcode_regex The result from _get_wptexturize_shortcode_regex().  Optional.
  * @return string The regular expression
  */
-function _get_wptexturize_split_regex( $shortcode_regex = '' ) {
+function _get_wptexturize_split_regex( $shortcode_regex = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $html_regex;
 
 	if ( ! isset( $html_regex ) ) {
@@ -694,7 +694,7 @@ function _get_wptexturize_split_regex( $shortcode_regex = '' ) {
  * @param array $tagnames List of shortcodes to find.
  * @return string The regular expression
  */
-function _get_wptexturize_shortcode_regex( $tagnames ) {
+function _get_wptexturize_shortcode_regex( $tagnames ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$tagregexp = join( '|', array_map( 'preg_quote', $tagnames ) );
 	$tagregexp = "(?:$tagregexp)(?=[\\s\\]\\/])"; // Excerpt of get_shortcode_regex().
 	$regex =
@@ -721,7 +721,7 @@ function _get_wptexturize_shortcode_regex( $tagnames ) {
  * @param array $replace_pairs In the form array('from' => 'to', ...).
  * @return string The formatted text.
  */
-function wp_replace_in_html_tags( $haystack, $replace_pairs ) {
+function wp_replace_in_html_tags( $haystack, $replace_pairs ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Find all elements.
 	$textarr = wp_html_split( $haystack );
 	$changed = false;
@@ -771,7 +771,7 @@ function wp_replace_in_html_tags( $haystack, $replace_pairs ) {
  * @param array $matches preg_replace_callback matches array
  * @return string
  */
-function _autop_newline_preservation_helper( $matches ) {
+function _autop_newline_preservation_helper( $matches ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return str_replace( "\n", "<WPPreserveNewline />", $matches[0] );
 }
 
@@ -787,7 +787,7 @@ function _autop_newline_preservation_helper( $matches ) {
  * @param string $pee The content.
  * @return string The filtered content.
  */
-function shortcode_unautop( $pee ) {
+function shortcode_unautop( $pee ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $shortcode_tags;
 
 	if ( empty( $shortcode_tags ) || !is_array( $shortcode_tags ) ) {
@@ -844,7 +844,7 @@ function shortcode_unautop( $pee ) {
  * @param string $str The string to be checked
  * @return bool True if $str fits a UTF-8 model, false otherwise.
  */
-function seems_utf8( $str ) {
+function seems_utf8( $str ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	mbstring_binary_safe_encoding();
 	$length = strlen($str);
 	reset_mbstring_encoding();
@@ -888,7 +888,7 @@ function seems_utf8( $str ) {
  * @param bool       $double_encode  Optional. Whether to encode existing html entities. Default is false.
  * @return string The encoded text with HTML entities.
  */
-function _wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false, $double_encode = false ) {
+function _wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false, $double_encode = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$string = (string) $string;
 
 	if ( 0 === strlen( $string ) )
@@ -961,7 +961,7 @@ function _wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = fals
  *                                Default is ENT_NOQUOTES.
  * @return string The decoded text without HTML entities.
  */
-function wp_specialchars_decode( $string, $quote_style = ENT_NOQUOTES ) {
+function wp_specialchars_decode( $string, $quote_style = ENT_NOQUOTES ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$string = (string) $string;
 
 	if ( 0 === strlen( $string ) ) {
@@ -1021,7 +1021,7 @@ function wp_specialchars_decode( $string, $quote_style = ENT_NOQUOTES ) {
  * @param bool    $strip Optional. Whether to attempt to strip out invalid UTF8. Default is false.
  * @return string The checked text.
  */
-function wp_check_invalid_utf8( $string, $strip = false ) {
+function wp_check_invalid_utf8( $string, $strip = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$string = (string) $string;
 
 	if ( 0 === strlen( $string ) ) {
@@ -1053,7 +1053,7 @@ function wp_check_invalid_utf8( $string, $strip = false ) {
 	}
 
 	// Attempt to strip the bad chars if requested (not recommended)
-	if ( $strip && function_exists( 'iconv' ) ) {
+	if ( $strip && function_exists( 'iconv' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return iconv( 'utf-8', 'utf-8', $string );
 	}
 
@@ -1069,7 +1069,7 @@ function wp_check_invalid_utf8( $string, $strip = false ) {
  * @param int    $length Max  length of the string
  * @return string String with Unicode encoded for URI.
  */
-function utf8_uri_encode( $utf8_string, $length = 0 ) {
+function utf8_uri_encode( $utf8_string, $length = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$unicode = '';
 	$values = array();
 	$num_octets = 1;
@@ -1504,7 +1504,7 @@ function utf8_uri_encode( $utf8_string, $length = 0 ) {
  * @param string $string Text that might have accent characters
  * @return string Filtered string with replaced "nice" characters.
  */
-function remove_accents( $string ) {
+function remove_accents( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !preg_match('/[\x80-\xff]/', $string) )
 		return $string;
 
@@ -1752,7 +1752,7 @@ function remove_accents( $string ) {
  * @param string $filename The filename to be sanitized
  * @return string The sanitized filename
  */
-function sanitize_file_name( $filename ) {
+function sanitize_file_name( $filename ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$filename_raw = $filename;
 	$special_chars = array("?", "[", "]", "/", "\\", "=", "<", ">", ":", ";", ",", "'", "\"", "&", "$", "#", "*", "(", ")", "|", "~", "`", "!", "{", "}", "%", "+", chr(0));
 	/**
@@ -1838,7 +1838,7 @@ function sanitize_file_name( $filename ) {
  * @param bool   $strict   If set limits $username to specific characters. Default false.
  * @return string The sanitized username, after passing through filters.
  */
-function sanitize_user( $username, $strict = false ) {
+function sanitize_user( $username, $strict = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$raw_username = $username;
 	$username = wp_strip_all_tags( $username );
 	$username = remove_accents( $username );
@@ -1876,7 +1876,7 @@ function sanitize_user( $username, $strict = false ) {
  * @param string $key String key
  * @return string Sanitized key
  */
-function sanitize_key( $key ) {
+function sanitize_key( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$raw_key = $key;
 	$key = strtolower( $key );
 	$key = preg_replace( '/[^a-z0-9_\-]/', '', $key );
@@ -1906,7 +1906,7 @@ function sanitize_key( $key ) {
  * @param string $context        Optional. The operation for which the string is sanitized
  * @return string The sanitized string.
  */
-function sanitize_title( $title, $fallback_title = '', $context = 'save' ) {
+function sanitize_title( $title, $fallback_title = '', $context = 'save' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$raw_title = $title;
 
 	if ( 'save' == $context )
@@ -1939,7 +1939,7 @@ function sanitize_title( $title, $fallback_title = '', $context = 'save' ) {
  * @param string $title The string to be sanitized.
  * @return string The sanitized string.
  */
-function sanitize_title_for_query( $title ) {
+function sanitize_title_for_query( $title ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return sanitize_title( $title, '', 'query' );
 }
 
@@ -1956,7 +1956,7 @@ function sanitize_title_for_query( $title ) {
  * @param string $context   Optional. The operation for which the string is sanitized.
  * @return string The sanitized title.
  */
-function sanitize_title_with_dashes( $title, $raw_title = '', $context = 'display' ) {
+function sanitize_title_with_dashes( $title, $raw_title = '', $context = 'display' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$title = strip_tags($title);
 	// Preserve escaped octets.
 	$title = preg_replace('|%([a-fA-F0-9][a-fA-F0-9])|', '---$1---', $title);
@@ -1966,7 +1966,7 @@ function sanitize_title_with_dashes( $title, $raw_title = '', $context = 'displa
 	$title = preg_replace('|---([a-fA-F0-9][a-fA-F0-9])---|', '%$1', $title);
 
 	if (seems_utf8($title)) {
-		if (function_exists('mb_strtolower')) {
+		if (function_exists('mb_strtolower')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			$title = mb_strtolower($title, 'UTF-8');
 		}
 		$title = utf8_uri_encode($title, 200);
@@ -2025,7 +2025,7 @@ function sanitize_title_with_dashes( $title, $raw_title = '', $context = 'displa
  * @param string $orderby Order by clause to be validated.
  * @return string|false Returns $orderby if valid, false otherwise.
  */
-function sanitize_sql_orderby( $orderby ) {
+function sanitize_sql_orderby( $orderby ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( preg_match( '/^\s*(([a-z0-9_]+|`[a-z0-9_]+`)(\s+(ASC|DESC))?\s*(,\s*(?=[a-z0-9_`])|$))+$/i', $orderby ) || preg_match( '/^\s*RAND\(\s*\)\s*$/i', $orderby ) ) {
 		return $orderby;
 	}
@@ -2047,7 +2047,7 @@ function sanitize_sql_orderby( $orderby ) {
  * 	Defaults to an empty string.
  * @return string The sanitized value
  */
-function sanitize_html_class( $class, $fallback = '' ) {
+function sanitize_html_class( $class, $fallback = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	//Strip out any % encoded octets
 	$sanitized = preg_replace( '|%[a-fA-F0-9][a-fA-F0-9]|', '', $class );
 
@@ -2078,7 +2078,7 @@ function sanitize_html_class( $class, $fallback = '' ) {
  * @param string $deprecated Not used.
  * @return string Converted string.
  */
-function convert_chars( $content, $deprecated = '' ) {
+function convert_chars( $content, $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $deprecated ) ) {
 		_deprecated_argument( __FUNCTION__, '0.71' );
 	}
@@ -2098,7 +2098,7 @@ function convert_chars( $content, $deprecated = '' ) {
  * @param string $content String with entities that need converting.
  * @return string Converted string.
  */
-function convert_invalid_entities( $content ) {
+function convert_invalid_entities( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$wp_htmltranswinuni = array(
 		'&#128;' => '&#8364;', // the Euro sign
 		'&#129;' => '',
@@ -2150,7 +2150,7 @@ function convert_invalid_entities( $content ) {
  * @param bool   $force If true, forces balancing, ignoring the value of the option. Default false.
  * @return string Balanced text
  */
-function balanceTags( $text, $force = false ) {
+function balanceTags( $text, $force = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $force || get_option('use_balanceTags') == 1 ) {
 		return force_balance_tags( $text );
 	} else {
@@ -2176,7 +2176,7 @@ function balanceTags( $text, $force = false ) {
  * @param string $text Text to be balanced.
  * @return string Balanced text.
  */
-function force_balance_tags( $text ) {
+function force_balance_tags( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$tagstack = array();
 	$stacksize = 0;
 	$tagqueue = '';
@@ -2305,7 +2305,7 @@ function force_balance_tags( $text ) {
  *                          Default false.
  * @return string The text after the filter (and possibly htmlspecialchars()) has been run.
  */
-function format_to_edit( $content, $rich_text = false ) {
+function format_to_edit( $content, $rich_text = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters the text to be formatted for editing.
 	 *
@@ -2336,7 +2336,7 @@ function format_to_edit( $content, $rich_text = false ) {
  * @param int $threshold  Digit places number needs to be to not have zeros added.
  * @return string Adds leading zeros to number if needed.
  */
-function zeroise( $number, $threshold ) {
+function zeroise( $number, $threshold ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return sprintf( '%0' . $threshold . 's', $number );
 }
 
@@ -2348,7 +2348,7 @@ function zeroise( $number, $threshold ) {
  * @param string $string Value to which backslashes will be added.
  * @return string String with backslashes inserted.
  */
-function backslashit( $string ) {
+function backslashit( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $string[0] ) && $string[0] >= '0' && $string[0] <= '9' )
 		$string = '\\\\' . $string;
 	return addcslashes( $string, 'A..Za..z' );
@@ -2368,7 +2368,7 @@ function backslashit( $string ) {
  * @param string $string What to add the trailing slash to.
  * @return string String with trailing slash added.
  */
-function trailingslashit( $string ) {
+function trailingslashit( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return untrailingslashit( $string ) . '/';
 }
 
@@ -2383,7 +2383,7 @@ function trailingslashit( $string ) {
  * @param string $string What to remove the trailing slashes from.
  * @return string String without the trailing slashes.
  */
-function untrailingslashit( $string ) {
+function untrailingslashit( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return rtrim( $string, '/\\' );
 }
 
@@ -2398,7 +2398,7 @@ function untrailingslashit( $string ) {
  * @param string $gpc The string returned from HTTP request data.
  * @return string Returns a string escaped with slashes.
  */
-function addslashes_gpc($gpc) {
+function addslashes_gpc($gpc) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( get_magic_quotes_gpc() )
 		$gpc = stripslashes($gpc);
 
@@ -2413,7 +2413,7 @@ function addslashes_gpc($gpc) {
  * @param mixed $value The value to be stripped.
  * @return mixed Stripped value.
  */
-function stripslashes_deep( $value ) {
+function stripslashes_deep( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return map_deep( $value, 'stripslashes_from_strings_only' );
 }
 
@@ -2425,7 +2425,7 @@ function stripslashes_deep( $value ) {
  * @param mixed $value The array or string to be stripped.
  * @return mixed $value The stripped value.
  */
-function stripslashes_from_strings_only( $value ) {
+function stripslashes_from_strings_only( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return is_string( $value ) ? stripslashes( $value ) : $value;
 }
 
@@ -2437,7 +2437,7 @@ function stripslashes_from_strings_only( $value ) {
  * @param mixed $value The array or string to be encoded.
  * @return mixed $value The encoded value.
  */
-function urlencode_deep( $value ) {
+function urlencode_deep( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return map_deep( $value, 'urlencode' );
 }
 
@@ -2449,7 +2449,7 @@ function urlencode_deep( $value ) {
  * @param mixed $value The array or string to be encoded.
  * @return mixed $value The encoded value.
  */
-function rawurlencode_deep( $value ) {
+function rawurlencode_deep( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return map_deep( $value, 'rawurlencode' );
 }
 
@@ -2461,7 +2461,7 @@ function rawurlencode_deep( $value ) {
  * @param mixed $value The array or string to be decoded.
  * @return mixed $value The decoded value.
  */
-function urldecode_deep( $value ) {
+function urldecode_deep( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return map_deep( $value, 'urldecode' );
 }
 
@@ -2474,7 +2474,7 @@ function urldecode_deep( $value ) {
  * @param int    $hex_encoding  Optional. Set to 1 to enable hex encoding.
  * @return string Converted email address.
  */
-function antispambot( $email_address, $hex_encoding = 0 ) {
+function antispambot( $email_address, $hex_encoding = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$email_no_spam_address = '';
 	for ( $i = 0, $len = strlen( $email_address ); $i < $len; $i++ ) {
 		$j = rand( 0, 1 + $hex_encoding );
@@ -2501,7 +2501,7 @@ function antispambot( $email_address, $hex_encoding = 0 ) {
  * @param array $matches Single Regex Match.
  * @return string HTML A element with URI address.
  */
-function _make_url_clickable_cb( $matches ) {
+function _make_url_clickable_cb( $matches ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$url = $matches[2];
 
 	if ( ')' == $matches[3] && strpos( $url, '(' ) ) {
@@ -2537,7 +2537,7 @@ function _make_url_clickable_cb( $matches ) {
  * @param array $matches Single Regex Match.
  * @return string HTML A element with URL address.
  */
-function _make_web_ftp_clickable_cb( $matches ) {
+function _make_web_ftp_clickable_cb( $matches ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$ret = '';
 	$dest = $matches[2];
 	$dest = 'http://' . $dest;
@@ -2566,7 +2566,7 @@ function _make_web_ftp_clickable_cb( $matches ) {
  * @param array $matches Single Regex Match.
  * @return string HTML A element with email address.
  */
-function _make_email_clickable_cb( $matches ) {
+function _make_email_clickable_cb( $matches ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$email = $matches[2] . '@' . $matches[3];
 	return $matches[1] . "<a href=\"mailto:$email\">$email</a>";
 }
@@ -2582,7 +2582,7 @@ function _make_email_clickable_cb( $matches ) {
  * @param string $text Content to convert URIs.
  * @return string Content with converted URIs.
  */
-function make_clickable( $text ) {
+function make_clickable( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$r = '';
 	$textarr = preg_split( '/(<[^<>]+>)/', $text, -1, PREG_SPLIT_DELIM_CAPTURE ); // split out HTML tags
 	$nested_code_pre = 0; // Keep track of how many levels link is nested inside <pre> or <code>
@@ -2669,7 +2669,7 @@ function make_clickable( $text ) {
  * @param int    $goal   The desired chunk length.
  * @return array Numeric array of chunks.
  */
-function _split_str_by_whitespace( $string, $goal ) {
+function _split_str_by_whitespace( $string, $goal ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$chunks = array();
 
 	$string_nullspace = strtr( $string, "\r\n\t\v\f ", "\000\000\000\000\000\000" );
@@ -2704,7 +2704,7 @@ function _split_str_by_whitespace( $string, $goal ) {
  * @param string $text Content that may contain HTML A elements.
  * @return string Converted content.
  */
-function wp_rel_nofollow( $text ) {
+function wp_rel_nofollow( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// This is a pre save filter, so text is already escaped.
 	$text = stripslashes($text);
 	$text = preg_replace_callback('|<a (.+?)>|i', 'wp_rel_nofollow_callback', $text);
@@ -2722,7 +2722,7 @@ function wp_rel_nofollow( $text ) {
  * @param array $matches Single Match
  * @return string HTML A Element with rel nofollow.
  */
-function wp_rel_nofollow_callback( $matches ) {
+function wp_rel_nofollow_callback( $matches ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$text = $matches[1];
 	$atts = shortcode_parse_atts( $matches[1] );
 	$rel  = 'nofollow';
@@ -2765,7 +2765,7 @@ function wp_rel_nofollow_callback( $matches ) {
  * @param array $matches Single match. Smiley code to convert to image.
  * @return string Image string for smiley.
  */
-function translate_smiley( $matches ) {
+function translate_smiley( $matches ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpsmiliestrans;
 
 	if ( count( $matches ) == 0 )
@@ -2810,7 +2810,7 @@ function translate_smiley( $matches ) {
  * @param string $text Content to convert smilies from text.
  * @return string Converted content with text smilies replaced with images.
  */
-function convert_smilies( $text ) {
+function convert_smilies( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_smiliessearch;
 	$output = '';
 	if ( get_option( 'use_smilies' ) && ! empty( $wp_smiliessearch ) ) {
@@ -2860,7 +2860,7 @@ function convert_smilies( $text ) {
  * @param bool   $deprecated Deprecated.
  * @return string|bool Either false or the valid email address.
  */
-function is_email( $email, $deprecated = false ) {
+function is_email( $email, $deprecated = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! empty( $deprecated ) )
 		_deprecated_argument( __FUNCTION__, '3.0.0' );
 
@@ -2948,7 +2948,7 @@ function is_email( $email, $deprecated = false ) {
  * @param string $string Subject line
  * @return string Converted string to ASCII
  */
-function wp_iso_descrambler( $string ) {
+function wp_iso_descrambler( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/* this may only work with iso-8859-1, I'm afraid */
 	if (!preg_match('#\=\?(.+)\?Q\?(.+)\?\=#i', $string, $matches)) {
 		return $string;
@@ -2967,7 +2967,7 @@ function wp_iso_descrambler( $string ) {
  * @param array $match The preg_replace_callback matches array
  * @return string Converted chars
  */
-function _wp_iso_convert( $match ) {
+function _wp_iso_convert( $match ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return chr( hexdec( strtolower( $match[1] ) ) );
 }
 
@@ -2985,7 +2985,7 @@ function _wp_iso_convert( $match ) {
  * @param string $format The format string for the returned date (default is Y-m-d H:i:s)
  * @return string GMT version of the date provided.
  */
-function get_gmt_from_date( $string, $format = 'Y-m-d H:i:s' ) {
+function get_gmt_from_date( $string, $format = 'Y-m-d H:i:s' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$tz = get_option( 'timezone_string' );
 	if ( $tz ) {
 		$datetime = date_create( $string, new DateTimeZone( $tz ) );
@@ -3022,7 +3022,7 @@ function get_gmt_from_date( $string, $format = 'Y-m-d H:i:s' ) {
  * @param string $format The format string for the returned date (default is Y-m-d H:i:s)
  * @return string Formatted date relative to the timezone / GMT offset.
  */
-function get_date_from_gmt( $string, $format = 'Y-m-d H:i:s' ) {
+function get_date_from_gmt( $string, $format = 'Y-m-d H:i:s' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$tz = get_option( 'timezone_string' );
 	if ( $tz ) {
 		$datetime = date_create( $string, new DateTimeZone( 'UTC' ) );
@@ -3047,7 +3047,7 @@ function get_date_from_gmt( $string, $format = 'Y-m-d H:i:s' ) {
  * @param string $timezone Either 'Z' for 0 offset or '±hhmm'.
  * @return int|float The offset in seconds.
  */
-function iso8601_timezone_to_offset( $timezone ) {
+function iso8601_timezone_to_offset( $timezone ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// $timezone is either 'Z' or '[+|-]hhmm'
 	if ($timezone == 'Z') {
 		$offset = 0;
@@ -3069,7 +3069,7 @@ function iso8601_timezone_to_offset( $timezone ) {
  * @param string $timezone    Optional. If set to GMT returns the time minus gmt_offset. Default is 'user'.
  * @return string The date and time in MySQL DateTime format - Y-m-d H:i:s.
  */
-function iso8601_to_datetime( $date_string, $timezone = 'user' ) {
+function iso8601_to_datetime( $date_string, $timezone = 'user' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$timezone = strtolower($timezone);
 
 	if ($timezone == 'gmt') {
@@ -3100,7 +3100,7 @@ function iso8601_to_datetime( $date_string, $timezone = 'user' ) {
  * @param string $email Email address to filter.
  * @return string Filtered email address.
  */
-function sanitize_email( $email ) {
+function sanitize_email( $email ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Test for the minimum length the email can be
 	if ( strlen( $email ) < 3 ) {
 		/**
@@ -3206,7 +3206,7 @@ function sanitize_email( $email ) {
  * @param int $to   Optional. Unix timestamp to end the time difference. Default becomes time() if not set.
  * @return string Human readable time difference.
  */
-function human_time_diff( $from, $to = '' ) {
+function human_time_diff( $from, $to = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $to ) ) {
 		$to = time();
 	}
@@ -3279,7 +3279,7 @@ function human_time_diff( $from, $to = '' ) {
  * @param string $text Optional. The excerpt. If set to empty, an excerpt is generated.
  * @return string The excerpt.
  */
-function wp_trim_excerpt( $text = '' ) {
+function wp_trim_excerpt( $text = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$raw_excerpt = $text;
 	if ( '' == $text ) {
 		$text = get_the_content('');
@@ -3333,7 +3333,7 @@ function wp_trim_excerpt( $text = '' ) {
  * @param string $more      Optional. What to append if $text needs to be trimmed. Default '&hellip;'.
  * @return string Trimmed text.
  */
-function wp_trim_words( $text, $num_words = 55, $more = null ) {
+function wp_trim_words( $text, $num_words = 55, $more = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( null === $more ) {
 		$more = __( '&hellip;' );
 	}
@@ -3385,7 +3385,7 @@ function wp_trim_words( $text, $num_words = 55, $more = null ) {
  * @param string $text The text within which entities will be converted.
  * @return string Text with converted entities.
  */
-function ent2ncr( $text ) {
+function ent2ncr( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	/**
 	 * Filters text before named entities are converted into numbered entities.
@@ -3681,7 +3681,7 @@ function ent2ncr( $text ) {
  *                               It is usually either 'html' or 'tinymce'.
  * @return string The formatted text after filter is applied.
  */
-function format_for_editor( $text, $default_editor = null ) {
+function format_for_editor( $text, $default_editor = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $text ) {
 		$text = htmlspecialchars( $text, ENT_NOQUOTES, get_option( 'blog_charset' ) );
 	}
@@ -3713,7 +3713,7 @@ function format_for_editor( $text, $default_editor = null ) {
  * @param string       $subject The string being searched and replaced on, otherwise known as the haystack.
  * @return string The string with the replaced svalues.
  */
-function _deep_replace( $search, $subject ) {
+function _deep_replace( $search, $subject ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$subject = (string) $subject;
 
 	$count = 1;
@@ -3738,7 +3738,7 @@ function _deep_replace( $search, $subject ) {
  * @param string|array $data Unescaped data
  * @return string|array Escaped data
  */
-function esc_sql( $data ) {
+function esc_sql( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	return $wpdb->_escape( $data );
 }
@@ -3758,7 +3758,7 @@ function esc_sql( $data ) {
  * @param string $_context  Private. Use esc_url_raw() for database usage.
  * @return string The cleaned $url after the {@see 'clean_url'} filter is applied.
  */
-function esc_url( $url, $protocols = null, $_context = 'display' ) {
+function esc_url( $url, $protocols = null, $_context = 'display' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$original_url = $url;
 
 	if ( '' == $url )
@@ -3860,7 +3860,7 @@ function esc_url( $url, $protocols = null, $_context = 'display' ) {
  * @param array  $protocols An array of acceptable protocols.
  * @return string The cleaned URL.
  */
-function esc_url_raw( $url, $protocols = null ) {
+function esc_url_raw( $url, $protocols = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return esc_url( $url, $protocols, 'db' );
 }
 
@@ -3874,7 +3874,7 @@ function esc_url_raw( $url, $protocols = null ) {
  * @param string $myHTML The text to be converted.
  * @return string Converted text.
  */
-function htmlentities2( $myHTML ) {
+function htmlentities2( $myHTML ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$translation_table = get_html_translation_table( HTML_ENTITIES, ENT_QUOTES );
 	$translation_table[chr(38)] = '&';
 	return preg_replace( "/&(?![A-Za-z]{0,4}\w{2,3};|#[0-9]{2,3};)/", "&amp;", strtr($myHTML, $translation_table) );
@@ -3892,7 +3892,7 @@ function htmlentities2( $myHTML ) {
  * @param string $text The text to be escaped.
  * @return string Escaped text.
  */
-function esc_js( $text ) {
+function esc_js( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$safe_text = wp_check_invalid_utf8( $text );
 	$safe_text = _wp_specialchars( $safe_text, ENT_COMPAT );
 	$safe_text = preg_replace( '/&#(x)?0*(?(1)27|39);?/i', "'", stripslashes( $safe_text ) );
@@ -3920,7 +3920,7 @@ function esc_js( $text ) {
  * @param string $text
  * @return string
  */
-function esc_html( $text ) {
+function esc_html( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$safe_text = wp_check_invalid_utf8( $text );
 	$safe_text = _wp_specialchars( $safe_text, ENT_QUOTES );
 	/**
@@ -3945,7 +3945,7 @@ function esc_html( $text ) {
  * @param string $text
  * @return string
  */
-function esc_attr( $text ) {
+function esc_attr( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$safe_text = wp_check_invalid_utf8( $text );
 	$safe_text = _wp_specialchars( $safe_text, ENT_QUOTES );
 	/**
@@ -3970,7 +3970,7 @@ function esc_attr( $text ) {
  * @param string $text
  * @return string
  */
-function esc_textarea( $text ) {
+function esc_textarea( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$safe_text = htmlspecialchars( $text, ENT_QUOTES, get_option( 'blog_charset' ) );
 	/**
 	 * Filters a string cleaned and escaped for output in a textarea element.
@@ -3991,7 +3991,7 @@ function esc_textarea( $text ) {
  * @param string $tag_name
  * @return string
  */
-function tag_escape( $tag_name ) {
+function tag_escape( $tag_name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$safe_tag = strtolower( preg_replace('/[^a-zA-Z0-9_:]/', '', $tag_name) );
 	/**
 	 * Filters a string cleaned and escaped for output as an HTML tag.
@@ -4016,7 +4016,7 @@ function tag_escape( $tag_name ) {
  * @param string $link Full URL path.
  * @return string Absolute path.
  */
-function wp_make_link_relative( $link ) {
+function wp_make_link_relative( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return preg_replace( '|^(https?:)?//[^/]+(/?.*)|i', '$2', $link );
 }
 
@@ -4034,7 +4034,7 @@ function wp_make_link_relative( $link ) {
  * @param string $value  The unsanitised value.
  * @return string Sanitized value.
  */
-function sanitize_option( $option, $value ) {
+function sanitize_option( $option, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$original_value = $value;
@@ -4268,7 +4268,7 @@ function sanitize_option( $option, $value ) {
 
 	if ( ! empty( $error ) ) {
 		$value = get_option( $option );
-		if ( function_exists( 'add_settings_error' ) ) {
+		if ( function_exists( 'add_settings_error' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			add_settings_error( $option, "invalid_{$option}", $error );
 		}
 	}
@@ -4297,7 +4297,7 @@ function sanitize_option( $option, $value ) {
  * @param callable $callback The function to map onto $value.
  * @return mixed The value with the callback applied to all non-arrays and non-objects inside it.
  */
-function map_deep( $value, $callback ) {
+function map_deep( $value, $callback ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_array( $value ) ) {
 		foreach ( $value as $index => $item ) {
 			$value[ $index ] = map_deep( $item, $callback );
@@ -4325,7 +4325,7 @@ function map_deep( $value, $callback ) {
  * @param string $string The string to be parsed.
  * @param array  $array  Variables will be stored in this array.
  */
-function wp_parse_str( $string, &$array ) {
+function wp_parse_str( $string, &$array ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	parse_str( $string, $array );
 	if ( get_magic_quotes_gpc() )
 		$array = stripslashes_deep( $array );
@@ -4349,7 +4349,7 @@ function wp_parse_str( $string, &$array ) {
  * @param string $text Text to be converted.
  * @return string Converted text.
  */
-function wp_pre_kses_less_than( $text ) {
+function wp_pre_kses_less_than( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return preg_replace_callback('%<[^>]*?((?=<)|>|$)%', 'wp_pre_kses_less_than_callback', $text);
 }
 
@@ -4361,7 +4361,7 @@ function wp_pre_kses_less_than( $text ) {
  * @param array $matches Populated by matches to preg_replace.
  * @return string The text returned after esc_html if needed.
  */
-function wp_pre_kses_less_than_callback( $matches ) {
+function wp_pre_kses_less_than_callback( $matches ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( false === strpos($matches[0], '>') )
 		return esc_html($matches[0]);
 	return $matches[0];
@@ -4377,7 +4377,7 @@ function wp_pre_kses_less_than_callback( $matches ) {
  * @param mixed  $args ,... Arguments to be formatted into the $pattern string.
  * @return string The formatted string.
  */
-function wp_sprintf( $pattern ) {
+function wp_sprintf( $pattern ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$args = func_get_args();
 	$len = strlen($pattern);
 	$start = 0;
@@ -4451,7 +4451,7 @@ function wp_sprintf( $pattern ) {
  * @param array  $args    List items to prepend to the content and replace '%l'.
  * @return string Localized list items and rest of the content.
  */
-function wp_sprintf_l( $pattern, $args ) {
+function wp_sprintf_l( $pattern, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Not a match
 	if ( substr($pattern, 0, 2) != '%l' )
 		return $pattern;
@@ -4511,7 +4511,7 @@ function wp_sprintf_l( $pattern, $args ) {
  * @param string $more  Optional. What to append if $str needs to be trimmed. Defaults to empty string.
  * @return string The excerpt.
  */
-function wp_html_excerpt( $str, $count, $more = null ) {
+function wp_html_excerpt( $str, $count, $more = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( null === $more )
 		$more = '';
 	$str = wp_strip_all_tags( $str, true );
@@ -4538,7 +4538,7 @@ function wp_html_excerpt( $str, $count, $more = null ) {
  * @param array  $attrs   The attributes which should be processed.
  * @return string The processed content.
  */
-function links_add_base_url( $content, $base, $attrs = array('src', 'href') ) {
+function links_add_base_url( $content, $base, $attrs = array('src', 'href') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_links_add_base;
 	$_links_add_base = $base;
 	$attrs = implode('|', (array)$attrs);
@@ -4556,7 +4556,7 @@ function links_add_base_url( $content, $base, $attrs = array('src', 'href') ) {
  * @param string $m The matched link.
  * @return string The processed link.
  */
-function _links_add_base( $m ) {
+function _links_add_base( $m ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_links_add_base;
 	//1 = attribute name  2 = quotation mark  3 = URL
 	return $m[1] . '=' . $m[2] .
@@ -4584,7 +4584,7 @@ function _links_add_base( $m ) {
  * @param array  $tags    An array of tags to apply to.
  * @return string The processed content.
  */
-function links_add_target( $content, $target = '_blank', $tags = array('a') ) {
+function links_add_target( $content, $target = '_blank', $tags = array('a') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_links_add_target;
 	$_links_add_target = $target;
 	$tags = implode('|', (array)$tags);
@@ -4602,7 +4602,7 @@ function links_add_target( $content, $target = '_blank', $tags = array('a') ) {
  * @param string $m The matched link.
  * @return string The processed link.
  */
-function _links_add_target( $m ) {
+function _links_add_target( $m ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_links_add_target;
 	$tag = $m[1];
 	$link = preg_replace('|( target=([\'"])(.*?)\2)|i', '', $m[2]);
@@ -4617,7 +4617,7 @@ function _links_add_target( $m ) {
  * @param string $str The string to normalize.
  * @return string The normalized string.
  */
-function normalize_whitespace( $str ) {
+function normalize_whitespace( $str ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$str  = trim( $str );
 	$str  = str_replace( "\r", "\n", $str );
 	$str  = preg_replace( array( '/\n+/', '/[ \t]+/' ), array( "\n", ' ' ), $str );
@@ -4637,7 +4637,7 @@ function normalize_whitespace( $str ) {
  * @param bool   $remove_breaks Optional. Whether to remove left over line breaks and white space chars
  * @return string The processed string.
  */
-function wp_strip_all_tags($string, $remove_breaks = false) {
+function wp_strip_all_tags($string, $remove_breaks = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$string = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $string );
 	$string = strip_tags($string);
 
@@ -4665,7 +4665,7 @@ function wp_strip_all_tags($string, $remove_breaks = false) {
  * @param string $str String to sanitize.
  * @return string Sanitized string.
  */
-function sanitize_text_field( $str ) {
+function sanitize_text_field( $str ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$filtered = _sanitize_text_fields( $str, false );
 
 	/**
@@ -4693,7 +4693,7 @@ function sanitize_text_field( $str ) {
  * @param string $str String to sanitize.
  * @return string Sanitized string.
  */
-function sanitize_textarea_field( $str ) {
+function sanitize_textarea_field( $str ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$filtered = _sanitize_text_fields( $str, true );
 
 	/**
@@ -4717,7 +4717,7 @@ function sanitize_textarea_field( $str ) {
  * @param bool $keep_newlines optional Whether to keep newlines. Default: false.
  * @return string Sanitized string.
  */
-function _sanitize_text_fields( $str, $keep_newlines = false ) {
+function _sanitize_text_fields( $str, $keep_newlines = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$filtered = wp_check_invalid_utf8( $str );
 
 	if ( strpos($filtered, '<') !== false ) {
@@ -4758,7 +4758,7 @@ function _sanitize_text_fields( $str, $keep_newlines = false ) {
  * @param string $suffix If the filename ends in suffix this will also be cut off.
  * @return string
  */
-function wp_basename( $path, $suffix = '' ) {
+function wp_basename( $path, $suffix = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return urldecode( basename( str_replace( array( '%2F', '%5C' ), '/', urlencode( $path ) ), $suffix ) );
 }
 
@@ -4774,7 +4774,7 @@ function wp_basename( $path, $suffix = '' ) {
  * @param string $text The text to be modified.
  * @return string The modified text.
  */
-function capital_P_dangit( $text ) {
+function capital_P_dangit( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Simple replacement for titles
 	$current_filter = current_filter();
 	if ( 'the_title' === $current_filter || 'wp_title' === $current_filter )
@@ -4798,7 +4798,7 @@ function capital_P_dangit( $text ) {
  * @param string $mime_type Mime type
  * @return string Sanitized mime type
  */
-function sanitize_mime_type( $mime_type ) {
+function sanitize_mime_type( $mime_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$sani_mime_type = preg_replace( '/[^-+*.a-zA-Z0-9\/]/', '', $mime_type );
 	/**
 	 * Filters a mime type following sanitization.
@@ -4819,7 +4819,7 @@ function sanitize_mime_type( $mime_type ) {
  * @param string $to_ping Space or carriage return separated URLs
  * @return string URLs starting with the http or https protocol, separated by a carriage return.
  */
-function sanitize_trackback_urls( $to_ping ) {
+function sanitize_trackback_urls( $to_ping ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$urls_to_ping = preg_split( '/[\r\n\t ]/', trim( $to_ping ), -1, PREG_SPLIT_NO_EMPTY );
 	foreach ( $urls_to_ping as $k => $url ) {
 		if ( !preg_match( '#^https?://.#i', $url ) )
@@ -4852,7 +4852,7 @@ function sanitize_trackback_urls( $to_ping ) {
  * @param string|array $value String or array of strings to slash.
  * @return string|array Slashed $value
  */
-function wp_slash( $value ) {
+function wp_slash( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_array( $value ) ) {
 		foreach ( $value as $k => $v ) {
 			if ( is_array( $v ) ) {
@@ -4879,7 +4879,7 @@ function wp_slash( $value ) {
  * @param string|array $value String or array of strings to unslash.
  * @return string|array Unslashed $value
  */
-function wp_unslash( $value ) {
+function wp_unslash( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return stripslashes_deep( $value );
 }
 
@@ -4891,7 +4891,7 @@ function wp_unslash( $value ) {
  * @param string $content A string which might contain a URL.
  * @return string|false The found URL.
  */
-function get_url_in_content( $content ) {
+function get_url_in_content( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $content ) ) {
 		return false;
 	}
@@ -4916,7 +4916,7 @@ function get_url_in_content( $content ) {
  *
  * @return string The spaces regexp.
  */
-function wp_spaces_regexp() {
+function wp_spaces_regexp() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $spaces = '';
 
 	if ( empty( $spaces ) ) {
@@ -4945,7 +4945,7 @@ function wp_spaces_regexp() {
  *
  * @staticvar bool $printed
  */
-function print_emoji_styles() {
+function print_emoji_styles() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $printed = false;
 
 	if ( $printed ) {
@@ -4977,7 +4977,7 @@ img.emoji {
  * @since 4.2.0
  * @staticvar bool $printed
  */
-function print_emoji_detection_script() {
+function print_emoji_detection_script() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $printed = false;
 
 	if ( $printed ) {
@@ -4996,7 +4996,7 @@ function print_emoji_detection_script() {
  * @since 4.6.0
  * @access private
  */
-function _print_emoji_detection_script() {
+function _print_emoji_detection_script() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$settings = array(
 		/**
 		 * Filters the URL where emoji png images are hosted.
@@ -5089,8 +5089,8 @@ function _print_emoji_detection_script() {
  * @param string $content The content to encode.
  * @return string The encoded content.
  */
-function wp_encode_emoji( $content ) {
-	if ( function_exists( 'mb_convert_encoding' ) ) {
+function wp_encode_emoji( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	if ( function_exists( 'mb_convert_encoding' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$regex = '/(
 		     \x23\xE2\x83\xA3               # Digits
 		     [\x30-\x39]\xE2\x83\xA3
@@ -5131,7 +5131,7 @@ function wp_encode_emoji( $content ) {
  * @param string $text The content to encode.
  * @return string The encoded content.
  */
-function wp_staticize_emoji( $text ) {
+function wp_staticize_emoji( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$text = wp_encode_emoji( $text );
 
 	/** This filter is documented in wp-includes/formatting.php */
@@ -5213,7 +5213,7 @@ function wp_staticize_emoji( $text ) {
  * @param array $mail The email data array.
  * @return array The email data array, with emoji in the message staticized.
  */
-function wp_staticize_emoji_for_email( $mail ) {
+function wp_staticize_emoji_for_email( $mail ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! isset( $mail['message'] ) ) {
 		return $mail;
 	}
@@ -5282,7 +5282,7 @@ function wp_staticize_emoji_for_email( $mail ) {
  * @param int    $length Optional. Maximum length of the shortened URL. Default 35 characters.
  * @return string Shortened URL.
  */
-function url_shorten( $url, $length = 35 ) {
+function url_shorten( $url, $length = 35 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$stripped = str_replace( array( 'https://', 'http://', 'www.' ), '', $url );
 	$short_url = untrailingslashit( $stripped );
 
@@ -5303,7 +5303,7 @@ function url_shorten( $url, $length = 35 ) {
  * @param string $color
  * @return string|void
  */
-function sanitize_hex_color( $color ) {
+function sanitize_hex_color( $color ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( '' === $color ) {
 		return '';
 	}
@@ -5328,7 +5328,7 @@ function sanitize_hex_color( $color ) {
  * @param string $color
  * @return string|null
  */
-function sanitize_hex_color_no_hash( $color ) {
+function sanitize_hex_color_no_hash( $color ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$color = ltrim( $color, '#' );
 
 	if ( '' === $color ) {
@@ -5349,7 +5349,7 @@ function sanitize_hex_color_no_hash( $color ) {
  * @param string $color
  * @return string
  */
-function maybe_hash_hex_color( $color ) {
+function maybe_hash_hex_color( $color ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $unhashed = sanitize_hex_color_no_hash( $color ) ) {
 		return '#' . $unhashed;
 	}

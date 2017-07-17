@@ -26,7 +26,7 @@
  * SOFTWARE.
  */
 
-if (!function_exists('RandomCompat_strlen')) {
+if (!function_exists('RandomCompat_strlen')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
     if (
         defined('MB_OVERLOAD_STRING') &&
         ini_get('mbstring.func_overload') & MB_OVERLOAD_STRING
@@ -78,7 +78,7 @@ if (!function_exists('RandomCompat_strlen')) {
     }
 }
 
-if (!function_exists('RandomCompat_substr')) {
+if (!function_exists('RandomCompat_substr')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
     if (
         defined('MB_OVERLOAD_STRING')

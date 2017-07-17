@@ -32,7 +32,7 @@ Copyright 2005-2015 Automattic, Inc.
 */
 
 // Make sure we don't expose any info if called directly
-if ( !function_exists( 'add_action' ) ) {
+if ( !function_exists( 'add_action' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
 	exit;
 }

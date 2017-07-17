@@ -132,7 +132,7 @@ class WP_List_Table {
 	 *                            Default null.
 	 * }
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = wp_parse_args( $args, array(
 			'plural' => '',
 			'singular' => '',
@@ -174,7 +174,7 @@ class WP_List_Table {
 	 * @param string $name Property to get.
 	 * @return mixed Property.
 	 */
-	public function __get( $name ) {
+	public function __get( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return $this->$name;
 		}
@@ -190,7 +190,7 @@ class WP_List_Table {
 	 * @param mixed  $value Property value.
 	 * @return mixed Newly-set property.
 	 */
-	public function __set( $name, $value ) {
+	public function __set( $name, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return $this->$name = $value;
 		}
@@ -205,7 +205,7 @@ class WP_List_Table {
 	 * @param string $name Property to check if set.
 	 * @return bool Whether the property is set.
 	 */
-	public function __isset( $name ) {
+	public function __isset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			return isset( $this->$name );
 		}
@@ -219,7 +219,7 @@ class WP_List_Table {
 	 *
 	 * @param string $name Property to unset.
 	 */
-	public function __unset( $name ) {
+	public function __unset( $name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_fields ) ) {
 			unset( $this->$name );
 		}
@@ -235,7 +235,7 @@ class WP_List_Table {
 	 * @param array    $arguments Arguments to pass when calling.
 	 * @return mixed|bool Return value of the callback, false otherwise.
 	 */
-	public function __call( $name, $arguments ) {
+	public function __call( $name, $arguments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( in_array( $name, $this->compat_methods ) ) {
 			return call_user_func_array( array( $this, $name ), $arguments );
 		}
@@ -249,7 +249,7 @@ class WP_List_Table {
 	 * @access public
 	 * @abstract
 	 */
-	public function ajax_user_can() {
+	public function ajax_user_can() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		die( 'function WP_List_Table::ajax_user_can() must be over-ridden in a sub-class.' );
 	}
 
@@ -261,7 +261,7 @@ class WP_List_Table {
 	 * @access public
 	 * @abstract
 	 */
-	public function prepare_items() {
+	public function prepare_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		die( 'function WP_List_Table::prepare_items() must be over-ridden in a sub-class.' );
 	}
 
@@ -273,7 +273,7 @@ class WP_List_Table {
 	 *
 	 * @param array|string $args Array or string of arguments with information about the pagination.
 	 */
-	protected function set_pagination_args( $args ) {
+	protected function set_pagination_args( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = wp_parse_args( $args, array(
 			'total_items' => 0,
 			'total_pages' => 0,
@@ -302,7 +302,7 @@ class WP_List_Table {
 	 *                    'total_pages', 'per_page', or 'infinite_scroll'.
 	 * @return int Number of items that correspond to the given pagination argument.
 	 */
-	public function get_pagination_arg( $key ) {
+	public function get_pagination_arg( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'page' === $key ) {
 			return $this->get_pagenum();
 		}
@@ -320,7 +320,7 @@ class WP_List_Table {
 	 *
 	 * @return bool
 	 */
-	public function has_items() {
+	public function has_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return !empty( $this->items );
 	}
 
@@ -330,7 +330,7 @@ class WP_List_Table {
 	 * @since 3.1.0
 	 * @access public
 	 */
-	public function no_items() {
+	public function no_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_e( 'No items found.' );
 	}
 
@@ -343,7 +343,7 @@ class WP_List_Table {
 	 * @param string $text     The 'submit' button label.
 	 * @param string $input_id ID attribute value for the search input field.
 	 */
-	public function search_box( $text, $input_id ) {
+	public function search_box( $text, $input_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $_REQUEST['s'] ) && !$this->has_items() )
 			return;
 
@@ -375,7 +375,7 @@ class WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_views() {
+	protected function get_views() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array();
 	}
 
@@ -385,7 +385,7 @@ class WP_List_Table {
 	 * @since 3.1.0
 	 * @access public
 	 */
-	public function views() {
+	public function views() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$views = $this->get_views();
 		/**
 		 * Filters the list of available list table views.
@@ -421,7 +421,7 @@ class WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_bulk_actions() {
+	protected function get_bulk_actions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array();
 	}
 
@@ -434,7 +434,7 @@ class WP_List_Table {
 	 * @param string $which The location of the bulk actions: 'top' or 'bottom'.
 	 *                      This is designated as optional for backward compatibility.
 	 */
-	protected function bulk_actions( $which = '' ) {
+	protected function bulk_actions( $which = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_null( $this->_actions ) ) {
 			$this->_actions = $this->get_bulk_actions();
 			/**
@@ -482,7 +482,7 @@ class WP_List_Table {
 	 *
 	 * @return string|false The action name or False if no action was selected
 	 */
-	public function current_action() {
+	public function current_action() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $_REQUEST['filter_action'] ) && ! empty( $_REQUEST['filter_action'] ) )
 			return false;
 
@@ -505,7 +505,7 @@ class WP_List_Table {
 	 * @param bool $always_visible Whether the actions should be always visible
 	 * @return string
 	 */
-	protected function row_actions( $actions, $always_visible = false ) {
+	protected function row_actions( $actions, $always_visible = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$action_count = count( $actions );
 		$i = 0;
 
@@ -536,7 +536,7 @@ class WP_List_Table {
 	 *
 	 * @param string $post_type
 	 */
-	protected function months_dropdown( $post_type ) {
+	protected function months_dropdown( $post_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb, $wp_locale;
 
 		/**
@@ -614,7 +614,7 @@ class WP_List_Table {
 	 *
 	 * @param string $current_mode
 	 */
-	protected function view_switcher( $current_mode ) {
+	protected function view_switcher( $current_mode ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 		<input type="hidden" name="mode" value="<?php echo esc_attr( $current_mode ); ?>" />
 		<div class="view-switch">
@@ -644,7 +644,7 @@ class WP_List_Table {
 	 * @param int $post_id          The post ID.
 	 * @param int $pending_comments Number of pending comments.
 	 */
-	protected function comments_bubble( $post_id, $pending_comments ) {
+	protected function comments_bubble( $post_id, $pending_comments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$approved_comments = get_comments_number();
 
 		$approved_comments_number = number_format_i18n( $approved_comments );
@@ -695,7 +695,7 @@ class WP_List_Table {
 	 *
 	 * @return int
 	 */
-	public function get_pagenum() {
+	public function get_pagenum() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$pagenum = isset( $_REQUEST['paged'] ) ? absint( $_REQUEST['paged'] ) : 0;
 
 		if ( isset( $this->_pagination_args['total_pages'] ) && $pagenum > $this->_pagination_args['total_pages'] )
@@ -714,7 +714,7 @@ class WP_List_Table {
 	 * @param int    $default
 	 * @return int
 	 */
-	protected function get_items_per_page( $option, $default = 20 ) {
+	protected function get_items_per_page( $option, $default = 20 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$per_page = (int) get_user_option( $option );
 		if ( empty( $per_page ) || $per_page < 1 )
 			$per_page = $default;
@@ -743,7 +743,7 @@ class WP_List_Table {
 	 *
 	 * @param string $which
 	 */
-	protected function pagination( $which ) {
+	protected function pagination( $which ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $this->_pagination_args ) ) {
 			return;
 		}
@@ -869,7 +869,7 @@ class WP_List_Table {
 	 *
 	 * @return array
 	 */
-	public function get_columns() {
+	public function get_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		die( 'function WP_List_Table::get_columns() must be over-ridden in a sub-class.' );
 	}
 
@@ -886,7 +886,7 @@ class WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_sortable_columns() {
+	protected function get_sortable_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array();
 	}
 
@@ -898,7 +898,7 @@ class WP_List_Table {
 	 *
 	 * @return string Name of the default primary column, in this case, an empty string.
 	 */
-	protected function get_default_primary_column_name() {
+	protected function get_default_primary_column_name() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$columns = $this->get_columns();
 		$column = '';
 
@@ -928,7 +928,7 @@ class WP_List_Table {
 	 *
 	 * @return string Name of the default primary column.
 	 */
-	public function get_primary_column() {
+	public function get_primary_column() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->get_primary_column_name();
 	}
 
@@ -940,7 +940,7 @@ class WP_List_Table {
 	 *
 	 * @return string The name of the primary column.
 	 */
-	protected function get_primary_column_name() {
+	protected function get_primary_column_name() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$columns = get_column_headers( $this->screen );
 		$default = $this->get_default_primary_column_name();
 
@@ -975,7 +975,7 @@ class WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_column_info() {
+	protected function get_column_info() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// $_column_headers is already set / cached
 		if ( isset( $this->_column_headers ) && is_array( $this->_column_headers ) ) {
 			// Back-compat for list tables that have been manually setting $_column_headers for horse reasons.
@@ -1030,7 +1030,7 @@ class WP_List_Table {
 	 *
 	 * @return int
 	 */
-	public function get_column_count() {
+	public function get_column_count() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		list ( $columns, $hidden ) = $this->get_column_info();
 		$hidden = array_intersect( array_keys( $columns ), array_filter( $hidden ) );
 		return count( $columns ) - count( $hidden );
@@ -1046,7 +1046,7 @@ class WP_List_Table {
 	 *
 	 * @param bool $with_id Whether to set the id attribute or not
 	 */
-	public function print_column_headers( $with_id = true ) {
+	public function print_column_headers( $with_id = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
 
 		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
@@ -1120,7 +1120,7 @@ class WP_List_Table {
 	 * @since 3.1.0
 	 * @access public
 	 */
-	public function display() {
+	public function display() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$singular = $this->_args['singular'];
 
 		$this->display_tablenav( 'top' );
@@ -1160,7 +1160,7 @@ class WP_List_Table {
 	 *
 	 * @return array List of CSS classes for the table tag.
 	 */
-	protected function get_table_classes() {
+	protected function get_table_classes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array( 'widefat', 'fixed', 'striped', $this->_args['plural'] );
 	}
 
@@ -1171,7 +1171,7 @@ class WP_List_Table {
 	 * @access protected
 	 * @param string $which
 	 */
-	protected function display_tablenav( $which ) {
+	protected function display_tablenav( $which ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'top' === $which ) {
 			wp_nonce_field( 'bulk-' . $this->_args['plural'] );
 		}
@@ -1200,7 +1200,7 @@ class WP_List_Table {
 	 *
 	 * @param string $which
 	 */
-	protected function extra_tablenav( $which ) {}
+	protected function extra_tablenav( $which ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Generate the tbody element for the list table.
@@ -1208,7 +1208,7 @@ class WP_List_Table {
 	 * @since 3.1.0
 	 * @access public
 	 */
-	public function display_rows_or_placeholder() {
+	public function display_rows_or_placeholder() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->has_items() ) {
 			$this->display_rows();
 		} else {
@@ -1224,7 +1224,7 @@ class WP_List_Table {
 	 * @since 3.1.0
 	 * @access public
 	 */
-	public function display_rows() {
+	public function display_rows() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->items as $item )
 			$this->single_row( $item );
 	}
@@ -1237,7 +1237,7 @@ class WP_List_Table {
 	 *
 	 * @param object $item The current item
 	 */
-	public function single_row( $item ) {
+	public function single_row( $item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo '<tr>';
 		$this->single_row_columns( $item );
 		echo '</tr>';
@@ -1248,13 +1248,13 @@ class WP_List_Table {
 	 * @param object $item
 	 * @param string $column_name
 	 */
-	protected function column_default( $item, $column_name ) {}
+	protected function column_default( $item, $column_name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 *
 	 * @param object $item
 	 */
-	protected function column_cb( $item ) {}
+	protected function column_cb( $item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Generates the columns for a single row of the table
@@ -1264,7 +1264,7 @@ class WP_List_Table {
 	 *
 	 * @param object $item The current item
 	 */
-	protected function single_row_columns( $item ) {
+	protected function single_row_columns( $item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
 
 		foreach ( $columns as $column_name => $column_display_name ) {
@@ -1320,7 +1320,7 @@ class WP_List_Table {
 	 * @param string $primary     Primary column name.
 	 * @return string The row actions HTML, or an empty string if the current column is the primary column.
 	 */
-	protected function handle_row_actions( $item, $column_name, $primary ) {
+	protected function handle_row_actions( $item, $column_name, $primary ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $column_name === $primary ? '<button type="button" class="toggle-row"><span class="screen-reader-text">' . __( 'Show more details' ) . '</span></button>' : '';
  	}
 
@@ -1330,7 +1330,7 @@ class WP_List_Table {
 	 * @since 3.1.0
 	 * @access public
 	 */
-	public function ajax_response() {
+	public function ajax_response() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->prepare_items();
 
 		ob_start();
@@ -1363,7 +1363,7 @@ class WP_List_Table {
 	 *
 	 * @access public
 	 */
-	public function _js_vars() {
+	public function _js_vars() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$args = array(
 			'class'  => get_class( $this ),
 			'screen' => array(

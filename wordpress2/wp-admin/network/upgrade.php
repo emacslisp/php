@@ -111,7 +111,7 @@ switch ( $action ) {
 		?><p><?php _e( 'If your browser doesn&#8217;t start loading the next page automatically, click this link:' ); ?> <a class="button" href="upgrade.php?action=upgrade&amp;n=<?php echo ($n + 5) ?>"><?php _e("Next Sites"); ?></a></p>
 		<script type="text/javascript">
 		<!--
-		function nextpage() {
+		function nextpage() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			location.href = "upgrade.php?action=upgrade&n=<?php echo ($n + 5) ?>";
 		}
 		setTimeout( "nextpage()", 250 );

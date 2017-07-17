@@ -141,7 +141,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 *
 	 * @throws Exception If $id is not valid for this setting type.
 	 */
-	public function __construct( WP_Customize_Manager $manager, $id, array $args = array() ) {
+	public function __construct( WP_Customize_Manager $manager, $id, array $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $manager->nav_menus ) ) {
 			throw new Exception( 'Expected WP_Customize_Manager::$nav_menus to be set.' );
 		}
@@ -165,7 +165,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 *
 	 * @return array Instance data.
 	 */
-	public function value() {
+	public function value() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_previewed && $this->_previewed_blog_id === get_current_blog_id() ) {
 			$undefined  = new stdClass(); // Symbol.
 			$post_value = $this->post_value( $undefined );
@@ -212,7 +212,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 *
 	 * @return bool False if method short-circuited due to no-op.
 	 */
-	public function preview() {
+	public function preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_previewed ) {
 			return false;
 		}
@@ -248,7 +248,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * @param array $args  An array of arguments used to retrieve menu objects.
 	 * @return array
 	 */
-	public function filter_wp_get_nav_menus( $menus, $args ) {
+	public function filter_wp_get_nav_menus( $menus, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( get_current_blog_id() !== $this->_previewed_blog_id ) {
 			return $menus;
 		}
@@ -323,7 +323,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 *
 	 * @see WP_Customize_Nav_Menu_Setting::filter_wp_get_nav_menus()
 	 */
-	protected function _sort_menus_by_orderby( $menu1, $menu2 ) {
+	protected function _sort_menus_by_orderby( $menu1, $menu2 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __METHOD__, '4.7.0', 'wp_list_sort' );
 
 		$key = $this->_current_menus_sort_orderby;
@@ -344,7 +344,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * @param string      $menu_id  ID of the nav_menu term. Requests by slug or name will be ignored.
 	 * @return object|null
 	 */
-	public function filter_wp_get_nav_menu_object( $menu_obj, $menu_id ) {
+	public function filter_wp_get_nav_menu_object( $menu_obj, $menu_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$ok = (
 			get_current_blog_id() === $this->_previewed_blog_id
 			&&
@@ -390,7 +390,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * @param array $nav_menu_options Nav menu options including auto_add.
 	 * @return array (Kaybe) modified nav menu options.
 	 */
-	public function filter_nav_menu_options( $nav_menu_options ) {
+	public function filter_nav_menu_options( $nav_menu_options ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->_previewed_blog_id !== get_current_blog_id() ) {
 			return $nav_menu_options;
 		}
@@ -418,7 +418,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * @return array|false|null Null if an input isn't valid. False if it is marked for deletion.
 	 *                          Otherwise the sanitized value.
 	 */
-	public function sanitize( $value ) {
+	public function sanitize( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Menu is marked for deletion.
 		if ( false === $value ) {
 			return $value;
@@ -489,7 +489,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * }
 	 * @return null|void
 	 */
-	protected function update( $value ) {
+	protected function update( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_updated ) {
 			return;
 		}
@@ -607,7 +607,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * @param bool  $auto_add         Whether to auto-add or not.
 	 * @return array (Maybe) modified nav_menu_otions array.
 	 */
-	protected function filter_nav_menu_options_value( $nav_menu_options, $menu_id, $auto_add ) {
+	protected function filter_nav_menu_options_value( $nav_menu_options, $menu_id, $auto_add ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$nav_menu_options = (array) $nav_menu_options;
 		if ( ! isset( $nav_menu_options['auto_add'] ) ) {
 			$nav_menu_options['auto_add'] = array();
@@ -634,7 +634,7 @@ class WP_Customize_Nav_Menu_Setting extends WP_Customize_Setting {
 	 * @param array $data Additional information passed back to the 'saved' event on `wp.customize`.
 	 * @return array Export data.
 	 */
-	public function amend_customize_save_response( $data ) {
+	public function amend_customize_save_response( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! isset( $data['nav_menu_updates'] ) ) {
 			$data['nav_menu_updates'] = array();
 		}

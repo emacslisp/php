@@ -95,7 +95,7 @@ class WP_Dependencies {
 	 * @param mixed $group   Group level: level (int), no groups (false).
 	 * @return array Handles of items that have been processed.
 	 */
-	public function do_items( $handles = false, $group = false ) {
+	public function do_items( $handles = false, $group = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/*
 		 * If nothing is passed, print the queue. If a string is passed,
 		 * print that item. If an array is passed, print those items.
@@ -130,7 +130,7 @@ class WP_Dependencies {
 	 * @param string $handle Name of the item. Should be unique.
 	 * @return bool True on success, false if not set.
 	 */
-	public function do_item( $handle ) {
+	public function do_item( $handle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset($this->registered[$handle]);
 	}
 
@@ -150,7 +150,7 @@ class WP_Dependencies {
 	 * @param int|false $group     Group level: (int) level, (false) no groups.
 	 * @return bool True on success, false on failure.
 	 */
-	public function all_deps( $handles, $recursion = false, $group = false ) {
+	public function all_deps( $handles, $recursion = false, $group = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !$handles = (array) $handles )
 			return false;
 
@@ -214,7 +214,7 @@ class WP_Dependencies {
 	 * @param mixed            $args   Optional. Custom property of the item. NOT the class property $args. Examples: $media, $in_footer.
 	 * @return bool Whether the item has been registered. True on success, false on failure.
 	 */
-	public function add( $handle, $src, $deps = array(), $ver = false, $args = null ) {
+	public function add( $handle, $src, $deps = array(), $ver = false, $args = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset($this->registered[$handle]) )
 			return false;
 		$this->registered[$handle] = new _WP_Dependency( $handle, $src, $deps, $ver, $args );
@@ -234,7 +234,7 @@ class WP_Dependencies {
 	 * @param mixed  $value  The data value.
 	 * @return bool True on success, false on failure.
 	 */
-	public function add_data( $handle, $key, $value ) {
+	public function add_data( $handle, $key, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !isset( $this->registered[$handle] ) )
 			return false;
 
@@ -253,7 +253,7 @@ class WP_Dependencies {
 	 * @param string $key    The data key.
 	 * @return mixed Extra item data (string), false otherwise.
 	 */
-	public function get_data( $handle, $key ) {
+	public function get_data( $handle, $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( !isset( $this->registered[$handle] ) )
 			return false;
 
@@ -273,7 +273,7 @@ class WP_Dependencies {
 	 * @param mixed $handles Item handle and argument (string) or item handles and arguments (array of strings).
 	 * @return void
 	 */
-	public function remove( $handles ) {
+	public function remove( $handles ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( (array) $handles as $handle )
 			unset($this->registered[$handle]);
 	}
@@ -292,7 +292,7 @@ class WP_Dependencies {
 	 *
 	 * @param mixed $handles Item handle and argument (string) or item handles and arguments (array of strings).
 	 */
-	public function enqueue( $handles ) {
+	public function enqueue( $handles ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( (array) $handles as $handle ) {
 			$handle = explode('?', $handle);
 			if ( !in_array($handle[0], $this->queue) && isset($this->registered[$handle[0]]) ) {
@@ -315,7 +315,7 @@ class WP_Dependencies {
 	 *
 	 * @param mixed $handles Item handle and argument (string) or item handles and arguments (array of strings).
 	 */
-	public function dequeue( $handles ) {
+	public function dequeue( $handles ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( (array) $handles as $handle ) {
 			$handle = explode('?', $handle);
 			$key = array_search($handle[0], $this->queue);
@@ -335,7 +335,7 @@ class WP_Dependencies {
 	 * @param string $handle Name of the item. Should be unique.
 	 * @return bool Whether the handle is found after recursively searching the dependency tree.
 	 */
-	protected function recurse_deps( $queue, $handle ) {
+	protected function recurse_deps( $queue, $handle ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $queue as $queued ) {
 			if ( ! isset( $this->registered[ $queued ] ) ) {
 				continue;
@@ -362,7 +362,7 @@ class WP_Dependencies {
 	 * @param string $list   Property name of list array.
 	 * @return bool|_WP_Dependency Found, or object Item data.
 	 */
-	public function query( $handle, $list = 'registered' ) {
+	public function query( $handle, $list = 'registered' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ( $list ) {
 			case 'registered' :
 			case 'scripts': // back compat
@@ -399,7 +399,7 @@ class WP_Dependencies {
 	 * @param mixed  $group     Group level.
 	 * @return bool Not already in the group or a lower group
 	 */
-	public function set_group( $handle, $recursion, $group ) {
+	public function set_group( $handle, $recursion, $group ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$group = (int) $group;
 
 		if ( isset( $this->groups[ $handle ] ) && $this->groups[ $handle ] <= $group ) {

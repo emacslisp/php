@@ -22,7 +22,7 @@ class Theme_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @param array $args
 	 */
-	public function __construct($args = array()) {
+	public function __construct($args = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array( 'url' => '', 'theme' => '', 'nonce' => '', 'title' => __('Update Theme') );
 		$args = wp_parse_args($args, $defaults);
 
@@ -34,7 +34,7 @@ class Theme_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function after() {
+	public function after() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->decrement_update_count( 'theme' );
 
 		$update_actions = array();

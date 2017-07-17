@@ -8,7 +8,7 @@ error_reporting(0);
 
 $basepath = dirname(__FILE__);
 
-function get_file($path) {
+function get_file($path) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	if ( function_exists('realpath') )
 		$path = realpath($path);

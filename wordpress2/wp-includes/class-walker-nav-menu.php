@@ -49,7 +49,7 @@ class Walker_Nav_Menu extends Walker {
 	 * @param int      $depth  Depth of menu item. Used for padding.
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 			$t = '';
 			$n = '';
@@ -72,7 +72,7 @@ class Walker_Nav_Menu extends Walker {
 	 * @param int      $depth  Depth of menu item. Used for padding.
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
-	public function end_lvl( &$output, $depth = 0, $args = array() ) {
+	public function end_lvl( &$output, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 			$t = '';
 			$n = '';
@@ -98,7 +98,7 @@ class Walker_Nav_Menu extends Walker {
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 * @param int      $id     Current item ID.
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 			$t = '';
 			$n = '';
@@ -236,7 +236,7 @@ class Walker_Nav_Menu extends Walker {
 	 * @param int      $depth  Depth of page. Not Used.
 	 * @param stdClass $args   An object of wp_nav_menu() arguments.
 	 */
-	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+	public function end_el( &$output, $item, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 			$t = '';
 			$n = '';

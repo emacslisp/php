@@ -51,7 +51,7 @@ if ( ! function_exists( 'twentyfifteen_setup' ) ) :
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_setup() {
+function twentyfifteen_setup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	/*
 	 * Make theme available for translation.
@@ -155,7 +155,7 @@ add_action( 'after_setup_theme', 'twentyfifteen_setup' );
  *
  * @link https://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function twentyfifteen_widgets_init() {
+function twentyfifteen_widgets_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	register_sidebar( array(
 		'name'          => __( 'Widget Area', 'twentyfifteen' ),
 		'id'            => 'sidebar-1',
@@ -176,7 +176,7 @@ if ( ! function_exists( 'twentyfifteen_fonts_url' ) ) :
  *
  * @return string Google fonts URL for the theme.
  */
-function twentyfifteen_fonts_url() {
+function twentyfifteen_fonts_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$fonts_url = '';
 	$fonts     = array();
 	$subsets   = 'latin,latin-ext';
@@ -239,7 +239,7 @@ endif;
  *
  * @since Twenty Fifteen 1.1
  */
-function twentyfifteen_javascript_detection() {
+function twentyfifteen_javascript_detection() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
 add_action( 'wp_head', 'twentyfifteen_javascript_detection', 0 );
@@ -249,7 +249,7 @@ add_action( 'wp_head', 'twentyfifteen_javascript_detection', 0 );
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_scripts() {
+function twentyfifteen_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'twentyfifteen-fonts', twentyfifteen_fonts_url(), array(), null );
 
@@ -294,7 +294,7 @@ add_action( 'wp_enqueue_scripts', 'twentyfifteen_scripts' );
  * @param string  $relation_type The relation type the URLs are printed.
  * @return array URLs to print for resource hints.
  */
-function twentyfifteen_resource_hints( $urls, $relation_type ) {
+function twentyfifteen_resource_hints( $urls, $relation_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( wp_style_is( 'twentyfifteen-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
 		if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '>=' ) ) {
 			$urls[] = array(
@@ -317,7 +317,7 @@ add_filter( 'wp_resource_hints', 'twentyfifteen_resource_hints', 10, 2 );
  *
  * @see wp_add_inline_style()
  */
-function twentyfifteen_post_nav_background() {
+function twentyfifteen_post_nav_background() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_single() ) {
 		return;
 	}
@@ -363,7 +363,7 @@ add_action( 'wp_enqueue_scripts', 'twentyfifteen_post_nav_background' );
  * @param array   $args        wp_nav_menu() arguments.
  * @return string Menu item with possible description.
  */
-function twentyfifteen_nav_description( $item_output, $item, $depth, $args ) {
+function twentyfifteen_nav_description( $item_output, $item, $depth, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'primary' == $args->theme_location && $item->description ) {
 		$item_output = str_replace( $args->link_after . '</a>', '<div class="menu-item-description">' . $item->description . '</div>' . $args->link_after . '</a>', $item_output );
 	}
@@ -380,7 +380,7 @@ add_filter( 'walker_nav_menu_start_el', 'twentyfifteen_nav_description', 10, 4 )
  * @param string $html Search form HTML.
  * @return string Modified search form HTML.
  */
-function twentyfifteen_search_form_modify( $html ) {
+function twentyfifteen_search_form_modify( $html ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return str_replace( 'class="search-submit"', 'class="search-submit screen-reader-text"', $html );
 }
 add_filter( 'get_search_form', 'twentyfifteen_search_form_modify' );

@@ -22,7 +22,7 @@
  * @param int $postid Post ID.
  * @return array Post data.
  */
-function get_postdata($postid) {
+function get_postdata($postid) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '1.5.1', 'get_post()' );
 
 	$post = get_post($postid);
@@ -58,7 +58,7 @@ function get_postdata($postid) {
  * @since 1.0.1
  * @deprecated 1.5.0
  */
-function start_wp() {
+function start_wp() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	_deprecated_function( __FUNCTION__, '1.5.0', __('new WordPress Loop') );
@@ -79,7 +79,7 @@ function start_wp() {
  * @param bool $echo Optional. Whether to echo the output. Default true.
  * @return int Category ID.
  */
-function the_category_ID($echo = true) {
+function the_category_ID($echo = true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '0.71', 'get_the_category()' );
 
 	// Grab the first cat in the list.
@@ -102,7 +102,7 @@ function the_category_ID($echo = true) {
  * @param string $before Optional. Text to display before the category. Default empty.
  * @param string $after  Optional. Text to display after the category. Default empty.
  */
-function the_category_head( $before = '', $after = '' ) {
+function the_category_head( $before = '', $after = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $currentcat, $previouscat;
 
 	_deprecated_function( __FUNCTION__, '0.71', 'get_the_category_by_ID()' );
@@ -132,7 +132,7 @@ function the_category_head( $before = '', $after = '' ) {
  * @param int    $limitprev
  * @param string $excluded_categories
  */
-function previous_post($format='%', $previous='previous post: ', $title='yes', $in_same_cat='no', $limitprev=1, $excluded_categories='') {
+function previous_post($format='%', $previous='previous post: ', $title='yes', $in_same_cat='no', $limitprev=1, $excluded_categories='') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	_deprecated_function( __FUNCTION__, '2.0.0', 'previous_post_link()' );
 
@@ -168,7 +168,7 @@ function previous_post($format='%', $previous='previous post: ', $title='yes', $
  * @param int $limitnext
  * @param string $excluded_categories
  */
-function next_post($format='%', $next='next post: ', $title='yes', $in_same_cat='no', $limitnext=1, $excluded_categories='') {
+function next_post($format='%', $next='next post: ', $title='yes', $in_same_cat='no', $limitnext=1, $excluded_categories='') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'next_post_link()' );
 
 	if ( empty($in_same_cat) || 'no' == $in_same_cat )
@@ -201,7 +201,7 @@ function next_post($format='%', $next='next post: ', $title='yes', $in_same_cat=
  * @param int $category_id Not Used
  * @return bool
  */
-function user_can_create_post($user_id, $blog_id = 1, $category_id = 'None') {
+function user_can_create_post($user_id, $blog_id = 1, $category_id = 'None') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
 	$author_data = get_userdata($user_id);
@@ -220,7 +220,7 @@ function user_can_create_post($user_id, $blog_id = 1, $category_id = 'None') {
  * @param int $category_id Not Used
  * @return bool
  */
-function user_can_create_draft($user_id, $blog_id = 1, $category_id = 'None') {
+function user_can_create_draft($user_id, $blog_id = 1, $category_id = 'None') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
 	$author_data = get_userdata($user_id);
@@ -239,7 +239,7 @@ function user_can_create_draft($user_id, $blog_id = 1, $category_id = 'None') {
  * @param int $blog_id Not Used
  * @return bool
  */
-function user_can_edit_post($user_id, $post_id, $blog_id = 1) {
+function user_can_edit_post($user_id, $post_id, $blog_id = 1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
 	$author_data = get_userdata($user_id);
@@ -267,7 +267,7 @@ function user_can_edit_post($user_id, $post_id, $blog_id = 1) {
  * @param int $blog_id Not Used
  * @return bool
  */
-function user_can_delete_post($user_id, $post_id, $blog_id = 1) {
+function user_can_delete_post($user_id, $post_id, $blog_id = 1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
 	// right now if one can edit, one can delete
@@ -286,7 +286,7 @@ function user_can_delete_post($user_id, $post_id, $blog_id = 1) {
  * @param int $category_id Not Used
  * @return bool
  */
-function user_can_set_post_date($user_id, $blog_id = 1, $category_id = 'None') {
+function user_can_set_post_date($user_id, $blog_id = 1, $category_id = 'None') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
 	$author_data = get_userdata($user_id);
@@ -305,7 +305,7 @@ function user_can_set_post_date($user_id, $blog_id = 1, $category_id = 'None') {
  * @param int $blog_id Not Used
  * @return bool returns true if $user_id can edit $post_id's date
  */
-function user_can_edit_post_date($user_id, $post_id, $blog_id = 1) {
+function user_can_edit_post_date($user_id, $post_id, $blog_id = 1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
 	$author_data = get_userdata($user_id);
@@ -324,7 +324,7 @@ function user_can_edit_post_date($user_id, $post_id, $blog_id = 1) {
  * @param int $blog_id Not Used
  * @return bool returns true if $user_id can edit $post_id's comments
  */
-function user_can_edit_post_comments($user_id, $post_id, $blog_id = 1) {
+function user_can_edit_post_comments($user_id, $post_id, $blog_id = 1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
 	// right now if one can edit a post, one can edit comments made on it
@@ -343,7 +343,7 @@ function user_can_edit_post_comments($user_id, $post_id, $blog_id = 1) {
  * @param int $blog_id Not Used
  * @return bool returns true if $user_id can delete $post_id's comments
  */
-function user_can_delete_post_comments($user_id, $post_id, $blog_id = 1) {
+function user_can_delete_post_comments($user_id, $post_id, $blog_id = 1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
 	// right now if one can edit comments, one can delete comments
@@ -361,7 +361,7 @@ function user_can_delete_post_comments($user_id, $post_id, $blog_id = 1) {
  * @param int $other_user
  * @return bool
  */
-function user_can_edit_user($user_id, $other_user) {
+function user_can_edit_user($user_id, $other_user) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'current_user_can()' );
 
 	$user  = get_userdata($user_id);
@@ -416,7 +416,7 @@ function get_linksbyname($cat_name = "noname", $before = '', $after = '<br />', 
  * @param string $args
  * @return string|null
  */
-function wp_get_linksbyname($category, $args = '') {
+function wp_get_linksbyname($category, $args = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function(__FUNCTION__, '2.1.0', 'wp_list_bookmarks()');
 
 	$defaults = array(
@@ -454,7 +454,7 @@ function wp_get_linksbyname($category, $args = '') {
  * @param int $limit Limit to X entries. If not specified, all entries are shown.
  * @return array
  */
-function get_linkobjectsbyname($cat_name = "noname" , $orderby = 'name', $limit = -1) {
+function get_linkobjectsbyname($cat_name = "noname" , $orderby = 'name', $limit = -1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'get_bookmarks()' );
 
 	$cat_id = -1;
@@ -505,7 +505,7 @@ function get_linkobjectsbyname($cat_name = "noname" , $orderby = 'name', $limit 
  * @param int $limit Limit to X entries. If not specified, all entries are shown.
  * @return array
  */
-function get_linkobjects($category = 0, $orderby = 'name', $limit = 0) {
+function get_linkobjects($category = 0, $orderby = 'name', $limit = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'get_bookmarks()' );
 
 	$links = get_bookmarks( array( 'category' => $category, 'orderby' => $orderby, 'limit' => $limit ) ) ;
@@ -580,7 +580,7 @@ function get_links_withrating($category = -1, $before = '', $after = '<br />', $
  * @param int $id The category to get. If no category supplied uses 0
  * @return int Only returns 0.
  */
-function get_autotoggle($id = 0) {
+function get_autotoggle($id = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0' );
 	return 0;
 }
@@ -632,7 +632,7 @@ function list_cats($optionall = 1, $all = 'All', $sort_column = 'ID', $sort_orde
  * @param string|array $args
  * @return false|null|string
  */
-function wp_list_cats($args = '') {
+function wp_list_cats($args = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'wp_list_categories()' );
 
 	$r = wp_parse_args( $args );
@@ -708,7 +708,7 @@ function dropdown_cats($optionall = 1, $all = 'All', $orderby = 'ID', $order = '
  * @param string $feed_image
  * @return null|string
  */
-function list_authors($optioncount = false, $exclude_admin = true, $show_fullname = false, $hide_empty = true, $feed = '', $feed_image = '') {
+function list_authors($optioncount = false, $exclude_admin = true, $show_fullname = false, $hide_empty = true, $feed = '', $feed_image = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'wp_list_authors()' );
 
 	$args = compact('optioncount', 'exclude_admin', 'show_fullname', 'hide_empty', 'feed', 'feed_image');
@@ -726,7 +726,7 @@ function list_authors($optioncount = false, $exclude_admin = true, $show_fullnam
  * @param int $post_ID
  * @return array
  */
-function wp_get_post_cats($blogid = '1', $post_ID = 0) {
+function wp_get_post_cats($blogid = '1', $post_ID = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'wp_get_post_categories()' );
 	return wp_get_post_categories($post_ID);
 }
@@ -744,7 +744,7 @@ function wp_get_post_cats($blogid = '1', $post_ID = 0) {
  * @param array $post_categories
  * @return bool|mixed
  */
-function wp_set_post_cats($blogid = '1', $post_ID = 0, $post_categories = array()) {
+function wp_set_post_cats($blogid = '1', $post_ID = 0, $post_categories = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'wp_set_post_categories()' );
 	return wp_set_post_categories($post_ID, $post_categories);
 }
@@ -764,7 +764,7 @@ function wp_set_post_cats($blogid = '1', $post_ID = 0, $post_categories = array(
  * @param bool $show_post_count
  * @return string|null
  */
-function get_archives($type='', $limit='', $format='html', $before = '', $after = '', $show_post_count = false) {
+function get_archives($type='', $limit='', $format='html', $before = '', $after = '', $show_post_count = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'wp_get_archives()' );
 	$args = compact('type', 'limit', 'format', 'before', 'after', 'show_post_count');
 	return wp_get_archives($args);
@@ -782,7 +782,7 @@ function get_archives($type='', $limit='', $format='html', $before = '', $after 
  * @param string $author_nicename Optional.
  * @return string|null
  */
-function get_author_link($echo, $author_id, $author_nicename = '') {
+function get_author_link($echo, $author_id, $author_nicename = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'get_author_posts_url()' );
 
 	$link = get_author_posts_url($author_id, $author_nicename);
@@ -826,7 +826,7 @@ function link_pages($before='<br />', $after='<br />', $next_or_number='number',
  * @param string $option
  * @return string
  */
-function get_settings($option) {
+function get_settings($option) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'get_option()' );
 
 	return get_option($option);
@@ -839,7 +839,7 @@ function get_settings($option) {
  * @deprecated 1.2.0 Use the_permalink()
  * @see the_permalink()
  */
-function permalink_link() {
+function permalink_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '1.2.0', 'the_permalink()' );
 	the_permalink();
 }
@@ -853,7 +853,7 @@ function permalink_link() {
  *
  * @param string $deprecated
  */
-function permalink_single_rss($deprecated = '') {
+function permalink_single_rss($deprecated = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.3.0', 'the_permalink_rss()' );
 	the_permalink_rss();
 }
@@ -868,7 +868,7 @@ function permalink_single_rss($deprecated = '') {
  * @param string $args a query string
  * @return null|string
  */
-function wp_get_links($args = '') {
+function wp_get_links($args = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'wp_list_bookmarks()' );
 
 	if ( strpos( $args, '=' ) === false ) {
@@ -1014,7 +1014,7 @@ function get_links($category = -1, $before = '', $after = '<br />', $between = '
  *
  * @param string $order Sort link categories by 'name' or 'id'
  */
-function get_links_list($order = 'name') {
+function get_links_list($order = 'name') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'wp_list_bookmarks()' );
 
 	$order = strtolower($order);
@@ -1059,7 +1059,7 @@ function get_links_list($order = 'name') {
  * @param string $file the page to open in the popup window
  * @param bool $count the number of links in the db
  */
-function links_popup_script($text = 'Links', $width=400, $height=400, $file='links.all.php', $count = true) {
+function links_popup_script($text = 'Links', $width=400, $height=400, $file='links.all.php', $count = true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0' );
 }
 
@@ -1073,7 +1073,7 @@ function links_popup_script($text = 'Links', $width=400, $height=400, $file='lin
  * @param object $link Link object.
  * @return mixed Value of the 'link_rating' field, false otherwise.
  */
-function get_linkrating( $link ) {
+function get_linkrating( $link ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'sanitize_bookmark_field()' );
 	return sanitize_bookmark_field('link_rating', $link->link_rating, $link->link_id, 'display');
 }
@@ -1088,7 +1088,7 @@ function get_linkrating( $link ) {
  * @param int $id The category to get. If no category supplied uses 0
  * @return string
  */
-function get_linkcatname($id = 0) {
+function get_linkcatname($id = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'get_category()' );
 
 	$id = (int) $id;
@@ -1116,7 +1116,7 @@ function get_linkcatname($id = 0) {
  *
  * @param string $link_text
  */
-function comments_rss_link($link_text = 'Comments RSS') {
+function comments_rss_link($link_text = 'Comments RSS') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.5.0', 'post_comments_feed_link()' );
 	post_comments_feed_link($link_text);
 }
@@ -1132,7 +1132,7 @@ function comments_rss_link($link_text = 'Comments RSS') {
  * @param int $cat_ID
  * @return string
  */
-function get_category_rss_link($echo = false, $cat_ID = 1) {
+function get_category_rss_link($echo = false, $cat_ID = 1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.5.0', 'get_category_feed_link()' );
 
 	$link = get_category_feed_link($cat_ID, 'rss2');
@@ -1153,7 +1153,7 @@ function get_category_rss_link($echo = false, $cat_ID = 1) {
  * @param int $author_id
  * @return string
  */
-function get_author_rss_link($echo = false, $author_id = 1) {
+function get_author_rss_link($echo = false, $author_id = 1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.5.0', 'get_author_feed_link()' );
 
 	$link = get_author_feed_link($author_id);
@@ -1171,7 +1171,7 @@ function get_author_rss_link($echo = false, $author_id = 1) {
  *
  * @return string
  */
-function comments_rss() {
+function comments_rss() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.2.0', 'get_post_comments_feed_link()' );
 	return esc_url( get_post_comments_feed_link() );
 }
@@ -1188,7 +1188,7 @@ function comments_rss() {
  * @param string $email    The user's email.
  * @return int The new user's ID.
  */
-function create_user($username, $password, $email) {
+function create_user($username, $password, $email) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.0.0', 'wp_create_user()' );
 	return wp_create_user($username, $password, $email);
 }
@@ -1198,7 +1198,7 @@ function create_user($username, $password, $email) {
  *
  * @deprecated 2.5.0
  */
-function gzip_compression() {
+function gzip_compression() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.5.0' );
 	return false;
 }
@@ -1215,7 +1215,7 @@ function gzip_compression() {
  * @param bool $include_unapproved Whether to include unapproved comments
  * @return array The comment data
  */
-function get_commentdata( $comment_ID, $no_cache = 0, $include_unapproved = false ) {
+function get_commentdata( $comment_ID, $no_cache = 0, $include_unapproved = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.7.0', 'get_comment()' );
 	return get_comment($comment_ID, ARRAY_A);
 }
@@ -1230,7 +1230,7 @@ function get_commentdata( $comment_ID, $no_cache = 0, $include_unapproved = fals
  * @param int $cat_ID Category ID
  * @return string category name
  */
-function get_catname( $cat_ID ) {
+function get_catname( $cat_ID ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_cat_name()' );
 	return get_cat_name( $cat_ID );
 }
@@ -1248,7 +1248,7 @@ function get_catname( $cat_ID ) {
  * @param array $visited Optional. Category Term IDs that have already been added.
  * @return string
  */
-function get_category_children( $id, $before = '/', $after = '', $visited = array() ) {
+function get_category_children( $id, $before = '/', $after = '', $visited = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_term_children()' );
 	if ( 0 == $id )
 		return '';
@@ -1283,7 +1283,7 @@ function get_category_children( $id, $before = '/', $after = '', $visited = arra
  *
  * @return object List of all of the category IDs.
  */
-function get_all_category_ids() {
+function get_all_category_ids() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.0.0', 'get_terms()' );
 
 	if ( ! $cat_ids = wp_cache_get( 'all_category_ids', 'category' ) ) {
@@ -1303,7 +1303,7 @@ function get_all_category_ids() {
  *
  * @return string The author's description.
  */
-function get_the_author_description() {
+function get_the_author_description() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'description\')' );
 	return get_the_author_meta('description');
 }
@@ -1315,7 +1315,7 @@ function get_the_author_description() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_description() {
+function the_author_description() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'description\')' );
 	the_author_meta('description');
 }
@@ -1329,7 +1329,7 @@ function the_author_description() {
  *
  * @return string The author's login name (username).
  */
-function get_the_author_login() {
+function get_the_author_login() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'login\')' );
 	return get_the_author_meta('login');
 }
@@ -1341,7 +1341,7 @@ function get_the_author_login() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_login() {
+function the_author_login() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'login\')' );
 	the_author_meta('login');
 }
@@ -1355,7 +1355,7 @@ function the_author_login() {
  *
  * @return string The author's first name.
  */
-function get_the_author_firstname() {
+function get_the_author_firstname() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'first_name\')' );
 	return get_the_author_meta('first_name');
 }
@@ -1367,7 +1367,7 @@ function get_the_author_firstname() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_firstname() {
+function the_author_firstname() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'first_name\')' );
 	the_author_meta('first_name');
 }
@@ -1381,7 +1381,7 @@ function the_author_firstname() {
  *
  * @return string The author's last name.
  */
-function get_the_author_lastname() {
+function get_the_author_lastname() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'last_name\')' );
 	return get_the_author_meta('last_name');
 }
@@ -1393,7 +1393,7 @@ function get_the_author_lastname() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_lastname() {
+function the_author_lastname() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'last_name\')' );
 	the_author_meta('last_name');
 }
@@ -1407,7 +1407,7 @@ function the_author_lastname() {
  *
  * @return string The author's nickname.
  */
-function get_the_author_nickname() {
+function get_the_author_nickname() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'nickname\')' );
 	return get_the_author_meta('nickname');
 }
@@ -1419,7 +1419,7 @@ function get_the_author_nickname() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_nickname() {
+function the_author_nickname() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'nickname\')' );
 	the_author_meta('nickname');
 }
@@ -1433,7 +1433,7 @@ function the_author_nickname() {
  *
  * @return string The author's username.
  */
-function get_the_author_email() {
+function get_the_author_email() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'email\')' );
 	return get_the_author_meta('email');
 }
@@ -1445,7 +1445,7 @@ function get_the_author_email() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_email() {
+function the_author_email() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'email\')' );
 	the_author_meta('email');
 }
@@ -1459,7 +1459,7 @@ function the_author_email() {
  *
  * @return string The author's ICQ number.
  */
-function get_the_author_icq() {
+function get_the_author_icq() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'icq\')' );
 	return get_the_author_meta('icq');
 }
@@ -1471,7 +1471,7 @@ function get_the_author_icq() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_icq() {
+function the_author_icq() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'icq\')' );
 	the_author_meta('icq');
 }
@@ -1485,7 +1485,7 @@ function the_author_icq() {
  *
  * @return string The author's Yahoo! IM name.
  */
-function get_the_author_yim() {
+function get_the_author_yim() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'yim\')' );
 	return get_the_author_meta('yim');
 }
@@ -1497,7 +1497,7 @@ function get_the_author_yim() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_yim() {
+function the_author_yim() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'yim\')' );
 	the_author_meta('yim');
 }
@@ -1511,7 +1511,7 @@ function the_author_yim() {
  *
  * @return string The author's MSN address.
  */
-function get_the_author_msn() {
+function get_the_author_msn() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'msn\')' );
 	return get_the_author_meta('msn');
 }
@@ -1523,7 +1523,7 @@ function get_the_author_msn() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_msn() {
+function the_author_msn() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'msn\')' );
 	the_author_meta('msn');
 }
@@ -1537,7 +1537,7 @@ function the_author_msn() {
  *
  * @return string The author's AIM address.
  */
-function get_the_author_aim() {
+function get_the_author_aim() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'aim\')' );
 	return get_the_author_meta('aim');
 }
@@ -1549,7 +1549,7 @@ function get_the_author_aim() {
  * @deprecated 2.8.0 Use the_author_meta('aim')
  * @see the_author_meta()
  */
-function the_author_aim() {
+function the_author_aim() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'aim\')' );
 	the_author_meta('aim');
 }
@@ -1564,7 +1564,7 @@ function the_author_aim() {
  * @param int $auth_id The ID of the author.
  * @return string The author's display name.
  */
-function get_author_name( $auth_id = false ) {
+function get_author_name( $auth_id = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'display_name\')' );
 	return get_the_author_meta('display_name', $auth_id);
 }
@@ -1578,7 +1578,7 @@ function get_author_name( $auth_id = false ) {
  *
  * @return string The URL to the author's page.
  */
-function get_the_author_url() {
+function get_the_author_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'url\')' );
 	return get_the_author_meta('url');
 }
@@ -1590,7 +1590,7 @@ function get_the_author_url() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_url() {
+function the_author_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'url\')' );
 	the_author_meta('url');
 }
@@ -1604,7 +1604,7 @@ function the_author_url() {
  *
  * @return string|int The author's ID.
  */
-function get_the_author_ID() {
+function get_the_author_ID() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'get_the_author_meta(\'ID\')' );
 	return get_the_author_meta('ID');
 }
@@ -1616,7 +1616,7 @@ function get_the_author_ID() {
  * @deprecated 2.8.0 Use the_author_meta()
  * @see the_author_meta()
  */
-function the_author_ID() {
+function the_author_ID() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'the_author_meta(\'ID\')' );
 	the_author_meta('ID');
 }
@@ -1649,7 +1649,7 @@ function the_author_ID() {
  * @param int $cut Optional. Amount of words to keep for the content.
  * @param int $encode_html Optional. How to encode the content.
  */
-function the_content_rss($more_link_text='(more...)', $stripteaser=0, $more_file='', $cut = 0, $encode_html = 0) {
+function the_content_rss($more_link_text='(more...)', $stripteaser=0, $more_file='', $cut = 0, $encode_html = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.9.0', 'the_content_feed' );
 	$content = get_the_content($more_link_text, $stripteaser);
 	$content = apply_filters('the_content_rss', $content);
@@ -1695,7 +1695,7 @@ function the_content_rss($more_link_text='(more...)', $stripteaser=0, $more_file
  * @param string $content Content to get links
  * @return string HTML stripped out of content with links at the bottom.
  */
-function make_url_footnote( $content ) {
+function make_url_footnote( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.9.0', '' );
 	preg_match_all( '/<a(.+?)href=\"(.+?)\"(.*?)>(.+?)<\/a>/', $content, $matches );
 	$links_summary = "\n";
@@ -1734,7 +1734,7 @@ function make_url_footnote( $content ) {
  * @param string $domain Optional. Domain to retrieve the translated text
  * @return string Translated context string without pipe
  */
-function _c( $text, $domain = 'default' ) {
+function _c( $text, $domain = 'default' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.9.0', '_x()' );
 	return before_last_bar( translate( $text, $domain ) );
 }
@@ -1751,7 +1751,7 @@ function _c( $text, $domain = 'default' ) {
  * @param string $domain Domain to retrieve the translated text
  * @return string Translated text
  */
-function translate_with_context( $text, $domain = 'default' ) {
+function translate_with_context( $text, $domain = 'default' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.9.0', '_x()' );
 	return before_last_bar( translate( $text, $domain ) );
 }
@@ -1772,7 +1772,7 @@ function translate_with_context( $text, $domain = 'default' ) {
  *                       Default 'default'.
  * @return string The translated singular or plural form.
  */
-function _nc( $single, $plural, $number, $domain = 'default' ) {
+function _nc( $single, $plural, $number, $domain = 'default' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.9.0', '_nx()' );
 	return before_last_bar( _n( $single, $plural, $number, $domain ) );
 }
@@ -1784,7 +1784,7 @@ function _nc( $single, $plural, $number, $domain = 'default' ) {
  * @deprecated 2.8.0 Use _n()
  * @see _n()
  */
-function __ngettext() {
+function __ngettext() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', '_n()' );
 	$args = func_get_args();
 	return call_user_func_array('_n', $args);
@@ -1797,7 +1797,7 @@ function __ngettext() {
  * @deprecated 2.8.0 Use _n_noop()
  * @see _n_noop()
  */
-function __ngettext_noop() {
+function __ngettext_noop() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', '_n_noop()' );
 	$args = func_get_args();
 	return call_user_func_array('_n_noop', $args);
@@ -1813,7 +1813,7 @@ function __ngettext_noop() {
  *
  * @return array List of all options.
  */
-function get_alloptions() {
+function get_alloptions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'wp_load_alloptions()' );
 	return wp_load_alloptions();
 }
@@ -1831,7 +1831,7 @@ function get_alloptions() {
  * @param bool $permalink Optional, default is false. Whether to include permalink to image.
  * @return string
  */
-function get_the_attachment_link($id = 0, $fullsize = false, $max_dims = false, $permalink = false) {
+function get_the_attachment_link($id = 0, $fullsize = false, $max_dims = false, $permalink = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.5.0', 'wp_get_attachment_link()' );
 	$id = (int) $id;
 	$_post = get_post($id);
@@ -1859,7 +1859,7 @@ function get_the_attachment_link($id = 0, $fullsize = false, $max_dims = false, 
  * @param bool $fullsize Optional, default to false. Whether to have full image.
  * @return array Icon URL and full path to file, respectively.
  */
-function get_attachment_icon_src( $id = 0, $fullsize = false ) {
+function get_attachment_icon_src( $id = 0, $fullsize = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.5.0', 'wp_get_attachment_image_src()' );
 	$id = (int) $id;
 	if ( !$post = get_post($id) )
@@ -1901,7 +1901,7 @@ function get_attachment_icon_src( $id = 0, $fullsize = false ) {
  * @param array $max_dims Optional. Dimensions of image.
  * @return false|string HTML content.
  */
-function get_attachment_icon( $id = 0, $fullsize = false, $max_dims = false ) {
+function get_attachment_icon( $id = 0, $fullsize = false, $max_dims = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.5.0', 'wp_get_attachment_image()' );
 	$id = (int) $id;
 	if ( !$post = get_post($id) )
@@ -1957,7 +1957,7 @@ function get_attachment_icon( $id = 0, $fullsize = false, $max_dims = false ) {
  * @param array $max_dims Optional. Dimensions of image.
  * @return false|string
  */
-function get_attachment_innerHTML($id = 0, $fullsize = false, $max_dims = false) {
+function get_attachment_innerHTML($id = 0, $fullsize = false, $max_dims = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.5.0', 'wp_get_attachment_image()' );
 	$id = (int) $id;
 	if ( !$post = get_post($id) )
@@ -1985,7 +1985,7 @@ function get_attachment_innerHTML($id = 0, $fullsize = false, $max_dims = false)
  *                            'attribute', 'js', 'db', or 'display'. Default 'raw'.
  * @return object|array Bookmark object or array, depending on the type specified by `$output`.
  */
-function get_link( $bookmark_id, $output = OBJECT, $filter = 'raw' ) {
+function get_link( $bookmark_id, $output = OBJECT, $filter = 'raw' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.1.0', 'get_bookmark()' );
 	return get_bookmark($bookmark_id, $output, $filter);
 }
@@ -2001,7 +2001,7 @@ function get_link( $bookmark_id, $output = OBJECT, $filter = 'raw' ) {
  * @param array $protocols An array of acceptable protocols.
  * @return string The cleaned URL.
  */
-function sanitize_url( $url, $protocols = null ) {
+function sanitize_url( $url, $protocols = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'esc_url_raw()' );
 	return esc_url_raw( $url, $protocols );
 }
@@ -2022,7 +2022,7 @@ function sanitize_url( $url, $protocols = null ) {
  * @param string $context Optional. How the URL will be used. Default is 'display'.
  * @return string The cleaned $url after the {@see 'clean_url'} filter is applied.
  */
-function clean_url( $url, $protocols = null, $context = 'display' ) {
+function clean_url( $url, $protocols = null, $context = 'display' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $context == 'db' )
 		_deprecated_function( 'clean_url( $context = \'db\' )', '3.0.0', 'esc_url_raw()' );
 	else
@@ -2042,7 +2042,7 @@ function clean_url( $url, $protocols = null, $context = 'display' ) {
  * @param string $text The text to be escaped.
  * @return string Escaped text.
  */
-function js_escape( $text ) {
+function js_escape( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'esc_js()' );
 	return esc_js( $text );
 }
@@ -2059,7 +2059,7 @@ function js_escape( $text ) {
  * @param false        $double_encode Whether to double encode. Unused.
  * @return string Escaped `$string`.
  */
-function wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false, $double_encode = false ) {
+function wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false, $double_encode = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'esc_html()' );
 	if ( func_num_args() > 1 ) { // Maintain back-compat for people passing additional arguments.
 		$args = func_get_args();
@@ -2079,7 +2079,7 @@ function wp_specialchars( $string, $quote_style = ENT_NOQUOTES, $charset = false
  * @param string $text
  * @return string
  */
-function attribute_escape( $text ) {
+function attribute_escape( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'esc_attr()' );
 	return esc_attr( $text );
 }
@@ -2103,7 +2103,7 @@ function attribute_escape( $text ) {
  * @param string     $classname       Optional. Classname widget option. Default empty.
  * @param mixed      $params ,...     Widget parameters.
  */
-function register_sidebar_widget($name, $output_callback, $classname = '') {
+function register_sidebar_widget($name, $output_callback, $classname = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'wp_register_sidebar_widget()' );
 	// Compat
 	if ( is_array($name) ) {
@@ -2134,7 +2134,7 @@ function register_sidebar_widget($name, $output_callback, $classname = '') {
  *
  * @param int|string $id Widget ID.
  */
-function unregister_sidebar_widget($id) {
+function unregister_sidebar_widget($id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'wp_unregister_sidebar_widget()' );
 	return wp_unregister_sidebar_widget($id);
 }
@@ -2158,7 +2158,7 @@ function unregister_sidebar_widget($id) {
  * @param int $width Widget width.
  * @param int $height Widget height.
  */
-function register_widget_control($name, $control_callback, $width = '', $height = '') {
+function register_widget_control($name, $control_callback, $width = '', $height = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'wp_register_widget_control()' );
 	// Compat
 	if ( is_array($name) ) {
@@ -2191,7 +2191,7 @@ function register_widget_control($name, $control_callback, $width = '', $height 
  *
  * @param int|string $id Widget ID.
  */
-function unregister_widget_control($id) {
+function unregister_widget_control($id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '2.8.0', 'wp_unregister_widget_control()' );
 	return wp_unregister_widget_control($id);
 }
@@ -2208,7 +2208,7 @@ function unregister_widget_control($id) {
  * @param mixed $meta_value Metadata value.
  * @return bool True deletion completed and false if user_id is not a number.
  */
-function delete_usermeta( $user_id, $meta_key, $meta_value = '' ) {
+function delete_usermeta( $user_id, $meta_key, $meta_value = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'delete_user_meta()' );
 	global $wpdb;
 	if ( !is_numeric( $user_id ) )
@@ -2254,7 +2254,7 @@ function delete_usermeta( $user_id, $meta_key, $meta_value = '' ) {
  * @param string $meta_key Optional. Metadata key.
  * @return mixed
  */
-function get_usermeta( $user_id, $meta_key = '' ) {
+function get_usermeta( $user_id, $meta_key = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'get_user_meta()' );
 	global $wpdb;
 	$user_id = (int) $user_id;
@@ -2307,7 +2307,7 @@ function get_usermeta( $user_id, $meta_key = '' ) {
  * @param mixed $meta_value Metadata value.
  * @return bool True on successful update, false on failure.
  */
-function update_usermeta( $user_id, $meta_key, $meta_value ) {
+function update_usermeta( $user_id, $meta_key, $meta_value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'update_user_meta()' );
 	global $wpdb;
 	if ( !is_numeric( $user_id ) )
@@ -2361,7 +2361,7 @@ function update_usermeta( $user_id, $meta_key, $meta_value ) {
  * @param int $id Site ID.
  * @return array List of users that are part of that site ID
  */
-function get_users_of_blog( $id = '' ) {
+function get_users_of_blog( $id = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0', 'get_users()' );
 
 	global $wpdb;
@@ -2382,7 +2382,7 @@ function get_users_of_blog( $id = '' ) {
  *
  * @param bool $add Optional, default is true. Add or remove links. Defaults to true.
  */
-function automatic_feed_links( $add = true ) {
+function automatic_feed_links( $add = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', "add_theme_support( 'automatic-feed-links' )" );
 
 	if ( $add )
@@ -2402,7 +2402,7 @@ function automatic_feed_links( $add = true ) {
  * @param false|int $user Optional. User ID to retrieve the field for. Default false (current user).
  * @return string The author's field from the current author's DB object.
  */
-function get_profile( $field, $user = false ) {
+function get_profile( $field, $user = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'get_the_author_meta()' );
 	if ( $user ) {
 		$user = get_user_by( 'login', $user );
@@ -2421,7 +2421,7 @@ function get_profile( $field, $user = false ) {
  * @param int $userid User to count posts for.
  * @return int Number of posts the given user has written.
  */
-function get_usernumposts( $userid ) {
+function get_usernumposts( $userid ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'count_user_posts()' );
 	return count_user_posts( $userid );
 }
@@ -2436,7 +2436,7 @@ function get_usernumposts( $userid ) {
  * @param array $matches Single Match
  * @return string An HTML entity
  */
-function funky_javascript_callback($matches) {
+function funky_javascript_callback($matches) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return "&#".base_convert($matches[1],16,10).";";
 }
 
@@ -2454,7 +2454,7 @@ function funky_javascript_callback($matches) {
  * @param string $text Text to be made safe.
  * @return string Fixed text.
  */
-function funky_javascript_fix($text) {
+function funky_javascript_fix($text) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0' );
 	// Fixes for browsers' JavaScript bugs.
 	global $is_macIE, $is_winIE;
@@ -2477,7 +2477,7 @@ function funky_javascript_fix($text) {
  * @param string $taxonomy Name of taxonomy object
  * @return bool Whether the taxonomy exists.
  */
-function is_taxonomy( $taxonomy ) {
+function is_taxonomy( $taxonomy ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'taxonomy_exists()' );
 	return taxonomy_exists( $taxonomy );
 }
@@ -2494,7 +2494,7 @@ function is_taxonomy( $taxonomy ) {
  * @param int $parent ID of parent term under which to confine the exists search.
  * @return mixed Get the term id or Term Object, if exists.
  */
-function is_term( $term, $taxonomy = '', $parent = 0 ) {
+function is_term( $term, $taxonomy = '', $parent = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.0.0', 'term_exists()' );
 	return term_exists( $term, $taxonomy, $parent );
 }
@@ -2511,7 +2511,7 @@ function is_term( $term, $taxonomy = '', $parent = 0 ) {
  *
  * @return bool
  */
-function is_plugin_page() {
+function is_plugin_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0'  );
 
 	global $plugin_page;
@@ -2534,7 +2534,7 @@ function is_plugin_page() {
  *
  * @return bool Always return True
  */
-function update_category_cache() {
+function update_category_cache() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.1.0'  );
 
 	return true;
@@ -2548,7 +2548,7 @@ function update_category_cache() {
  *
  * @return bool
  */
-function wp_timezone_supported() {
+function wp_timezone_supported() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.2.0' );
 
 	return true;
@@ -2568,7 +2568,7 @@ function wp_timezone_supported() {
  * @param int    $tab_index     Optional. Unused.
  * @param bool   $extended      Optional. Unused.
  */
-function the_editor($content, $id = 'content', $prev_id = 'title', $media_buttons = true, $tab_index = 2, $extended = true) {
+function the_editor($content, $id = 'content', $prev_id = 'title', $media_buttons = true, $tab_index = 2, $extended = true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'wp_editor()' );
 
 	wp_editor( $content, $id, array( 'media_buttons' => $media_buttons ) );
@@ -2583,7 +2583,7 @@ function the_editor($content, $id = 'content', $prev_id = 'title', $media_button
  * @param array $ids User ID numbers list.
  * @return array of arrays. The array is indexed by user_id, containing $metavalues object arrays.
  */
-function get_user_metavalues($ids) {
+function get_user_metavalues($ids) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	$objects = array();
@@ -2617,7 +2617,7 @@ function get_user_metavalues($ids) {
  * @param string $context Optional, default is 'display'. How to sanitize user fields.
  * @return object|array The now sanitized User Object or Array (will be the same type as $user)
  */
-function sanitize_user_object($user, $context = 'display') {
+function sanitize_user_object($user, $context = 'display') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	if ( is_object($user) ) {
@@ -2656,7 +2656,7 @@ function sanitize_user_object($user, $context = 'display') {
  * @param bool $start Optional, default is true. Whether to display link to first or last post.
  * @return string
  */
-function get_boundary_post_rel_link($title = '%title', $in_same_cat = false, $excluded_categories = '', $start = true) {
+function get_boundary_post_rel_link($title = '%title', $in_same_cat = false, $excluded_categories = '', $start = true) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	$posts = get_boundary_post($in_same_cat, $excluded_categories, $start);
@@ -2694,7 +2694,7 @@ function get_boundary_post_rel_link($title = '%title', $in_same_cat = false, $ex
  * @param bool $in_same_cat Optional. Whether link should be in a same category.
  * @param string $excluded_categories Optional. Excluded categories IDs.
  */
-function start_post_rel_link($title = '%title', $in_same_cat = false, $excluded_categories = '') {
+function start_post_rel_link($title = '%title', $in_same_cat = false, $excluded_categories = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	echo get_boundary_post_rel_link($title, $in_same_cat, $excluded_categories, true);
@@ -2708,7 +2708,7 @@ function start_post_rel_link($title = '%title', $in_same_cat = false, $excluded_
  *
  * @return string
  */
-function get_index_rel_link() {
+function get_index_rel_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	$link = "<link rel='index' title='" . esc_attr( get_bloginfo( 'name', 'display' ) ) . "' href='" . esc_url( user_trailingslashit( get_bloginfo( 'url', 'display' ) ) ) . "' />\n";
@@ -2721,7 +2721,7 @@ function get_index_rel_link() {
  * @since 2.8.0
  * @deprecated 3.3.0
  */
-function index_rel_link() {
+function index_rel_link() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	echo get_index_rel_link();
@@ -2736,7 +2736,7 @@ function index_rel_link() {
  * @param string $title Optional. Link title format. Default '%title'.
  * @return string
  */
-function get_parent_post_rel_link( $title = '%title' ) {
+function get_parent_post_rel_link( $title = '%title' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	if ( ! empty( $GLOBALS['post'] ) && ! empty( $GLOBALS['post']->post_parent ) )
@@ -2766,7 +2766,7 @@ function get_parent_post_rel_link( $title = '%title' ) {
  *
  * @param string $title Optional. Link title format. Default '%title'.
  */
-function parent_post_rel_link( $title = '%title' ) {
+function parent_post_rel_link( $title = '%title' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	echo get_parent_post_rel_link($title);
@@ -2780,7 +2780,7 @@ function parent_post_rel_link( $title = '%title' ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar WP_Admin_Bar instance.
  */
-function wp_admin_bar_dashboard_view_site_menu( $wp_admin_bar ) {
+function wp_admin_bar_dashboard_view_site_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0' );
 
 	$user_id = get_current_user_id();
@@ -2805,7 +2805,7 @@ function wp_admin_bar_dashboard_view_site_menu( $wp_admin_bar ) {
  * @param int $blog_id Site ID
  * @return bool True if the current users belong to $blog_id, false if not.
  */
-function is_blog_user( $blog_id = 0 ) {
+function is_blog_user( $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.3.0', 'is_user_member_of_blog()' );
 
 	return is_user_member_of_blog( get_current_user_id(), $blog_id );
@@ -2824,7 +2824,7 @@ function is_blog_user( $blog_id = 0 ) {
  * @param string $mode     Type of access you required to the stream.
  * @return false Always false.
  */
-function debug_fopen( $filename, $mode ) {
+function debug_fopen( $filename, $mode ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, 'error_log()' );
 	return false;
 }
@@ -2841,7 +2841,7 @@ function debug_fopen( $filename, $mode ) {
  * @param mixed  $fp     Unused.
  * @param string $string Message to log.
  */
-function debug_fwrite( $fp, $string ) {
+function debug_fwrite( $fp, $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, 'error_log()' );
 	if ( ! empty( $GLOBALS['debug'] ) )
 		error_log( $string );
@@ -2858,7 +2858,7 @@ function debug_fwrite( $fp, $string ) {
  *
  * @param mixed $fp Unused.
  */
-function debug_fclose( $fp ) {
+function debug_fclose( $fp ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, 'error_log()' );
 }
 
@@ -2875,7 +2875,7 @@ function debug_fclose( $fp ) {
  *
  * @return array Theme list with theme data.
  */
-function get_themes() {
+function get_themes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'wp_get_themes()' );
 
 	global $wp_themes;
@@ -2906,7 +2906,7 @@ function get_themes() {
  * @param string $theme Theme name.
  * @return array|null Null, if theme name does not exist. Theme data, if exists.
  */
-function get_theme( $theme ) {
+function get_theme( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'wp_get_theme( $stylesheet )' );
 
 	$themes = get_themes();
@@ -2924,7 +2924,7 @@ function get_theme( $theme ) {
  *
  * @return string
  */
-function get_current_theme() {
+function get_current_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'wp_get_theme()' );
 
 	if ( $theme = get_option( 'current_theme' ) )
@@ -2945,7 +2945,7 @@ function get_current_theme() {
  * @param array|string $matches The array or string
  * @return string The pre block without paragraph/line-break conversion.
  */
-function clean_pre($matches) {
+function clean_pre($matches) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0' );
 
 	if ( is_array($matches) )
@@ -2972,7 +2972,7 @@ function clean_pre($matches) {
  * @param callable $admin_head_callback Call on custom header administration screen.
  * @param callable $admin_preview_callback Output a custom header image div on the custom header administration screen. Optional.
  */
-function add_custom_image_header( $wp_head_callback, $admin_head_callback, $admin_preview_callback = '' ) {
+function add_custom_image_header( $wp_head_callback, $admin_head_callback, $admin_preview_callback = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'add_theme_support( \'custom-header\', $args )' );
 	$args = array(
 		'wp-head-callback'    => $wp_head_callback,
@@ -2992,7 +2992,7 @@ function add_custom_image_header( $wp_head_callback, $admin_head_callback, $admi
  *
  * @return null|bool Whether support was removed.
  */
-function remove_custom_image_header() {
+function remove_custom_image_header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'remove_theme_support( \'custom-header\' )' );
 	return remove_theme_support( 'custom-header' );
 }
@@ -3008,7 +3008,7 @@ function remove_custom_image_header() {
  * @param callable $admin_head_callback Call on custom background administration screen.
  * @param callable $admin_preview_callback Output a custom background image div on the custom background administration screen. Optional.
  */
-function add_custom_background( $wp_head_callback = '', $admin_head_callback = '', $admin_preview_callback = '' ) {
+function add_custom_background( $wp_head_callback = '', $admin_head_callback = '', $admin_preview_callback = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'add_theme_support( \'custom-background\', $args )' );
 	$args = array();
 	if ( $wp_head_callback )
@@ -3029,7 +3029,7 @@ function add_custom_background( $wp_head_callback = '', $admin_head_callback = '
  *
  * @return null|bool Whether support was removed.
  */
-function remove_custom_background() {
+function remove_custom_background() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'remove_theme_support( \'custom-background\' )' );
 	return remove_theme_support( 'custom-background' );
 }
@@ -3044,7 +3044,7 @@ function remove_custom_background() {
  * @param string $theme_file Theme file path.
  * @return array Theme data.
  */
-function get_theme_data( $theme_file ) {
+function get_theme_data( $theme_file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'wp_get_theme()' );
 	$theme = new WP_Theme( basename( dirname( $theme_file ) ), dirname( dirname( $theme_file ) ) );
 
@@ -3081,7 +3081,7 @@ function get_theme_data( $theme_file ) {
  *
  * @param array $pages list of page objects
  */
-function update_page_cache( &$pages ) {
+function update_page_cache( &$pages ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'update_post_cache()' );
 
 	update_post_cache( $pages );
@@ -3099,7 +3099,7 @@ function update_page_cache( &$pages ) {
  *
  * @param int $id Page ID to clean
  */
-function clean_page_cache( $id ) {
+function clean_page_cache( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.0', 'clean_post_cache()' );
 
 	clean_post_cache( $id );
@@ -3117,7 +3117,7 @@ function clean_page_cache( $id ) {
  * @param string $action Nonce action.
  * @return string Are you sure message.
  */
-function wp_explain_nonce( $action ) {
+function wp_explain_nonce( $action ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.4.1', 'wp_nonce_ays()' );
 	return __( 'Are you sure you want to do this?' );
 }
@@ -3131,7 +3131,7 @@ function wp_explain_nonce( $action ) {
  *
  * @param int $post_id An optional post ID.
  */
-function sticky_class( $post_id = null ) {
+function sticky_class( $post_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'post_class()' );
 	if ( is_sticky( $post_id ) )
 		echo ' sticky';
@@ -3149,7 +3149,7 @@ function sticky_class( $post_id = null ) {
  *
  * @param WP_Post &$post Post object, passed by reference (unused).
  */
-function _get_post_ancestors( &$post ) {
+function _get_post_ancestors( &$post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0' );
 }
 
@@ -3163,7 +3163,7 @@ function _get_post_ancestors( &$post ) {
  * @param string $file Filename of the image to load.
  * @return resource The resulting image resource on success, Error string on failure.
  */
-function wp_load_image( $file ) {
+function wp_load_image( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'wp_get_image_editor()' );
 
 	if ( is_numeric( $file ) )
@@ -3214,7 +3214,7 @@ function wp_load_image( $file ) {
  * @param int $jpeg_quality Optional, default is 90. Image quality percentage.
  * @return mixed WP_Error on failure. String with new destination path.
  */
-function image_resize( $file, $max_w, $max_h, $crop = false, $suffix = null, $dest_path = null, $jpeg_quality = 90 ) {
+function image_resize( $file, $max_w, $max_h, $crop = false, $suffix = null, $dest_path = null, $jpeg_quality = 90 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'wp_get_image_editor()' );
 
 	$editor = wp_get_image_editor( $file );
@@ -3249,7 +3249,7 @@ function image_resize( $file, $max_w, $max_h, $crop = false, $suffix = null, $de
  * @param string $mode How to return result, either OBJECT, ARRAY_N, or ARRAY_A.
  * @return WP_Post|null Post object or array holding post contents and information
  */
-function wp_get_single_post( $postid = 0, $mode = OBJECT ) {
+function wp_get_single_post( $postid = 0, $mode = OBJECT ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'get_post()' );
 	return get_post( $postid, $mode );
 }
@@ -3265,7 +3265,7 @@ function wp_get_single_post( $postid = 0, $mode = OBJECT ) {
  * @param string $user_pass User password.
  * @return bool False if does not authenticate, true if username and password authenticates.
  */
-function user_pass_ok($user_login, $user_pass) {
+function user_pass_ok($user_login, $user_pass) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'wp_authenticate()' );
 	$user = wp_authenticate( $user_login, $user_pass );
 	if ( is_wp_error( $user ) )
@@ -3280,7 +3280,7 @@ function user_pass_ok($user_login, $user_pass) {
  * @since 2.3.0
  * @deprecated 3.5.0
  */
-function _save_post_hook() {}
+function _save_post_hook() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 /**
  * Check if the installed version of GD supports particular image type
@@ -3292,10 +3292,10 @@ function _save_post_hook() {}
  * @param string $mime_type
  * @return bool
  */
-function gd_edit_image_support($mime_type) {
+function gd_edit_image_support($mime_type) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'wp_image_editor_supports()' );
 
-	if ( function_exists('imagetypes') ) {
+	if ( function_exists('imagetypes') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch( $mime_type ) {
 			case 'image/jpeg':
 				return (imagetypes() & IMG_JPG) != 0;
@@ -3327,7 +3327,7 @@ function gd_edit_image_support($mime_type) {
  * @param int $bytes An integer byte value.
  * @return string A shorthand byte value.
  */
-function wp_convert_bytes_to_hr( $bytes ) {
+function wp_convert_bytes_to_hr( $bytes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.6.0', 'size_format()' );
 
 	$units = array( 0 => 'B', 1 => 'KB', 2 => 'MB', 3 => 'GB', 4 => 'TB' );
@@ -3355,7 +3355,7 @@ function wp_convert_bytes_to_hr( $bytes ) {
  * @param string $t Search terms to "tidy", e.g. trim.
  * @return string Trimmed search terms.
  */
-function _search_terms_tidy( $t ) {
+function _search_terms_tidy( $t ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.7.0' );
 	return trim( $t, "\"'\n\r " );
 }
@@ -3371,7 +3371,7 @@ function _search_terms_tidy( $t ) {
  *
  * @return bool Whether TinyMCE exists.
  */
-function rich_edit_exists() {
+function rich_edit_exists() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_rich_edit_exists;
 	_deprecated_function( __FUNCTION__, '3.9.0' );
 
@@ -3391,7 +3391,7 @@ function rich_edit_exists() {
  * @param int $count Number of topics.
  * @return int Number of topics.
  */
-function default_topic_count_text( $count ) {
+function default_topic_count_text( $count ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return $count;
 }
 
@@ -3406,7 +3406,7 @@ function default_topic_count_text( $count ) {
  * @param string $content The text to format.
  * @return string The very same text.
  */
-function format_to_post( $content ) {
+function format_to_post( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.9.0' );
 	return $content;
 }
@@ -3421,7 +3421,7 @@ function format_to_post( $content ) {
  * @param string $text The text to be escaped.
  * @return string text, safe for inclusion in LIKE query.
  */
-function like_escape($text) {
+function like_escape($text) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.0.0', 'wpdb::esc_like()' );
 	return str_replace( array( "%", "_" ), array( "\\%", "\\_" ), $text );
 }
@@ -3438,7 +3438,7 @@ function like_escape($text) {
  * @param string $url The URL to test.
  * @return bool Whether SSL access is available.
  */
-function url_is_accessable_via_ssl( $url ) {
+function url_is_accessable_via_ssl( $url ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.0.0' );
 
 	$response = wp_remote_get( set_url_scheme( $url, 'https' ) );
@@ -3462,7 +3462,7 @@ function url_is_accessable_via_ssl( $url ) {
  * @since 2.6.0
  * @deprecated 4.3.0
  */
-function preview_theme() {
+function preview_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.3.0' );
 }
 
@@ -3475,7 +3475,7 @@ function preview_theme() {
  *
  * @return string
  */
-function _preview_theme_template_filter() {
+function _preview_theme_template_filter() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.3.0' );
 	return '';
 }
@@ -3489,7 +3489,7 @@ function _preview_theme_template_filter() {
  *
  * @return string
  */
-function _preview_theme_stylesheet_filter() {
+function _preview_theme_stylesheet_filter() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.3.0' );
 	return '';
 }
@@ -3504,7 +3504,7 @@ function _preview_theme_stylesheet_filter() {
  * @param string $content
  * @return string
  */
-function preview_theme_ob_filter( $content ) {
+function preview_theme_ob_filter( $content ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.3.0' );
 	return $content;
 }
@@ -3521,7 +3521,7 @@ function preview_theme_ob_filter( $content ) {
  * @param array $matches
  * @return string
  */
-function preview_theme_ob_filter_callback( $matches ) {
+function preview_theme_ob_filter_callback( $matches ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.3.0' );
 	return '';
 }
@@ -3538,7 +3538,7 @@ function preview_theme_ob_filter_callback( $matches ) {
  * @param string $text The text to be formatted.
  * @return string The formatted text after filter is applied.
  */
-function wp_richedit_pre($text) {
+function wp_richedit_pre($text) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.3.0', 'format_for_editor()' );
 
 	if ( empty( $text ) ) {
@@ -3581,7 +3581,7 @@ function wp_richedit_pre($text) {
  * @param string $output The text to be formatted.
  * @return string Formatted text after filter applied.
  */
-function wp_htmledit_pre($output) {
+function wp_htmledit_pre($output) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.3.0', 'format_for_editor()' );
 
 	if ( !empty($output) )
@@ -3608,7 +3608,7 @@ function wp_htmledit_pre($output) {
  * @param int|WP_Post $post_id Optional. Post ID or WP_Post object. Default is global $post.
  * @return string|false
  */
-function post_permalink( $post_id = 0 ) {
+function post_permalink( $post_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.4.0', 'get_permalink()' );
 
 	return get_permalink( $post_id );
@@ -3630,7 +3630,7 @@ function post_permalink( $post_id = 0 ) {
  *                               returns false. Default 1.
  * @return bool|string False on failure and string of headers if HEAD request.
  */
-function wp_get_http( $url, $file_path = false, $red = 1 ) {
+function wp_get_http( $url, $file_path = false, $red = 1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.4.0', 'WP_Http' );
 
 	@set_time_limit( 60 );
@@ -3684,7 +3684,7 @@ function wp_get_http( $url, $file_path = false, $red = 1 ) {
  * @param string|bool $force Optional Whether to force SSL login. Default null.
  * @return bool True if forced, false if not forced.
  */
-function force_ssl_login( $force = null ) {
+function force_ssl_login( $force = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.4.0', 'force_ssl_admin()' );
 	return force_ssl_admin( $force );
 }
@@ -3697,7 +3697,7 @@ function force_ssl_login( $force = null ) {
  *
  * @return string Full path to comments popup template file.
  */
-function get_comments_popup_template() {
+function get_comments_popup_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.5.0' );
 
 	return '';
@@ -3711,7 +3711,7 @@ function get_comments_popup_template() {
  *
  * @return bool
  */
-function is_comments_popup() {
+function is_comments_popup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.5.0' );
 
 	return false;
@@ -3723,7 +3723,7 @@ function is_comments_popup() {
  * @since 0.71
  * @deprecated 4.5.0
  */
-function comments_popup_script() {
+function comments_popup_script() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.5.0' );
 }
 
@@ -3736,7 +3736,7 @@ function comments_popup_script() {
  * @param string $text Content to replace links to open in a new window.
  * @return string Content that has filtered links.
  */
-function popuplinks( $text ) {
+function popuplinks( $text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.5.0' );
 	$text = preg_replace('/<a (.+?)>/i', "<a $1 target='_blank' rel='external'>", $text);
 	return $text;
@@ -3753,7 +3753,7 @@ function popuplinks( $text ) {
  *
  * @return string An empty string.
  */
-function wp_embed_handler_googlevideo( $matches, $attr, $url, $rawattr ) {
+function wp_embed_handler_googlevideo( $matches, $attr, $url, $rawattr ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.6.0' );
 
 	return '';
@@ -3767,7 +3767,7 @@ function wp_embed_handler_googlevideo( $matches, $attr, $url, $rawattr ) {
  *
  * @return string Full path to paged template file.
  */
-function get_paged_template() {
+function get_paged_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.7.0' );
 
 	return get_query_template( 'paged' );
@@ -3793,7 +3793,7 @@ function get_paged_template() {
  * @param string $string
  * @return string
  */
-function wp_kses_js_entities( $string ) {
+function wp_kses_js_entities( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.7.0' );
 
 	return preg_replace( '%&\s*\{[^}]*(\}\s*;?|$)%', '', $string );
@@ -3813,7 +3813,7 @@ function wp_kses_js_entities( $string ) {
  * @param object $b
  * @return int
  */
-function _usort_terms_by_ID( $a, $b ) {
+function _usort_terms_by_ID( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.7.0', 'wp_list_sort' );
 
 	if ( $a->term_id > $b->term_id )
@@ -3838,7 +3838,7 @@ function _usort_terms_by_ID( $a, $b ) {
  * @param object $b
  * @return int
  */
-function _usort_terms_by_name( $a, $b ) {
+function _usort_terms_by_name( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '4.7.0', 'wp_list_sort' );
 
 	return strcmp( $a->name, $b->name );
@@ -3857,7 +3857,7 @@ function _usort_terms_by_name( $a, $b ) {
  * @param object $b The second object to compare
  * @return int -1, 0, or 1 if $a is considered to be respectively less than, equal to, or greater than $b.
  */
-function _sort_nav_menu_items( $a, $b ) {
+function _sort_nav_menu_items( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_menu_item_sort_prop;
 
 	_deprecated_function( __FUNCTION__, '4.7.0', 'wp_list_sort' );

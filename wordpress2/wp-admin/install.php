@@ -55,7 +55,7 @@ $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : 0;
  *
  * @param string $body_classes
  */
-function display_header( $body_classes = '' ) {
+function display_header( $body_classes = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	header( 'Content-Type: text/html; charset=utf-8' );
 	if ( is_rtl() ) {
 		$body_classes .= 'rtl';
@@ -89,7 +89,7 @@ function display_header( $body_classes = '' ) {
  *
  * @param string|null $error
  */
-function display_setup_form( $error = null ) {
+function display_setup_form( $error = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$sql = $wpdb->prepare( "SHOW TABLES LIKE %s", $wpdb->esc_like( $wpdb->users ) );

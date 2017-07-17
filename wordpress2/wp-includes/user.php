@@ -25,7 +25,7 @@
  * @param string|bool $secure_cookie Optional. Whether to use secure cookie.
  * @return WP_User|WP_Error WP_User on success, WP_Error on failure.
  */
-function wp_signon( $credentials = array(), $secure_cookie = '' ) {
+function wp_signon( $credentials = array(), $secure_cookie = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty($credentials) ) {
 		$credentials = array(); // Back-compat for plugins passing an empty string.
 
@@ -115,7 +115,7 @@ function wp_signon( $credentials = array(), $secure_cookie = '' ) {
  * @param string                $password Password for authentication.
  * @return WP_User|WP_Error WP_User on success, WP_Error on failure.
  */
-function wp_authenticate_username_password($user, $username, $password) {
+function wp_authenticate_username_password($user, $username, $password) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $user instanceof WP_User ) {
 		return $user;
 	}
@@ -186,7 +186,7 @@ function wp_authenticate_username_password($user, $username, $password) {
  * @param string                $password Password for authentication.
  * @return WP_User|WP_Error WP_User on success, WP_Error on failure.
  */
-function wp_authenticate_email_password( $user, $email, $password ) {
+function wp_authenticate_email_password( $user, $email, $password ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $user instanceof WP_User ) {
 		return $user;
 	}
@@ -259,7 +259,7 @@ function wp_authenticate_email_password( $user, $email, $password ) {
  * @param string                $password Password. If not empty, cancels the cookie authentication.
  * @return WP_User|WP_Error WP_User on success, WP_Error on failure.
  */
-function wp_authenticate_cookie($user, $username, $password) {
+function wp_authenticate_cookie($user, $username, $password) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $user instanceof WP_User ) {
 		return $user;
 	}
@@ -294,7 +294,7 @@ function wp_authenticate_cookie($user, $username, $password) {
  * @param WP_User|WP_Error|null $user WP_User or WP_Error object from a previous callback. Default null.
  * @return WP_User|WP_Error WP_User on success, WP_Error if the user is considered a spammer.
  */
-function wp_authenticate_spam_check( $user ) {
+function wp_authenticate_spam_check( $user ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $user instanceof WP_User && is_multisite() ) {
 		/**
 		 * Filters whether the user has been marked as a spammer.
@@ -327,7 +327,7 @@ function wp_authenticate_spam_check( $user ) {
  * @return int|false User ID if validated, false otherwise. If a user ID from
  *                   an earlier filter callback is received, that value is returned.
  */
-function wp_validate_logged_in_cookie( $user_id ) {
+function wp_validate_logged_in_cookie( $user_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $user_id ) {
 		return $user_id;
 	}
@@ -354,7 +354,7 @@ function wp_validate_logged_in_cookie( $user_id ) {
  * @param bool         $public_only Optional. Whether to only return counts for public posts. Default false.
  * @return string Number of posts the user has written in this post type.
  */
-function count_user_posts( $userid, $post_type = 'post', $public_only = false ) {
+function count_user_posts( $userid, $post_type = 'post', $public_only = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$where = get_posts_by_author_sql( $post_type, true, $userid, $public_only );
@@ -388,7 +388,7 @@ function count_user_posts( $userid, $post_type = 'post', $public_only = false ) 
  * @param bool         $public_only Optional. Only return counts for public posts.  Defaults to false.
  * @return array Amount of posts each user has written.
  */
-function count_many_users_posts( $users, $post_type = 'post', $public_only = false ) {
+function count_many_users_posts( $users, $post_type = 'post', $public_only = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$count = array();
@@ -422,7 +422,7 @@ function count_many_users_posts( $users, $post_type = 'post', $public_only = fal
  *
  * @return int The current user's ID
  */
-function get_current_user_id() {
+function get_current_user_id() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! function_exists( 'wp_get_current_user' ) )
 		return 0;
 	$user = wp_get_current_user();
@@ -448,7 +448,7 @@ function get_current_user_id() {
  * @param string $deprecated Use get_option() to check for an option in the options table.
  * @return mixed User option value on success, false on failure.
  */
-function get_user_option( $option, $user = 0, $deprecated = '' ) {
+function get_user_option( $option, $user = 0, $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( !empty( $deprecated ) )
@@ -503,7 +503,7 @@ function get_user_option( $option, $user = 0, $deprecated = '' ) {
  * @return int|bool User meta ID if the option didn't exist, true on successful update,
  *                  false on failure.
  */
-function update_user_option( $user_id, $option_name, $newvalue, $global = false ) {
+function update_user_option( $user_id, $option_name, $newvalue, $global = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( !$global )
@@ -529,7 +529,7 @@ function update_user_option( $user_id, $option_name, $newvalue, $global = false 
  *                            Default false (blog specific).
  * @return bool True on success, false on failure.
  */
-function delete_user_option( $user_id, $option_name, $global = false ) {
+function delete_user_option( $user_id, $option_name, $global = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( !$global )
@@ -548,7 +548,7 @@ function delete_user_option( $user_id, $option_name, $global = false ) {
  *                    for more information on accepted arguments.
  * @return array List of users.
  */
-function get_users( $args = array() ) {
+function get_users( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	$args = wp_parse_args( $args );
 	$args['count_total'] = false;
@@ -572,7 +572,7 @@ function get_users( $args = array() ) {
  * @return array A list of the user's sites. An empty array if the user doesn't exist
  *               or belongs to no sites.
  */
-function get_blogs_of_user( $user_id, $all = false ) {
+function get_blogs_of_user( $user_id, $all = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$user_id = (int) $user_id;
@@ -693,7 +693,7 @@ function get_blogs_of_user( $user_id, $all = false ) {
  * @param int $blog_id Optional. ID of the blog to check. Defaults to the current site.
  * @return bool
  */
-function is_user_member_of_blog( $user_id = 0, $blog_id = 0 ) {
+function is_user_member_of_blog( $user_id = 0, $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$user_id = (int) $user_id;
@@ -762,7 +762,7 @@ function is_user_member_of_blog( $user_id = 0, $blog_id = 0 ) {
  * @param bool   $unique     Optional, default is false. Whether the same key should not be added.
  * @return int|false Meta ID on success, false on failure.
  */
-function add_user_meta($user_id, $meta_key, $meta_value, $unique = false) {
+function add_user_meta($user_id, $meta_key, $meta_value, $unique = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return add_metadata('user', $user_id, $meta_key, $meta_value, $unique);
 }
 
@@ -781,7 +781,7 @@ function add_user_meta($user_id, $meta_key, $meta_value, $unique = false) {
  * @param mixed  $meta_value Optional. Metadata value.
  * @return bool True on success, false on failure.
  */
-function delete_user_meta($user_id, $meta_key, $meta_value = '') {
+function delete_user_meta($user_id, $meta_key, $meta_value = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return delete_metadata('user', $user_id, $meta_key, $meta_value);
 }
 
@@ -796,7 +796,7 @@ function delete_user_meta($user_id, $meta_key, $meta_value = '') {
  * @param bool   $single  Whether to return a single value.
  * @return mixed Will be an array if $single is false. Will be value of meta data field if $single is true.
  */
-function get_user_meta($user_id, $key = '', $single = false) {
+function get_user_meta($user_id, $key = '', $single = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return get_metadata('user', $user_id, $key, $single);
 }
 
@@ -817,7 +817,7 @@ function get_user_meta($user_id, $key = '', $single = false) {
  * @param mixed  $prev_value Optional. Previous value to check before removing.
  * @return int|bool Meta ID if the key didn't exist, true on successful update, false on failure.
  */
-function update_user_meta($user_id, $meta_key, $meta_value, $prev_value = '') {
+function update_user_meta($user_id, $meta_key, $meta_value, $prev_value = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return update_metadata('user', $user_id, $meta_key, $meta_value, $prev_value);
 }
 
@@ -837,7 +837,7 @@ function update_user_meta($user_id, $meta_key, $meta_value, $prev_value = '') {
  * @param string $strategy 'time' or 'memory'
  * @return array Includes a grand total and an array of counts indexed by role strings.
  */
-function count_users($strategy = 'time') {
+function count_users($strategy = 'time') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	// Initialize
@@ -931,7 +931,7 @@ function count_users($strategy = 'time') {
  *
  * @param int $for_user_id Optional. User ID to set up global data.
  */
-function setup_userdata($for_user_id = '') {
+function setup_userdata($for_user_id = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $user_login, $userdata, $user_level, $user_ID, $user_email, $user_url, $user_identity;
 
 	if ( '' == $for_user_id )
@@ -1018,7 +1018,7 @@ function setup_userdata($for_user_id = '') {
  * }
  * @return string String of HTML content.
  */
-function wp_dropdown_users( $args = '' ) {
+function wp_dropdown_users( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$defaults = array(
 		'show_option_all' => '', 'show_option_none' => '', 'hide_if_only_one_author' => '',
 		'orderby' => 'display_name', 'order' => 'ASC',
@@ -1147,7 +1147,7 @@ function wp_dropdown_users( $args = '' ) {
  *                        'attribute' and 'js'.
  * @return mixed Sanitized value.
  */
-function sanitize_user_field($field, $value, $user_id, $context) {
+function sanitize_user_field($field, $value, $user_id, $context) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$int_fields = array('ID');
 	if ( in_array($field, $int_fields) )
 		$value = (int) $value;
@@ -1246,7 +1246,7 @@ function sanitize_user_field($field, $value, $user_id, $context) {
  * @param object|WP_User $user User object to be cached
  * @return bool|null Returns false on failure.
  */
-function update_user_caches( $user ) {
+function update_user_caches( $user ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $user instanceof WP_User ) {
 		if ( ! $user->exists() ) {
 			return false;
@@ -1269,7 +1269,7 @@ function update_user_caches( $user ) {
  *
  * @param WP_User|int $user User object or ID to be cleaned from the cache
  */
-function clean_user_cache( $user ) {
+function clean_user_cache( $user ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_numeric( $user ) )
 		$user = new WP_User( $user );
 
@@ -1300,7 +1300,7 @@ function clean_user_cache( $user ) {
  * @param string $username Username.
  * @return int|false The user's ID on success, and false on failure.
  */
-function username_exists( $username ) {
+function username_exists( $username ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $user = get_user_by( 'login', $username ) ) {
 		return $user->ID;
 	}
@@ -1315,7 +1315,7 @@ function username_exists( $username ) {
  * @param string $email Email.
  * @return int|false The user's ID on success, and false on failure.
  */
-function email_exists( $email ) {
+function email_exists( $email ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $user = get_user_by( 'email', $email) ) {
 		return $user->ID;
 	}
@@ -1331,7 +1331,7 @@ function email_exists( $email ) {
  * @param string $username Username.
  * @return bool Whether username given is valid
  */
-function validate_username( $username ) {
+function validate_username( $username ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$sanitized = sanitize_user( $username, true );
 	$valid = ( $sanitized == $username && ! empty( $sanitized ) );
 
@@ -1398,7 +1398,7 @@ function validate_username( $username ) {
  * @return int|WP_Error The newly created user's ID or a WP_Error object if the user could not
  *                      be created.
  */
-function wp_insert_user( $userdata ) {
+function wp_insert_user( $userdata ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( $userdata instanceof stdClass ) {
@@ -1726,7 +1726,7 @@ function wp_insert_user( $userdata ) {
  * @param mixed $userdata An array of user data or a user object of type stdClass or WP_User.
  * @return int|WP_Error The updated user's ID or a WP_Error object if the user could not be updated.
  */
-function wp_update_user($userdata) {
+function wp_update_user($userdata) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $userdata instanceof stdClass ) {
 		$userdata = get_object_vars( $userdata );
 	} elseif ( $userdata instanceof WP_User ) {
@@ -1957,7 +1957,7 @@ All at ###SITENAME###
  * @return int|WP_Error The newly created user's ID or a WP_Error object if the user could not
  *                      be created.
  */
-function wp_create_user($username, $password, $email = '') {
+function wp_create_user($username, $password, $email = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user_login = wp_slash( $username );
 	$user_email = wp_slash( $email    );
 	$user_pass = $password;
@@ -1978,7 +1978,7 @@ function wp_create_user($username, $password, $email = '') {
  * @param WP_User $user WP_User instance.
  * @return array List of user keys to be populated in wp_update_user().
  */
-function _get_additional_user_keys( $user ) {
+function _get_additional_user_keys( $user ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$keys = array( 'first_name', 'last_name', 'nickname', 'description', 'rich_editing', 'comment_shortcuts', 'admin_color', 'use_ssl', 'show_admin_bar_front', 'locale' );
 	return array_merge( $keys, array_keys( wp_get_user_contact_methods( $user ) ) );
 }
@@ -1993,7 +1993,7 @@ function _get_additional_user_keys( $user ) {
  * @param WP_User $user Optional. WP_User object.
  * @return array Array of contact methods and their labels.
  */
-function wp_get_user_contact_methods( $user = null ) {
+function wp_get_user_contact_methods( $user = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$methods = array();
 	if ( get_site_option( 'initial_db_version' ) < 23588 ) {
 		$methods = array(
@@ -2025,7 +2025,7 @@ function wp_get_user_contact_methods( $user = null ) {
  * @param WP_User $user Optional. WP_User object. Default null.
  * @return array Array of contact methods and their labels.
  */
-function _wp_get_user_contactmethods( $user = null ) {
+function _wp_get_user_contactmethods( $user = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return wp_get_user_contact_methods( $user );
 }
 
@@ -2036,7 +2036,7 @@ function _wp_get_user_contactmethods( $user = null ) {
  *
  * @return string The password hint text.
  */
-function wp_get_password_hint() {
+function wp_get_password_hint() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$hint = __( 'Hint: The password should be at least twelve characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ &amp; ).' );
 
 	/**
@@ -2061,7 +2061,7 @@ function wp_get_password_hint() {
  *
  * @return string|WP_Error Password reset key on success. WP_Error on error.
  */
-function get_password_reset_key( $user ) {
+function get_password_reset_key( $user ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $wp_hasher;
 
 	/**
@@ -2149,7 +2149,7 @@ function get_password_reset_key( $user ) {
  * @param string $login     The user login.
  * @return WP_User|WP_Error WP_User object on success, WP_Error object for invalid or expired keys.
  */
-function check_password_reset_key($key, $login) {
+function check_password_reset_key($key, $login) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $wp_hasher;
 
 	$key = preg_replace('/[^a-z0-9]/i', '', $key);
@@ -2227,7 +2227,7 @@ function check_password_reset_key($key, $login) {
  * @param object $user     The user
  * @param string $new_pass New password for the user in plaintext
  */
-function reset_password( $user, $new_pass ) {
+function reset_password( $user, $new_pass ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires before the user's password is reset.
 	 *
@@ -2261,7 +2261,7 @@ function reset_password( $user, $new_pass ) {
  * @param string $user_email User's email address to send password and add
  * @return int|WP_Error Either user's ID or error on failure.
  */
-function register_new_user( $user_login, $user_email ) {
+function register_new_user( $user_login, $user_email ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$errors = new WP_Error();
 
 	$sanitized_user_login = sanitize_user( $user_login );
@@ -2370,7 +2370,7 @@ function register_new_user( $user_login, $user_email ) {
  *                        or an empty string (admin only), 'user', or 'both' (admin and user).
  *                        Default 'both'.
  */
-function wp_send_new_user_notifications( $user_id, $notify = 'both' ) {
+function wp_send_new_user_notifications( $user_id, $notify = 'both' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_new_user_notification( $user_id, null, $notify );
 }
 
@@ -2381,7 +2381,7 @@ function wp_send_new_user_notifications( $user_id, $notify = 'both' ) {
  *
  * @return string Token.
  */
-function wp_get_session_token() {
+function wp_get_session_token() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$cookie = wp_parse_auth_cookie( '', 'logged_in' );
 	return ! empty( $cookie['token'] ) ? $cookie['token'] : '';
 }
@@ -2392,7 +2392,7 @@ function wp_get_session_token() {
  * @since 4.0.0
  * @return array Array of sessions.
  */
-function wp_get_all_sessions() {
+function wp_get_all_sessions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$manager = WP_Session_Tokens::get_instance( get_current_user_id() );
 	return $manager->get_all();
 }
@@ -2402,7 +2402,7 @@ function wp_get_all_sessions() {
  *
  * @since 4.0.0
  */
-function wp_destroy_current_session() {
+function wp_destroy_current_session() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$token = wp_get_session_token();
 	if ( $token ) {
 		$manager = WP_Session_Tokens::get_instance( get_current_user_id() );
@@ -2415,7 +2415,7 @@ function wp_destroy_current_session() {
  *
  * @since 4.0.0
  */
-function wp_destroy_other_sessions() {
+function wp_destroy_other_sessions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$token = wp_get_session_token();
 	if ( $token ) {
 		$manager = WP_Session_Tokens::get_instance( get_current_user_id() );
@@ -2428,7 +2428,7 @@ function wp_destroy_other_sessions() {
  *
  * @since 4.0.0
  */
-function wp_destroy_all_sessions() {
+function wp_destroy_all_sessions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$manager = WP_Session_Tokens::get_instance( get_current_user_id() );
 	$manager->destroy_all();
 }
@@ -2442,7 +2442,7 @@ function wp_destroy_all_sessions() {
  *
  * @return array Array of user IDs.
  */
-function wp_get_users_with_no_role() {
+function wp_get_users_with_no_role() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( is_multisite() ) {
@@ -2481,7 +2481,7 @@ function wp_get_users_with_no_role() {
  *
  * @return WP_User Current WP_User instance.
  */
-function _wp_get_current_user() {
+function _wp_get_current_user() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $current_user;
 
 	if ( ! empty( $current_user ) ) {

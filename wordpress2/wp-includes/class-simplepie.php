@@ -21,7 +21,7 @@ require ABSPATH . WPINC . '/SimplePie/Author.php';
  *
  * @since 3.5.0
  */
-function wp_simplepie_autoload( $class ) {
+function wp_simplepie_autoload( $class ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 0 !== strpos( $class, 'SimplePie_' ) )
 		return;
 

@@ -18,7 +18,7 @@
 class getid3_lyrics3 extends getid3_handler
 {
 
-	public function Analyze() {
+	public function Analyze() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 
 		// http://www.volweb.cz/str/tags.htm
@@ -126,7 +126,7 @@ class getid3_lyrics3 extends getid3_handler
 		return true;
 	}
 
-	public function getLyrics3Data($endoffset, $version, $length) {
+	public function getLyrics3Data($endoffset, $version, $length) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// http://www.volweb.cz/str/tags.htm
 
 		$info = &$this->getid3->info;
@@ -250,14 +250,14 @@ class getid3_lyrics3 extends getid3_handler
 		return true;
 	}
 
-	public function Lyrics3Timestamp2Seconds($rawtimestamp) {
+	public function Lyrics3Timestamp2Seconds($rawtimestamp) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if (preg_match('#^\\[([0-9]{2}):([0-9]{2})\\]$#', $rawtimestamp, $regs)) {
 			return (int) (($regs[1] * 60) + $regs[2]);
 		}
 		return false;
 	}
 
-	public function Lyrics3LyricsTimestampParse(&$Lyrics3data) {
+	public function Lyrics3LyricsTimestampParse(&$Lyrics3data) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$lyricsarray = explode("\r\n", $Lyrics3data['raw']['LYR']);
 		foreach ($lyricsarray as $key => $lyricline) {
 			$regs = array();
@@ -287,7 +287,7 @@ class getid3_lyrics3 extends getid3_handler
 		return true;
 	}
 
-	public function IntString2Bool($char) {
+	public function IntString2Bool($char) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($char == '1') {
 			return true;
 		} elseif ($char == '0') {

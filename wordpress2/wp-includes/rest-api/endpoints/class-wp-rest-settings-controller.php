@@ -22,7 +22,7 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 * @since 4.7.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->namespace = 'wp/v2';
 		$this->rest_base = 'settings';
 	}
@@ -35,7 +35,7 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 *
 	 * @see register_rest_route()
 	 */
-	public function register_routes() {
+	public function register_routes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		register_rest_route( $this->namespace, '/' . $this->rest_base, array(
 			array(
@@ -64,7 +64,7 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return bool True if the request has read access for the item, otherwise false.
 	 */
-	public function get_item_permissions_check( $request ) {
+	public function get_item_permissions_check( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return current_user_can( 'manage_options' );
 	}
 
@@ -77,7 +77,7 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return array|WP_Error Array on success, or WP_Error object on failure.
 	 */
-	public function get_item( $request ) {
+	public function get_item( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$options  = $this->get_registered_options();
 		$response = array();
 
@@ -123,7 +123,7 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 * @param array $schema Schema to match.
 	 * @return mixed The prepared value.
 	 */
-	protected function prepare_value( $value, $schema ) {
+	protected function prepare_value( $value, $schema ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// If the value is not a scalar, it's not possible to cast it to anything.
 		if ( ! is_scalar( $value ) ) {
 			return null;
@@ -152,7 +152,7 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return array|WP_Error Array on success, or error object on failure.
 	 */
-	public function update_item( $request ) {
+	public function update_item( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$options = $this->get_registered_options();
 		$params  = $request->get_params();
 
@@ -221,7 +221,7 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 *
 	 * @return array Array of registered options.
 	 */
-	protected function get_registered_options() {
+	protected function get_registered_options() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$rest_options = array();
 
 		foreach ( get_registered_settings() as $name => $args ) {
@@ -278,7 +278,7 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 *
 	 * @return array Item schema data.
 	 */
-	public function get_item_schema() {
+	public function get_item_schema() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$options = $this->get_registered_options();
 
 		$schema = array(
@@ -310,7 +310,7 @@ class WP_REST_Settings_Controller extends WP_REST_Controller {
 	 * @param  string          $param   The parameter name.
 	 * @return mixed|WP_Error
 	 */
-	public function sanitize_callback( $value, $request, $param ) {
+	public function sanitize_callback( $value, $request, $param ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_null( $value ) ) {
 			return $value;
 		}

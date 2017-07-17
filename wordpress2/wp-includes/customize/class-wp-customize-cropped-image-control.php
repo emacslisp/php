@@ -67,7 +67,7 @@ class WP_Customize_Cropped_Image_Control extends WP_Customize_Image_Control {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function enqueue() {
+	public function enqueue() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_enqueue_script( 'customize-views' );
 
 		parent::enqueue();
@@ -81,7 +81,7 @@ class WP_Customize_Cropped_Image_Control extends WP_Customize_Image_Control {
 	 *
 	 * @see WP_Customize_Control::to_json()
 	 */
-	public function to_json() {
+	public function to_json() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::to_json();
 
 		$this->json['width']       = absint( $this->width );

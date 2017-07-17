@@ -23,7 +23,7 @@
  * @param mixed  $default   Optional. Value to return if the query variable is not set. Default empty.
  * @return mixed Contents of the query variable.
  */
-function get_query_var( $var, $default = '' ) {
+function get_query_var( $var, $default = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	return $wp_query->get( $var, $default );
 }
@@ -40,7 +40,7 @@ function get_query_var( $var, $default = '' ) {
  *
  * @return object Queried object.
  */
-function get_queried_object() {
+function get_queried_object() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	return $wp_query->get_queried_object();
 }
@@ -56,7 +56,7 @@ function get_queried_object() {
  *
  * @return int ID of the queried object.
  */
-function get_queried_object_id() {
+function get_queried_object_id() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	return $wp_query->get_queried_object_id();
 }
@@ -71,7 +71,7 @@ function get_queried_object_id() {
  * @param string $var   Query variable key.
  * @param mixed  $value Query variable value.
  */
-function set_query_var( $var, $value ) {
+function set_query_var( $var, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	$wp_query->set( $var, $value );
 }
@@ -94,7 +94,7 @@ function set_query_var( $var, $value ) {
  * @param array|string $query Array or string of WP_Query arguments.
  * @return array List of post objects.
  */
-function query_posts($query) {
+function query_posts($query) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$GLOBALS['wp_query'] = new WP_Query();
 	return $GLOBALS['wp_query']->query($query);
 }
@@ -111,7 +111,7 @@ function query_posts($query) {
  * @global WP_Query $wp_query     Global WP_Query instance.
  * @global WP_Query $wp_the_query Copy of the global WP_Query instance created during wp_reset_query().
  */
-function wp_reset_query() {
+function wp_reset_query() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$GLOBALS['wp_query'] = $GLOBALS['wp_the_query'];
 	wp_reset_postdata();
 }
@@ -124,7 +124,7 @@ function wp_reset_query() {
  *
  * @global WP_Query $wp_query Global WP_Query instance.
  */
-function wp_reset_postdata() {
+function wp_reset_postdata() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( isset( $wp_query ) ) {
@@ -147,7 +147,7 @@ function wp_reset_postdata() {
  *
  * @return bool
  */
-function is_archive() {
+function is_archive() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -168,7 +168,7 @@ function is_archive() {
  * @param string|array $post_types Optional. Post type or array of posts types to check against.
  * @return bool
  */
-function is_post_type_archive( $post_types = '' ) {
+function is_post_type_archive( $post_types = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -189,7 +189,7 @@ function is_post_type_archive( $post_types = '' ) {
  * @param int|string|array|object $attachment Attachment ID, title, slug, or array of such.
  * @return bool
  */
-function is_attachment( $attachment = '' ) {
+function is_attachment( $attachment = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -213,7 +213,7 @@ function is_attachment( $attachment = '' ) {
  * @param mixed $author Optional. User ID, nickname, nicename, or array of User IDs, nicknames, and nicenames
  * @return bool
  */
-function is_author( $author = '' ) {
+function is_author( $author = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -237,7 +237,7 @@ function is_author( $author = '' ) {
  * @param mixed $category Optional. Category ID, name, slug, or array of Category IDs, names, and slugs.
  * @return bool
  */
-function is_category( $category = '' ) {
+function is_category( $category = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -261,7 +261,7 @@ function is_category( $category = '' ) {
  * @param mixed $tag Optional. Tag ID, name, slug, or array of Tag IDs, names, and slugs.
  * @return bool
  */
-function is_tag( $tag = '' ) {
+function is_tag( $tag = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -290,7 +290,7 @@ function is_tag( $tag = '' ) {
  * @param int|string|array $term     Optional. Term ID, name, slug or array of Term IDs, names, and slugs.
  * @return bool True for custom taxonomy archive pages, false for built-in taxonomies (category and tag archives).
  */
-function is_tax( $taxonomy = '', $term = '' ) {
+function is_tax( $taxonomy = '', $term = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -310,7 +310,7 @@ function is_tax( $taxonomy = '', $term = '' ) {
  *
  * @return bool
  */
-function is_date() {
+function is_date() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -330,7 +330,7 @@ function is_date() {
  *
  * @return bool
  */
-function is_day() {
+function is_day() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -351,7 +351,7 @@ function is_day() {
  * @param string|array $feeds Optional feed types to check.
  * @return bool
  */
-function is_feed( $feeds = '' ) {
+function is_feed( $feeds = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -371,7 +371,7 @@ function is_feed( $feeds = '' ) {
  *
  * @return bool
  */
-function is_comment_feed() {
+function is_comment_feed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -400,7 +400,7 @@ function is_comment_feed() {
  *
  * @return bool True, if front of site.
  */
-function is_front_page() {
+function is_front_page() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -429,7 +429,7 @@ function is_front_page() {
  *
  * @return bool True if blog view homepage, otherwise false.
  */
-function is_home() {
+function is_home() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -449,7 +449,7 @@ function is_home() {
  *
  * @return bool
  */
-function is_month() {
+function is_month() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -476,7 +476,7 @@ function is_month() {
  * @param int|string|array $page Optional. Page ID, title, slug, or array of such. Default empty.
  * @return bool Whether the query is for an existing single page.
  */
-function is_page( $page = '' ) {
+function is_page( $page = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -496,7 +496,7 @@ function is_page( $page = '' ) {
  *
  * @return bool
  */
-function is_paged() {
+function is_paged() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -516,7 +516,7 @@ function is_paged() {
  *
  * @return bool
  */
-function is_preview() {
+function is_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -536,7 +536,7 @@ function is_preview() {
  *
  * @return bool
  */
-function is_robots() {
+function is_robots() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -556,7 +556,7 @@ function is_robots() {
  *
  * @return bool
  */
-function is_search() {
+function is_search() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -585,7 +585,7 @@ function is_search() {
  * @param int|string|array $post Optional. Post ID, title, slug, or array of such. Default empty.
  * @return bool Whether the query is for an existing single post.
  */
-function is_single( $post = '' ) {
+function is_single( $post = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -612,7 +612,7 @@ function is_single( $post = '' ) {
  * @param string|array $post_types Optional. Post type or array of post types. Default empty.
  * @return bool Whether the query is for an existing single post of any of the given post types.
  */
-function is_singular( $post_types = '' ) {
+function is_singular( $post_types = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -632,7 +632,7 @@ function is_singular( $post_types = '' ) {
  *
  * @return bool
  */
-function is_time() {
+function is_time() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -652,7 +652,7 @@ function is_time() {
  *
  * @return bool
  */
-function is_trackback() {
+function is_trackback() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -672,7 +672,7 @@ function is_trackback() {
  *
  * @return bool
  */
-function is_year() {
+function is_year() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -692,7 +692,7 @@ function is_year() {
  *
  * @return bool
  */
-function is_404() {
+function is_404() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -712,7 +712,7 @@ function is_404() {
  *
  * @return bool Whether we're in an embedded post or not.
  */
-function is_embed() {
+function is_embed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! isset( $wp_query ) ) {
@@ -732,7 +732,7 @@ function is_embed() {
  *
  * @return bool
  */
-function is_main_query() {
+function is_main_query() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'pre_get_posts' === current_filter() ) {
 		$message = sprintf(
 			/* translators: 1: pre_get_posts 2: WP_Query->is_main_query() 3: is_main_query() 4: link to codex is_main_query() page. */
@@ -762,7 +762,7 @@ function is_main_query() {
  *
  * @return bool
  */
-function have_posts() {
+function have_posts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	return $wp_query->have_posts();
 }
@@ -776,7 +776,7 @@ function have_posts() {
  *
  * @return bool True if caller is within loop, false if loop hasn't started or ended.
  */
-function in_the_loop() {
+function in_the_loop() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	return $wp_query->in_the_loop;
 }
@@ -788,7 +788,7 @@ function in_the_loop() {
  *
  * @global WP_Query $wp_query Global WP_Query instance.
  */
-function rewind_posts() {
+function rewind_posts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	$wp_query->rewind_posts();
 }
@@ -800,7 +800,7 @@ function rewind_posts() {
  *
  * @global WP_Query $wp_query Global WP_Query instance.
  */
-function the_post() {
+function the_post() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	$wp_query->the_post();
 }
@@ -818,7 +818,7 @@ function the_post() {
  *
  * @return bool
  */
-function have_comments() {
+function have_comments() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	return $wp_query->have_comments();
 }
@@ -832,7 +832,7 @@ function have_comments() {
  *
  * @return object
  */
-function the_comment() {
+function the_comment() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 	return $wp_query->the_comment();
 }
@@ -846,7 +846,7 @@ function the_comment() {
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  */
-function wp_old_slug_redirect() {
+function wp_old_slug_redirect() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_404() && '' !== get_query_var( 'name' ) ) {
 		global $wpdb;
 
@@ -930,7 +930,7 @@ function wp_old_slug_redirect() {
  * @param WP_Post|object|int $post WP_Post instance or Post ID/object.
  * @return bool True when finished.
  */
-function setup_postdata( $post ) {
+function setup_postdata( $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( ! empty( $wp_query ) && $wp_query instanceof WP_Query ) {

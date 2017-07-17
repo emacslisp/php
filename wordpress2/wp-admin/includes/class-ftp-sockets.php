@@ -27,7 +27,7 @@
  */
 class ftp_sockets extends ftp_base {
 
-	function __construct($verb=FALSE, $le=FALSE) {
+	function __construct($verb=FALSE, $le=FALSE) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct(true, $verb, $le);
 	}
 
@@ -35,7 +35,7 @@ class ftp_sockets extends ftp_base {
 // <!--       Private functions                                                                 -->
 // <!-- --------------------------------------------------------------------------------------- -->
 
-	function _settimeout($sock) {
+	function _settimeout($sock) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!@socket_set_option($sock, SOL_SOCKET, SO_RCVTIMEO, array("sec"=>$this->_timeout, "usec"=>0))) {
 			$this->PushError('_connect','socket set receive timeout',socket_strerror(socket_last_error($sock)));
 			@socket_close($sock);
@@ -49,7 +49,7 @@ class ftp_sockets extends ftp_base {
 		return true;
 	}
 
-	function _connect($host, $port) {
+	function _connect($host, $port) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->SendMSG("Creating socket");
 		if(!($sock = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP))) {
 			$this->PushError('_connect','socket create failed',socket_strerror(socket_last_error($sock)));
@@ -66,7 +66,7 @@ class ftp_sockets extends ftp_base {
 		return $sock;
 	}
 
-	function _readmsg($fnction="_readmsg"){
+	function _readmsg($fnction="_readmsg"){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_connected) {
 			$this->PushError($fnction,'Connect first');
 			return FALSE;
@@ -90,7 +90,7 @@ class ftp_sockets extends ftp_base {
 		return $result;
 	}
 
-	function _exec($cmd, $fnction="_exec") {
+	function _exec($cmd, $fnction="_exec") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_ready) {
 			$this->PushError($fnction,'Connect first');
 			return FALSE;
@@ -106,7 +106,7 @@ class ftp_sockets extends ftp_base {
 		return TRUE;
 	}
 
-	function _data_prepare($mode=FTP_ASCII) {
+	function _data_prepare($mode=FTP_ASCII) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if(!$this->_settype($mode)) return FALSE;
 		$this->SendMSG("Creating data socket");
 		$this->_ftp_data_sock = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
@@ -170,7 +170,7 @@ class ftp_sockets extends ftp_base {
 		return TRUE;
 	}
 
-	function _data_read($mode=FTP_ASCII, $fp=NULL) {
+	function _data_read($mode=FTP_ASCII, $fp=NULL) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$NewLine=$this->_eol_code[$this->OS_local];
 		if(is_resource($fp)) $out=0;
 		else $out="";
@@ -193,7 +193,7 @@ class ftp_sockets extends ftp_base {
 		return $out;
 	}
 
-	function _data_write($mode=FTP_ASCII, $fp=NULL) {
+	function _data_write($mode=FTP_ASCII, $fp=NULL) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$NewLine=$this->_eol_code[$this->OS_local];
 		if(is_resource($fp)) $out=0;
 		else $out="";
@@ -215,7 +215,7 @@ class ftp_sockets extends ftp_base {
 		return true;
 	}
 
-	function _data_write_block($mode, $block) {
+	function _data_write_block($mode, $block) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if($mode!=FTP_BINARY) $block=preg_replace("/\r\n|\r|\n/", $this->_eol_code[$this->OS_remote], $block);
 		do {
 			if(($t=@socket_write($this->_ftp_temp_sock, $block))===FALSE) {
@@ -228,14 +228,14 @@ class ftp_sockets extends ftp_base {
 		return true;
 	}
 
-	function _data_close() {
+	function _data_close() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		@socket_close($this->_ftp_temp_sock);
 		@socket_close($this->_ftp_data_sock);
 		$this->SendMSG("Disconnected data from remote host");
 		return TRUE;
 	}
 
-	function _quit() {
+	function _quit() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if($this->_connected) {
 			@socket_close($this->_ftp_control_sock);
 			$this->_connected=false;

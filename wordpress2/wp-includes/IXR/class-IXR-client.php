@@ -54,7 +54,7 @@ class IXR_Client
 	/**
 	 * PHP4 constructor.
 	 */
-	public function IXR_Client( $server, $path = false, $port = 80, $timeout = 15 ) {
+	public function IXR_Client( $server, $path = false, $port = 80, $timeout = 15 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $server, $path, $port, $timeout );
 	}
 

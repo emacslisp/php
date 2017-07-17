@@ -106,7 +106,7 @@ do_action( 'admin_print_footer_scripts' );
 do_action( "admin_footer-{$hook_suffix}" );
 
 // get_site_option() won't exist when auto upgrading from <= 2.7
-if ( function_exists('get_site_option') ) {
+if ( function_exists('get_site_option') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( false === get_site_option('can_compress_scripts') )
 		compression_test();
 }

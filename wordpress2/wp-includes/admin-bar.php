@@ -20,7 +20,7 @@
  *
  * @return bool Whether the admin bar was successfully initialized.
  */
-function _wp_admin_bar_init() {
+function _wp_admin_bar_init() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_admin_bar;
 
 	if ( ! is_admin_bar_showing() )
@@ -65,7 +65,7 @@ function _wp_admin_bar_init() {
  *
  * @global WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_render() {
+function wp_admin_bar_render() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_admin_bar;
 
 	if ( ! is_admin_bar_showing() || ! is_object( $wp_admin_bar ) )
@@ -106,7 +106,7 @@ function wp_admin_bar_render() {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_wp_menu( $wp_admin_bar ) {
+function wp_admin_bar_wp_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( current_user_can( 'read' ) ) {
 		$about_url = self_admin_url( 'about.php' );
 	} elseif ( is_multisite() ) {
@@ -180,7 +180,7 @@ function wp_admin_bar_wp_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_sidebar_toggle( $wp_admin_bar ) {
+function wp_admin_bar_sidebar_toggle( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_admin() ) {
 		$wp_admin_bar->add_menu( array(
 			'id'    => 'menu-toggle',
@@ -197,7 +197,7 @@ function wp_admin_bar_sidebar_toggle( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_my_account_item( $wp_admin_bar ) {
+function wp_admin_bar_my_account_item( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user_id      = get_current_user_id();
 	$current_user = wp_get_current_user();
 
@@ -235,7 +235,7 @@ function wp_admin_bar_my_account_item( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_my_account_menu( $wp_admin_bar ) {
+function wp_admin_bar_my_account_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$user_id      = get_current_user_id();
 	$current_user = wp_get_current_user();
 
@@ -295,7 +295,7 @@ function wp_admin_bar_my_account_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_site_menu( $wp_admin_bar ) {
+function wp_admin_bar_site_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Don't show for logged out users.
 	if ( ! is_user_logged_in() )
 		return;
@@ -368,7 +368,7 @@ function wp_admin_bar_site_menu( $wp_admin_bar ) {
  * @param WP_Admin_Bar $wp_admin_bar WP_Admin_Bar instance.
  * @global WP_Customize_Manager $wp_customize
  */
-function wp_admin_bar_customize_menu( $wp_admin_bar ) {
+function wp_admin_bar_customize_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_customize;
 
 	// Don't show for users who can't access the customizer or when in the admin.
@@ -409,7 +409,7 @@ function wp_admin_bar_customize_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
+function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Don't show for logged out users or single site mode.
 	if ( ! is_user_logged_in() || ! is_multisite() )
 		return;
@@ -553,7 +553,7 @@ function wp_admin_bar_my_sites_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_shortlink_menu( $wp_admin_bar ) {
+function wp_admin_bar_shortlink_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$short = wp_get_shortlink( 0, 'query' );
 	$id = 'get-shortlink';
 
@@ -580,7 +580,7 @@ function wp_admin_bar_shortlink_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_edit_menu( $wp_admin_bar ) {
+function wp_admin_bar_edit_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $tag, $wp_the_query;
 
 	if ( is_admin() ) {
@@ -670,7 +670,7 @@ function wp_admin_bar_edit_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
+function wp_admin_bar_new_content_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$actions = array();
 
 	$cpts = (array) get_post_types( array( 'show_in_admin_bar' => true ), 'objects' );
@@ -734,7 +734,7 @@ function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_comments_menu( $wp_admin_bar ) {
+function wp_admin_bar_comments_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !current_user_can('edit_posts') )
 		return;
 
@@ -760,7 +760,7 @@ function wp_admin_bar_comments_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
+function wp_admin_bar_appearance_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$wp_admin_bar->add_group( array( 'parent' => 'site-name', 'id' => 'appearance' ) );
 
 	if ( current_user_can( 'switch_themes' ) ) {
@@ -821,7 +821,7 @@ function wp_admin_bar_appearance_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_updates_menu( $wp_admin_bar ) {
+function wp_admin_bar_updates_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	$update_data = wp_get_update_data();
 
@@ -848,7 +848,7 @@ function wp_admin_bar_updates_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_search_menu( $wp_admin_bar ) {
+function wp_admin_bar_search_menu( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_admin() )
 		return;
 
@@ -876,7 +876,7 @@ function wp_admin_bar_search_menu( $wp_admin_bar ) {
  *
  * @param WP_Admin_Bar $wp_admin_bar
  */
-function wp_admin_bar_add_secondary_groups( $wp_admin_bar ) {
+function wp_admin_bar_add_secondary_groups( $wp_admin_bar ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$wp_admin_bar->add_group( array(
 		'id'     => 'top-secondary',
 		'meta'   => array(
@@ -898,7 +898,7 @@ function wp_admin_bar_add_secondary_groups( $wp_admin_bar ) {
  *
  * @since 3.1.0
  */
-function wp_admin_bar_header() { ?>
+function wp_admin_bar_header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); ?>
 <style type="text/css" media="print">#wpadminbar { display:none; }</style>
 <?php
 }
@@ -908,7 +908,7 @@ function wp_admin_bar_header() { ?>
  *
  * @since 3.1.0
  */
-function _admin_bar_bump_cb() { ?>
+function _admin_bar_bump_cb() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); ?>
 <style type="text/css" media="screen">
 	html { margin-top: 32px !important; }
 	* html body { margin-top: 32px !important; }
@@ -924,7 +924,7 @@ function _admin_bar_bump_cb() { ?>
  * Sets the display status of the admin bar.
  *
  * This can be called immediately upon plugin load. It does not need to be called
- * from a function hooked to the {@see 'init'} action.
+ * from a function hooked to the {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);@see 'init'} action.
  *
  * @since 3.1.0
  *
@@ -932,7 +932,7 @@ function _admin_bar_bump_cb() { ?>
  *
  * @param bool $show Whether to allow the admin bar to show.
  */
-function show_admin_bar( $show ) {
+function show_admin_bar( $show ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $show_admin_bar;
 	$show_admin_bar = (bool) $show;
 }
@@ -947,7 +947,7 @@ function show_admin_bar( $show ) {
  *
  * @return bool Whether the admin bar should be showing.
  */
-function is_admin_bar_showing() {
+function is_admin_bar_showing() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $show_admin_bar, $pagenow;
 
 	// For all these types of requests, we never want an admin bar.
@@ -996,7 +996,7 @@ function is_admin_bar_showing() {
  * @param int $user Optional. ID of the user to check, defaults to 0 for current user.
  * @return bool Whether the admin bar should be showing for this user.
  */
-function _get_admin_bar_pref( $context = 'front', $user = 0 ) {
+function _get_admin_bar_pref( $context = 'front', $user = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$pref = get_user_option( "show_admin_bar_{$context}", $user );
 	if ( false === $pref )
 		return true;

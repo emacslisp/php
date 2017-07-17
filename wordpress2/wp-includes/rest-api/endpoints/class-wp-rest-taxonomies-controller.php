@@ -22,7 +22,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 * @since 4.7.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->namespace = 'wp/v2';
 		$this->rest_base = 'taxonomies';
 	}
@@ -35,7 +35,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 *
 	 * @see register_rest_route()
 	 */
-	public function register_routes() {
+	public function register_routes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		register_rest_route( $this->namespace, '/' . $this->rest_base, array(
 			array(
@@ -75,7 +75,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access, WP_Error object otherwise.
 	 */
-	public function get_items_permissions_check( $request ) {
+	public function get_items_permissions_check( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( 'edit' === $request['context'] ) {
 			if ( ! empty( $request['type'] ) ) {
 				$taxonomies = get_object_taxonomies( $request['type'], 'objects' );
@@ -101,7 +101,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response Response object on success, or WP_Error object on failure.
 	 */
-	public function get_items( $request ) {
+	public function get_items( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		// Retrieve the list of registered collection query parameters.
 		$registered = $this->get_collection_params();
@@ -138,7 +138,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 * @param  WP_REST_Request $request Full details about the request.
 	 * @return true|WP_Error True if the request has read access for the item, otherwise false or WP_Error object.
 	 */
-	public function get_item_permissions_check( $request ) {
+	public function get_item_permissions_check( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$tax_obj = get_taxonomy( $request['taxonomy'] );
 
@@ -163,7 +163,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 * @param WP_REST_Request $request Full details about the request.
 	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
-	public function get_item( $request ) {
+	public function get_item( $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$tax_obj = get_taxonomy( $request['taxonomy'] );
 		if ( empty( $tax_obj ) ) {
 			return new WP_Error( 'rest_taxonomy_invalid', __( 'Invalid taxonomy.' ), array( 'status' => 404 ) );
@@ -182,7 +182,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 * @param WP_REST_Request $request  Full details about the request.
 	 * @return WP_REST_Response Response object.
 	 */
-	public function prepare_item_for_response( $taxonomy, $request ) {
+	public function prepare_item_for_response( $taxonomy, $request ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$base = ! empty( $taxonomy->rest_base ) ? $taxonomy->rest_base : $taxonomy->name;
 		$data = array(
 			'name'         => $taxonomy->label,
@@ -234,7 +234,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 *
 	 * @return array Item schema data.
 	 */
-	public function get_item_schema() {
+	public function get_item_schema() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$schema = array(
 			'$schema'              => 'http://json-schema.org/schema#',
 			'title'                => 'taxonomy',
@@ -310,7 +310,7 @@ class WP_REST_Taxonomies_Controller extends WP_REST_Controller {
 	 *
 	 * @return array Collection parameters.
 	 */
-	public function get_collection_params() {
+	public function get_collection_params() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$new_params = array();
 		$new_params['context'] = $this->get_context_param( array( 'default' => 'view' ) );
 		$new_params['type'] = array(

@@ -18,7 +18,7 @@
  *
  * @since Twenty Seventeen 1.0
  */
-function twentyseventeen_switch_theme() {
+function twentyseventeen_switch_theme() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	switch_theme( WP_DEFAULT_THEME );
 	unset( $_GET['activated'] );
 	add_action( 'admin_notices', 'twentyseventeen_upgrade_notice' );
@@ -35,7 +35,7 @@ add_action( 'after_switch_theme', 'twentyseventeen_switch_theme' );
  *
  * @global string $wp_version WordPress version.
  */
-function twentyseventeen_upgrade_notice() {
+function twentyseventeen_upgrade_notice() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$message = sprintf( __( 'Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'twentyseventeen' ), $GLOBALS['wp_version'] );
 	printf( '<div class="error"><p>%s</p></div>', $message );
 }
@@ -47,7 +47,7 @@ function twentyseventeen_upgrade_notice() {
  *
  * @global string $wp_version WordPress version.
  */
-function twentyseventeen_customize() {
+function twentyseventeen_customize() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	wp_die( sprintf( __( 'Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'twentyseventeen' ), $GLOBALS['wp_version'] ), '', array(
 		'back_link' => true,
 	) );
@@ -61,7 +61,7 @@ add_action( 'load-customize.php', 'twentyseventeen_customize' );
  *
  * @global string $wp_version WordPress version.
  */
-function twentyseventeen_preview() {
+function twentyseventeen_preview() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $_GET['preview'] ) ) {
 		wp_die( sprintf( __( 'Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again.', 'twentyseventeen' ), $GLOBALS['wp_version'] ) );
 	}

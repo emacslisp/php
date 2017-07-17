@@ -22,7 +22,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 * @since 3.0.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$widget_ops = array(
 			'description' => __( 'Add a custom menu to your sidebar.' ),
 			'customize_selective_refresh' => true,
@@ -40,7 +40,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 *                        'before_widget', and 'after_widget'.
 	 * @param array $instance Settings for the current Custom Menu widget instance.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Get menu
 		$nav_menu = ! empty( $instance['nav_menu'] ) ? wp_get_nav_menu_object( $instance['nav_menu'] ) : false;
 
@@ -92,7 +92,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 * @param array $old_instance Old settings for this instance.
 	 * @return array Updated settings to save.
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = array();
 		if ( ! empty( $new_instance['title'] ) ) {
 			$instance['title'] = sanitize_text_field( $new_instance['title'] );
@@ -112,7 +112,7 @@ class WP_Nav_Menu_Widget extends WP_Widget {
 	 * @param array $instance Current settings.
 	 * @global WP_Customize_Manager $wp_customize
 	 */
-	public function form( $instance ) {
+	public function form( $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_customize;
 		$title = isset( $instance['title'] ) ? $instance['title'] : '';
 		$nav_menu = isset( $instance['nav_menu'] ) ? $instance['nav_menu'] : '';

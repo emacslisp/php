@@ -15,7 +15,7 @@ if ( ! function_exists( 'twentyfifteen_comment_nav' ) ) :
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_comment_nav() {
+function twentyfifteen_comment_nav() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Are there comments to navigate through?
 	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 	?>
@@ -44,7 +44,7 @@ if ( ! function_exists( 'twentyfifteen_entry_meta' ) ) :
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_entry_meta() {
+function twentyfifteen_entry_meta() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_sticky() && is_home() && ! is_paged() ) {
 		printf( '<span class="sticky-post">%s</span>', __( 'Featured', 'twentyfifteen' ) );
 	}
@@ -133,7 +133,7 @@ endif;
  *
  * @return bool True of there is more than one category, false otherwise.
  */
-function twentyfifteen_categorized_blog() {
+function twentyfifteen_categorized_blog() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( false === ( $all_the_cool_cats = get_transient( 'twentyfifteen_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
@@ -164,7 +164,7 @@ function twentyfifteen_categorized_blog() {
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_category_transient_flusher() {
+function twentyfifteen_category_transient_flusher() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Like, beat it. Dig?
 	delete_transient( 'twentyfifteen_categories' );
 }
@@ -180,7 +180,7 @@ if ( ! function_exists( 'twentyfifteen_post_thumbnail' ) ) :
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_post_thumbnail() {
+function twentyfifteen_post_thumbnail() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -216,7 +216,7 @@ if ( ! function_exists( 'twentyfifteen_get_link_url' ) ) :
  *
  * @return string The Link format URL.
  */
-function twentyfifteen_get_link_url() {
+function twentyfifteen_get_link_url() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$has_url = get_url_in_content( get_the_content() );
 
 	return $has_url ? $has_url : apply_filters( 'the_permalink', get_permalink() );
@@ -231,7 +231,7 @@ if ( ! function_exists( 'twentyfifteen_excerpt_more' ) && ! is_admin() ) :
  *
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
-function twentyfifteen_excerpt_more( $more ) {
+function twentyfifteen_excerpt_more( $more ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
@@ -250,8 +250,8 @@ if ( ! function_exists( 'twentyfifteen_the_custom_logo' ) ) :
  *
  * @since Twenty Fifteen 1.5
  */
-function twentyfifteen_the_custom_logo() {
-	if ( function_exists( 'the_custom_logo' ) ) {
+function twentyfifteen_the_custom_logo() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	if ( function_exists( 'the_custom_logo' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		the_custom_logo();
 	}
 }

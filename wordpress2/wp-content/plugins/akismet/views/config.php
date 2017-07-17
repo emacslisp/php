@@ -43,7 +43,7 @@
 				wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
 				?>
 				<script type="text/javascript">
-				jQuery(document).ready( function($) {
+				jQuery(document).ready( function($) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 					jQuery('.if-js-closed').removeClass('if-js-closed').addClass('closed');
 					if(typeof postboxes !== 'undefined')
 						postboxes.add_postbox_toggles( 'plugins_page_akismet-key-config' );
@@ -75,7 +75,7 @@
 														<p>
 															<?php
 
-															if ( ! function_exists( 'wp_http_supports' ) ) {
+															if ( ! function_exists( 'wp_http_supports' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 																?><b><?php esc_html_e( 'Disabled.', 'akismet' ); ?></b> <?php printf( esc_html( 'Your WordPress installation does not include the function %s; upgrade to the latest version of WordPress.', 'akismet' ), '<code>wp_http_supports</code>' ); ?><?php
 															}
 															else if ( ! wp_http_supports( array( 'ssl' ) ) ) {

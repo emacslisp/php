@@ -15,7 +15,7 @@
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  */
-function wpmu_update_blogs_date() {
+function wpmu_update_blogs_date() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	update_blog_details( $wpdb->blogid, array('last_updated' => current_time('mysql', true)) );
@@ -37,7 +37,7 @@ function wpmu_update_blogs_date() {
  * @param int $blog_id Blog ID
  * @return string Full URL of the blog if found. Empty string if not.
  */
-function get_blogaddress_by_id( $blog_id ) {
+function get_blogaddress_by_id( $blog_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$bloginfo = get_site( (int) $blog_id );
 
 	if ( empty( $bloginfo ) ) {
@@ -58,7 +58,7 @@ function get_blogaddress_by_id( $blog_id ) {
  * @param string $blogname The (subdomain or directory) name
  * @return string
  */
-function get_blogaddress_by_name( $blogname ) {
+function get_blogaddress_by_name( $blogname ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_subdomain_install() ) {
 		if ( $blogname == 'main' )
 			$blogname = 'www';
@@ -80,7 +80,7 @@ function get_blogaddress_by_name( $blogname ) {
  * @param string $slug A site's slug.
  * @return int|null The site ID, or null if no site is found for the given slug.
  */
-function get_id_from_blogname( $slug ) {
+function get_id_from_blogname( $slug ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$current_network = get_network();
 	$slug = trim( $slug, '/' );
 
@@ -119,7 +119,7 @@ function get_id_from_blogname( $slug ) {
  *                                  Default is true.
  * @return WP_Site|false Blog details on success. False on failure.
  */
-function get_blog_details( $fields = null, $get_all = true ) {
+function get_blog_details( $fields = null, $get_all = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( is_array($fields ) ) {
@@ -261,7 +261,7 @@ function get_blog_details( $fields = null, $get_all = true ) {
  *
  * @param int $blog_id Optional. Blog ID. Defaults to current blog.
  */
-function refresh_blog_details( $blog_id = 0 ) {
+function refresh_blog_details( $blog_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$blog_id = (int) $blog_id;
 	if ( ! $blog_id ) {
 		$blog_id = get_current_blog_id();
@@ -302,7 +302,7 @@ function refresh_blog_details( $blog_id = 0 ) {
  * @param array $details Array of details keyed by blogs table field names.
  * @return bool True if update succeeds, false otherwise.
  */
-function update_blog_details( $blog_id, $details = array() ) {
+function update_blog_details( $blog_id, $details = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( empty($details) )
@@ -445,7 +445,7 @@ function update_blog_details( $blog_id, $details = array() ) {
  *
  * @param WP_Site $blog The site object to be cleared from cache.
  */
-function clean_blog_cache( $blog ) {
+function clean_blog_cache( $blog ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$blog_id = $blog->blog_id;
 	$domain_path_key = md5( $blog->domain . $blog->path );
 
@@ -483,7 +483,7 @@ function clean_blog_cache( $blog ) {
  * @param WP_Site|int|null $site Optional. Site to retrieve. Default is the current site.
  * @return WP_Site|null The site object or null if not found.
  */
-function get_site( $site = null ) {
+function get_site( $site = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $site ) ) {
 		$site = get_current_blog_id();
 	}
@@ -523,7 +523,7 @@ function get_site( $site = null ) {
  *
  * @param array $ids ID list.
  */
-function _prime_site_caches( $ids ) {
+function _prime_site_caches( $ids ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$non_cached_ids = _get_non_cached_ids( $ids, 'sites' );
@@ -541,7 +541,7 @@ function _prime_site_caches( $ids ) {
  *
  * @param array $sites Array of site objects.
  */
-function update_site_cache( $sites ) {
+function update_site_cache( $sites ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $sites ) {
 		return;
 	}
@@ -603,7 +603,7 @@ function update_site_cache( $sites ) {
  * }
  * @return array List of sites.
  */
-function get_sites( $args = array() ) {
+function get_sites( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$query = new WP_Site_Query();
 
 	return $query->query( $args );
@@ -626,7 +626,7 @@ function get_sites( $args = array() ) {
  * @param mixed  $default Optional. Default value to return if the option does not exist.
  * @return mixed Value set for the option.
  */
-function get_blog_option( $id, $option, $default = false ) {
+function get_blog_option( $id, $option, $default = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = (int) $id;
 
 	if ( empty( $id ) )
@@ -671,7 +671,7 @@ function get_blog_option( $id, $option, $default = false ) {
  * @param mixed  $value  Optional. Option value, can be anything. Expected to not be SQL-escaped.
  * @return bool False if option was not added and true if option was added.
  */
-function add_blog_option( $id, $option, $value ) {
+function add_blog_option( $id, $option, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = (int) $id;
 
 	if ( empty( $id ) )
@@ -696,7 +696,7 @@ function add_blog_option( $id, $option, $value ) {
  * @param string $option Name of option to remove. Expected to not be SQL-escaped.
  * @return bool True, if option is successfully deleted. False on failure.
  */
-function delete_blog_option( $id, $option ) {
+function delete_blog_option( $id, $option ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = (int) $id;
 
 	if ( empty( $id ) )
@@ -723,7 +723,7 @@ function delete_blog_option( $id, $option ) {
  * @param mixed  $deprecated Not used.
  * @return bool True on success, false on failure.
  */
-function update_blog_option( $id, $option, $value, $deprecated = null ) {
+function update_blog_option( $id, $option, $value, $deprecated = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$id = (int) $id;
 
 	if ( null !== $deprecated  )
@@ -765,7 +765,7 @@ function update_blog_option( $id, $option, $value, $deprecated = null ) {
  * @param bool $deprecated Deprecated argument
  * @return true Always returns True.
  */
-function switch_to_blog( $new_blog, $deprecated = null ) {
+function switch_to_blog( $new_blog, $deprecated = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $wp_roles;
 
 	$blog_id = get_current_blog_id();
@@ -799,7 +799,7 @@ function switch_to_blog( $new_blog, $deprecated = null ) {
 	$prev_blog_id = $blog_id;
 	$GLOBALS['blog_id'] = $new_blog;
 
-	if ( function_exists( 'wp_cache_switch_to_blog' ) ) {
+	if ( function_exists( 'wp_cache_switch_to_blog' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_cache_switch_to_blog( $new_blog );
 	} else {
 		global $wp_object_cache;
@@ -811,7 +811,7 @@ function switch_to_blog( $new_blog, $deprecated = null ) {
 		}
 		wp_cache_init();
 
-		if ( function_exists( 'wp_cache_add_global_groups' ) ) {
+		if ( function_exists( 'wp_cache_add_global_groups' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			if ( is_array( $global_groups ) ) {
 				wp_cache_add_global_groups( $global_groups );
 			} else {
@@ -849,7 +849,7 @@ function switch_to_blog( $new_blog, $deprecated = null ) {
  *
  * @return bool True on success, false if we're already on the current blog
  */
-function restore_current_blog() {
+function restore_current_blog() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $wp_roles;
 
 	if ( empty( $GLOBALS['_wp_switched_stack'] ) ) {
@@ -872,7 +872,7 @@ function restore_current_blog() {
 	$GLOBALS['blog_id'] = $blog;
 	$GLOBALS['table_prefix'] = $wpdb->get_blog_prefix();
 
-	if ( function_exists( 'wp_cache_switch_to_blog' ) ) {
+	if ( function_exists( 'wp_cache_switch_to_blog' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_cache_switch_to_blog( $blog );
 	} else {
 		global $wp_object_cache;
@@ -885,7 +885,7 @@ function restore_current_blog() {
 
 		wp_cache_init();
 
-		if ( function_exists( 'wp_cache_add_global_groups' ) ) {
+		if ( function_exists( 'wp_cache_add_global_groups' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			if ( is_array( $global_groups ) ) {
 				wp_cache_add_global_groups( $global_groups );
 			} else {
@@ -919,7 +919,7 @@ function restore_current_blog() {
  *
  * @return bool True if switched, false otherwise.
  */
-function ms_is_switched() {
+function ms_is_switched() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return ! empty( $GLOBALS['_wp_switched_stack'] );
 }
 
@@ -931,7 +931,7 @@ function ms_is_switched() {
  * @param int $id The blog id
  * @return string Whether the blog is archived or not
  */
-function is_archived( $id ) {
+function is_archived( $id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return get_blog_status($id, 'archived');
 }
 
@@ -944,7 +944,7 @@ function is_archived( $id ) {
  * @param string $archived The new status
  * @return string $archived
  */
-function update_archived( $id, $archived ) {
+function update_archived( $id, $archived ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	update_blog_status($id, 'archived', $archived);
 	return $archived;
 }
@@ -962,7 +962,7 @@ function update_archived( $id, $archived ) {
  * @param null   $deprecated
  * @return string|false $value
  */
-function update_blog_status( $blog_id, $pref, $value, $deprecated = null ) {
+function update_blog_status( $blog_id, $pref, $value, $deprecated = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( null !== $deprecated  )
@@ -1036,7 +1036,7 @@ function update_blog_status( $blog_id, $pref, $value, $deprecated = null ) {
  * @param string $pref A field name
  * @return bool|string|null $value
  */
-function get_blog_status( $id, $pref ) {
+function get_blog_status( $id, $pref ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$details = get_site( $id );
@@ -1058,7 +1058,7 @@ function get_blog_status( $id, $pref ) {
  * @param int   $quantity   The maximum number of blogs to retrieve. Default is 40.
  * @return array The list of blogs
  */
-function get_last_updated( $deprecated = '', $start = 0, $quantity = 40 ) {
+function get_last_updated( $deprecated = '', $start = 0, $quantity = 40 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( ! empty( $deprecated ) )
@@ -1076,7 +1076,7 @@ function get_last_updated( $deprecated = '', $start = 0, $quantity = 40 ) {
  *                           for information on accepted arguments. Default empty array.
  * @return int|array List of networks or number of found networks if `$count` argument is true.
  */
-function get_networks( $args = array() ) {
+function get_networks( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$query = new WP_Network_Query();
 
 	return $query->query( $args );
@@ -1095,7 +1095,7 @@ function get_networks( $args = array() ) {
  * @param WP_Network|int|null $network Optional. Network to retrieve. Default is the current network.
  * @return WP_Network|null The network object or null if not found.
  */
-function get_network( $network = null ) {
+function get_network( $network = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $current_site;
 	if ( empty( $network ) && isset( $current_site ) ) {
 		$network = $current_site;
@@ -1132,7 +1132,7 @@ function get_network( $network = null ) {
  *
  * @param int|array $ids Network ID or an array of network IDs to remove from cache.
  */
-function clean_network_cache( $ids ) {
+function clean_network_cache( $ids ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	foreach ( (array) $ids as $id ) {
 		wp_cache_delete( $id, 'networks' );
 
@@ -1160,7 +1160,7 @@ function clean_network_cache( $ids ) {
  *
  * @param array $networks Array of network row objects.
  */
-function update_network_cache( $networks ) {
+function update_network_cache( $networks ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	foreach ( (array) $networks as $network ) {
 		wp_cache_add( $network->id, $network, 'networks' );
 	}
@@ -1177,7 +1177,7 @@ function update_network_cache( $networks ) {
  *
  * @param array $network_ids Array of network IDs.
  */
-function _prime_network_caches( $network_ids ) {
+function _prime_network_caches( $network_ids ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$non_cached_ids = _get_non_cached_ids( $network_ids, 'networks' );
@@ -1197,7 +1197,7 @@ function _prime_network_caches( $network_ids ) {
  * @param string $old_status The old post status
  * @param object $post       Post object
  */
-function _update_blog_date_on_post_publish( $new_status, $old_status, $post ) {
+function _update_blog_date_on_post_publish( $new_status, $old_status, $post ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post_type_obj = get_post_type_object( $post->post_type );
 	if ( ! $post_type_obj || ! $post_type_obj->public ) {
 		return;
@@ -1219,7 +1219,7 @@ function _update_blog_date_on_post_publish( $new_status, $old_status, $post ) {
  *
  * @param int $post_id Post ID
  */
-function _update_blog_date_on_post_delete( $post_id ) {
+function _update_blog_date_on_post_delete( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $post_id );
 
 	$post_type_obj = get_post_type_object( $post->post_type );
@@ -1241,7 +1241,7 @@ function _update_blog_date_on_post_delete( $post_id ) {
  *
  * @param int $post_id Post ID.
  */
-function _update_posts_count_on_delete( $post_id ) {
+function _update_posts_count_on_delete( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $post_id );
 
 	if ( ! $post || 'publish' !== $post->post_status ) {
@@ -1259,7 +1259,7 @@ function _update_posts_count_on_delete( $post_id ) {
  * @param string $new_status The status the post is changing to.
  * @param string $old_status The status the post is changing from.
  */
-function _update_posts_count_on_transition_post_status( $new_status, $old_status ) {
+function _update_posts_count_on_transition_post_status( $new_status, $old_status ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $new_status === $old_status ) {
 		return;
 	}

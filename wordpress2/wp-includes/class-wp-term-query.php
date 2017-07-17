@@ -178,7 +178,7 @@ class WP_Term_Query {
 	 *                                                Usually used in conjunction with `$meta_key`.
 	 * }
 	 */
-	public function __construct( $query = '' ) {
+	public function __construct( $query = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_var_defaults = array(
 			'taxonomy'               => null,
 			'object_ids'             => null,
@@ -226,7 +226,7 @@ class WP_Term_Query {
 	 *
 	 * @param string|array $query WP_Term_Query arguments. See WP_Term_Query::__construct()
 	 */
-	public function parse_query( $query = '' ) {
+	public function parse_query( $query = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $query ) ) {
 			$query = $this->query_vars;
 		}
@@ -286,7 +286,7 @@ class WP_Term_Query {
 	 * @param string|array $query Array or URL query string of parameters.
 	 * @return array|int List of terms, or number of terms when 'count' is passed as a query var.
 	 */
-	public function query( $query ) {
+	public function query( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_vars = wp_parse_args( $query );
 		return $this->get_terms();
 	}
@@ -301,7 +301,7 @@ class WP_Term_Query {
 	 *
 	 * @return array
 	 */
-	public function get_terms() {
+	public function get_terms() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$this->parse_query( $this->query_vars );
@@ -820,7 +820,7 @@ class WP_Term_Query {
 	 * @param string $orderby_raw Alias for the field to order by.
 	 * @return string|false Value to used in the ORDER clause. False otherwise.
 	 */
-	protected function parse_orderby( $orderby_raw ) {
+	protected function parse_orderby( $orderby_raw ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$_orderby = strtolower( $orderby_raw );
 		$maybe_orderby_meta = false;
 
@@ -875,7 +875,7 @@ class WP_Term_Query {
 	 * @param string $orderby_raw Raw 'orderby' value passed to WP_Term_Query.
 	 * @return string
 	 */
-	protected function parse_orderby_meta( $orderby_raw ) {
+	protected function parse_orderby_meta( $orderby_raw ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$orderby = '';
 
 		// Tell the meta query to generate its SQL, so we have access to table aliases.
@@ -935,7 +935,7 @@ class WP_Term_Query {
 	 * @param string $order The 'order' query variable.
 	 * @return string The sanitized 'order' query variable.
 	 */
-	protected function parse_order( $order ) {
+	protected function parse_order( $order ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_string( $order ) || empty( $order ) ) {
 			return 'DESC';
 		}
@@ -958,7 +958,7 @@ class WP_Term_Query {
 	 * @param string $string
 	 * @return string
 	 */
-	protected function get_search_sql( $string ) {
+	protected function get_search_sql( $string ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$like = '%' . $wpdb->esc_like( $string ) . '%';

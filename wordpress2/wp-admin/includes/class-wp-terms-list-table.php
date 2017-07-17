@@ -36,7 +36,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @param array $args An associative array of arguments.
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $post_type, $taxonomy, $action, $tax;
 
 		parent::__construct( array(
@@ -67,14 +67,14 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @return bool
 	 */
-	public function ajax_user_can() {
+	public function ajax_user_can() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return current_user_can( get_taxonomy( $this->screen->taxonomy )->cap->manage_terms );
 	}
 
 	/**
 	 * @access public
 	 */
-	public function prepare_items() {
+	public function prepare_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$tags_per_page = $this->get_items_per_page( 'edit_' . $this->screen->taxonomy . '_per_page' );
 
 		if ( 'post_tag' === $this->screen->taxonomy ) {
@@ -133,7 +133,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @return bool
 	 */
-	public function has_items() {
+	public function has_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// todo: populate $this->items in prepare_items()
 		return true;
 	}
@@ -141,7 +141,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function no_items() {
+	public function no_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo get_taxonomy( $this->screen->taxonomy )->labels->not_found;
 	}
 
@@ -149,7 +149,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_bulk_actions() {
+	protected function get_bulk_actions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$actions = array();
 
 		if ( current_user_can( get_taxonomy( $this->screen->taxonomy )->cap->delete_terms ) ) {
@@ -163,7 +163,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @return string
 	 */
-	public function current_action() {
+	public function current_action() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $_REQUEST['action'] ) && isset( $_REQUEST['delete_tags'] ) && ( 'delete' === $_REQUEST['action'] || 'delete' === $_REQUEST['action2'] ) )
 			return 'bulk-delete';
 
@@ -174,7 +174,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	public function get_columns() {
+	public function get_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$columns = array(
 			'cb'          => '<input type="checkbox" />',
 			'name'        => _x( 'Name', 'term name' ),
@@ -195,7 +195,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_sortable_columns() {
+	protected function get_sortable_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array(
 			'name'        => 'name',
 			'description' => 'description',
@@ -208,7 +208,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function display_rows_or_placeholder() {
+	public function display_rows_or_placeholder() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$taxonomy = $this->screen->taxonomy;
 
 		$args = wp_parse_args( $this->callback_args, array(
@@ -266,7 +266,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param int   $parent
 	 * @param int   $level
 	 */
-	private function _rows( $taxonomy, $terms, &$children, $start, $per_page, &$count, $parent = 0, $level = 0 ) {
+	private function _rows( $taxonomy, $terms, &$children, $start, $per_page, &$count, $parent = 0, $level = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		$end = $start + $per_page;
 
@@ -319,7 +319,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param WP_Term $tag Term object.
 	 * @param int $level
 	 */
-	public function single_row( $tag, $level = 0 ) {
+	public function single_row( $tag, $level = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $taxonomy;
  		$tag = sanitize_term( $tag, $taxonomy );
 
@@ -334,7 +334,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param WP_Term $tag Term object.
 	 * @return string
 	 */
-	public function column_cb( $tag ) {
+	public function column_cb( $tag ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( current_user_can( 'delete_term', $tag->term_id ) ) {
 			return '<label class="screen-reader-text" for="cb-select-' . $tag->term_id . '">' . sprintf( __( 'Select %s' ), $tag->name ) . '</label>'
 				. '<input type="checkbox" name="delete_tags[]" value="' . $tag->term_id . '" id="cb-select-' . $tag->term_id . '" />';
@@ -347,7 +347,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param WP_Term $tag Term object.
 	 * @return string
 	 */
-	public function column_name( $tag ) {
+	public function column_name( $tag ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$taxonomy = $this->screen->taxonomy;
 
 		$pad = str_repeat( '&#8212; ', max( 0, $this->level ) );
@@ -403,7 +403,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @return string Name of the default primary column, in this case, 'name'.
 	 */
-	protected function get_default_primary_column_name() {
+	protected function get_default_primary_column_name() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'name';
 	}
 
@@ -418,7 +418,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param string  $primary     Primary column name.
 	 * @return string Row actions output for terms.
 	 */
-	protected function handle_row_actions( $tag, $column_name, $primary ) {
+	protected function handle_row_actions( $tag, $column_name, $primary ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $primary !== $column_name ) {
 			return '';
 		}
@@ -500,7 +500,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param WP_Term $tag Term object.
 	 * @return string
 	 */
-	public function column_description( $tag ) {
+	public function column_description( $tag ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $tag->description;
 	}
 
@@ -508,7 +508,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param WP_Term $tag Term object.
 	 * @return string
 	 */
-	public function column_slug( $tag ) {
+	public function column_slug( $tag ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/** This filter is documented in wp-admin/edit-tag-form.php */
 		return apply_filters( 'editable_slug', $tag->slug, $tag );
 	}
@@ -517,7 +517,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param WP_Term $tag Term object.
 	 * @return string
 	 */
-	public function column_posts( $tag ) {
+	public function column_posts( $tag ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$count = number_format_i18n( $tag->count );
 
 		$tax = get_taxonomy( $this->screen->taxonomy );
@@ -545,7 +545,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param WP_Term $tag Term object.
 	 * @return string
 	 */
-	public function column_links( $tag ) {
+	public function column_links( $tag ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$count = number_format_i18n( $tag->count );
 		if ( $count )
 			$count = "<a href='link-manager.php?cat_id=$tag->term_id'>$count</a>";
@@ -557,7 +557,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 * @param string $column_name
 	 * @return string
 	 */
-	public function column_default( $tag, $column_name ) {
+	public function column_default( $tag, $column_name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/**
 		 * Filters the displayed columns in the terms list table.
 		 *
@@ -578,7 +578,7 @@ class WP_Terms_List_Table extends WP_List_Table {
 	 *
 	 * @since 3.1.0
 	 */
-	public function inline_edit() {
+	public function inline_edit() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$tax = get_taxonomy( $this->screen->taxonomy );
 
 		if ( ! current_user_can( $tax->cap->edit_terms ) )

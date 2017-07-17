@@ -122,7 +122,7 @@ final class WP_Term {
 	 *                                there's insufficient data to distinguish which term is intended.
 	 *                                False for other failures.
 	 */
-	public static function get_instance( $term_id, $taxonomy = null ) {
+	public static function get_instance( $term_id, $taxonomy = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$term_id = (int) $term_id;
@@ -201,7 +201,7 @@ final class WP_Term {
 	 *
 	 * @param WP_Term|object $term Term object.
 	 */
-	public function __construct( $term ) {
+	public function __construct( $term ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( get_object_vars( $term ) as $key => $value ) {
 			$this->$key = $value;
 		}
@@ -215,7 +215,7 @@ final class WP_Term {
 	 *
 	 * @param string $filter Filter context. Accepts 'edit', 'db', 'display', 'attribute', 'js', 'raw'.
 	 */
-	public function filter( $filter ) {
+	public function filter( $filter ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		sanitize_term( $this, $this->taxonomy, $filter );
 	}
 
@@ -227,7 +227,7 @@ final class WP_Term {
 	 *
 	 * @return array Object as array.
 	 */
-	public function to_array() {
+	public function to_array() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return get_object_vars( $this );
 	}
 
@@ -240,7 +240,7 @@ final class WP_Term {
 	 * @param string $key Property to get.
 	 * @return mixed Property value.
 	 */
-	public function __get( $key ) {
+	public function __get( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ( $key ) {
 			case 'data' :
 				$data = new stdClass();

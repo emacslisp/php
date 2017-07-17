@@ -14,7 +14,7 @@
  *
  * @uses twentyseventeen_header_style()
  */
-function twentyseventeen_custom_header_setup() {
+function twentyseventeen_custom_header_setup() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	/**
 	 * Filter Twenty Seventeen custom-header support arguments.
@@ -58,7 +58,7 @@ if ( ! function_exists( 'twentyseventeen_header_style' ) ) :
  *
  * @see twentyseventeen_custom_header_setup().
  */
-function twentyseventeen_header_style() {
+function twentyseventeen_header_style() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail.
@@ -112,7 +112,7 @@ endif; // End of twentyseventeen_header_style.
 /**
  * Customize video play/pause button in the custom header.
  */
-function twentyseventeen_video_controls( $settings ) {
+function twentyseventeen_video_controls( $settings ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$settings['l10n']['play'] = '<span class="screen-reader-text">' . __( 'Play background video', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'play' ) );
 	$settings['l10n']['pause'] = '<span class="screen-reader-text">' . __( 'Pause background video', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'pause' ) );
 	return $settings;

@@ -36,7 +36,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @param array $args An associative array of arguments.
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->status_list = array(
 			'archived' => array( 'site-archived', __( 'Archived' ) ),
 			'spam'     => array( 'site-spammed', _x( 'Spam', 'site' ) ),
@@ -54,7 +54,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @return bool
 	 */
-	public function ajax_user_can() {
+	public function ajax_user_can() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return current_user_can( 'manage_sites' );
 	}
 
@@ -67,7 +67,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 * @global string $mode
 	 * @global wpdb   $wpdb
 	 */
-	public function prepare_items() {
+	public function prepare_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $s, $mode, $wpdb;
 
 		if ( ! empty( $_REQUEST['mode'] ) ) {
@@ -188,7 +188,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function no_items() {
+	public function no_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_e( 'No sites found.' );
 	}
 
@@ -196,7 +196,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_bulk_actions() {
+	protected function get_bulk_actions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$actions = array();
 		if ( current_user_can( 'delete_sites' ) )
 			$actions['delete'] = __( 'Delete' );
@@ -211,7 +211,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @param string $which
 	 */
-	protected function pagination( $which ) {
+	protected function pagination( $which ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $mode;
 
 		parent::pagination( $which );
@@ -223,7 +223,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * @return array
 	 */
-	public function get_columns() {
+	public function get_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$sites_columns = array(
 			'cb'          => '<input type="checkbox" />',
 			'blogname'    => __( 'URL' ),
@@ -250,7 +250,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	/**
 	 * @return array
 	 */
-	protected function get_sortable_columns() {
+	protected function get_sortable_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array(
 			'blogname'    => 'blogname',
 			'lastupdated' => 'lastupdated',
@@ -266,7 +266,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @param array $blog Current site.
 	 */
-	public function column_cb( $blog ) {
+	public function column_cb( $blog ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_main_site( $blog['blog_id'] ) ) :
 			$blogname = untrailingslashit( $blog['domain'] . $blog['path'] );
 		?>
@@ -285,7 +285,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @param array $blog Current site.
 	 */
-	public function column_id( $blog ) {
+	public function column_id( $blog ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo $blog['blog_id'];
 	}
 
@@ -299,7 +299,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @param array $blog Current site.
 	 */
-	public function column_blogname( $blog ) {
+	public function column_blogname( $blog ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $mode;
 
 		$blogname = untrailingslashit( $blog['domain'] . $blog['path'] );
@@ -348,7 +348,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @param array $blog Current site.
 	 */
-	public function column_lastupdated( $blog ) {
+	public function column_lastupdated( $blog ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $mode;
 
 		if ( 'list' === $mode ) {
@@ -368,7 +368,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @param array $blog Current site.
 	 */
-	public function column_registered( $blog ) {
+	public function column_registered( $blog ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $mode;
 
 		if ( 'list' === $mode ) {
@@ -392,7 +392,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @param array $blog Current site.
 	 */
-	public function column_users( $blog ) {
+	public function column_users( $blog ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$user_count = wp_cache_get( $blog['blog_id'] . '_user_count', 'blog-details' );
 		if ( ! $user_count ) {
 			$blog_users = get_users( array( 'blog_id' => $blog['blog_id'], 'fields' => 'ID' ) );
@@ -416,7 +416,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @param array $blog Current site.
 	 */
-	public function column_plugins( $blog ) {
+	public function column_plugins( $blog ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( has_filter( 'wpmublogsaction' ) ) {
 			/**
 			 * Fires inside the auxiliary 'Actions' column of the Sites list table.
@@ -440,7 +440,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 * @param array  $blog        Current site.
 	 * @param string $column_name Current column name.
 	 */
-	public function column_default( $blog, $column_name ) {
+	public function column_default( $blog, $column_name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/**
 		 * Fires for each registered custom column in the Sites list table.
 		 *
@@ -456,7 +456,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @global string $mode
 	 */
-	public function display_rows() {
+	public function display_rows() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->items as $blog ) {
 			$blog = $blog->to_array();
 			$class = '';
@@ -484,7 +484,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 *
 	 * @return string Name of the default primary column, in this case, 'blogname'.
 	 */
-	protected function get_default_primary_column_name() {
+	protected function get_default_primary_column_name() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'blogname';
 	}
 
@@ -499,7 +499,7 @@ class WP_MS_Sites_List_Table extends WP_List_Table {
 	 * @param string $primary     Primary column name.
 	 * @return string Row actions output.
 	 */
-	protected function handle_row_actions( $blog, $column_name, $primary ) {
+	protected function handle_row_actions( $blog, $column_name, $primary ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $primary !== $column_name ) {
 			return;
 		}

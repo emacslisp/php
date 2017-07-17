@@ -28,7 +28,7 @@ final class _WP_Editors {
 	private static $old_dfw_compat = false;
 	private static $translation;
 
-	private function __construct() {}
+	private function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Parse default arguments for the editor instance.
@@ -64,7 +64,7 @@ final class _WP_Editors {
 	 * }
 	 * @return array Parsed arguments array.
 	 */
-	public static function parse_settings( $editor_id, $settings ) {
+	public static function parse_settings( $editor_id, $settings ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		/**
 		 * Filters the wp_editor() settings.
@@ -144,7 +144,7 @@ final class _WP_Editors {
 	 * @param string $editor_id ID for the textarea and TinyMCE and Quicktags instances (can contain only ASCII letters and numbers).
 	 * @param array $settings See the _parse_settings() method for description.
 	 */
-	public static function editor( $content, $editor_id, $settings = array() ) {
+	public static function editor( $content, $editor_id, $settings = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$set = self::parse_settings( $editor_id, $settings );
 		$editor_class = ' class="' . trim( esc_attr( $set['editor_class'] ) . ' wp-editor-area' ) . '"';
 		$tabindex = $set['tabindex'] ? ' tabindex="' . (int) $set['tabindex'] . '"' : '';
@@ -302,7 +302,7 @@ final class _WP_Editors {
 	 * @param string $editor_id
 	 * @param array  $set
 	 */
-	public static function editor_settings($editor_id, $set) {
+	public static function editor_settings($editor_id, $set) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $tinymce_version;
 
 		if ( empty(self::$first_init) ) {
@@ -763,7 +763,7 @@ final class _WP_Editors {
 	 * @param array $init
 	 * @return string
 	 */
-	private static function _parse_init($init) {
+	private static function _parse_init($init) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$options = '';
 
 		foreach ( $init as $k => $v ) {
@@ -771,7 +771,7 @@ final class _WP_Editors {
 				$val = $v ? 'true' : 'false';
 				$options .= $k . ':' . $val . ',';
 				continue;
-			} elseif ( !empty($v) && is_string($v) && ( ('{' == $v{0} && '}' == $v{strlen($v) - 1}) || ('[' == $v{0} && ']' == $v{strlen($v) - 1}) || preg_match('/^\(?function ?\(/', $v) ) ) {
+			} elseif ( !empty($v) && is_string($v) && ( ('{' == $v{0} && '}' == $v{strlen($v) - 1}) || ('[' == $v{0} && ']' == $v{strlen($v) - 1}) || preg_match('/^\(?function ?\(/', $v) ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				$options .= $k . ':' . $v . ',';
 				continue;
 			}
@@ -785,7 +785,7 @@ final class _WP_Editors {
 	 *
 	 * @static
 	 */
-	public static function enqueue_scripts() {
+	public static function enqueue_scripts() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( self::$has_tinymce )
 			wp_enqueue_script('editor');
 
@@ -823,7 +823,7 @@ final class _WP_Editors {
 		) );
 	}
 
-	private static function get_translation() {
+	private static function get_translation() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( self::$translation ) ) {
 			self::$translation = array(
 			// Default TinyMCE strings
@@ -1107,7 +1107,7 @@ final class _WP_Editors {
 	 * @param bool $json_only optional Whether to include the JavaScript calls to tinymce.addI18n() and tinymce.ScriptLoader.markDone().
 	 * @return string Translation object, JSON encoded.
 	 */
-	public static function wp_mce_translation( $mce_locale = '', $json_only = false ) {
+	public static function wp_mce_translation( $mce_locale = '', $json_only = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $mce_locale ) {
 			$mce_locale = self::$mce_locale;
 		}
@@ -1164,7 +1164,7 @@ final class _WP_Editors {
 	 * @global bool   $concatenate_scripts
 	 * @global bool   $compress_scripts
 	 */
-	public static function editor_js() {
+	public static function editor_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $tinymce_version, $concatenate_scripts, $compress_scripts;
 
 		/**
@@ -1236,7 +1236,7 @@ final class _WP_Editors {
 			mceInit: <?php echo $mceInit; ?>,
 			qtInit: <?php echo $qtInit; ?>,
 			ref: <?php echo self::_parse_init( $ref ); ?>,
-			load_ext: function(url,lang){var sl=tinymce.ScriptLoader;sl.markDone(url+'/langs/'+lang+'.js');sl.markDone(url+'/langs/'+lang+'_dlg.js');}
+			load_ext: function(url,lang){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);var sl=tinymce.ScriptLoader;sl.markDone(url+'/langs/'+lang+'.js');sl.markDone(url+'/langs/'+lang+'_dlg.js');}
 		};
 		</script>
 		<?php
@@ -1283,7 +1283,7 @@ final class _WP_Editors {
 
 		?>
 
-		( function() {
+		( function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			var init, id, $wrap;
 
 			if ( typeof tinymce !== 'undefined' ) {
@@ -1333,7 +1333,7 @@ final class _WP_Editors {
 	 * @static
 	 * @global int $content_width
 	 */
-	public static function wp_fullscreen_html() {
+	public static function wp_fullscreen_html() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		_deprecated_function( __FUNCTION__, '4.3.0' );
 	}
 
@@ -1346,7 +1346,7 @@ final class _WP_Editors {
 	 * @param array $args Optional. Accepts 'pagenum' and 's' (search) arguments.
 	 * @return false|array Results.
 	 */
-	public static function wp_link_query( $args = array() ) {
+	public static function wp_link_query( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$pts = get_post_types( array( 'public' => true ), 'objects' );
 		$pt_names = array_keys( $pts );
 
@@ -1434,7 +1434,7 @@ final class _WP_Editors {
 	 *
 	 * @static
 	 */
-	public static function wp_link_dialog() {
+	public static function wp_link_dialog() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// display: none is required here, see #WP27605
 		?>
 		<div id="wp-link-backdrop" style="display: none"></div>

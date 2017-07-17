@@ -24,7 +24,7 @@ abstract class WP_Image_Editor {
 	 *
 	 * @param string $file Path to the file to load.
 	 */
-	public function __construct( $file ) {
+	public function __construct( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->file = $file;
 	}
 
@@ -41,7 +41,7 @@ abstract class WP_Image_Editor {
 	 * @param array $args
 	 * @return bool
 	 */
-	public static function test( $args = array() ) {
+	public static function test( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return false;
 	}
 
@@ -58,7 +58,7 @@ abstract class WP_Image_Editor {
 	 * @param string $mime_type
 	 * @return bool
 	 */
-	public static function supports_mime_type( $mime_type ) {
+	public static function supports_mime_type( $mime_type ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return false;
 	}
 
@@ -187,7 +187,7 @@ abstract class WP_Image_Editor {
 	 *
 	 * @return array {'width'=>int, 'height'=>int}
 	 */
-	public function get_size() {
+	public function get_size() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->size;
 	}
 
@@ -201,7 +201,7 @@ abstract class WP_Image_Editor {
 	 * @param int $height
 	 * @return true
 	 */
-	protected function update_size( $width = null, $height = null ) {
+	protected function update_size( $width = null, $height = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->size = array(
 			'width' => (int) $width,
 			'height' => (int) $height
@@ -217,7 +217,7 @@ abstract class WP_Image_Editor {
 	 *
 	 * @return int $quality Compression Quality. Range: [1,100]
 	 */
-	public function get_quality() {
+	public function get_quality() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->quality ) {
 			$this->set_quality();
 		}
@@ -234,7 +234,7 @@ abstract class WP_Image_Editor {
 	 * @param int $quality Compression Quality. Range: [1,100]
 	 * @return true|WP_Error True if set successfully; WP_Error on failure.
 	 */
-	public function set_quality( $quality = null ) {
+	public function set_quality( $quality = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( null === $quality ) {
 			/**
 			 * Filters the default image compression quality setting.
@@ -304,7 +304,7 @@ abstract class WP_Image_Editor {
 	 * @param string $mime_type
 	 * @return array { filename|null, extension, mime-type }
 	 */
-	protected function get_output_format( $filename = null, $mime_type = null ) {
+	protected function get_output_format( $filename = null, $mime_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$new_ext = null;
 
 		// By default, assume specified type takes priority
@@ -366,7 +366,7 @@ abstract class WP_Image_Editor {
 	 * @param string $extension
 	 * @return string filename
 	 */
-	public function generate_filename( $suffix = null, $dest_path = null, $extension = null ) {
+	public function generate_filename( $suffix = null, $dest_path = null, $extension = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// $suffix will be appended to the destination filename, just before the extension
 		if ( ! $suffix )
 			$suffix = $this->get_suffix();
@@ -391,7 +391,7 @@ abstract class WP_Image_Editor {
 	 *
 	 * @return false|string suffix
 	 */
-	public function get_suffix() {
+	public function get_suffix() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->get_size() )
 			return false;
 
@@ -409,7 +409,7 @@ abstract class WP_Image_Editor {
 	 * @param array $arguments
 	 * @return bool
 	 */
-	protected function make_image( $filename, $function, $arguments ) {
+	protected function make_image( $filename, $function, $arguments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $stream = wp_is_stream( $filename ) ) {
 			ob_start();
 		} else {
@@ -450,7 +450,7 @@ abstract class WP_Image_Editor {
 	 * @param string $extension
 	 * @return string|false
 	 */
-	protected static function get_mime_type( $extension = null ) {
+	protected static function get_mime_type( $extension = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $extension )
 			return false;
 
@@ -478,7 +478,7 @@ abstract class WP_Image_Editor {
 	 * @param string $mime_type
 	 * @return string|false
 	 */
-	protected static function get_extension( $mime_type = null ) {
+	protected static function get_extension( $mime_type = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$extensions = explode( '|', array_search( $mime_type, wp_get_mime_types() ) );
 
 		if ( empty( $extensions[0] ) )

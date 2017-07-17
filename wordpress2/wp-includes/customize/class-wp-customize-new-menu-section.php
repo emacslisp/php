@@ -33,7 +33,7 @@ class WP_Customize_New_Menu_Section extends WP_Customize_Section {
 	 * @since 4.3.0
 	 * @access protected
 	 */
-	protected function render() {
+	protected function render() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<li id="accordion-section-<?php echo esc_attr( $this->id ); ?>" class="accordion-section-new-menu">
 			<button type="button" class="button add-new-menu-item add-menu-toggle" aria-expanded="false">

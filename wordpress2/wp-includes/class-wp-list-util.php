@@ -50,7 +50,7 @@ class WP_List_Util {
 	 *
 	 * @param array $input Array to perform operations on.
 	 */
-	public function __construct( $input ) {
+	public function __construct( $input ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->output = $this->input = $input;
 	}
 
@@ -62,7 +62,7 @@ class WP_List_Util {
 	 *
 	 * @return array The input array.
 	 */
-	public function get_input() {
+	public function get_input() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->input;
 	}
 
@@ -74,7 +74,7 @@ class WP_List_Util {
 	 *
 	 * @return array The output array.
 	 */
-	public function get_output() {
+	public function get_output() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->output;
 	}
 
@@ -91,7 +91,7 @@ class WP_List_Util {
 	 *                         match. Default 'AND'.
 	 * @return array Array of found values.
 	 */
-	public function filter( $args = array(), $operator = 'AND' ) {
+	public function filter( $args = array(), $operator = 'AND' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $args ) ) {
 			return $this->output;
 		}
@@ -144,7 +144,7 @@ class WP_List_Util {
 	 *               corresponding to `$index_key`. If `$index_key` is null, array keys from the original
 	 *               `$list` will be preserved in the results.
 	 */
-	public function pluck( $field, $index_key = null ) {
+	public function pluck( $field, $index_key = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $index_key ) {
 			/*
 			 * This is simple. Could at some point wrap array_column()
@@ -198,7 +198,7 @@ class WP_List_Util {
 	 * @param bool         $preserve_keys Optional. Whether to preserve keys. Default false.
 	 * @return array The sorted array.
 	 */
-	public function sort( $orderby = array(), $order = 'ASC', $preserve_keys = false ) {
+	public function sort( $orderby = array(), $order = 'ASC', $preserve_keys = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $orderby ) ) {
 			return $this->output;
 		}
@@ -236,7 +236,7 @@ class WP_List_Util {
 	 * @param object|array $b The other object to compare.
 	 * @return int 0 if both objects equal. -1 if second object should come first, 1 otherwise.
 	 */
-	private function sort_callback( $a, $b ) {
+	private function sort_callback( $a, $b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $this->orderby ) ) {
 			return 0;
 		}

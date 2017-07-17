@@ -31,7 +31,7 @@ class WP_Customize_Background_Position_Control extends WP_Customize_Control {
 	 * @since 4.7.0
 	 * @access public
 	 */
-	public function render_content() {}
+	public function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Render a JS template for the content of the position control.
@@ -39,7 +39,7 @@ class WP_Customize_Background_Position_Control extends WP_Customize_Control {
 	 * @since 4.7.0
 	 * @access public
 	 */
-	public function content_template() {
+	public function content_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$options = array(
 			array(
 				'left top'   => array( 'label' => __( 'Top Left' ), 'icon' => 'dashicons dashicons-arrow-left-alt' ),

@@ -22,7 +22,7 @@ class WP_Widget_Text extends WP_Widget {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$widget_ops = array(
 			'classname' => 'widget_text',
 			'description' => __( 'Arbitrary text or HTML.' ),
@@ -42,7 +42,7 @@ class WP_Widget_Text extends WP_Widget {
 	 *                        'before_widget', and 'after_widget'.
 	 * @param array $instance Settings for the current Text widget instance.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
@@ -81,7 +81,7 @@ class WP_Widget_Text extends WP_Widget {
 	 * @param array $old_instance Old settings for this instance.
 	 * @return array Settings to save or bool false to cancel saving.
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		if ( current_user_can( 'unfiltered_html' ) ) {
@@ -101,7 +101,7 @@ class WP_Widget_Text extends WP_Widget {
 	 *
 	 * @param array $instance Current settings.
 	 */
-	public function form( $instance ) {
+	public function form( $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
 		$filter = isset( $instance['filter'] ) ? $instance['filter'] : 0;
 		$title = sanitize_text_field( $instance['title'] );

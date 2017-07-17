@@ -26,7 +26,7 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @param array $args
 	 */
-	public function __construct($args = array()) {
+	public function __construct($args = array()) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array( 'url' => '', 'nonce' => '' );
 		$args = wp_parse_args($args, $defaults);
 
@@ -36,7 +36,7 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function add_strings() {
+	public function add_strings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->upgrader->strings['skin_upgrade_start'] = __('The update process is starting. This process may take a while on some hosts, so please be patient.');
 		/* translators: 1: Title of an update, 2: Error message */
 		$this->upgrader->strings['skin_update_failed_error'] = __('An error occurred while updating %1$s: %2$s');
@@ -50,7 +50,7 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @param string $string
 	 */
-	public function feedback($string) {
+	public function feedback($string) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( isset( $this->upgrader->strings[$string] ) )
 			$string = $this->upgrader->strings[$string];
 
@@ -74,14 +74,14 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function header() {
+	public function header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Nothing, This will be displayed within a iframe.
 	}
 
 	/**
 	 * @access public
 	 */
-	public function footer() {
+	public function footer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Nothing, This will be displayed within a iframe.
 	}
 
@@ -89,7 +89,7 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @param string|WP_Error $error
 	 */
-	public function error($error) {
+	public function error($error) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_string($error) && isset( $this->upgrader->strings[$error] ) )
 			$this->error = $this->upgrader->strings[$error];
 
@@ -109,14 +109,14 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function bulk_header() {
+	public function bulk_header() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->feedback('skin_upgrade_start');
 	}
 
 	/**
 	 * @access public
 	 */
-	public function bulk_footer() {
+	public function bulk_footer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->feedback('skin_upgrade_end');
 	}
 
@@ -124,7 +124,7 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @param string $title
 	 */
-	public function before($title = '') {
+	public function before($title = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->in_loop = true;
 		printf( '<h2>' . $this->upgrader->strings['skin_before_update_header'] . ' <span class="spinner waiting-' . $this->upgrader->update_current . '"></span></h2>', $title, $this->upgrader->update_current, $this->upgrader->update_count );
 		echo '<script type="text/javascript">jQuery(\'.waiting-' . esc_js($this->upgrader->update_current) . '\').css("display", "inline-block");</script>';
@@ -136,7 +136,7 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @param string $title
 	 */
-	public function after($title = '') {
+	public function after($title = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo '</p></div>';
 		if ( $this->error || ! $this->result ) {
 			if ( $this->error ) {
@@ -160,7 +160,7 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function reset() {
+	public function reset() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->in_loop = false;
 		$this->error = false;
 	}
@@ -168,7 +168,7 @@ class Bulk_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function flush_output() {
+	public function flush_output() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_ob_end_flush_all();
 		flush();
 	}

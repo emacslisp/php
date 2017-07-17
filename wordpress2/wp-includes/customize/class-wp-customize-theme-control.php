@@ -42,7 +42,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 	 *
 	 * @see WP_Customize_Control::to_json()
 	 */
-	public function to_json() {
+	public function to_json() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::to_json();
 		$this->json['theme'] = $this->theme;
 	}
@@ -53,7 +53,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 	 * @since 4.2.0
 	 * @access public
 	 */
-	public function render_content() {}
+	public function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);}
 
 	/**
 	 * Render a JS template for theme display.
@@ -61,7 +61,7 @@ class WP_Customize_Theme_Control extends WP_Customize_Control {
 	 * @since 4.2.0
 	 * @access public
 	 */
-	public function content_template() {
+	public function content_template() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$current_url = set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 		$active_url  = esc_url( remove_query_arg( 'customize_theme', $current_url ) );
 		$preview_url = esc_url( add_query_arg( 'customize_theme', '__THEME__', $current_url ) ); // Token because esc_url() strips curly braces.

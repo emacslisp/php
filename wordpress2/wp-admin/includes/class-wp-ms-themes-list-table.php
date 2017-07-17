@@ -35,7 +35,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @param array $args An associative array of arguments.
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $status, $page;
 
 		parent::__construct( array(
@@ -59,7 +59,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_table_classes() {
+	protected function get_table_classes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// todo: remove and add CSS for .themes
 		return array( 'widefat', 'plugins' );
 	}
@@ -68,7 +68,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @return bool
 	 */
-	public function ajax_user_can() {
+	public function ajax_user_can() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_site_themes )
 			return current_user_can( 'manage_sites' );
 		else
@@ -84,7 +84,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 * @global string $order
 	 * @global string $s
 	 */
-	public function prepare_items() {
+	public function prepare_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $status, $totals, $page, $orderby, $order, $s;
 
 		wp_reset_vars( array( 'orderby', 'order', 's' ) );
@@ -183,7 +183,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 * @param WP_Theme $theme
 	 * @return bool
 	 */
-	public function _search_callback( $theme ) {
+	public function _search_callback( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $term = null;
 		if ( is_null( $term ) )
 			$term = wp_unslash( $_REQUEST['s'] );
@@ -211,7 +211,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 * @param array $theme_b
 	 * @return int
 	 */
-	public function _order_callback( $theme_a, $theme_b ) {
+	public function _order_callback( $theme_a, $theme_b ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $orderby, $order;
 
 		$a = $theme_a[ $orderby ];
@@ -229,7 +229,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function no_items() {
+	public function no_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->has_items ) {
 			_e( 'No themes found.' );
 		} else {
@@ -241,7 +241,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	public function get_columns() {
+	public function get_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array(
 			'cb'          => '<input type="checkbox" />',
 			'name'        => __( 'Theme' ),
@@ -253,7 +253,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_sortable_columns() {
+	protected function get_sortable_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array(
 			'name'         => 'name',
 		);
@@ -267,7 +267,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @return string Unalterable name of the primary column name, in this case, 'name'.
 	 */
-	protected function get_primary_column_name() {
+	protected function get_primary_column_name() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return 'name';
 	}
 
@@ -277,7 +277,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 * @global string $status
 	 * @return array
 	 */
-	protected function get_views() {
+	protected function get_views() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $totals, $status;
 
 		$status_links = array();
@@ -325,7 +325,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	protected function get_bulk_actions() {
+	protected function get_bulk_actions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $status;
 
 		$actions = array();
@@ -345,7 +345,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function display_rows() {
+	public function display_rows() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->items as $theme )
 			$this->single_row( $theme );
 	}
@@ -358,7 +358,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @param WP_Theme $theme The current WP_Theme object.
 	 */
-	public function column_cb( $theme ) {
+	public function column_cb( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$checkbox_id = 'checkbox_' . md5( $theme->get('Name') );
 		?>
 		<input type="checkbox" name="checked[]" value="<?php echo esc_attr( $theme->get_stylesheet() ) ?>" id="<?php echo $checkbox_id ?>" />
@@ -378,7 +378,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @param WP_Theme $theme The current WP_Theme object.
 	 */
-	public function column_name( $theme ) {
+	public function column_name( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $status, $page, $s;
 
 		$context = $status;
@@ -535,7 +535,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @param WP_Theme $theme The current WP_Theme object.
 	 */
-	public function column_description( $theme ) {
+	public function column_description( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $status, $totals;
 		if ( $theme->errors() ) {
 			$pre = $status === 'broken' ? __( 'Broken Theme:' ) . ' ' : '';
@@ -601,7 +601,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 * @param WP_Theme $theme       The current WP_Theme object.
 	 * @param string   $column_name The current column name.
 	 */
-	public function column_default( $theme, $column_name ) {
+	public function column_default( $theme, $column_name ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$stylesheet = $theme->get_stylesheet();
 
 		/**
@@ -624,7 +624,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @param WP_Theme $item The current WP_Theme object.
 	 */
-	public function single_row_columns( $item ) {
+	public function single_row_columns( $item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		list( $columns, $hidden, $sortable, $primary ) = $this->get_column_info();
 
 		foreach ( $columns as $column_name => $column_display_name ) {
@@ -675,7 +675,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @param WP_Theme $theme
 	 */
-	public function single_row( $theme ) {
+	public function single_row( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $status, $totals;
 
 		if ( $this->is_site_themes ) {

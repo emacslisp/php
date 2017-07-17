@@ -26,7 +26,7 @@ class Core_Upgrader extends WP_Upgrader {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function upgrade_strings() {
+	public function upgrade_strings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->strings['up_to_date'] = __('WordPress is at the latest version.');
 		$this->strings['locked'] = __('Another update is currently in progress.');
 		$this->strings['no_package'] = __('Update package not available.');
@@ -60,7 +60,7 @@ class Core_Upgrader extends WP_Upgrader {
 	 * }
 	 * @return null|false|WP_Error False or WP_Error on failure, null on success.
 	 */
-	public function upgrade( $current, $args = array() ) {
+	public function upgrade( $current, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_filesystem;
 
 		include( ABSPATH . WPINC . '/version.php' ); // $wp_version;
@@ -141,7 +141,7 @@ class Core_Upgrader extends WP_Upgrader {
 
 		require_once( ABSPATH . 'wp-admin/includes/update-core.php' );
 
-		if ( ! function_exists( 'update_core' ) ) {
+		if ( ! function_exists( 'update_core' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			WP_Upgrader::release_lock( 'core_updater' );
 			return new WP_Error( 'copy_failed_space', $this->strings['copy_failed_space'] );
 		}
@@ -235,7 +235,7 @@ class Core_Upgrader extends WP_Upgrader {
 	 * @param string $offered_ver The offered version, of the format x.y.z.
 	 * @return bool True if we should update to the offered version, otherwise false.
 	 */
-	public static function should_update_to_version( $offered_ver ) {
+	public static function should_update_to_version( $offered_ver ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		include( ABSPATH . WPINC . '/version.php' ); // $wp_version; // x.y.z
 
 		$current_branch = implode( '.', array_slice( preg_split( '/[.-]/', $wp_version  ), 0, 2 ) ); // x.y
@@ -344,7 +344,7 @@ class Core_Upgrader extends WP_Upgrader {
 	 *
 	 * @return bool True if the checksums match, otherwise false.
 	 */
-	public function check_files() {
+	public function check_files() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wp_version, $wp_local_package;
 
 		$checksums = get_core_checksums( $wp_version, isset( $wp_local_package ) ? $wp_local_package : 'en_US' );

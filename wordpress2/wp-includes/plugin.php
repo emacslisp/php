@@ -53,7 +53,7 @@ if ( ! isset( $wp_current_filter ) )
  *
  * Note that `$example` is passed to the callback, (maybe) modified, then returned:
  *
- *     function example_callback( $example ) {
+ *     function example_callback( $example ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
  *         // Maybe modify $example in some way.
  *         return $example;
  *     }
@@ -72,14 +72,14 @@ if ( ! isset( $wp_current_filter ) )
  *     $value = apply_filters( 'hook', $value, $arg2, $arg3 );
  *
  *     // Accepting zero/one arguments.
- *     function example_callback() {
+ *     function example_callback() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
  *         ...
  *         return 'some value';
  *     }
  *     add_filter( 'hook', 'example_callback' ); // Where $priority is default 10, $accepted_args is default 1.
  *
  *     // Accepting two arguments (three possible).
- *     function example_callback( $value, $arg2 ) {
+ *     function example_callback( $value, $arg2 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
  *         ...
  *         return $maybe_modified_value;
  *     }
@@ -103,7 +103,7 @@ if ( ! isset( $wp_current_filter ) )
  * @param int      $accepted_args   Optional. The number of arguments the function accepts. Default 1.
  * @return true
  */
-function add_filter( $tag, $function_to_add, $priority = 10, $accepted_args = 1 ) {
+function add_filter( $tag, $function_to_add, $priority = 10, $accepted_args = 1 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter;
 	if ( ! isset( $wp_filter[ $tag ] ) ) {
 		$wp_filter[ $tag ] = new WP_Hook();
@@ -128,7 +128,7 @@ function add_filter( $tag, $function_to_add, $priority = 10, $accepted_args = 1 
  *                   that evaluates to false (e.g.) 0, so use the === operator for testing the
  *                   return value.
  */
-function has_filter($tag, $function_to_check = false) {
+function has_filter($tag, $function_to_check = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter;
 
 	if ( ! isset( $wp_filter[ $tag ] ) ) {
@@ -149,7 +149,7 @@ function has_filter($tag, $function_to_check = false) {
  * The function allows for additional arguments to be added and passed to hooks.
  *
  *     // Our filter callback function
- *     function example_callback( $string, $arg1, $arg2 ) {
+ *     function example_callback( $string, $arg1, $arg2 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
  *         // (maybe) modify $string
  *         return $string;
  *     }
@@ -173,7 +173,7 @@ function has_filter($tag, $function_to_check = false) {
  * @param mixed  $var,... Additional variables passed to the functions hooked to `$tag`.
  * @return mixed The filtered value after all hooked functions are applied to it.
  */
-function apply_filters( $tag, $value ) {
+function apply_filters( $tag, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter, $wp_current_filter;
 
 	$args = array();
@@ -222,7 +222,7 @@ function apply_filters( $tag, $value ) {
  * @param array  $args The arguments supplied to the functions hooked to $tag.
  * @return mixed The filtered value after all hooked functions are applied to it.
  */
-function apply_filters_ref_array($tag, $args) {
+function apply_filters_ref_array($tag, $args) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter, $wp_current_filter;
 
 	// Do 'all' actions first
@@ -268,7 +268,7 @@ function apply_filters_ref_array($tag, $args) {
  * @param int      $priority           Optional. The priority of the function. Default 10.
  * @return bool    Whether the function existed before it was removed.
  */
-function remove_filter( $tag, $function_to_remove, $priority = 10 ) {
+function remove_filter( $tag, $function_to_remove, $priority = 10 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter;
 
 	$r = false;
@@ -293,7 +293,7 @@ function remove_filter( $tag, $function_to_remove, $priority = 10 ) {
  * @param int|bool $priority Optional. The priority number to remove. Default false.
  * @return true True when finished.
  */
-function remove_all_filters( $tag, $priority = false ) {
+function remove_all_filters( $tag, $priority = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter;
 
 	if ( isset( $wp_filter[ $tag ]) ) {
@@ -315,7 +315,7 @@ function remove_all_filters( $tag, $priority = false ) {
  *
  * @return string Hook name of the current filter or action.
  */
-function current_filter() {
+function current_filter() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_current_filter;
 	return end( $wp_current_filter );
 }
@@ -327,7 +327,7 @@ function current_filter() {
  *
  * @return string Hook name of the current action.
  */
-function current_action() {
+function current_action() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return current_filter();
 }
 
@@ -352,7 +352,7 @@ function current_action() {
  *                            checks if any filter is currently being run.
  * @return bool Whether the filter is currently in the stack.
  */
-function doing_filter( $filter = null ) {
+function doing_filter( $filter = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_current_filter;
 
 	if ( null === $filter ) {
@@ -371,7 +371,7 @@ function doing_filter( $filter = null ) {
  *                            if any action is currently being run.
  * @return bool Whether the action is currently in the stack.
  */
-function doing_action( $action = null ) {
+function doing_action( $action = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return doing_filter( $action );
 }
 
@@ -395,7 +395,7 @@ function doing_action( $action = null ) {
  * @param int      $accepted_args   Optional. The number of arguments the function accepts. Default 1.
  * @return true Will always return true.
  */
-function add_action($tag, $function_to_add, $priority = 10, $accepted_args = 1) {
+function add_action($tag, $function_to_add, $priority = 10, $accepted_args = 1) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return add_filter($tag, $function_to_add, $priority, $accepted_args);
 }
 
@@ -418,7 +418,7 @@ function add_action($tag, $function_to_add, $priority = 10, $accepted_args = 1) 
  * @param mixed  $arg,... Optional. Additional arguments which are passed on to the
  *                        functions hooked to the action. Default empty.
  */
-function do_action($tag, $arg = '') {
+function do_action($tag, $arg = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter, $wp_actions, $wp_current_filter;
 
 	if ( ! isset($wp_actions[$tag]) )
@@ -465,7 +465,7 @@ function do_action($tag, $arg = '') {
  * @param string $tag The name of the action hook.
  * @return int The number of times action hook $tag is fired.
  */
-function did_action($tag) {
+function did_action($tag) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_actions;
 
 	if ( ! isset( $wp_actions[ $tag ] ) )
@@ -488,7 +488,7 @@ function did_action($tag) {
  * @param string $tag  The name of the action to be executed.
  * @param array  $args The arguments supplied to the functions hooked to `$tag`.
  */
-function do_action_ref_array($tag, $args) {
+function do_action_ref_array($tag, $args) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter, $wp_actions, $wp_current_filter;
 
 	if ( ! isset($wp_actions[$tag]) )
@@ -533,7 +533,7 @@ function do_action_ref_array($tag, $args) {
  *                  that evaluates to false (e.g.) 0, so use the === operator for testing the
  *                  return value.
  */
-function has_action($tag, $function_to_check = false) {
+function has_action($tag, $function_to_check = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return has_filter($tag, $function_to_check);
 }
 
@@ -551,7 +551,7 @@ function has_action($tag, $function_to_check = false) {
  * @param int      $priority           Optional. The priority of the function. Default 10.
  * @return bool Whether the function is removed.
  */
-function remove_action( $tag, $function_to_remove, $priority = 10 ) {
+function remove_action( $tag, $function_to_remove, $priority = 10 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return remove_filter( $tag, $function_to_remove, $priority );
 }
 
@@ -564,7 +564,7 @@ function remove_action( $tag, $function_to_remove, $priority = 10 ) {
  * @param int|bool $priority The priority number to remove them from. Default false.
  * @return true True when finished.
  */
-function remove_all_actions($tag, $priority = false) {
+function remove_all_actions($tag, $priority = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return remove_all_filters($tag, $priority);
 }
 
@@ -585,7 +585,7 @@ function remove_all_actions($tag, $priority = false) {
  * @param string $replacement Optional. The hook that should have been used. Default false.
  * @param string $message     Optional. A message regarding the change. Default null.
  */
-function apply_filters_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
+function apply_filters_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! has_filter( $tag ) ) {
 		return $args[0];
 	}
@@ -612,7 +612,7 @@ function apply_filters_deprecated( $tag, $args, $version, $replacement = false, 
  * @param string $replacement Optional. The hook that should have been used.
  * @param string $message     Optional. A message regarding the change.
  */
-function do_action_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
+function do_action_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! has_action( $tag ) ) {
 		return;
 	}
@@ -638,7 +638,7 @@ function do_action_deprecated( $tag, $args, $version, $replacement = false, $mes
  * @param string $file The filename of plugin.
  * @return string The name of a plugin.
  */
-function plugin_basename( $file ) {
+function plugin_basename( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_plugin_paths;
 
 	// $wp_plugin_paths contains normalized paths.
@@ -676,7 +676,7 @@ function plugin_basename( $file ) {
  * @param string $file Known path to the file.
  * @return bool Whether the path was able to be registered.
  */
-function wp_register_plugin_realpath( $file ) {
+function wp_register_plugin_realpath( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_plugin_paths;
 
 	// Normalize, but store as static to avoid recalculation of a constant value
@@ -708,7 +708,7 @@ function wp_register_plugin_realpath( $file ) {
  * @param string $file The filename of the plugin (__FILE__).
  * @return string the filesystem path of the directory that contains the plugin.
  */
-function plugin_dir_path( $file ) {
+function plugin_dir_path( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return trailingslashit( dirname( $file ) );
 }
 
@@ -720,7 +720,7 @@ function plugin_dir_path( $file ) {
  * @param string $file The filename of the plugin (__FILE__).
  * @return string the URL path of the directory that contains the plugin.
  */
-function plugin_dir_url( $file ) {
+function plugin_dir_url( $file ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return trailingslashit( plugins_url( '', $file ) );
 }
 
@@ -742,7 +742,7 @@ function plugin_dir_url( $file ) {
  * @param string   $file     The filename of the plugin including the path.
  * @param callable $function The function hooked to the 'activate_PLUGIN' action.
  */
-function register_activation_hook($file, $function) {
+function register_activation_hook($file, $function) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$file = plugin_basename($file);
 	add_action('activate_' . $file, $function);
 }
@@ -765,7 +765,7 @@ function register_activation_hook($file, $function) {
  * @param string   $file     The filename of the plugin including the path.
  * @param callable $function The function hooked to the 'deactivate_PLUGIN' action.
  */
-function register_deactivation_hook($file, $function) {
+function register_deactivation_hook($file, $function) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$file = plugin_basename($file);
 	add_action('deactivate_' . $file, $function);
 }
@@ -796,7 +796,7 @@ function register_deactivation_hook($file, $function) {
  * @param callable $callback The callback to run when the hook is called. Must be
  *                           a static method or function.
  */
-function register_uninstall_hook( $file, $callback ) {
+function register_uninstall_hook( $file, $callback ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_array( $callback ) && is_object( $callback[0] ) ) {
 		_doing_it_wrong( __FUNCTION__, __( 'Only a static class method or function can be used in an uninstall hook.' ), '3.1.0' );
 		return;
@@ -831,7 +831,7 @@ function register_uninstall_hook( $file, $callback ) {
  *
  * @param array $args The collected parameters from the hook that was called.
  */
-function _wp_call_all_hook($args) {
+function _wp_call_all_hook($args) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter;
 
 	$wp_filter['all']->do_all_hook( $args );
@@ -871,27 +871,27 @@ function _wp_call_all_hook($args) {
  *                      and $function is an object reference, and it does not already have
  *                      a unique id.
  */
-function _wp_filter_build_unique_id($tag, $function, $priority) {
+function _wp_filter_build_unique_id($tag, $function, $priority) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter;
 	static $filter_id_count = 0;
 
 	if ( is_string($function) )
 		return $function;
 
-	if ( is_object($function) ) {
+	if ( is_object($function) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Closures are currently implemented as objects
 		$function = array( $function, '' );
 	} else {
 		$function = (array) $function;
 	}
 
-	if (is_object($function[0]) ) {
+	if (is_object($function[0]) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Object Class Calling
-		if ( function_exists('spl_object_hash') ) {
+		if ( function_exists('spl_object_hash') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			return spl_object_hash($function[0]) . $function[1];
 		} else {
 			$obj_idx = get_class($function[0]).$function[1];
-			if ( !isset($function[0]->wp_filter_id) ) {
+			if ( !isset($function[0]->wp_filter_id) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				if ( false === $priority )
 					return false;
 				$obj_idx .= isset($wp_filter[$tag][$priority]) ? count((array)$wp_filter[$tag][$priority]) : $filter_id_count;
@@ -903,7 +903,7 @@ function _wp_filter_build_unique_id($tag, $function, $priority) {
 
 			return $obj_idx;
 		}
-	} elseif ( is_string( $function[0] ) ) {
+	} elseif ( is_string( $function[0] ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Static Calling
 		return $function[0] . '::' . $function[1];
 	}

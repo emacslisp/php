@@ -184,7 +184,7 @@ unset($id, $data, $subs, $first_sub);
  * @param string $class
  * @return string
  */
-function add_cssclass($add, $class) {
+function add_cssclass($add, $class) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$class = empty($class) ? $add : $class .= ' ' . $add;
 	return $class;
 }
@@ -194,7 +194,7 @@ function add_cssclass($add, $class) {
  * @param array $menu
  * @return array
  */
-function add_menu_classes($menu) {
+function add_menu_classes($menu) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$first = $lastorder = false;
 	$i = 0;
 	$mc = count($menu);
@@ -282,7 +282,7 @@ if ( apply_filters( 'custom_menu_order', false ) ) {
 	 * @param array $b
 	 * @return int
 	 */
-	function sort_menu($a, $b) {
+	function sort_menu($a, $b) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $menu_order, $default_menu_order;
 		$a = $a[2];
 		$b = $b[2];

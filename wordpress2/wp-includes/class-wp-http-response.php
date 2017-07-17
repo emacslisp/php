@@ -51,7 +51,7 @@ class WP_HTTP_Response {
 	 * @param int   $status  Optional. HTTP status code. Default 200.
 	 * @param array $headers Optional. HTTP header map. Default empty array.
 	 */
-	public function __construct( $data = null, $status = 200, $headers = array() ) {
+	public function __construct( $data = null, $status = 200, $headers = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->data = $data;
 		$this->set_status( $status );
 		$this->set_headers( $headers );
@@ -65,7 +65,7 @@ class WP_HTTP_Response {
 	 *
 	 * @return array Map of header name to header value.
 	 */
-	public function get_headers() {
+	public function get_headers() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->headers;
 	}
 
@@ -77,7 +77,7 @@ class WP_HTTP_Response {
 	 *
 	 * @param array $headers Map of header name to header value.
 	 */
-	public function set_headers( $headers ) {
+	public function set_headers( $headers ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->headers = $headers;
 	}
 
@@ -92,7 +92,7 @@ class WP_HTTP_Response {
 	 * @param bool   $replace Optional. Whether to replace an existing header of the same name.
 	 *                        Default true.
 	 */
-	public function header( $key, $value, $replace = true ) {
+	public function header( $key, $value, $replace = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $replace || ! isset( $this->headers[ $key ] ) ) {
 			$this->headers[ $key ] = $value;
 		} else {
@@ -108,7 +108,7 @@ class WP_HTTP_Response {
 	 *
 	 * @return int The 3-digit HTTP status code.
 	 */
-	public function get_status() {
+	public function get_status() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->status;
 	}
 
@@ -120,7 +120,7 @@ class WP_HTTP_Response {
 	 *
 	 * @param int $code HTTP status.
 	 */
-	public function set_status( $code ) {
+	public function set_status( $code ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->status = absint( $code );
 	}
 
@@ -132,7 +132,7 @@ class WP_HTTP_Response {
 	 *
 	 * @return mixed Response data.
 	 */
-	public function get_data() {
+	public function get_data() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->data;
 	}
 
@@ -144,7 +144,7 @@ class WP_HTTP_Response {
 	 *
 	 * @param mixed $data Response data.
 	 */
-	public function set_data( $data ) {
+	public function set_data( $data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->data = $data;
 	}
 
@@ -159,7 +159,7 @@ class WP_HTTP_Response {
 	 *
 	 * @return mixed Any JSON-serializable value.
 	 */
-	public function jsonSerialize() {
+	public function jsonSerialize() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->get_data();
 	}
 }

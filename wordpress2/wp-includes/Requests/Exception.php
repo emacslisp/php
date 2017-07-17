@@ -33,7 +33,7 @@ class Requests_Exception extends Exception {
 	 * @param mixed $data Associated data
 	 * @param integer $code Exception numerical code, if applicable
 	 */
-	public function __construct($message, $type, $data = null, $code = 0) {
+	public function __construct($message, $type, $data = null, $code = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct($message, $code);
 
 		$this->type = $type;
@@ -46,7 +46,7 @@ class Requests_Exception extends Exception {
 	 * @codeCoverageIgnore
 	 * @return string
 	 */
-	public function getType() {
+	public function getType() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->type;
 	}
 
@@ -56,7 +56,7 @@ class Requests_Exception extends Exception {
 	 * @codeCoverageIgnore
 	 * @return mixed
 	 */
-	public function getData() {
+	public function getData() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->data;
 	}
 }

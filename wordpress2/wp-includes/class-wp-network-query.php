@@ -121,7 +121,7 @@ class WP_Network_Query {
 	 *     @type bool         $update_network_cache Whether to prime the cache for found networks. Default true.
 	 * }
 	 */
-	public function __construct( $query = '' ) {
+	public function __construct( $query = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_var_defaults = array(
 			'network__in'          => '',
 			'network__not_in'      => '',
@@ -156,7 +156,7 @@ class WP_Network_Query {
 	 *
 	 * @param string|array $query WP_Network_Query arguments. See WP_Network_Query::__construct()
 	 */
-	public function parse_query( $query = '' ) {
+	public function parse_query( $query = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $query ) ) {
 			$query = $this->query_vars;
 		}
@@ -182,7 +182,7 @@ class WP_Network_Query {
 	 * @param string|array $query Array or URL query string of parameters.
 	 * @return array|int List of networks, or number of networks when 'count' is passed as a query var.
 	 */
-	public function query( $query ) {
+	public function query( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->query_vars = wp_parse_args( $query );
 		return $this->get_networks();
 	}
@@ -195,7 +195,7 @@ class WP_Network_Query {
 	 *
 	 * @return int|array The list of networks.
 	 */
-	public function get_networks() {
+	public function get_networks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->parse_query();
 
 		/**
@@ -283,7 +283,7 @@ class WP_Network_Query {
 	 *
 	 * @return int|array A single count of network IDs if a count query. An array of network IDs if a full query.
 	 */
-	protected function get_network_ids() {
+	protected function get_network_ids() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$order = $this->parse_order( $this->query_vars['order'] );
@@ -458,7 +458,7 @@ class WP_Network_Query {
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 */
-	private function set_found_networks() {
+	private function set_found_networks() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		if ( $this->query_vars['number'] && ! $this->query_vars['no_found_rows'] ) {
@@ -489,7 +489,7 @@ class WP_Network_Query {
 	 *
 	 * @return string Search SQL.
 	 */
-	protected function get_search_sql( $string, $columns ) {
+	protected function get_search_sql( $string, $columns ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$like = '%' . $wpdb->esc_like( $string ) . '%';
@@ -513,7 +513,7 @@ class WP_Network_Query {
 	 * @param string $orderby Alias for the field to order by.
 	 * @return string|false Value to used in the ORDER clause. False otherwise.
 	 */
-	protected function parse_orderby( $orderby ) {
+	protected function parse_orderby( $orderby ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		global $wpdb;
 
 		$allowed_keys = array(
@@ -545,7 +545,7 @@ class WP_Network_Query {
 	 * @param string $order The 'order' query variable.
 	 * @return string The sanitized 'order' query variable.
 	 */
-	protected function parse_order( $order ) {
+	protected function parse_order( $order ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! is_string( $order ) || empty( $order ) ) {
 			return 'ASC';
 		}

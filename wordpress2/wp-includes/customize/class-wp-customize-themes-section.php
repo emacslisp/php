@@ -33,7 +33,7 @@ class WP_Customize_Themes_Section extends WP_Customize_Section {
 	 * @since 4.2.0
 	 * @access protected
 	 */
-	protected function render() {
+	protected function render() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$classes = 'accordion-section control-section control-section-' . $this->type;
 		?>
 		<li id="accordion-section-<?php echo esc_attr( $this->id ); ?>" class="<?php echo esc_attr( $classes ); ?>">

@@ -23,7 +23,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 *
 	 * @param mixed $arg ignored argument
 	 */
-	public function __construct($arg) {
+	public function __construct($arg) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->method = 'direct';
 		$this->errors = new WP_Error();
 	}
@@ -36,7 +36,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file Name of the file to read.
 	 * @return string|bool The function returns the read data or false on failure.
 	 */
-	public function get_contents($file) {
+	public function get_contents($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @file_get_contents($file);
 	}
 
@@ -48,7 +48,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file Path to the file.
 	 * @return array|bool the file contents in an array or false on failure.
 	 */
-	public function get_contents_array($file) {
+	public function get_contents_array($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @file($file);
 	}
 
@@ -63,7 +63,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 *                         Default false.
 	 * @return bool False upon failure, true otherwise.
 	 */
-	public function put_contents( $file, $contents, $mode = false ) {
+	public function put_contents( $file, $contents, $mode = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$fp = @fopen( $file, 'wb' );
 		if ( ! $fp )
 			return false;
@@ -93,7 +93,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 *
 	 * @return string|bool the current working directory on success, or false on failure.
 	 */
-	public function cwd() {
+	public function cwd() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @getcwd();
 	}
 
@@ -105,7 +105,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $dir The new current directory.
 	 * @return bool Returns true on success or false on failure.
 	 */
-	public function chdir($dir) {
+	public function chdir($dir) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @chdir($dir);
 	}
 
@@ -119,7 +119,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param bool   $recursive Optional. If set True changes file group recursively. Default false.
 	 * @return bool Returns true on success or false on failure.
 	 */
-	public function chgrp($file, $group, $recursive = false) {
+	public function chgrp($file, $group, $recursive = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->exists($file) )
 			return false;
 		if ( ! $recursive )
@@ -146,7 +146,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param bool   $recursive Optional. If set True changes file group recursively. Default false.
 	 * @return bool Returns true on success or false on failure.
 	 */
-	public function chmod($file, $mode = false, $recursive = false) {
+	public function chmod($file, $mode = false, $recursive = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $mode ) {
 			if ( $this->is_file($file) )
 				$mode = FS_CHMOD_FILE;
@@ -178,7 +178,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 *                          Default false.
 	 * @return bool Returns true on success or false on failure.
 	 */
-	public function chown($file, $owner, $recursive = false) {
+	public function chown($file, $owner, $recursive = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->exists($file) )
 			return false;
 		if ( ! $recursive )
@@ -201,7 +201,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file Path to the file.
 	 * @return string|bool Username of the user or false on error.
 	 */
-	public function owner($file) {
+	public function owner($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$owneruid = @fileowner($file);
 		if ( ! $owneruid )
 			return false;
@@ -221,7 +221,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file Path to the file.
 	 * @return string Mode of the file (last 3 digits).
 	 */
-	public function getchmod($file) {
+	public function getchmod($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return substr( decoct( @fileperms( $file ) ), -3 );
 	}
 
@@ -231,7 +231,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return string|false
 	 */
-	public function group($file) {
+	public function group($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$gid = @filegroup($file);
 		if ( ! $gid )
 			return false;
@@ -250,7 +250,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param int    $mode
 	 * @return bool
 	 */
-	public function copy($source, $destination, $overwrite = false, $mode = false) {
+	public function copy($source, $destination, $overwrite = false, $mode = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $overwrite && $this->exists($destination) )
 			return false;
 
@@ -268,7 +268,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param bool $overwrite
 	 * @return bool
 	 */
-	public function move($source, $destination, $overwrite = false) {
+	public function move($source, $destination, $overwrite = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $overwrite && $this->exists($destination) )
 			return false;
 
@@ -292,7 +292,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $type
 	 * @return bool
 	 */
-	public function delete($file, $recursive = false, $type = false) {
+	public function delete($file, $recursive = false, $type = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $file ) ) // Some filesystems report this as /, which can cause non-expected recursive deletion of all files in the filesystem.
 			return false;
 		$file = str_replace( '\\', '/', $file ); // for win32, occasional problems deleting files otherwise
@@ -325,7 +325,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function exists($file) {
+	public function exists($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @file_exists($file);
 	}
 	/**
@@ -334,7 +334,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function is_file($file) {
+	public function is_file($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @is_file($file);
 	}
 	/**
@@ -343,7 +343,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $path
 	 * @return bool
 	 */
-	public function is_dir($path) {
+	public function is_dir($path) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @is_dir($path);
 	}
 
@@ -353,7 +353,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function is_readable($file) {
+	public function is_readable($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @is_readable($file);
 	}
 
@@ -363,7 +363,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return bool
 	 */
-	public function is_writable($file) {
+	public function is_writable($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @is_writable($file);
 	}
 
@@ -373,7 +373,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return int
 	 */
-	public function atime($file) {
+	public function atime($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @fileatime($file);
 	}
 
@@ -383,7 +383,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return int
 	 */
-	public function mtime($file) {
+	public function mtime($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @filemtime($file);
 	}
 
@@ -393,7 +393,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param string $file
 	 * @return int
 	 */
-	public function size($file) {
+	public function size($file) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return @filesize($file);
 	}
 
@@ -405,7 +405,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param int $atime
 	 * @return bool
 	 */
-	public function touch($file, $time = 0, $atime = 0) {
+	public function touch($file, $time = 0, $atime = 0) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($time == 0)
 			$time = time();
 		if ($atime == 0)
@@ -422,7 +422,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param mixed  $chgrp
 	 * @return bool
 	 */
-	public function mkdir($path, $chmod = false, $chown = false, $chgrp = false) {
+	public function mkdir($path, $chmod = false, $chown = false, $chgrp = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Safe mode fails with a trailing slash under certain PHP versions.
 		$path = untrailingslashit($path);
 		if ( empty($path) )
@@ -448,7 +448,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param bool $recursive
 	 * @return bool
 	 */
-	public function rmdir($path, $recursive = false) {
+	public function rmdir($path, $recursive = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->delete($path, $recursive);
 	}
 
@@ -460,7 +460,7 @@ class WP_Filesystem_Direct extends WP_Filesystem_Base {
 	 * @param bool $recursive
 	 * @return bool|array
 	 */
-	public function dirlist($path, $include_hidden = true, $recursive = false) {
+	public function dirlist($path, $include_hidden = true, $recursive = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->is_file($path) ) {
 			$limit_file = basename($path);
 			$path = dirname($path);

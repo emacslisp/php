@@ -22,7 +22,7 @@ class WP_Widget_Search extends WP_Widget {
 	 * @since 2.8.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$widget_ops = array(
 			'classname' => 'widget_search',
 			'description' => __( 'A search form for your site.' ),
@@ -41,7 +41,7 @@ class WP_Widget_Search extends WP_Widget {
 	 *                        'before_widget', and 'after_widget'.
 	 * @param array $instance Settings for the current Search widget instance.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
@@ -64,7 +64,7 @@ class WP_Widget_Search extends WP_Widget {
 	 *
 	 * @param array $instance Current settings.
 	 */
-	public function form( $instance ) {
+	public function form( $instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '') );
 		$title = $instance['title'];
 		?>
@@ -83,7 +83,7 @@ class WP_Widget_Search extends WP_Widget {
 	 * @param array $old_instance Old settings for this instance.
 	 * @return array Updated settings.
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$instance = $old_instance;
 		$new_instance = wp_parse_args((array) $new_instance, array( 'title' => ''));
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );

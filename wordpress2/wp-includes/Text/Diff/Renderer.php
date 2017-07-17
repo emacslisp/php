@@ -46,7 +46,7 @@ class Text_Diff_Renderer {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function Text_Diff_Renderer( $params = array() ) {
+	public function Text_Diff_Renderer( $params = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $params );
 	}
 

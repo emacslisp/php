@@ -12,7 +12,7 @@
  *
  * @return string The HTTP protocol. Default: HTTP/1.0.
  */
-function wp_get_server_protocol() {
+function wp_get_server_protocol() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$protocol = $_SERVER['SERVER_PROTOCOL'];
 	if ( ! in_array( $protocol, array( 'HTTP/1.1', 'HTTP/2', 'HTTP/2.0' ) ) ) {
 		$protocol = 'HTTP/1.0';
@@ -26,7 +26,7 @@ function wp_get_server_protocol() {
  * @since 2.1.0
  * @access private
  */
-function wp_unregister_GLOBALS() {
+function wp_unregister_GLOBALS() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !ini_get( 'register_globals' ) )
 		return;
 
@@ -52,7 +52,7 @@ function wp_unregister_GLOBALS() {
  * @global string $PHP_SELF The filename of the currently executing script,
  *                          relative to the document root.
  */
-function wp_fix_server_vars() {
+function wp_fix_server_vars() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $PHP_SELF;
 
 	$default_server_values = array(
@@ -118,7 +118,7 @@ function wp_fix_server_vars() {
  * @global string $required_php_version The required PHP version string.
  * @global string $wp_version           The WordPress version string.
  */
-function wp_check_php_mysql_versions() {
+function wp_check_php_mysql_versions() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $required_php_version, $wp_version;
 	$php_version = phpversion();
 
@@ -149,7 +149,7 @@ function wp_check_php_mysql_versions() {
  *
  * @since 3.0.0
  */
-function wp_favicon_request() {
+function wp_favicon_request() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( '/favicon.ico' == $_SERVER['REQUEST_URI'] ) {
 		header('Content-Type: image/vnd.microsoft.icon');
 		exit;
@@ -172,7 +172,7 @@ function wp_favicon_request() {
  *
  * @global int $upgrading the unix timestamp marking when upgrading WordPress began.
  */
-function wp_maintenance() {
+function wp_maintenance() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! file_exists( ABSPATH . '.maintenance' ) || wp_installing() )
 		return;
 
@@ -238,7 +238,7 @@ function wp_maintenance() {
  *
  * @return bool Always returns true.
  */
-function timer_start() {
+function timer_start() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $timestart;
 	$timestart = microtime( true );
 	return true;
@@ -259,7 +259,7 @@ function timer_start() {
  * @return string The "second.microsecond" finished time calculation. The number is formatted
  *                for human consumption, both localized and rounded.
  */
-function timer_stop( $display = 0, $precision = 3 ) {
+function timer_stop( $display = 0, $precision = 3 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $timestart, $timeend;
 	$timeend = microtime( true );
 	$timetotal = $timeend - $timestart;
@@ -300,7 +300,7 @@ function timer_stop( $display = 0, $precision = 3 ) {
  * @since 3.0.0
  * @access private
  */
-function wp_debug_mode() {
+function wp_debug_mode() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters whether to allow the debug mode check to occur.
 	 *
@@ -351,7 +351,7 @@ function wp_debug_mode() {
  * @since 3.0.0
  * @access private
  */
-function wp_set_lang_dir() {
+function wp_set_lang_dir() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !defined( 'WP_LANG_DIR' ) ) {
 		if ( file_exists( WP_CONTENT_DIR . '/languages' ) && @is_dir( WP_CONTENT_DIR . '/languages' ) || !@is_dir(ABSPATH . WPINC . '/languages') ) {
 			/**
@@ -390,7 +390,7 @@ function wp_set_lang_dir() {
  *
  * @global wpdb $wpdb The WordPress database class.
  */
-function require_wp_db() {
+function require_wp_db() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	require_once( ABSPATH . WPINC . '/wp-db.php' );
@@ -416,7 +416,7 @@ function require_wp_db() {
  * @global wpdb   $wpdb         The WordPress database class.
  * @global string $table_prefix The database table prefix.
  */
-function wp_set_wpdb_vars() {
+function wp_set_wpdb_vars() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb, $table_prefix;
 	if ( !empty( $wpdb->error ) )
 		dead_db();
@@ -454,7 +454,7 @@ function wp_set_wpdb_vars() {
  * @param bool $using Whether external object cache is being used.
  * @return bool The current 'using' setting.
  */
-function wp_using_ext_object_cache( $using = null ) {
+function wp_using_ext_object_cache( $using = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_using_ext_object_cache;
 	$current_using = $_wp_using_ext_object_cache;
 	if ( null !== $using )
@@ -471,14 +471,14 @@ function wp_using_ext_object_cache( $using = null ) {
  * @since 3.0.0
  * @access private
  */
-function wp_start_object_cache() {
+function wp_start_object_cache() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_filter;
 
 	$first_init = false;
- 	if ( ! function_exists( 'wp_cache_init' ) ) {
+ 	if ( ! function_exists( 'wp_cache_init' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( file_exists( WP_CONTENT_DIR . '/object-cache.php' ) ) {
 			require_once ( WP_CONTENT_DIR . '/object-cache.php' );
-			if ( function_exists( 'wp_cache_init' ) ) {
+			if ( function_exists( 'wp_cache_init' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				wp_using_ext_object_cache( true );
 			}
 
@@ -508,13 +508,13 @@ function wp_start_object_cache() {
 	 * initialized. Reset signals to the cache that global IDs
 	 * have changed and it may need to update keys and cleanup caches.
 	 */
-	if ( ! $first_init && function_exists( 'wp_cache_switch_to_blog' ) ) {
+	if ( ! $first_init && function_exists( 'wp_cache_switch_to_blog' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_cache_switch_to_blog( get_current_blog_id() );
-	} elseif ( function_exists( 'wp_cache_init' ) ) {
+	} elseif ( function_exists( 'wp_cache_init' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_cache_init();
 	}
 
-	if ( function_exists( 'wp_cache_add_global_groups' ) ) {
+	if ( function_exists( 'wp_cache_add_global_groups' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_cache_add_global_groups( array( 'users', 'userlogins', 'usermeta', 'user_meta', 'useremail', 'userslugs', 'site-transient', 'site-options', 'site-lookup', 'blog-lookup', 'blog-details', 'site-details', 'rss', 'global-posts', 'blog-id-cache', 'networks', 'sites' ) );
 		wp_cache_add_non_persistent_groups( array( 'counts', 'plugins' ) );
 	}
@@ -528,7 +528,7 @@ function wp_start_object_cache() {
  * @since 3.0.0
  * @access private
  */
-function wp_not_installed() {
+function wp_not_installed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_multisite() ) {
 		if ( ! is_blog_installed() && ! wp_installing() ) {
 			nocache_headers();
@@ -561,7 +561,7 @@ function wp_not_installed() {
  *
  * @return array Files to include.
  */
-function wp_get_mu_plugins() {
+function wp_get_mu_plugins() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$mu_plugins = array();
 	if ( !is_dir( WPMU_PLUGIN_DIR ) )
 		return $mu_plugins;
@@ -591,7 +591,7 @@ function wp_get_mu_plugins() {
  *
  * @return array Files.
  */
-function wp_get_active_and_valid_plugins() {
+function wp_get_active_and_valid_plugins() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$plugins = array();
 	$active_plugins = (array) get_option( 'active_plugins', array() );
 
@@ -627,8 +627,8 @@ function wp_get_active_and_valid_plugins() {
  * @since 3.0.0
  * @access private
  */
-function wp_set_internal_encoding() {
-	if ( function_exists( 'mb_internal_encoding' ) ) {
+function wp_set_internal_encoding() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	if ( function_exists( 'mb_internal_encoding' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$charset = get_option( 'blog_charset' );
 		if ( ! $charset || ! @mb_internal_encoding( $charset ) )
 			mb_internal_encoding( 'UTF-8' );
@@ -644,7 +644,7 @@ function wp_set_internal_encoding() {
  * @since 3.0.0
  * @access private
  */
-function wp_magic_quotes() {
+function wp_magic_quotes() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// If already slashed, strip.
 	if ( get_magic_quotes_gpc() ) {
 		$_GET    = stripslashes_deep( $_GET    );
@@ -668,7 +668,7 @@ function wp_magic_quotes() {
  * @since 1.2.0
  * @access private
  */
-function shutdown_action_hook() {
+function shutdown_action_hook() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires just before PHP shuts down execution.
 	 *
@@ -688,7 +688,7 @@ function shutdown_action_hook() {
  * @param object $object The object to clone.
  * @return object The cloned object.
  */
-function wp_clone( $object ) {
+function wp_clone( $object ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Use parens for clone to accommodate PHP 4. See #17880
 	return clone( $object );
 }
@@ -705,7 +705,7 @@ function wp_clone( $object ) {
  *
  * @return bool True if inside WordPress administration interface, false otherwise.
  */
-function is_admin() {
+function is_admin() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $GLOBALS['current_screen'] ) )
 		return $GLOBALS['current_screen']->in_admin();
 	elseif ( defined( 'WP_ADMIN' ) )
@@ -728,7 +728,7 @@ function is_admin() {
  *
  * @return bool True if inside WordPress blog administration pages.
  */
-function is_blog_admin() {
+function is_blog_admin() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $GLOBALS['current_screen'] ) )
 		return $GLOBALS['current_screen']->in_admin( 'site' );
 	elseif ( defined( 'WP_BLOG_ADMIN' ) )
@@ -751,7 +751,7 @@ function is_blog_admin() {
  *
  * @return bool True if inside WordPress network administration pages.
  */
-function is_network_admin() {
+function is_network_admin() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $GLOBALS['current_screen'] ) )
 		return $GLOBALS['current_screen']->in_admin( 'network' );
 	elseif ( defined( 'WP_NETWORK_ADMIN' ) )
@@ -775,7 +775,7 @@ function is_network_admin() {
  *
  * @return bool True if inside WordPress user administration pages.
  */
-function is_user_admin() {
+function is_user_admin() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $GLOBALS['current_screen'] ) )
 		return $GLOBALS['current_screen']->in_admin( 'user' );
 	elseif ( defined( 'WP_USER_ADMIN' ) )
@@ -791,7 +791,7 @@ function is_user_admin() {
  *
  * @return bool True if Multisite is enabled, false otherwise.
  */
-function is_multisite() {
+function is_multisite() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( defined( 'MULTISITE' ) )
 		return MULTISITE;
 
@@ -810,7 +810,7 @@ function is_multisite() {
  *
  * @return int Site ID.
  */
-function get_current_blog_id() {
+function get_current_blog_id() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $blog_id;
 	return absint($blog_id);
 }
@@ -822,7 +822,7 @@ function get_current_blog_id() {
  *
  * @return int The ID of the current network.
  */
-function get_current_network_id() {
+function get_current_network_id() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! is_multisite() ) {
 		return 1;
 	}
@@ -853,7 +853,7 @@ function get_current_network_id() {
  *
  * @staticvar bool $loaded
  */
-function wp_load_translations_early() {
+function wp_load_translations_early() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_locale;
 
 	static $loaded = false;
@@ -939,7 +939,7 @@ function wp_load_translations_early() {
  * @return bool True if WP is installing, otherwise false. When a `$is_installing` is passed, the function will
  *              report whether WP was in installing mode prior to the change to `$is_installing`.
  */
-function wp_installing( $is_installing = null ) {
+function wp_installing( $is_installing = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $installing = null;
 
 	// Support for the `WP_INSTALLING` constant, defined before WP is loaded.
@@ -964,7 +964,7 @@ function wp_installing( $is_installing = null ) {
  *
  * @return bool True if SSL, otherwise false.
  */
-function is_ssl() {
+function is_ssl() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $_SERVER['HTTPS'] ) ) {
 		if ( 'on' == strtolower( $_SERVER['HTTPS'] ) ) {
 			return true;
@@ -991,7 +991,7 @@ function is_ssl() {
  * @param string $value A (PHP ini) byte value, either shorthand or ordinary.
  * @return int An integer byte value.
  */
-function wp_convert_hr_to_bytes( $value ) {
+function wp_convert_hr_to_bytes( $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$value = strtolower( trim( $value ) );
 	$bytes = (int) $value;
 
@@ -1017,13 +1017,13 @@ function wp_convert_hr_to_bytes( $value ) {
  * @param string $setting The name of the ini setting to check.
  * @return bool True if the value is changeable at runtime. False otherwise.
  */
-function wp_is_ini_value_changeable( $setting ) {
+function wp_is_ini_value_changeable( $setting ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $ini_all;
 
 	if ( ! isset( $ini_all ) ) {
 		$ini_all = false;
 		// Sometimes `ini_get_all()` is disabled via the `disable_functions` option for "security purposes".
-		if ( function_exists( 'ini_get_all' ) ) {
+		if ( function_exists( 'ini_get_all' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			$ini_all = ini_get_all();
 		}
  	}
@@ -1048,7 +1048,7 @@ function wp_is_ini_value_changeable( $setting ) {
  *
  * @return bool True if it's a WordPress Ajax request, false otherwise.
  */
-function wp_doing_ajax() {
+function wp_doing_ajax() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Filters whether the current request is a WordPress Ajax request.
 	 *
@@ -1069,6 +1069,6 @@ function wp_doing_ajax() {
  * @param mixed $thing Check if unknown variable is a WP_Error object.
  * @return bool True, if WP_Error. False, if not WP_Error.
  */
-function is_wp_error( $thing ) {
+function is_wp_error( $thing ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return ( $thing instanceof WP_Error );
 }

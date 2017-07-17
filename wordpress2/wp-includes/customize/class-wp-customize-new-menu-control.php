@@ -31,7 +31,7 @@ class WP_Customize_New_Menu_Control extends WP_Customize_Control {
 	 * @since 4.3.0
 	 * @access public
 	 */
-	public function render_content() {
+	public function render_content() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		?>
 		<button type="button" class="button button-primary" id="create-new-menu-submit"><?php _e( 'Create Menu' ); ?></button>
 		<span class="spinner"></span>

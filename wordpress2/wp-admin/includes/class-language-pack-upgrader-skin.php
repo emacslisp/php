@@ -25,7 +25,7 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @param array $args
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$defaults = array( 'url' => '', 'nonce' => '', 'title' => __( 'Update Translations' ), 'skip_header_footer' => false );
 		$args = wp_parse_args( $args, $defaults );
 		if ( $args['skip_header_footer'] ) {
@@ -39,7 +39,7 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function before() {
+	public function before() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$name = $this->upgrader->get_name_for_update( $this->language_update );
 
 		echo '<div class="update-messages lp-show-latest">';
@@ -51,7 +51,7 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 	 *
 	 * @param string|WP_Error $error
 	 */
-	public function error( $error ) {
+	public function error( $error ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo '<div class="lp-error">';
 		parent::error( $error );
 		echo '</div>';
@@ -60,14 +60,14 @@ class Language_Pack_Upgrader_Skin extends WP_Upgrader_Skin {
 	/**
 	 * @access public
 	 */
-	public function after() {
+	public function after() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		echo '</div>';
 	}
 
 	/**
 	 * @access public
 	 */
-	public function bulk_footer() {
+	public function bulk_footer() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->decrement_update_count( 'translation' );
 		$update_actions = array();
 		$update_actions['updates_page'] = '<a href="' . self_admin_url( 'update-core.php' ) . '" target="_parent">' . __( 'Return to WordPress Updates page' ) . '</a>';

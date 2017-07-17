@@ -36,7 +36,7 @@
  *		                       trackback, or pingback.
  * @return bool If all checks pass, true, otherwise false.
  */
-function check_comment($author, $email, $url, $comment, $user_ip, $user_agent, $comment_type) {
+function check_comment($author, $email, $url, $comment, $user_ip, $user_agent, $comment_type) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	// If manual moderation is enabled, skip all checks and return false.
@@ -142,7 +142,7 @@ function check_comment($author, $email, $url, $comment, $user_ip, $user_agent, $
  * @return int|array $comments The approved comments, or number of comments if `$count`
  *                             argument is true.
  */
-function get_approved_comments( $post_id, $args = array() ) {
+function get_approved_comments( $post_id, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $post_id ) {
 		return array();
 	}
@@ -174,7 +174,7 @@ function get_approved_comments( $post_id, $args = array() ) {
  *                                       a WP_Comment object, an associative array, or a numeric array, respectively. Default OBJECT.
  * @return WP_Comment|array|null Depends on $output value.
  */
-function get_comment( &$comment = null, $output = OBJECT ) {
+function get_comment( &$comment = null, $output = OBJECT ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $comment ) && isset( $GLOBALS['comment'] ) ) {
 		$comment = $GLOBALS['comment'];
 	}
@@ -221,7 +221,7 @@ function get_comment( &$comment = null, $output = OBJECT ) {
  *                           for information on accepted arguments. Default empty.
  * @return int|array List of comments or number of found comments if `$count` argument is true.
  */
-function get_comments( $args = '' ) {
+function get_comments( $args = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$query = new WP_Comment_Query;
 	return $query->query( $args );
 }
@@ -236,7 +236,7 @@ function get_comments( $args = '' ) {
  *
  * @return array List of comment statuses.
  */
-function get_comment_statuses() {
+function get_comment_statuses() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$status = array(
 		'hold'		=> __( 'Unapproved' ),
 		'approve'	=> _x( 'Approved', 'comment status' ),
@@ -256,7 +256,7 @@ function get_comment_statuses() {
  * @param string $comment_type Optional. Comment type. Default 'comment'.
  * @return string Expected return value is 'open' or 'closed'.
  */
-function get_default_comment_status( $post_type = 'post', $comment_type = 'comment' ) {
+function get_default_comment_status( $post_type = 'post', $comment_type = 'comment' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	switch ( $comment_type ) {
 		case 'pingback' :
 		case 'trackback' :
@@ -302,7 +302,7 @@ function get_default_comment_status( $post_type = 'post', $comment_type = 'comme
  * @param string $timezone Which timezone to use in reference to 'gmt', 'blog', or 'server' locations.
  * @return string|false Last comment modified date on success, false on failure.
  */
-function get_lastcommentmodified( $timezone = 'server' ) {
+function get_lastcommentmodified( $timezone = 'server' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$timezone = strtolower( $timezone );
@@ -349,7 +349,7 @@ function get_lastcommentmodified( $timezone = 'server' ) {
  * @param int $post_id Optional. Comment amount in post if > 0, else total comments blog wide.
  * @return array The amount of spam, approved, awaiting moderation, and total comments.
  */
-function get_comment_count( $post_id = 0 ) {
+function get_comment_count( $post_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$post_id = (int) $post_id;
@@ -422,7 +422,7 @@ function get_comment_count( $post_id = 0 ) {
  * @param bool $unique Optional, default is false. Whether the same key should not be added.
  * @return int|bool Meta ID on success, false on failure.
  */
-function add_comment_meta($comment_id, $meta_key, $meta_value, $unique = false) {
+function add_comment_meta($comment_id, $meta_key, $meta_value, $unique = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return add_metadata('comment', $comment_id, $meta_key, $meta_value, $unique);
 }
 
@@ -441,7 +441,7 @@ function add_comment_meta($comment_id, $meta_key, $meta_value, $unique = false) 
  * @param mixed $meta_value Optional. Metadata value.
  * @return bool True on success, false on failure.
  */
-function delete_comment_meta($comment_id, $meta_key, $meta_value = '') {
+function delete_comment_meta($comment_id, $meta_key, $meta_value = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return delete_metadata('comment', $comment_id, $meta_key, $meta_value);
 }
 
@@ -457,7 +457,7 @@ function delete_comment_meta($comment_id, $meta_key, $meta_value = '') {
  * @return mixed Will be an array if $single is false. Will be value of meta data field if $single
  *  is true.
  */
-function get_comment_meta($comment_id, $key = '', $single = false) {
+function get_comment_meta($comment_id, $key = '', $single = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return get_metadata('comment', $comment_id, $key, $single);
 }
 
@@ -478,7 +478,7 @@ function get_comment_meta($comment_id, $key = '', $single = false) {
  * @param mixed $prev_value Optional. Previous value to check before removing.
  * @return int|bool Meta ID if the key didn't exist, true on successful update, false on failure.
  */
-function update_comment_meta($comment_id, $meta_key, $meta_value, $prev_value = '') {
+function update_comment_meta($comment_id, $meta_key, $meta_value, $prev_value = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return update_metadata('comment', $comment_id, $meta_key, $meta_value, $prev_value);
 }
 
@@ -489,7 +489,7 @@ function update_comment_meta($comment_id, $meta_key, $meta_value, $prev_value = 
  *
  * @param array $comments Array of comment objects.
  */
-function wp_queue_comments_for_comment_meta_lazyload( $comments ) {
+function wp_queue_comments_for_comment_meta_lazyload( $comments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Don't use `wp_list_pluck()` to avoid by-reference manipulation.
 	$comment_ids = array();
 	if ( is_array( $comments ) ) {
@@ -515,7 +515,7 @@ function wp_queue_comments_for_comment_meta_lazyload( $comments ) {
  *
  * @since 3.4.0
  */
-function wp_set_comment_cookies($comment, $user) {
+function wp_set_comment_cookies($comment, $user) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $user->exists() )
 		return;
 
@@ -541,7 +541,7 @@ function wp_set_comment_cookies($comment, $user) {
  *
  * @since 2.0.4
  */
-function sanitize_comment_cookies() {
+function sanitize_comment_cookies() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $_COOKIE['comment_author_' . COOKIEHASH] ) ) {
 		/**
 		 * Filters the comment author's name cookie before it is set.
@@ -609,7 +609,7 @@ function sanitize_comment_cookies() {
  * @return int|string|WP_Error Allowed comments return the approval status (0|1|'spam').
  *                             If `$avoid_die` is true, disallowed comments return a WP_Error.
  */
-function wp_allow_comment( $commentdata, $avoid_die = false ) {
+function wp_allow_comment( $commentdata, $avoid_die = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	// Simple duplicate check
@@ -775,7 +775,7 @@ function wp_allow_comment( $commentdata, $avoid_die = false ) {
  * @since 2.3.0
  * @since 4.7.0 Converted to be an add_filter() wrapper.
  */
-function check_comment_flood_db() {
+function check_comment_flood_db() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	add_filter( 'wp_is_comment_flood', 'wp_check_comment_flood', 10, 5 );
 }
 
@@ -798,7 +798,7 @@ function check_comment_flood_db() {
  *                          Default false.
  * @return bool Whether comment flooding is occurring.
  */
-function wp_check_comment_flood( $is_flood, $ip, $email, $date, $avoid_die = false ) {
+function wp_check_comment_flood( $is_flood, $ip, $email, $date, $avoid_die = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	global $wpdb;
 
@@ -874,7 +874,7 @@ function wp_check_comment_flood( $is_flood, $ip, $email, $date, $avoid_die = fal
  * @param array $comments Array of comments
  * @return array Array of comments keyed by comment_type.
  */
-function separate_comments(&$comments) {
+function separate_comments(&$comments) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comments_by_type = array('comment' => array(), 'trackback' => array(), 'pingback' => array(), 'pings' => array());
 	$count = count($comments);
 	for ( $i = 0; $i < $count; $i++ ) {
@@ -903,7 +903,7 @@ function separate_comments(&$comments) {
  * @param bool  $threaded Optional control over flat or threaded comments.
  * @return int Number of comment pages.
  */
-function get_comment_pages_count( $comments = null, $per_page = null, $threaded = null ) {
+function get_comment_pages_count( $comments = null, $per_page = null, $threaded = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_query;
 
 	if ( null === $comments && null === $per_page && null === $threaded && !empty($wp_query->max_num_comment_pages) )
@@ -959,7 +959,7 @@ function get_comment_pages_count( $comments = null, $per_page = null, $threaded 
  * } *
  * @return int|null Comment page number or null on error.
  */
-function get_page_of_comment( $comment_ID, $args = array() ) {
+function get_page_of_comment( $comment_ID, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$page = null;
@@ -1070,7 +1070,7 @@ function get_page_of_comment( $comment_ID, $args = array() ) {
  *
  * @return array Maximum character length for the comment form fields.
  */
-function wp_get_comment_fields_max_lengths() {
+function wp_get_comment_fields_max_lengths() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$lengths = array(
@@ -1125,7 +1125,7 @@ function wp_get_comment_fields_max_lengths() {
  * @return WP_Error|true WP_Error when a comment field exceeds the limit,
  *                       otherwise true.
  */
-function wp_check_comment_data_max_lengths( $comment_data ) {
+function wp_check_comment_data_max_lengths( $comment_data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$max_lengths = wp_get_comment_fields_max_lengths();
 
 	if ( isset( $comment_data['comment_author'] ) && mb_strlen( $comment_data['comment_author'], '8bit' ) > $max_lengths['comment_author'] ) {
@@ -1160,7 +1160,7 @@ function wp_check_comment_data_max_lengths( $comment_data ) {
  * @param string $user_agent The author's browser user agent
  * @return bool True if comment contains blacklisted content, false if comment does not
  */
-function wp_blacklist_check($author, $email, $url, $comment, $user_ip, $user_agent) {
+function wp_blacklist_check($author, $email, $url, $comment, $user_ip, $user_agent) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/**
 	 * Fires before the comment is tested for blacklisted characters or words.
 	 *
@@ -1225,7 +1225,7 @@ function wp_blacklist_check($author, $email, $url, $comment, $user_ip, $user_age
  * @param int $post_id Optional. Post ID.
  * @return object|array Comment stats.
  */
-function wp_count_comments( $post_id = 0 ) {
+function wp_count_comments( $post_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post_id = (int) $post_id;
 
 	/**
@@ -1273,7 +1273,7 @@ function wp_count_comments( $post_id = 0 ) {
  * @param bool           $force_delete Whether to bypass trash and force deletion. Default is false.
  * @return bool True on success, false on failure.
  */
-function wp_delete_comment($comment_id, $force_delete = false) {
+function wp_delete_comment($comment_id, $force_delete = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	if (!$comment = get_comment($comment_id))
 		return false;
@@ -1337,7 +1337,7 @@ function wp_delete_comment($comment_id, $force_delete = false) {
  * @param int|WP_Comment $comment_id Comment ID or WP_Comment object.
  * @return bool True on success, false on failure.
  */
-function wp_trash_comment($comment_id) {
+function wp_trash_comment($comment_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !EMPTY_TRASH_DAYS )
 		return wp_delete_comment($comment_id, true);
 
@@ -1381,7 +1381,7 @@ function wp_trash_comment($comment_id) {
  * @param int|WP_Comment $comment_id Comment ID or WP_Comment object.
  * @return bool True on success, false on failure.
  */
-function wp_untrash_comment($comment_id) {
+function wp_untrash_comment($comment_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_id );
 	if ( ! $comment ) {
 		return false;
@@ -1425,7 +1425,7 @@ function wp_untrash_comment($comment_id) {
  * @param int|WP_Comment $comment_id Comment ID or WP_Comment object.
  * @return bool True on success, false on failure.
  */
-function wp_spam_comment( $comment_id ) {
+function wp_spam_comment( $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_id );
 	if ( ! $comment ) {
 		return false;
@@ -1467,7 +1467,7 @@ function wp_spam_comment( $comment_id ) {
  * @param int|WP_Comment $comment_id Comment ID or WP_Comment object.
  * @return bool True on success, false on failure.
  */
-function wp_unspam_comment( $comment_id ) {
+function wp_unspam_comment( $comment_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_id );
 	if ( ! $comment ) {
 		return false;
@@ -1511,7 +1511,7 @@ function wp_unspam_comment( $comment_id ) {
  * @param int|WP_Comment $comment_id Comment ID or WP_Comment object
  * @return false|string Status might be 'trash', 'approved', 'unapproved', 'spam'. False on failure.
  */
-function wp_get_comment_status($comment_id) {
+function wp_get_comment_status($comment_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment($comment_id);
 	if ( !$comment )
 		return false;
@@ -1550,7 +1550,7 @@ function wp_get_comment_status($comment_id) {
  * @param string $old_status Previous comment status.
  * @param object $comment Comment data.
  */
-function wp_transition_comment_status($new_status, $old_status, $comment) {
+function wp_transition_comment_status($new_status, $old_status, $comment) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	/*
 	 * Translate raw statuses to human readable formats for the hooks.
 	 * This is not a complete list of comment status, it's only the ones
@@ -1618,7 +1618,7 @@ function wp_transition_comment_status($new_status, $old_status, $comment) {
  * @param string $new_status The new comment status.
  * @param string $old_status The old comment status.
  */
-function _clear_modified_cache_on_transition_comment_status( $new_status, $old_status ) {
+function _clear_modified_cache_on_transition_comment_status( $new_status, $old_status ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( 'approved' === $new_status || 'approved' === $old_status ) {
 		foreach ( array( 'server', 'gmt', 'blog' ) as $timezone ) {
 			wp_cache_delete( "lastcommentmodified:$timezone", 'timeinfo' );
@@ -1638,7 +1638,7 @@ function _clear_modified_cache_on_transition_comment_status( $new_status, $old_s
  *
  * @return array Comment author, email, url respectively.
  */
-function wp_get_current_commenter() {
+function wp_get_current_commenter() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	// Cookies should already be sanitized.
 
 	$comment_author = '';
@@ -1704,7 +1704,7 @@ function wp_get_current_commenter() {
  * }
  * @return int|false The new comment's ID on success, false on failure.
  */
-function wp_insert_comment( $commentdata ) {
+function wp_insert_comment( $commentdata ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	$data = wp_unslash( $commentdata );
 
@@ -1777,7 +1777,7 @@ function wp_insert_comment( $commentdata ) {
  * @param array $commentdata Contains information on the comment.
  * @return array Parsed comment information.
  */
-function wp_filter_comment($commentdata) {
+function wp_filter_comment($commentdata) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( isset( $commentdata['user_ID'] ) ) {
 		/**
 		 * Filters the comment author's user id before it is set.
@@ -1839,7 +1839,7 @@ function wp_filter_comment($commentdata) {
  * @param int $time_newcomment Timestamp for new comment.
  * @return bool Whether comment should be blocked.
  */
-function wp_throttle_comment_flood($block, $time_lastcomment, $time_newcomment) {
+function wp_throttle_comment_flood($block, $time_lastcomment, $time_newcomment) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $block ) // a plugin has already blocked... we'll let that decision stand
 		return $block;
 	if ( ($time_newcomment - $time_lastcomment) < 15 )
@@ -1891,7 +1891,7 @@ function wp_throttle_comment_flood($block, $time_lastcomment, $time_newcomment) 
  *                        executing wp_die()? Default false.
  * @return int|false|WP_Error The ID of the comment on success, false or WP_Error on failure.
  */
-function wp_new_comment( $commentdata, $avoid_die = false ) {
+function wp_new_comment( $commentdata, $avoid_die = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( isset( $commentdata['user_ID'] ) ) {
@@ -1991,7 +1991,7 @@ function wp_new_comment( $commentdata, $avoid_die = false ) {
  * @param int $comment_ID ID of the comment.
  * @return bool True on success, false on failure.
  */
-function wp_new_comment_notify_moderator( $comment_ID ) {
+function wp_new_comment_notify_moderator( $comment_ID ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 
 	// Only send notifications for pending comments.
@@ -2018,7 +2018,7 @@ function wp_new_comment_notify_moderator( $comment_ID ) {
  * @param int $comment_ID Comment ID.
  * @return bool True on success, false on failure.
  */
-function wp_new_comment_notify_postauthor( $comment_ID ) {
+function wp_new_comment_notify_postauthor( $comment_ID ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$comment = get_comment( $comment_ID );
 
 	$maybe_notify = get_option( 'comments_notify' );
@@ -2065,7 +2065,7 @@ function wp_new_comment_notify_postauthor( $comment_ID ) {
  * @param bool           $wp_error       Whether to return a WP_Error object if there is a failure. Default is false.
  * @return bool|WP_Error True on success, false or WP_Error on failure.
  */
-function wp_set_comment_status($comment_id, $comment_status, $wp_error = false) {
+function wp_set_comment_status($comment_id, $comment_status, $wp_error = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	switch ( $comment_status ) {
@@ -2132,7 +2132,7 @@ function wp_set_comment_status($comment_id, $comment_status, $wp_error = false) 
  * @param array $commentarr Contains information on the comment.
  * @return int Comment was updated if value is 1, or was not updated if value is 0.
  */
-function wp_update_comment($commentarr) {
+function wp_update_comment($commentarr) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	// First, get all of the original fields
@@ -2232,7 +2232,7 @@ function wp_update_comment($commentarr) {
  * @param bool $defer
  * @return bool
  */
-function wp_defer_comment_counting($defer=null) {
+function wp_defer_comment_counting($defer=null) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $_defer = false;
 
 	if ( is_bool($defer) ) {
@@ -2267,7 +2267,7 @@ function wp_defer_comment_counting($defer=null) {
  * @return bool|void True on success, false on failure or if post with ID does
  *                   not exist.
  */
-function wp_update_comment_count($post_id, $do_deferred=false) {
+function wp_update_comment_count($post_id, $do_deferred=false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	static $_deferred = array();
 
 	if ( empty( $post_id ) && ! $do_deferred ) {
@@ -2302,7 +2302,7 @@ function wp_update_comment_count($post_id, $do_deferred=false) {
  * @param int $post_id Post ID
  * @return bool True on success, false on '0' $post_id or if post with ID does not exist.
  */
-function wp_update_comment_count_now($post_id) {
+function wp_update_comment_count_now($post_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	$post_id = (int) $post_id;
 	if ( !$post_id )
@@ -2370,7 +2370,7 @@ function wp_update_comment_count_now($post_id) {
  * @param int $deprecated Not Used.
  * @return false|string False on failure, string containing URI on success.
  */
-function discover_pingback_server_uri( $url, $deprecated = '' ) {
+function discover_pingback_server_uri( $url, $deprecated = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( !empty( $deprecated ) )
 		_deprecated_argument( __FUNCTION__, '2.7.0' );
 
@@ -2435,7 +2435,7 @@ function discover_pingback_server_uri( $url, $deprecated = '' ) {
  *
  * @global wpdb $wpdb WordPress database abstraction object.
  */
-function do_all_pings() {
+function do_all_pings() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	// Do pingbacks
@@ -2470,7 +2470,7 @@ function do_all_pings() {
  *
  * @param int|WP_Post $post_id Post object or ID to do trackbacks on.
  */
-function do_trackbacks( $post_id ) {
+function do_trackbacks( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 	$post = get_post( $post_id );
 	if ( ! $post ) {
@@ -2521,7 +2521,7 @@ function do_trackbacks( $post_id ) {
  * @param int $post_id Post ID.
  * @return int Same as Post ID from parameter
  */
-function generic_ping( $post_id = 0 ) {
+function generic_ping( $post_id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$services = get_option('ping_sites');
 
 	$services = explode("\n", $services);
@@ -2543,7 +2543,7 @@ function generic_ping( $post_id = 0 ) {
  * @param string $content Post content to check for links. If empty will retrieve from post.
  * @param int|WP_Post $post_id Post Object or ID.
  */
-function pingback( $content, $post_id ) {
+function pingback( $content, $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	include_once( ABSPATH . WPINC . '/class-IXR.php' );
 	include_once( ABSPATH . WPINC . '/class-wp-http-ixr-client.php' );
 
@@ -2639,7 +2639,7 @@ function pingback( $content, $post_id ) {
  * @param mixed $sites Will return if blog is public, will not return if not public.
  * @return mixed Empty string if blog is not public, returns $sites, if site is public.
  */
-function privacy_ping_filter($sites) {
+function privacy_ping_filter($sites) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( '0' != get_option('blog_public') )
 		return $sites;
 	else
@@ -2661,7 +2661,7 @@ function privacy_ping_filter($sites) {
  * @param int $ID Post ID.
  * @return int|false|void Database query from update.
  */
-function trackback($trackback_url, $title, $excerpt, $ID) {
+function trackback($trackback_url, $title, $excerpt, $ID) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	if ( empty($trackback_url) )
@@ -2693,7 +2693,7 @@ function trackback($trackback_url, $title, $excerpt, $ID) {
  * @param string $server Host of blog to connect to.
  * @param string $path Path to send the ping.
  */
-function weblog_ping($server = '', $path = '') {
+function weblog_ping($server = '', $path = '') {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	include_once( ABSPATH . WPINC . '/class-IXR.php' );
 	include_once( ABSPATH . WPINC . '/class-wp-http-ixr-client.php' );
 
@@ -2718,7 +2718,7 @@ function weblog_ping($server = '', $path = '') {
  * @param string $source_uri
  * @return string
  */
-function pingback_ping_source_uri( $source_uri ) {
+function pingback_ping_source_uri( $source_uri ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	return (string) wp_http_validate_url( $source_uri );
 }
 
@@ -2734,7 +2734,7 @@ function pingback_ping_source_uri( $source_uri ) {
  * @param IXR_Error $ixr_error
  * @return IXR_Error
  */
-function xmlrpc_pingback_error( $ixr_error ) {
+function xmlrpc_pingback_error( $ixr_error ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $ixr_error->code === 48 )
 		return $ixr_error;
 	return new IXR_Error( 0, '' );
@@ -2751,7 +2751,7 @@ function xmlrpc_pingback_error( $ixr_error ) {
  *
  * @param int|array $ids Comment ID or an array of comment IDs to remove from cache.
  */
-function clean_comment_cache($ids) {
+function clean_comment_cache($ids) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	foreach ( (array) $ids as $id ) {
 		wp_cache_delete( $id, 'comment' );
 
@@ -2781,7 +2781,7 @@ function clean_comment_cache($ids) {
  * @param array $comments          Array of comment row objects
  * @param bool  $update_meta_cache Whether to update commentmeta cache. Default true.
  */
-function update_comment_cache( $comments, $update_meta_cache = true ) {
+function update_comment_cache( $comments, $update_meta_cache = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	foreach ( (array) $comments as $comment )
 		wp_cache_add($comment->comment_ID, $comment, 'comment');
 
@@ -2807,7 +2807,7 @@ function update_comment_cache( $comments, $update_meta_cache = true ) {
  * @param array $comment_ids       Array of comment IDs.
  * @param bool  $update_meta_cache Optional. Whether to update the meta cache. Default true.
  */
-function _prime_comment_caches( $comment_ids, $update_meta_cache = true ) {
+function _prime_comment_caches( $comment_ids, $update_meta_cache = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wpdb;
 
 	$non_cached_ids = _get_non_cached_ids( $comment_ids, 'comment' );
@@ -2832,7 +2832,7 @@ function _prime_comment_caches( $comment_ids, $update_meta_cache = true ) {
  * @param WP_Query $query Query object.
  * @return array
  */
-function _close_comments_for_old_posts( $posts, $query ) {
+function _close_comments_for_old_posts( $posts, $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( empty( $posts ) || ! $query->is_singular() || ! get_option( 'close_comments_for_old_posts' ) )
 		return $posts;
 
@@ -2869,7 +2869,7 @@ function _close_comments_for_old_posts( $posts, $query ) {
  * @param int $post_id Post ID
  * @return bool $open
  */
-function _close_comments_for_old_post( $open, $post_id ) {
+function _close_comments_for_old_post( $open, $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( ! $open )
 		return $open;
 
@@ -2919,7 +2919,7 @@ function _close_comments_for_old_post( $open, $post_id ) {
  * }
  * @return WP_Comment|WP_Error A WP_Comment object on success, a WP_Error object on failure.
  */
-function wp_handle_comment_submission( $comment_data ) {
+function wp_handle_comment_submission( $comment_data ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 
 	$comment_post_ID = $comment_parent = 0;
 	$comment_author = $comment_author_email = $comment_author_url = $comment_content = null;

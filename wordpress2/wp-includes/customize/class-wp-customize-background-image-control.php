@@ -25,7 +25,7 @@ class WP_Customize_Background_Image_Control extends WP_Customize_Image_Control {
 	 *
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 */
-	public function __construct( $manager ) {
+	public function __construct( $manager ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( $manager, 'background_image', array(
 			'label'    => __( 'Background Image' ),
 			'section'  => 'background_image',
@@ -37,7 +37,7 @@ class WP_Customize_Background_Image_Control extends WP_Customize_Image_Control {
 	 *
 	 * @since 4.1.0
 	 */
-	public function enqueue() {
+	public function enqueue() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::enqueue();
 
 		$custom_background = get_theme_support( 'custom-background' );

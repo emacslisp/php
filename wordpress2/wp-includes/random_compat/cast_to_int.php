@@ -26,7 +26,7 @@
  * SOFTWARE.
  */
 
-if (!function_exists('RandomCompat_intval')) {
+if (!function_exists('RandomCompat_intval')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
     
     /**
      * Cast to an integer if we can, safely.

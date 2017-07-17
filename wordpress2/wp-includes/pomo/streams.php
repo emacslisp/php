@@ -17,7 +17,7 @@ class POMO_Reader {
 	/**
 	 * PHP5 constructor.
 	 */
-	function __construct() {
+	function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->is_overloaded = ((ini_get("mbstring.func_overload") & 2) != 0) && function_exists('mb_substr');
 		$this->_pos = 0;
 	}
@@ -25,7 +25,7 @@ class POMO_Reader {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function POMO_Reader() {
+	public function POMO_Reader() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct();
 	}
 
@@ -34,7 +34,7 @@ class POMO_Reader {
 	 *
 	 * @param $endian string 'big' or 'little'
 	 */
-	function setEndian($endian) {
+	function setEndian($endian) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->endian = $endian;
 	}
 
@@ -44,7 +44,7 @@ class POMO_Reader {
 	 * @return mixed The integer, corresponding to the next 32 bits from
 	 * 	the stream of false if there are not enough bytes or on error
 	 */
-	function readint32() {
+	function readint32() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$bytes = $this->read(4);
 		if (4 != $this->strlen($bytes))
 			return false;
@@ -60,7 +60,7 @@ class POMO_Reader {
 	 * @return mixed Array of integers or false if there isn't
 	 * 	enough data or on error
 	 */
-	function readint32array($count) {
+	function readint32array($count) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$bytes = $this->read(4 * $count);
 		if (4*$count != $this->strlen($bytes))
 			return false;
@@ -74,7 +74,7 @@ class POMO_Reader {
 	 * @param int    $length
 	 * @return string
 	 */
-	function substr($string, $start, $length) {
+	function substr($string, $start, $length) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($this->is_overloaded) {
 			return mb_substr($string, $start, $length, 'ascii');
 		} else {
@@ -86,7 +86,7 @@ class POMO_Reader {
 	 * @param string $string
 	 * @return int
 	 */
-	function strlen($string) {
+	function strlen($string) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ($this->is_overloaded) {
 			return mb_strlen($string, 'ascii');
 		} else {
@@ -99,8 +99,8 @@ class POMO_Reader {
 	 * @param int    $chunk_size
 	 * @return array
 	 */
-	function str_split($string, $chunk_size) {
-		if (!function_exists('str_split')) {
+	function str_split($string, $chunk_size) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		if (!function_exists('str_split')) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			$length = $this->strlen($string);
 			$out = array();
 			for ($i = 0; $i < $length; $i += $chunk_size)
@@ -114,21 +114,21 @@ class POMO_Reader {
 	/**
 	 * @return int
 	 */
-	function pos() {
+	function pos() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->_pos;
 	}
 
 	/**
 	 * @return true
 	 */
-	function is_resource() {
+	function is_resource() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return true;
 	}
 
 	/**
 	 * @return true
 	 */
-	function close() {
+	function close() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return true;
 	}
 }
@@ -140,7 +140,7 @@ class POMO_FileReader extends POMO_Reader {
 	/**
 	 * @param string $filename
 	 */
-	function __construct( $filename ) {
+	function __construct( $filename ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::POMO_Reader();
 		$this->_f = fopen($filename, 'rb');
 	}
@@ -148,14 +148,14 @@ class POMO_FileReader extends POMO_Reader {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function POMO_FileReader( $filename ) {
+	public function POMO_FileReader( $filename ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $filename );
 	}
 
 	/**
 	 * @param int $bytes
 	 */
-	function read($bytes) {
+	function read($bytes) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return fread($this->_f, $bytes);
 	}
 
@@ -163,7 +163,7 @@ class POMO_FileReader extends POMO_Reader {
 	 * @param int $pos
 	 * @return boolean
 	 */
-	function seekto($pos) {
+	function seekto($pos) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( -1 == fseek($this->_f, $pos, SEEK_SET)) {
 			return false;
 		}
@@ -174,28 +174,28 @@ class POMO_FileReader extends POMO_Reader {
 	/**
 	 * @return bool
 	 */
-	function is_resource() {
+	function is_resource() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return is_resource($this->_f);
 	}
 
 	/**
 	 * @return bool
 	 */
-	function feof() {
+	function feof() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return feof($this->_f);
 	}
 
 	/**
 	 * @return bool
 	 */
-	function close() {
+	function close() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return fclose($this->_f);
 	}
 
 	/**
 	 * @return string
 	 */
-	function read_all() {
+	function read_all() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$all = '';
 		while ( !$this->feof() )
 			$all .= $this->read(4096);
@@ -216,7 +216,7 @@ class POMO_StringReader extends POMO_Reader {
 	/**
 	 * PHP5 constructor.
 	 */
-	function __construct( $str = '' ) {
+	function __construct( $str = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::POMO_Reader();
 		$this->_str = $str;
 		$this->_pos = 0;
@@ -225,7 +225,7 @@ class POMO_StringReader extends POMO_Reader {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function POMO_StringReader( $str = '' ) {
+	public function POMO_StringReader( $str = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $str );
 	}
 
@@ -233,7 +233,7 @@ class POMO_StringReader extends POMO_Reader {
 	 * @param string $bytes
 	 * @return string
 	 */
-	function read($bytes) {
+	function read($bytes) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$data = $this->substr($this->_str, $this->_pos, $bytes);
 		$this->_pos += $bytes;
 		if ($this->strlen($this->_str) < $this->_pos) $this->_pos = $this->strlen($this->_str);
@@ -244,7 +244,7 @@ class POMO_StringReader extends POMO_Reader {
 	 * @param int $pos
 	 * @return int
 	 */
-	function seekto($pos) {
+	function seekto($pos) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->_pos = $pos;
 		if ($this->strlen($this->_str) < $this->_pos) $this->_pos = $this->strlen($this->_str);
 		return $this->_pos;
@@ -253,14 +253,14 @@ class POMO_StringReader extends POMO_Reader {
 	/**
 	 * @return int
 	 */
-	function length() {
+	function length() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->strlen($this->_str);
 	}
 
 	/**
 	 * @return string
 	 */
-	function read_all() {
+	function read_all() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return $this->substr($this->_str, $this->_pos, $this->strlen($this->_str));
 	}
 
@@ -275,7 +275,7 @@ class POMO_CachedFileReader extends POMO_StringReader {
 	/**
 	 * PHP5 constructor.
 	 */
-	function __construct( $filename ) {
+	function __construct( $filename ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::POMO_StringReader();
 		$this->_str = file_get_contents($filename);
 		if (false === $this->_str)
@@ -286,7 +286,7 @@ class POMO_CachedFileReader extends POMO_StringReader {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function POMO_CachedFileReader( $filename ) {
+	public function POMO_CachedFileReader( $filename ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $filename );
 	}
 }
@@ -300,14 +300,14 @@ class POMO_CachedIntFileReader extends POMO_CachedFileReader {
 	/**
 	 * PHP5 constructor.
 	 */
-	public function __construct( $filename ) {
+	public function __construct( $filename ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::POMO_CachedFileReader($filename);
 	}
 
 	/**
 	 * PHP4 constructor.
 	 */
-	function POMO_CachedIntFileReader( $filename ) {
+	function POMO_CachedIntFileReader( $filename ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $filename );
 	}
 }

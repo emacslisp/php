@@ -13,7 +13,7 @@
  * @param bool|object $msg     Optional. Message to display for image editor updates or errors.
  *                             Default false.
  */
-function wp_image_editor($post_id, $msg = false) {
+function wp_image_editor($post_id, $msg = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$nonce = wp_create_nonce("image_editor-$post_id");
 	$meta = wp_get_attachment_metadata($post_id);
 	$thumb = image_get_intermediate_size($post_id, 'thumbnail');
@@ -238,7 +238,7 @@ function wp_image_editor($post_id, $msg = false) {
  * @param int $post_id
  * @return bool
  */
-function wp_stream_image( $image, $mime_type, $post_id ) {
+function wp_stream_image( $image, $mime_type, $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $image instanceof WP_Image_Editor ) {
 
 		/**
@@ -294,7 +294,7 @@ function wp_stream_image( $image, $mime_type, $post_id ) {
  * @param int $post_id
  * @return bool
  */
-function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
+function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( $image instanceof WP_Image_Editor ) {
 
 		/** This filter is documented in wp-admin/includes/image-edit.php */
@@ -371,7 +371,7 @@ function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
  * @param int $h Image height in pixels.
  * @return float|int Image preview ratio.
  */
-function _image_get_preview_ratio($w, $h) {
+function _image_get_preview_ratio($w, $h) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$max = max($w, $h);
 	return $max > 400 ? (400 / $max) : 1;
 }
@@ -386,9 +386,9 @@ function _image_get_preview_ratio($w, $h) {
  * @param float|int $angle Image rotation angle, in degrees.
  * @return resource|false GD image resource, false otherwise.
  */
-function _rotate_image_resource($img, $angle) {
+function _rotate_image_resource($img, $angle) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'WP_Image_Editor::rotate()' );
-	if ( function_exists('imagerotate') ) {
+	if ( function_exists('imagerotate') ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$rotated = imagerotate($img, $angle, 0);
 		if ( is_resource($rotated) ) {
 			imagedestroy($img);
@@ -409,7 +409,7 @@ function _rotate_image_resource($img, $angle) {
  * @param bool     $vert Whether to flip vertically.
  * @return resource (maybe) flipped image resource.
  */
-function _flip_image_resource($img, $horz, $vert) {
+function _flip_image_resource($img, $horz, $vert) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	_deprecated_function( __FUNCTION__, '3.5.0', 'WP_Image_Editor::flip()' );
 	$w = imagesx($img);
 	$h = imagesy($img);
@@ -441,7 +441,7 @@ function _flip_image_resource($img, $horz, $vert) {
  * @param float    $h   Source height.
  * @return resource (maybe) cropped image resource.
  */
-function _crop_image_resource($img, $x, $y, $w, $h) {
+function _crop_image_resource($img, $x, $y, $w, $h) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$dst = wp_imagecreatetruecolor($w, $h);
 	if ( is_resource($dst) ) {
 		if ( imagecopy($dst, $img, 0, 0, $x, $y, $w, $h) ) {
@@ -461,7 +461,7 @@ function _crop_image_resource($img, $x, $y, $w, $h) {
  * @param array           $changes Array of change operations.
  * @return WP_Image_Editor WP_Image_Editor instance with changes applied.
  */
-function image_edit_apply_changes( $image, $changes ) {
+function image_edit_apply_changes( $image, $changes ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	if ( is_resource( $image ) )
 		_deprecated_argument( __FUNCTION__, '3.5.0', __( '$image needs to be an WP_Image_Editor object' ) );
 
@@ -582,7 +582,7 @@ function image_edit_apply_changes( $image, $changes ) {
  * @param int $post_id
  * @return bool
  */
-function stream_preview_image( $post_id ) {
+function stream_preview_image( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$post = get_post( $post_id );
 
 	wp_raise_memory_limit( 'admin' );
@@ -620,7 +620,7 @@ function stream_preview_image( $post_id ) {
  * @param int $post_id Attachment post ID.
  * @return stdClass Image restoration message object.
  */
-function wp_restore_image($post_id) {
+function wp_restore_image($post_id) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$meta = wp_get_attachment_metadata($post_id);
 	$file = get_attached_file($post_id);
 	$backup_sizes = $old_backup_sizes = get_post_meta( $post_id, '_wp_attachment_backup_sizes', true );
@@ -703,7 +703,7 @@ function wp_restore_image($post_id) {
  * @param int $post_id
  * @return \stdClass
  */
-function wp_save_image( $post_id ) {
+function wp_save_image( $post_id ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	$_wp_additional_image_sizes = wp_get_additional_image_sizes();
 
 	$return = new stdClass;

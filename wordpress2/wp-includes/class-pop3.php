@@ -47,7 +47,7 @@ class POP3 {
 	/**
 	 * PHP5 constructor.
 	 */
-    function __construct ( $server = '', $timeout = '' ) {
+    function __construct ( $server = '', $timeout = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         settype($this->BUFFER,"integer");
         if( !empty($server) ) {
             // Do not allow programs to alter MAILSERVER
@@ -68,17 +68,17 @@ class POP3 {
 	/**
 	 * PHP4 constructor.
 	 */
-	public function POP3( $server = '', $timeout = '' ) {
+	public function POP3( $server = '', $timeout = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		self::__construct( $server, $timeout );
 	}
 
-    function update_timer () {
+    function update_timer () {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         if (!ini_get('safe_mode'))
             set_time_limit($this->TIMEOUT);
         return true;
     }
 
-    function connect ($server, $port = 110)  {
+    function connect ($server, $port = 110)  {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Opens a socket to the specified server. Unless overridden,
         //  port defaults to 110. Returns true on success, false on fail
 
@@ -118,7 +118,7 @@ class POP3 {
         return true;
     }
 
-    function user ($user = "") {
+    function user ($user = "") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         // Sends the USER command, returns true or false
 
         if( empty($user) ) {
@@ -137,7 +137,7 @@ class POP3 {
         }
     }
 
-    function pass ($pass = "")     {
+    function pass ($pass = "")     {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         // Sends the PASS command, returns # of msgs in mailbox,
         // returns false (undef) on Auth failure
 
@@ -162,7 +162,7 @@ class POP3 {
         }
     }
 
-    function apop ($login,$pass) {
+    function apop ($login,$pass) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Attempts an APOP login. If this fails, it'll
         //  try a standard login. YOUR SERVER MUST SUPPORT
         //  THE USE OF THE APOP COMMAND!
@@ -206,7 +206,7 @@ class POP3 {
         }
     }
 
-    function login ($login = "", $pass = "") {
+    function login ($login = "", $pass = "") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         // Sends both user and pass. Returns # of msgs in mailbox or
         // false on failure (or -1, if the error occurs while getting
         // the number of messages.)
@@ -230,7 +230,7 @@ class POP3 {
         }
     }
 
-    function top ($msgNum, $numLines = "0") {
+    function top ($msgNum, $numLines = "0") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Gets the header and first $numLines of the msg body
         //  returns data in an array with each returned line being
         //  an array element. If $numLines is empty, returns
@@ -272,7 +272,7 @@ class POP3 {
         return $MsgArray;
     }
 
-    function pop_list ($msgNum = "") {
+    function pop_list ($msgNum = "") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  If called with an argument, returns that msgs' size in octets
         //  No argument returns an associative array of undeleted
         //  msg numbers and their sizes in octets
@@ -347,7 +347,7 @@ class POP3 {
         return $MsgArray;
     }
 
-    function get ($msgNum) {
+    function get ($msgNum) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Retrieve the specified msg number. Returns an array
         //  where each line of the msg is an array element.
 
@@ -385,7 +385,7 @@ class POP3 {
         return $MsgArray;
     }
 
-    function last ( $type = "count" ) {
+    function last ( $type = "count" ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Returns the highest msg number in the mailbox.
         //  returns -1 on error, 0+ on success, if type != count
         //  results in a popstat() call (2 element array returned)
@@ -416,7 +416,7 @@ class POP3 {
         return $count;
     }
 
-    function reset () {
+    function reset () {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Resets the status of the remote server. This includes
         //  resetting the status of ALL msgs to not be deleted.
         //  This method automatically closes the connection to the server.
@@ -477,7 +477,7 @@ class POP3 {
         return $reply;
     }
 
-    function quit() {
+    function quit() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Closes the connection to the POP3 server, deleting
         //  any msgs marked as deleted.
 
@@ -497,7 +497,7 @@ class POP3 {
         return true;
     }
 
-    function popstat () {
+    function popstat () {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Returns an array of 2 elements. The number of undeleted
         //  msgs in the mailbox, and the size of the mbox in octets.
 
@@ -579,7 +579,7 @@ class POP3 {
         return $UIDLArray;
     }
 
-    function delete ($msgNum = "") {
+    function delete ($msgNum = "") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Flags a specified msg as deleted. The msg will not
         //  be deleted until a quit() method is called.
 
@@ -606,7 +606,7 @@ class POP3 {
 
     //  The following methods are internal to the class.
 
-    function is_ok ($cmd = "") {
+    function is_ok ($cmd = "") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         //  Return true or false on +OK or -ERR
 
         if( empty($cmd) )
@@ -615,7 +615,7 @@ class POP3 {
             return( stripos($cmd, '+OK') !== false );
     }
 
-    function strip_clf ($text = "") {
+    function strip_clf ($text = "") {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         // Strips \r\n from server responses
 
         if(empty($text))
@@ -626,7 +626,7 @@ class POP3 {
         }
     }
 
-    function parse_banner ( $server_text ) {
+    function parse_banner ( $server_text ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         $outside = true;
         $banner = "";
         $length = strlen($server_text);
@@ -655,8 +655,8 @@ class POP3 {
 }   // End class
 
 // For php4 compatibility
-if (!function_exists("stripos")) {
-    function stripos($haystack, $needle){
+if (!function_exists("stripos")) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    function stripos($haystack, $needle){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
         return strpos($haystack, stristr( $haystack, $needle ));
     }
 }

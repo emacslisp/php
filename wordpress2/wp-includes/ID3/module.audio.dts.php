@@ -36,7 +36,7 @@ class getid3_dts extends getid3_handler
     	2 => "\x1F\xFF\xE8\x00",  // 14-bit big-endian
     	3 => "\xFF\x1F\x00\xE8"); // 14-bit little-endian
 
-	public function Analyze() {
+	public function Analyze() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$info = &$this->getid3->info;
 		$info['fileformat'] = 'dts';
 
@@ -139,14 +139,14 @@ class getid3_dts extends getid3_handler
 		return true;
 	}
 
-	private function readBinData($bin, $length) {
+	private function readBinData($bin, $length) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$data = substr($bin, $this->readBinDataOffset, $length);
 		$this->readBinDataOffset += $length;
 
 		return bindec($data);
 	}
 
-	public static function bitrateLookup($index) {
+	public static function bitrateLookup($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0  => 32000,
 			1  => 56000,
@@ -184,7 +184,7 @@ class getid3_dts extends getid3_handler
 		return (isset($lookup[$index]) ? $lookup[$index] : false);
 	}
 
-	public static function sampleRateLookup($index) {
+	public static function sampleRateLookup($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0  => 'invalid',
 			1  => 8000,
@@ -206,7 +206,7 @@ class getid3_dts extends getid3_handler
 		return (isset($lookup[$index]) ? $lookup[$index] : false);
 	}
 
-	public static function bitPerSampleLookup($index) {
+	public static function bitPerSampleLookup($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0  => 16,
 			1  => 20,
@@ -216,7 +216,7 @@ class getid3_dts extends getid3_handler
 		return (isset($lookup[$index]) ? $lookup[$index] : false);
 	}
 
-	public static function numChannelsLookup($index) {
+	public static function numChannelsLookup($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ($index) {
 			case 0:
 				return 1;
@@ -254,7 +254,7 @@ class getid3_dts extends getid3_handler
 		return false;
 	}
 
-	public static function channelArrangementLookup($index) {
+	public static function channelArrangementLookup($index) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		static $lookup = array(
 			0  => 'A',
 			1  => 'A + B (dual mono)',
@@ -276,7 +276,7 @@ class getid3_dts extends getid3_handler
 		return (isset($lookup[$index]) ? $lookup[$index] : 'user-defined');
 	}
 
-	public static function dialogNormalization($index, $version) {
+	public static function dialogNormalization($index, $version) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		switch ($version) {
 			case 7:
 				return 0 - $index;

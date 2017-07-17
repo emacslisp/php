@@ -30,7 +30,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @param array $args An associative array of arguments.
 	 */
-	public function __construct( $args = array() ) {
+	public function __construct( $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		parent::__construct( array(
 			'ajax' => true,
 			'screen' => isset( $args['screen'] ) ? $args['screen'] : null,
@@ -41,7 +41,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @return bool
 	 */
-	public function ajax_user_can() {
+	public function ajax_user_can() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Do not check edit_theme_options here. Ajax calls for available themes require switch_themes.
 		return current_user_can( 'switch_themes' );
 	}
@@ -49,7 +49,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function prepare_items() {
+	public function prepare_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$themes = wp_get_themes( array( 'allowed' => true ) );
 
 		if ( ! empty( $_REQUEST['s'] ) )
@@ -85,7 +85,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function no_items() {
+	public function no_items() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->search_terms || $this->features ) {
 			_e( 'No items found.' );
 			return;
@@ -117,7 +117,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	/**
 	 * @param string $which
 	 */
-	public function tablenav( $which = 'top' ) {
+	public function tablenav( $which = 'top' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->get_pagination_arg( 'total_pages' ) <= 1 )
 			return;
 		?>
@@ -132,7 +132,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function display() {
+	public function display() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		wp_nonce_field( "fetch-list-" . get_class( $this ), '_ajax_fetch_list_nonce' );
 ?>
 		<?php $this->tablenav( 'top' ); ?>
@@ -149,14 +149,14 @@ class WP_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @return array
 	 */
-	public function get_columns() {
+	public function get_columns() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return array();
 	}
 
 	/**
 	 * @access public
 	 */
-	public function display_rows_or_placeholder() {
+	public function display_rows_or_placeholder() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( $this->has_items() ) {
 			$this->display_rows();
 		} else {
@@ -169,7 +169,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	/**
 	 * @access public
 	 */
-	public function display_rows() {
+	public function display_rows() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$themes = $this->items;
 
 		foreach ( $themes as $theme ):
@@ -251,7 +251,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	 * @param WP_Theme $theme
 	 * @return bool
 	 */
-	public function search_theme( $theme ) {
+	public function search_theme( $theme ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		// Search the features
 		foreach ( $this->features as $word ) {
 			if ( ! in_array( $word, $theme->get('Tags') ) )
@@ -290,7 +290,7 @@ class WP_Themes_List_Table extends WP_List_Table {
 	 *
 	 * @param array $extra_args
 	 */
-	public function _js_vars( $extra_args = array() ) {
+	public function _js_vars( $extra_args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$search_string = isset( $_REQUEST['s'] ) ? esc_attr( wp_unslash( $_REQUEST['s'] ) ) : '';
 
 		$args = array(

@@ -31,7 +31,7 @@ class Walker_Category_Checklist extends Walker {
 	 * @param int    $depth  Depth of category. Used for tab indentation.
 	 * @param array  $args   An array of arguments. @see wp_terms_checklist()
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$indent = str_repeat("\t", $depth);
 		$output .= "$indent<ul class='children'>\n";
 	}
@@ -47,7 +47,7 @@ class Walker_Category_Checklist extends Walker {
 	 * @param int    $depth  Depth of category. Used for tab indentation.
 	 * @param array  $args   An array of arguments. @see wp_terms_checklist()
 	 */
-	public function end_lvl( &$output, $depth = 0, $args = array() ) {
+	public function end_lvl( &$output, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$indent = str_repeat("\t", $depth);
 		$output .= "$indent</ul>\n";
 	}
@@ -65,7 +65,7 @@ class Walker_Category_Checklist extends Walker {
 	 * @param array  $args     An array of arguments. @see wp_terms_checklist()
 	 * @param int    $id       ID of the current term.
 	 */
-	public function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
+	public function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( empty( $args['taxonomy'] ) ) {
 			$taxonomy = 'category';
 		} else {
@@ -119,7 +119,7 @@ class Walker_Category_Checklist extends Walker {
 	 * @param int    $depth    Depth of the term in reference to parents. Default 0.
 	 * @param array  $args     An array of arguments. @see wp_terms_checklist()
 	 */
-	public function end_el( &$output, $category, $depth = 0, $args = array() ) {
+	public function end_el( &$output, $category, $depth = 0, $args = array() ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$output .= "</li>\n";
 	}
 }

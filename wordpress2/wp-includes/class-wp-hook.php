@@ -76,7 +76,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *                                  in the order in which they were added to the action.
 	 * @param int      $accepted_args   The number of arguments the function accepts.
 	 */
-	public function add_filter( $tag, $function_to_add, $priority, $accepted_args ) {
+	public function add_filter( $tag, $function_to_add, $priority, $accepted_args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$idx = _wp_filter_build_unique_id( $tag, $function_to_add, $priority );
 		$priority_existed = isset( $this->callbacks[ $priority ] );
 
@@ -106,7 +106,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 * @param bool     $priority_existed Optional. Flag for whether the priority already existed before the new
 	 *                                   filter was added. Default false.
 	 */
-	private function resort_active_iterations( $new_priority = false, $priority_existed = false ) {
+	private function resort_active_iterations( $new_priority = false, $priority_existed = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$new_priorities = array_keys( $this->callbacks );
 
 		// If there are no remaining hooks, clear out all running iterations.
@@ -176,7 +176,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 * @param int      $priority           The exact priority used when adding the original filter callback.
 	 * @return bool Whether the callback existed before it was removed.
 	 */
-	public function remove_filter( $tag, $function_to_remove, $priority ) {
+	public function remove_filter( $tag, $function_to_remove, $priority ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$function_key = _wp_filter_build_unique_id( $tag, $function_to_remove, $priority );
 
 		$exists = isset( $this->callbacks[ $priority ][ $function_key ] );
@@ -203,18 +203,18 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *                                         the callback ID when SPL is not available. Default empty.
 	 * @return bool|int The priority of that hook is returned, or false if the function is not attached.
 	 */
-	public function has_filter( $tag = '', $function_to_check = false ) {
-		if ( false === $function_to_check ) {
+	public function has_filter( $tag = '', $function_to_check = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		if ( false === $function_to_check ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			return $this->has_filters();
 		}
 
 		$function_key = _wp_filter_build_unique_id( $tag, $function_to_check, false );
-		if ( ! $function_key ) {
+		if ( ! $function_key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 			return false;
 		}
 
 		foreach ( $this->callbacks as $priority => $callbacks ) {
-			if ( isset( $callbacks[ $function_key ] ) ) {
+			if ( isset( $callbacks[ $function_key ] ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 				return $priority;
 			}
 		}
@@ -230,7 +230,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @return bool True if callbacks have been registered for the current hook, otherwise false.
 	 */
-	public function has_filters() {
+	public function has_filters() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		foreach ( $this->callbacks as $callbacks ) {
 			if ( $callbacks ) {
 				return true;
@@ -247,7 +247,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @param int|bool $priority Optional. The priority number to remove. Default false.
 	 */
-	public function remove_all_filters( $priority = false ) {
+	public function remove_all_filters( $priority = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->callbacks ) {
 			return;
 		}
@@ -273,7 +273,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 * @param array $args  Arguments to pass to callbacks.
 	 * @return mixed The filtered value after all hooked functions are applied to it.
 	 */
-	public function apply_filters( $value, $args ) {
+	public function apply_filters( $value, $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( ! $this->callbacks ) {
 			return $value;
 		}
@@ -318,7 +318,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @param mixed $args Arguments to pass to the hook callbacks.
 	 */
-	public function do_action( $args ) {
+	public function do_action( $args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$this->doing_action = true;
 		$this->apply_filters( '', $args );
 
@@ -336,7 +336,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @param array $args Arguments to pass to the hook callbacks. Passed by reference.
 	 */
-	public function do_all_hook( &$args ) {
+	public function do_all_hook( &$args ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		$nesting_level = $this->nesting_level++;
 		$this->iterations[ $nesting_level ] = array_keys( $this->callbacks );
 
@@ -359,7 +359,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @return int|false If the hook is running, return the current priority level. If it isn't running, return false.
 	 */
-	public function current_priority() {
+	public function current_priority() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( false === current( $this->iterations ) ) {
 			return false;
 		}
@@ -377,7 +377,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 * @param array $filters Filters to normalize.
 	 * @return WP_Hook[] Array of normalized filters.
 	 */
-	public static function build_preinitialized_hooks( $filters ) {
+	public static function build_preinitialized_hooks( $filters ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		/** @var WP_Hook[] $normalized */
 		$normalized = array();
 
@@ -412,7 +412,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 * @param mixed $offset An offset to check for.
 	 * @return bool True if the offset exists, false otherwise.
 	 */
-	public function offsetExists( $offset ) {
+	public function offsetExists( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $this->callbacks[ $offset ] );
 	}
 
@@ -427,7 +427,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 * @param mixed $offset The offset to retrieve.
 	 * @return mixed If set, the value at the specified offset, null otherwise.
 	 */
-	public function offsetGet( $offset ) {
+	public function offsetGet( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return isset( $this->callbacks[ $offset ] ) ? $this->callbacks[ $offset ] : null;
 	}
 
@@ -442,7 +442,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 * @param mixed $offset The offset to assign the value to.
 	 * @param mixed $value The value to set.
 	 */
-	public function offsetSet( $offset, $value ) {
+	public function offsetSet( $offset, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( is_null( $offset ) ) {
 			$this->callbacks[] = $value;
 		} else {
@@ -460,7 +460,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @param mixed $offset The offset to unset.
 	 */
-	public function offsetUnset( $offset ) {
+	public function offsetUnset( $offset ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		unset( $this->callbacks[ $offset ] );
 	}
 
@@ -474,7 +474,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @return array Of callbacks at current priority.
 	 */
-	public function current() {
+	public function current() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return current( $this->callbacks );
 	}
 
@@ -488,7 +488,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @return array Of callbacks at next priority.
 	 */
-	public function next() {
+	public function next() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return next( $this->callbacks );
 	}
 
@@ -502,7 +502,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @return mixed Returns current priority on success, or NULL on failure
 	 */
-	public function key() {
+	public function key() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return key( $this->callbacks );
 	}
 
@@ -516,7 +516,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @return boolean
 	 */
-	public function valid() {
+	public function valid() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		return key( $this->callbacks ) !== null;
 	}
 
@@ -528,7 +528,7 @@ final class WP_Hook implements Iterator, ArrayAccess {
 	 *
 	 * @link http://php.net/manual/en/iterator.rewind.php
 	 */
-	public function rewind() {
+	public function rewind() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		reset( $this->callbacks );
 	}
 
