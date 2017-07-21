@@ -696,6 +696,184 @@ class wpdb {
 		
 		return false;
 	}
+	
+	public function query( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	if ( ! $this->ready ) {
+		$this->check_current_query = true;
+		return false;
+	}
+	
+	/**
+	 * Filters the database query.
+	 *
+	 * Some queries are made before the plugins have been loaded,
+	 * and thus cannot be filtered with this method.
+	 *
+	 * @since 2.1.0
+	 *
+	 * @param string $query Database query.
+	 */
+	$query = apply_filters( 'query', $query );
+	
+	$this->flush();
+	
+	// Log how the function was called
+	$this->func_call = "\$db->query(\"$query\")";
+	
+	// If we're writing to the database, make sure the query will write safely.
+	if ( $this->check_current_query && ! $this->check_ascii( $query ) ) {
+		$stripped_query = $this->strip_invalid_text_from_query( $query );
+		// strip_invalid_text_from_query() can perform queries, so we need
+		// to flush again, just to make sure everything is clear.
+		$this->flush();
+		if ( $stripped_query !== $query ) {
+			$this->insert_id = 0;
+			return false;
+		}
+	}
+	
+	$this->check_current_query = true;
+	
+	// Keep track of the last query for debug.
+	$this->last_query = $query;
+	
+	$this->_do_query( $query );
+	
+	// MySQL server has gone away, try to reconnect.
+	$mysql_errno = 0;
+	if ( ! empty( $this->dbh ) ) {
+		if ( $this->use_mysqli ) {
+			if ( $this->dbh instanceof mysqli ) {
+				$mysql_errno = mysqli_errno( $this->dbh );
+			} else {
+				// $dbh is defined, but isn't a real connection.
+				// Something has gone horribly wrong, let's try a reconnect.
+				$mysql_errno = 2006;
+			}
+		} else {
+			if ( is_resource( $this->dbh ) ) {
+				$mysql_errno = mysql_errno( $this->dbh );
+			} else {
+				$mysql_errno = 2006;
+			}
+		}
+	}
+	
+	if ( empty( $this->dbh ) || 2006 == $mysql_errno ) {
+		if ( $this->check_connection() ) {
+			$this->_do_query( $query );
+		} else {
+			$this->insert_id = 0;
+			return false;
+		}
+	}
+	
+	// If there is an error then take note of it.
+	if ( $this->use_mysqli ) {
+		if ( $this->dbh instanceof mysqli ) {
+			$this->last_error = mysqli_error( $this->dbh );
+		} else {
+			$this->last_error = __( 'Unable to retrieve the error message from MySQL' );
+		}
+	} else {
+		if ( is_resource( $this->dbh ) ) {
+			$this->last_error = mysql_error( $this->dbh );
+		} else {
+			$this->last_error = __( 'Unable to retrieve the error message from MySQL' );
+		}
+	}
+	
+	if ( $this->last_error ) {
+		// Clear insert_id on a subsequent failed insert.
+		if ( $this->insert_id && preg_match( '/^\s*(insert|replace)\s/i', $query ) )
+			$this->insert_id = 0;
+			
+			$this->print_error();
+			return false;
+	}
+	
+	if ( preg_match( '/^\s*(create|alter|truncate|drop)\s/i', $query ) ) {
+		$return_val = $this->result;
+	} elseif ( preg_match( '/^\s*(insert|delete|update|replace)\s/i', $query ) ) {
+		if ( $this->use_mysqli ) {
+			$this->rows_affected = mysqli_affected_rows( $this->dbh );
+		} else {
+			$this->rows_affected = mysql_affected_rows( $this->dbh );
+		}
+		// Take note of the insert_id
+		if ( preg_match( '/^\s*(insert|replace)\s/i', $query ) ) {
+			if ( $this->use_mysqli ) {
+				$this->insert_id = mysqli_insert_id( $this->dbh );
+			} else {
+				$this->insert_id = mysql_insert_id( $this->dbh );
+			}
+		}
+		// Return number of rows affected
+		$return_val = $this->rows_affected;
+	} else {
+		$num_rows = 0;
+		if ( $this->use_mysqli && $this->result instanceof mysqli_result ) {
+			while ( $row = mysqli_fetch_object( $this->result ) ) {
+				$this->last_result[$num_rows] = $row;
+				$num_rows++;
+			}
+		} elseif ( is_resource( $this->result ) ) {
+			while ( $row = mysql_fetch_object( $this->result ) ) {
+				$this->last_result[$num_rows] = $row;
+				$num_rows++;
+			}
+		}
+		
+		// Log number of rows the query returned
+		// and return number of rows selected
+		$this->num_rows = $num_rows;
+		$return_val     = $num_rows;
+	}
+	
+	return $return_val;
+	}
+	
+	private function _do_query( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	if ( defined( 'SAVEQUERIES' ) && SAVEQUERIES ) {
+		$this->timer_start();
+	}
+	
+	if ( ! empty( $this->dbh ) && $this->use_mysqli ) {
+		$this->result = mysqli_query( $this->dbh, $query );
+	} elseif ( ! empty( $this->dbh ) ) {
+		$this->result = mysql_query( $query, $this->dbh );
+	}
+	$this->num_queries++;
+	
+	if ( defined( 'SAVEQUERIES' ) && SAVEQUERIES ) {
+		$this->queries[] = array( $query, $this->timer_stop(), $this->get_caller() );
+	}
+	}
+	
+	public function flush() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	$this->last_result = array();
+	$this->col_info    = null;
+	$this->last_query  = null;
+	$this->rows_affected = $this->num_rows = 0;
+	$this->last_error  = '';
+	
+	if ( $this->use_mysqli && $this->result instanceof mysqli_result ) {
+		mysqli_free_result( $this->result );
+		$this->result = null;
+		
+		// Sanity check before using the handle
+		if ( empty( $this->dbh ) || !( $this->dbh instanceof mysqli ) ) {
+			return;
+		}
+		
+		// Clear out any results from a multi-query
+		while ( mysqli_more_results( $this->dbh ) ) {
+			mysqli_next_result( $this->dbh );
+		}
+	} elseif ( is_resource( $this->result ) ) {
+		mysql_free_result( $this->result );
+	}
+	}
 }
 
 ?>
