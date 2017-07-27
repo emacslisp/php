@@ -19,6 +19,9 @@ function wp_die($message) {
 	die ( $message );
 }
 
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
+}
 // Support wp-config-sample.php one level up, for the develop repo.
 if (file_exists ( ABSPATH . 'wp-config-sample.php' ))
 	$config_file = file ( ABSPATH . 'wp-config-sample.php' );
