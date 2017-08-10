@@ -545,8 +545,8 @@ class wpdb {
 				'__destruct' 
 		) );
 		
-		if (WP_DEBUG && WP_DEBUG_DISPLAY)
-			$this->show_errors ();
+		/*if (WP_DEBUG && WP_DEBUG_DISPLAY)
+			$this->show_errors ();*/
 		
 		/*
 		 * Use ext/mysqli if it exists and:
@@ -697,7 +697,263 @@ class wpdb {
 		return false;
 	}
 	
-	public function query( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	public function select( $db, $dbh = null ) {
+	if ( is_null($dbh) )
+		$dbh = $this->dbh;
+		
+		if ( $this->use_mysqli ) {
+			$success = mysqli_select_db( $dbh, $db );
+		} else {
+			$success = mysql_select_db( $db, $dbh );
+		}
+		if ( ! $success ) {
+			$this->ready = false;
+			//if ( ! did_action( 'template_redirect' ) ) 
+			{
+				//wp_load_translations_early();
+				
+				$message = '<h1>' . __( 'Can&#8217;t select database' ) . "</h1>\n";
+				
+				$message .= '<p>' . sprintf(
+						/* translators: %s: database name */
+						__( 'We were able to connect to the database server (which means your username and password is okay) but not able to select the %s database.' ),
+						'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
+						) . "</p>\n";
+						
+						$message .= "<ul>\n";
+						$message .= '<li>' . __( 'Are you sure it exists?' ) . "</li>\n";
+						
+						$message .= '<li>' . sprintf(
+								/* translators: 1: database user, 2: database name */
+								__( 'Does the user %1$s have permission to use the %2$s database?' ),
+								'<code>' . htmlspecialchars( $this->dbuser, ENT_QUOTES )  . '</code>',
+								'<code>' . htmlspecialchars( $db, ENT_QUOTES ) . '</code>'
+								) . "</li>\n";
+								
+								$message .= '<li>' . sprintf(
+										/* translators: %s: database name */
+										__( 'On some systems the name of your database is prefixed with your username, so it would be like <code>username_%1$s</code>. Could that be the problem?' ),
+										htmlspecialchars( $db, ENT_QUOTES )
+										). "</li>\n";
+										
+										$message .= "</ul>\n";
+										
+										$message .= '<p>' . sprintf(
+												/* translators: %s: support forums URL */
+												__( 'If you don&#8217;t know how to set up a database you should <strong>contact your host</strong>. If all else fails you may find help at the <a href="%s">WordPress Support Forums</a>.' ),
+												__( 'https://wordpress.org/support/' )
+												) . "</p>\n";
+												
+												$this->bail( $message, 'db_select_fail' );
+			}
+		}
+	}
+	
+	public function bail( $message, $error_code = '500' ) {
+	if ( !$this->show_errors ) {
+		if ( class_exists( 'WP_Error', false ) ) {
+			$this->error =  $message;//new WP_Error($error_code, $message);
+		} else {
+			$this->error = $message;
+		}
+		return false;
+	}
+	wp_die($message);
+	}
+	
+	public function set_sql_mode( $modes = array() ) {
+		if ( empty( $modes ) ) {
+			if ( $this->use_mysqli ) {
+				$res = mysqli_query( $this->dbh, 'SELECT @@SESSION.sql_mode' );
+			} else {
+				$res = mysql_query( 'SELECT @@SESSION.sql_mode', $this->dbh );
+			}
+			
+			if ( empty( $res ) ) {
+				return;
+			}
+			
+			if ( $this->use_mysqli ) {
+				$modes_array = mysqli_fetch_array( $res );
+				if ( empty( $modes_array[0] ) ) {
+					return;
+				}
+				$modes_str = $modes_array[0];
+			} else {
+				$modes_str = mysql_result( $res, 0 );
+			}
+			
+			if ( empty( $modes_str ) ) {
+				return;
+			}
+			
+			$modes = explode( ',', $modes_str );
+		}
+		
+		$modes = array_change_key_case( $modes, CASE_UPPER );
+		
+		/**
+		 * Filters the list of incompatible SQL modes to exclude.
+		 *
+		 * @since 3.9.0
+		 *
+		 * @param array $incompatible_modes An array of incompatible modes.
+		 */
+		//$incompatible_modes = (array) apply_filters( 'incompatible_sql_modes', $this->incompatible_modes );
+		
+		$incompatible_modes = $this->incompatible_modes;
+		
+		foreach ( $modes as $i => $mode ) {
+			if ( in_array( $mode, $incompatible_modes ) ) {
+				unset( $modes[ $i ] );
+			}
+		}
+		
+		$modes_str = implode( ',', $modes );
+		
+		if ( $this->use_mysqli ) {
+			mysqli_query( $this->dbh, "SET SESSION sql_mode='$modes_str'" );
+		} else {
+			mysql_query( "SET SESSION sql_mode='$modes_str'", $this->dbh );
+		}
+	}
+	
+	public function set_charset( $dbh, $charset = null, $collate = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	if ( ! isset( $charset ) )
+		$charset = $this->charset;
+		if ( ! isset( $collate ) )
+			$collate = $this->collate;
+			if ( $this->has_cap( 'collation' ) && ! empty( $charset ) ) {
+				$set_charset_succeeded = true;
+				
+				if ( $this->use_mysqli ) {
+					if ( function_exists( 'mysqli_set_charset' ) && $this->has_cap( 'set_charset' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+					$set_charset_succeeded = mysqli_set_charset( $dbh, $charset );
+					}
+					
+					if ( $set_charset_succeeded ) {
+						$query = $this->prepare( 'SET NAMES %s', $charset );
+						if ( ! empty( $collate ) )
+							$query .= $this->prepare( ' COLLATE %s', $collate );
+							mysqli_query( $dbh, $query );
+					}
+				} else {
+					if ( function_exists( 'mysql_set_charset' ) && $this->has_cap( 'set_charset' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+					$set_charset_succeeded = mysql_set_charset( $charset, $dbh );
+					}
+					if ( $set_charset_succeeded ) {
+						$query = $this->prepare( 'SET NAMES %s', $charset );
+						if ( ! empty( $collate ) )
+							$query .= $this->prepare( ' COLLATE %s', $collate );
+							mysql_query( $query, $dbh );
+					}
+				}
+			}
+	}
+	
+	public function init_charset() {
+		$charset = '';
+		$collate = '';
+		
+		if ( function_exists('is_multisite') && is_multisite() ) {
+			$charset = 'utf8';
+			if ( defined( 'DB_COLLATE' ) && DB_COLLATE ) {
+				$collate = DB_COLLATE;
+			} else {
+				$collate = 'utf8_general_ci';
+			}
+		} elseif ( defined( 'DB_COLLATE' ) ) {
+			$collate = DB_COLLATE;
+		}
+		
+		if ( defined( 'DB_CHARSET' ) ) {
+			$charset = DB_CHARSET;
+		}
+		
+		$charset_collate = $this->determine_charset( $charset, $collate );
+		
+		$this->charset = $charset_collate['charset'];
+		$this->collate = $charset_collate['collate'];
+	}
+	
+	public function determine_charset( $charset, $collate ) {
+		if ( ( $this->use_mysqli && ! ( $this->dbh instanceof mysqli ) ) || empty( $this->dbh ) ) {
+			return compact( 'charset', 'collate' );
+		}
+		
+		if ( 'utf8' === $charset && $this->has_cap( 'utf8mb4' ) ) {
+			$charset = 'utf8mb4';
+		}
+		
+		if ( 'utf8mb4' === $charset && ! $this->has_cap( 'utf8mb4' ) ) {
+			$charset = 'utf8';
+			$collate = str_replace( 'utf8mb4_', 'utf8_', $collate );
+		}
+		
+		if ( 'utf8mb4' === $charset ) {
+			// _general_ is outdated, so we can upgrade it to _unicode_, instead.
+			if ( ! $collate || 'utf8_general_ci' === $collate ) {
+				$collate = 'utf8mb4_unicode_ci';
+			} else {
+				$collate = str_replace( 'utf8_', 'utf8mb4_', $collate );
+			}
+		}
+		
+		// _unicode_520_ is a better collation, we should use that when it's available.
+		if ( $this->has_cap( 'utf8mb4_520' ) && 'utf8mb4_unicode_ci' === $collate ) {
+			$collate = 'utf8mb4_unicode_520_ci';
+		}
+		
+		return compact( 'charset', 'collate' );
+	}
+	
+	public function db_version() {
+		if ( $this->use_mysqli ) {
+			$server_info = mysqli_get_server_info( $this->dbh );
+		} else {
+			$server_info = mysql_get_server_info( $this->dbh );
+		}
+		return preg_replace( '/[^0-9.].*/', '', $server_info );
+	}
+	
+	public function has_cap( $db_cap ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	$version = $this->db_version();
+	
+	switch ( strtolower( $db_cap ) ) {
+		case 'collation' :    // @since 2.5.0
+		case 'group_concat' : // @since 2.7.0
+		case 'subqueries' :   // @since 2.7.0
+			return version_compare( $version, '4.1', '>=' );
+		case 'set_charset' :
+			return version_compare( $version, '5.0.7', '>=' );
+		case 'utf8mb4' :      // @since 4.1.0
+			if ( version_compare( $version, '5.5.3', '<' ) ) {
+				return false;
+			}
+			if ( $this->use_mysqli ) {
+				$client_version = mysqli_get_client_info();
+			} else {
+				$client_version = mysql_get_client_info();
+			}
+			
+			/*
+			 * libmysql has supported utf8mb4 since 5.5.3, same as the MySQL server.
+			 * mysqlnd has supported utf8mb4 since 5.0.9.
+			 */
+			if ( false !== strpos( $client_version, 'mysqlnd' ) ) {
+				$client_version = preg_replace( '/^\D+([\d.]+).*/', '$1', $client_version );
+				return version_compare( $client_version, '5.0.9', '>=' );
+			} else {
+				return version_compare( $client_version, '5.5.3', '>=' );
+			}
+		case 'utf8mb4_520' : // @since 4.6.0
+			return version_compare( $version, '5.6', '>=' );
+	}
+	
+	return false;
+	}
+	
+	public function query( $query ) {
 	if ( ! $this->ready ) {
 		$this->check_current_query = true;
 		return false;

@@ -1,20 +1,32 @@
-
 <?php
 define ( 'WP_INSTALLING', true );
 
 define ( 'WP_SETUP_CONFIG', true );
+
+define( 'WPINC', 'wp-includes' );
+
+if ( !defined('WP_DEBUG_DISPLAY') )
+	define( 'WP_DEBUG_DISPLAY', true );
+
+if ( !defined('WP_DEBUG') )
+		define( 'WP_DEBUG', true );
+
 function is_rtl() {
 	return false;
 }
+
 function _e($text, $domain = 'default') {
 	echo $text;
 }
+
 function __($text, $domain = 'default') {
 	return $text;
 }
+
 function _x($text) {
 	return $text;
 }
+
 function wp_die($message) {
 	die ( $message );
 }
@@ -82,9 +94,6 @@ switch ($step) {
 		$step_1 = 'setup-config.php?step=1';
 		
 		?>
-
-
-	
 	
 	<h1 class="screen-reader-text"><?php _e( 'Before getting started' ) ?></h1>
 	<p><?php _e( 'Welcome to WordPress. Before getting started, we need some information on the database. You will need to know the following items before proceeding.' ) ?></p>
@@ -197,7 +206,18 @@ switch ($step) {
 		define ( 'DB_HOST', $dbhost );
 		
 		unset ( $wpdb );
-		require_wp_db ();
+		
+		global $wpdb;
+		
+		require_once (ABSPATH . WPINC . '/wp-db.php');
+		if (file_exists ( WP_CONTENT_DIR . '/db.php' ))
+			require_once (WP_CONTENT_DIR . '/db.php');
+			
+			if (isset ( $wpdb )) {
+				return;
+			}
+			
+			$wpdb = new wpdb ( DB_USER, DB_PASSWORD, DB_NAME, DB_HOST );
 		
 		/*
 		 * The wpdb constructor bails when WP_SETUP_CONFIG is set, so we must
@@ -206,7 +226,7 @@ switch ($step) {
 		$wpdb->db_connect ();
 		
 		if (! empty ( $wpdb->error ))
-			wp_die ( $wpdb->error->get_error_message () . $tryagain_link );
+			wp_die ( $wpdb->error . $tryagain_link );
 		
 		$wpdb->query ( "SELECT $prefix" );
 		if (! $wpdb->last_error) {
