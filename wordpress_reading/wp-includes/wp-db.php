@@ -851,6 +851,10 @@ class wpdb {
 			}
 	}
 	
+	public function esc_like( $text ) {
+		return addcslashes( $text, '_%\\' );
+	}
+	
 	public function init_charset() {
 		$charset = '';
 		$collate = '';
