@@ -578,7 +578,7 @@ class wpdb {
 		$this->db_connect ();
 	}
 	public function db_connect($allow_bail = true) {
-		file_put_contents ( '/Users/ewu/output.log', print_r ( (new Exception ())->getTraceAsString (), true ) . PHP_EOL . PHP_EOL, FILE_APPEND );
+		
 		$this->is_mysql = true;
 		
 		/*
@@ -953,6 +953,18 @@ class wpdb {
 	return false;
 	}
 	
+	protected function check_ascii( $string ) {
+		if ( function_exists( 'mb_check_encoding' ) ) {
+			if ( mb_check_encoding( $string, 'ASCII' ) ) {
+				return true;
+			}
+		} elseif ( ! preg_match( '/[^\x00-\x7F]/', $string ) ) {
+			return true;
+		}
+		
+		return false;
+	}
+	
 	public function query( $query ) {
 	if ( ! $this->ready ) {
 		$this->check_current_query = true;
@@ -969,7 +981,7 @@ class wpdb {
 	 *
 	 * @param string $query Database query.
 	 */
-	$query = apply_filters( 'query', $query );
+//	$query = apply_filters( 'query', $query );
 	
 	$this->flush();
 	
@@ -1089,7 +1101,63 @@ class wpdb {
 	return $return_val;
 	}
 	
-	private function _do_query( $query ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	public function print_error( $str = '' ) {
+	global $EZSQL_ERROR;
+	
+	if ( !$str ) {
+		if ( $this->use_mysqli ) {
+			$str = mysqli_error( $this->dbh );
+		} else {
+			$str = mysql_error( $this->dbh );
+		}
+	}
+	$EZSQL_ERROR[] = array( 'query' => $this->last_query, 'error_str' => $str );
+	
+	if ( $this->suppress_errors )
+		return false;
+		
+		//wp_load_translations_early();
+		
+
+			/* translators: 1: Database error message, 2: SQL query */
+			$error_str = sprintf( __( 'WordPress database error %1$s for query %2$s' ), $str, $this->last_query );
+		
+		
+		error_log( $error_str );
+		
+		// Are we showing errors?
+		if ( ! $this->show_errors )
+			return false;
+			
+			// If there is an error then take note of it
+			if ( is_multisite() ) {
+				$msg = sprintf(
+						"%s [%s]\n%s\n",
+						__( 'WordPress database error:' ),
+						$str,
+						$this->last_query
+						);
+				
+				if ( defined( 'ERRORLOGFILE' ) ) {
+					error_log( $msg, 3, ERRORLOGFILE );
+				}
+				if ( defined( 'DIEONDBERROR' ) ) {
+					wp_die( $msg );
+				}
+			} else {
+				$str   = htmlspecialchars( $str, ENT_QUOTES );
+				$query = htmlspecialchars( $this->last_query, ENT_QUOTES );
+				
+				printf(
+						'<div id="error"><p class="wpdberror"><strong>%s</strong> [%s]<br /><code>%s</code></p></div>',
+						__( 'WordPress database error:' ),
+						$str,
+						$query
+						);
+			}
+	}
+	
+	private function _do_query( $query ) {
 	if ( defined( 'SAVEQUERIES' ) && SAVEQUERIES ) {
 		$this->timer_start();
 	}

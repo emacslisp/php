@@ -228,18 +228,18 @@ switch ($step) {
 		if (! empty ( $wpdb->error ))
 			wp_die ( $wpdb->error . $tryagain_link );
 		
-		$wpdb->query ( "SELECT $prefix" );
+		/*$wpdb->query ( "SELECT $prefix" );
 		if (! $wpdb->last_error) {
 			// MySQL was able to parse the prefix as a value, which we don't want. Bail.
 			wp_die ( __ ( '<strong>ERROR</strong>: "Table Prefix" is invalid.' ) );
-		}
+		}*/
 		
 		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|';
 		$max = strlen ( $chars ) - 1;
 		for($i = 0; $i < 8; $i ++) {
 			$key = '';
 			for($j = 0; $j < 64; $j ++) {
-				$key .= substr ( $chars, random_int ( 0, $max ), 1 );
+				$key .= substr ( $chars, rand ( 0, $max ), 1 );
 			}
 			$secret_keys [] = $key;
 		}

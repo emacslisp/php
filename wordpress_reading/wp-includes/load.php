@@ -15,4 +15,14 @@ function require_wp_db() {
 	$wpdb = new wpdb ( DB_USER, DB_PASSWORD, DB_NAME, DB_HOST );
 }
 
+function is_multisite() {
+if ( defined( 'MULTISITE' ) )
+	return MULTISITE;
+	
+	if ( defined( 'SUBDOMAIN_INSTALL' ) || defined( 'VHOST' ) || defined( 'SUNRISE' ) )
+		return true;
+		
+		return false;
+}
+
 ?>
