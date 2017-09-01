@@ -286,8 +286,8 @@ endif; // $error
 <br class="clear" />
 </div>
 <script type="text/javascript">
-jQuery(document).ready(function($){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
-	$('#template').submit(function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); $('#scrollto').val( $('#newcontent').scrollTop() ); });
+jQuery(document).ready(function($){
+	$('#template').submit(function(){$('#scrollto').val( $('#newcontent').scrollTop() ); });
 	$('#newcontent').scrollTop( $('#scrollto').val() );
 });
 </script>
