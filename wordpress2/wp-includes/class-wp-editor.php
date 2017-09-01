@@ -1236,7 +1236,7 @@ final class _WP_Editors {
 			mceInit: <?php echo $mceInit; ?>,
 			qtInit: <?php echo $qtInit; ?>,
 			ref: <?php echo self::_parse_init( $ref ); ?>,
-			load_ext: function(url,lang){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);var sl=tinymce.ScriptLoader;sl.markDone(url+'/langs/'+lang+'.js');sl.markDone(url+'/langs/'+lang+'_dlg.js');}
+			load_ext: function(url,lang){var sl=tinymce.ScriptLoader;sl.markDone(url+'/langs/'+lang+'.js');sl.markDone(url+'/langs/'+lang+'_dlg.js');}
 		};
 		</script>
 		<?php
@@ -1283,7 +1283,7 @@ final class _WP_Editors {
 
 		?>
 
-		( function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		( function() {
 			var init, id, $wrap;
 
 			if ( typeof tinymce !== 'undefined' ) {

@@ -15,7 +15,7 @@
 function options_discussion_add_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 ?>
 	<script>
-	(function($){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	(function($){
 		var parent = $( '#show_avatars' ),
 			children = $( '.avatar-settings' );
 		parent.change(function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
@@ -94,13 +94,13 @@ function options_general_add_js() {file_put_contents('/Users/ewu/output.log',pri
 function options_permalink_add_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	?>
 <script type="text/javascript">
-jQuery(document).ready(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
-	jQuery('.permalink-structure input:radio').change(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+jQuery(document).ready(function() {
+	jQuery('.permalink-structure input:radio').change(function() {
 		if ( 'custom' == this.value )
 			return;
 		jQuery('#permalink_structure').val( this.value );
 	});
-	jQuery('#permalink_structure').focus(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	jQuery('#permalink_structure').focus(function() {
 		jQuery("#custom_selection").attr('checked', 'checked');
 	});
 });
@@ -113,7 +113,7 @@ jQuery(document).ready(function() {file_put_contents('/Users/ewu/output.log',pri
  *
  * @since 3.5.0
  */
-function options_reading_add_js() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function options_reading_add_js() {
 ?>
 <script type="text/javascript">
 	jQuery(document).ready(function($){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);

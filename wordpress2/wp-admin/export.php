@@ -28,7 +28,7 @@ function export_add_js() {file_put_contents('/Users/ewu/output.log',print_r((new
  		var form = $('#export-filters'),
  			filters = form.find('.export-filters');
  		filters.hide();
- 		form.find('input:radio').change(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+ 		form.find('input:radio').change(function() {
 			filters.slideUp('fast');
 			switch ( $(this).val() ) {
 				case 'attachment': $('#attachment-filters').slideDown(); break;

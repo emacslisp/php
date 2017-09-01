@@ -1593,7 +1593,7 @@ function iframe_header( $title = '', $deprecated = false ) {file_put_contents('/
 wp_enqueue_style( 'colors' );
 ?>
 <script type="text/javascript">
-addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);oldonload();func();}}};
+addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
 function tb_close(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);var win=window.dialogArguments||opener||parent||top;win.tb_remove();}
 var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
 	pagenow = '<?php echo $current_screen->id; ?>',
@@ -1835,7 +1835,7 @@ function compression_test() {file_put_contents('/Users/ewu/output.log',print_r((
 	<script type="text/javascript">
 	var compressionNonce = <?php echo wp_json_encode( wp_create_nonce( 'update_can_compress_scripts' ) ); ?>;
 	var testCompression = {
-		get : function(test) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		get : function(test) {
 			var x;
 			if ( window.XMLHttpRequest ) {
 				x = new XMLHttpRequest();
@@ -1844,7 +1844,7 @@ function compression_test() {file_put_contents('/Users/ewu/output.log',print_r((
 			}
 
 			if (x) {
-				x.onreadystatechange = function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+				x.onreadystatechange = function() {
 					var r, h;
 					if ( x.readyState == 4 ) {
 						r = x.responseText.substr(0, 18);
@@ -1858,7 +1858,7 @@ function compression_test() {file_put_contents('/Users/ewu/output.log',print_r((
 			}
 		},
 
-		check : function(r, h, test) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		check : function(r, h, test) {
 			if ( ! r && ! test )
 				this.get(1);
 

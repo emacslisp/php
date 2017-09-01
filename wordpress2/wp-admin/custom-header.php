@@ -350,7 +350,7 @@ class Custom_Image_Header {
 		}
 	}
 
-	$(document).ready(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	$(document).ready(function() {
 		var text_color = $('#text-color');
 		header_text_fields = $('.displaying-header-text');
 		text_color.wpColorPicker({
@@ -385,7 +385,7 @@ class Custom_Image_Header {
 		jQuery( '#height' ).val(coords.h);
 	}
 
-	jQuery(document).ready(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	jQuery(document).ready(function() {
 		var xinit = <?php echo absint( get_theme_support( 'custom-header', 'width' ) ); ?>;
 		var yinit = <?php echo absint( get_theme_support( 'custom-header', 'height' ) ); ?>;
 		var ratio = xinit / yinit;

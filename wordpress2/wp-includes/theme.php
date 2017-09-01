@@ -3017,7 +3017,7 @@ function wp_customize_support_script() {file_put_contents('/Users/ewu/output.log
 	<![endif]-->
 	<!--[if gte IE 9]><!-->
 		<script type="text/javascript">
-			(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+			(function() {
 				var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
 
 		<?php	if ( $cross_domain ) : ?>

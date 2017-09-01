@@ -85,7 +85,7 @@ class WP_Widget_Categories extends WP_Widget {
 
 <script type='text/javascript'>
 /* <![CDATA[ */
-(function() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+(function() {
 	var dropdown = document.getElementById( "<?php echo esc_js( $dropdown_id ); ?>" );
 	function onCatChange() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 		if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
