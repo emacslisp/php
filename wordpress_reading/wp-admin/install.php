@@ -21,18 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'WPINC', 'wp-includes' );
+require_once( ABSPATH . 'wp-settings.php' );
 
-function _e($text, $domain = 'default') {
-	echo $text;
-}
-
-function __($text, $domain = 'default') {
-	return $text;
-}
-
-function _x($text) {
-	return $text;
-}
 
 /** Load wpdb */
 require_once( ABSPATH . WPINC . '/wp-db.php' );
