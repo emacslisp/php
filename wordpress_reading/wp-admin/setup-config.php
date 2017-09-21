@@ -11,22 +11,6 @@ if ( !defined('WP_DEBUG_DISPLAY') )
 if ( !defined('WP_DEBUG') )
 		define( 'WP_DEBUG', true );
 
-function is_rtl() {
-	return false;
-}
-
-function _e($text, $domain = 'default') {
-	echo $text;
-}
-
-function __($text, $domain = 'default') {
-	return $text;
-}
-
-function _x($text) {
-	return $text;
-}
-
 function wp_die($message) {
 	die ( $message );
 }

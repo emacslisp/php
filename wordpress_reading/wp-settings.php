@@ -4,6 +4,8 @@ define( 'WPINC', 'wp-includes' );
 require( ABSPATH . WPINC . '/load.php' );
 require( ABSPATH . WPINC . '/default-constants.php' );
 require_once(ABSPATH . WPINC .'/l10n.php');
+require_once( ABSPATH . WPINC . '/class-wp-locale.php' );
+//require_once( ABSPATH . WPINC . '/class-wp-locale-switcher.php' );
 
 require_once( ABSPATH . WPINC . '/functions.php' ); 
 

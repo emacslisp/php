@@ -1207,28 +1207,188 @@ class wpdb {
 	}
 	
 	public function flush() {
-	$this->last_result = array();
-	$this->col_info    = null;
-	$this->last_query  = null;
-	$this->rows_affected = $this->num_rows = 0;
-	$this->last_error  = '';
-	
-	if ( $this->use_mysqli && $this->result instanceof mysqli_result ) {
-		mysqli_free_result( $this->result );
-		$this->result = null;
+		$this->last_result = array ();
+		$this->col_info = null;
+		$this->last_query = null;
+		$this->rows_affected = $this->num_rows = 0;
+		$this->last_error = '';
 		
-		// Sanity check before using the handle
-		if ( empty( $this->dbh ) || !( $this->dbh instanceof mysqli ) ) {
-			return;
+		if ($this->use_mysqli && $this->result instanceof mysqli_result) {
+			mysqli_free_result ( $this->result );
+			$this->result = null;
+			
+			// Sanity check before using the handle
+			if (empty ( $this->dbh ) || ! ($this->dbh instanceof mysqli)) {
+				return;
+			}
+			
+			// Clear out any results from a multi-query
+			while ( mysqli_more_results ( $this->dbh ) ) {
+				mysqli_next_result ( $this->dbh );
+			}
+		} elseif (is_resource ( $this->result )) {
+			mysql_free_result ( $this->result );
 		}
-		
-		// Clear out any results from a multi-query
-		while ( mysqli_more_results( $this->dbh ) ) {
-			mysqli_next_result( $this->dbh );
-		}
-	} elseif ( is_resource( $this->result ) ) {
-		mysql_free_result( $this->result );
 	}
+	
+	
+	protected function check_safe_collation( $query ) {
+		if ( $this->checking_collation ) {
+			return true;
+		}
+		
+		// We don't need to check the collation for queries that don't read data.
+		$query = ltrim( $query, "\r\n\t (" );
+		if ( preg_match( '/^(?:SHOW|DESCRIBE|DESC|EXPLAIN|CREATE)\s/i', $query ) ) {
+			return true;
+		}
+		
+		// All-ASCII queries don't need extra checking.
+		if ( $this->check_ascii( $query ) ) {
+			return true;
+		}
+		
+		$table = $this->get_table_from_query( $query );
+		if ( ! $table ) {
+			return false;
+		}
+		
+		$this->checking_collation = true;
+		$collation = $this->get_table_charset( $table );
+		$this->checking_collation = false;
+		
+		// Tables with no collation, or latin1 only, don't need extra checking.
+		if ( false === $collation || 'latin1' === $collation ) {
+			return true;
+		}
+		
+		$table = strtolower( $table );
+		if ( empty( $this->col_meta[ $table ] ) ) {
+			return false;
+		}
+		
+		// If any of the columns don't have one of these collations, it needs more sanity checking.
+		foreach ( $this->col_meta[ $table ] as $col ) {
+			if ( empty( $col->Collation ) ) {
+				continue;
+			}
+			
+			if ( ! in_array( $col->Collation, array( 'utf8_general_ci', 'utf8_bin', 'utf8mb4_general_ci', 'utf8mb4_bin' ), true ) ) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public function get_results($query = null, $output = OBJECT) {
+		$this->func_call = "\$db->get_results(\"$query\", $output)";
+		
+		if ($this->check_current_query && $this->check_safe_collation ( $query )) {
+			$this->check_current_query = false;
+		}
+		
+		if ($query) {
+			$this->query ( $query );
+		} else {
+			return null;
+		}
+		
+		$new_array = array ();
+		if ($output == OBJECT) {
+			// Return an integer-keyed array of row objects
+			return $this->last_result;
+		} elseif ($output == OBJECT_K) {
+			// Return an array of row objects with keys from column 1
+			// (Duplicates are discarded)
+			foreach ( $this->last_result as $row ) {
+				$var_by_ref = get_object_vars ( $row );
+				$key = array_shift ( $var_by_ref );
+				if (! isset ( $new_array [$key] ))
+					$new_array [$key] = $row;
+			}
+			return $new_array;
+		} elseif ($output == ARRAY_A || $output == ARRAY_N) {
+			// Return an integer-keyed array of...
+			if ($this->last_result) {
+				foreach ( ( array ) $this->last_result as $row ) {
+					if ($output == ARRAY_N) {
+						// ...integer-keyed row arrays
+						$new_array [] = array_values ( get_object_vars ( $row ) );
+					} else {
+						// ...column name-keyed row arrays
+						$new_array [] = get_object_vars ( $row );
+					}
+				}
+			}
+			return $new_array;
+		} elseif (strtoupper ( $output ) === OBJECT) {
+			// Back compat for OBJECT being previously case insensitive.
+			return $this->last_result;
+		}
+		return null;
+	}
+	
+	public function tables($scope = 'all', $prefix = true, $blog_id = 0) {
+		switch ($scope) {
+			case 'all' :
+				$tables = array_merge ( $this->global_tables, $this->tables );
+				if (is_multisite ())
+					$tables = array_merge ( $tables, $this->ms_global_tables );
+				break;
+			case 'blog' :
+				$tables = $this->tables;
+				break;
+			case 'global' :
+				$tables = $this->global_tables;
+				if (is_multisite ())
+					$tables = array_merge ( $tables, $this->ms_global_tables );
+				break;
+			case 'ms_global' :
+				$tables = $this->ms_global_tables;
+				break;
+			case 'old' :
+				$tables = $this->old_tables;
+				break;
+			default :
+				return array ();
+		}
+		
+		if ($prefix) {
+			if (! $blog_id)
+				$blog_id = $this->blogid;
+			$blog_prefix = $this->get_blog_prefix ( $blog_id );
+			$base_prefix = $this->base_prefix;
+			$global_tables = array_merge ( $this->global_tables, $this->ms_global_tables );
+			foreach ( $tables as $k => $table ) {
+				if (in_array ( $table, $global_tables ))
+					$tables [$table] = $base_prefix . $table;
+				else
+					$tables [$table] = $blog_prefix . $table;
+				unset ( $tables [$k] );
+			}
+			
+			if (isset ( $tables ['users'] ) && defined ( 'CUSTOM_USER_TABLE' ))
+				$tables ['users'] = CUSTOM_USER_TABLE;
+			
+			if (isset ( $tables ['usermeta'] ) && defined ( 'CUSTOM_USER_META_TABLE' ))
+				$tables ['usermeta'] = CUSTOM_USER_META_TABLE;
+		}
+		
+		return $tables;
+	}
+	public function get_blog_prefix($blog_id = null) {
+		if (is_multisite ()) {
+			if (null === $blog_id)
+				$blog_id = $this->blogid;
+			$blog_id = ( int ) $blog_id;
+			if (defined ( 'MULTISITE' ) && (0 == $blog_id || 1 == $blog_id))
+				return $this->base_prefix;
+			else
+				return $this->base_prefix . $blog_id . '_';
+		} else {
+			return $this->base_prefix;
+		}
 	}
 }
 
