@@ -16,17 +16,9 @@
  */
 define( 'WP_INSTALLING', true );
 
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/' );
-}
-
 define( 'WPINC', 'wp-includes' );
-require_once( ABSPATH . 'wp-settings.php' );
 
-
-/** Load wpdb */
-require_once( ABSPATH . WPINC . '/wp-db.php' );
-
+require_once( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
 
 $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : 0;
 

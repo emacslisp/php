@@ -1,5 +1,7 @@
 <?php 
 
+require( ABSPATH . WPINC . '/option.php' );
+
 function is_blog_installed() {
 global $wpdb;
 
@@ -15,7 +17,7 @@ if ( wp_cache_get( 'is_blog_installed' ) )
 		$alloptions = wp_load_alloptions();
 	}
 	// If siteurl is not set to autoload, check it specifically
-	if ( !isset( $alloptions['siteurl'] ) )
+	if ( !isset($alloptions) && !isset( $alloptions['siteurl'] ) )
 		$installed = $wpdb->get_var( "SELECT option_value FROM $wpdb->options WHERE option_name = 'siteurl'" );
 		else
 			$installed = $alloptions['siteurl'];

@@ -818,7 +818,7 @@ class wpdb {
 		}
 	}
 	
-	public function set_charset( $dbh, $charset = null, $collate = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	public function set_charset( $dbh, $charset = null, $collate = null ) {
 	if ( ! isset( $charset ) )
 		$charset = $this->charset;
 		if ( ! isset( $collate ) )
@@ -827,7 +827,7 @@ class wpdb {
 				$set_charset_succeeded = true;
 				
 				if ( $this->use_mysqli ) {
-					if ( function_exists( 'mysqli_set_charset' ) && $this->has_cap( 'set_charset' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+					if ( function_exists( 'mysqli_set_charset' ) && $this->has_cap( 'set_charset' ) ) {
 					$set_charset_succeeded = mysqli_set_charset( $dbh, $charset );
 					}
 					
@@ -838,7 +838,7 @@ class wpdb {
 							mysqli_query( $dbh, $query );
 					}
 				} else {
-					if ( function_exists( 'mysql_set_charset' ) && $this->has_cap( 'set_charset' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+					if ( function_exists( 'mysql_set_charset' ) && $this->has_cap( 'set_charset' ) ) {
 					$set_charset_succeeded = mysql_set_charset( $charset, $dbh );
 					}
 					if ( $set_charset_succeeded ) {
@@ -849,6 +849,28 @@ class wpdb {
 					}
 				}
 			}
+	}
+	
+	public function prepare( $query, $args ) {
+	if ( is_null( $query ) )
+		return;
+		
+		// This is not meant to be foolproof -- but it will catch obviously incorrect usage.
+		if ( strpos( $query, '%' ) === false ) {
+			_doing_it_wrong( 'wpdb::prepare', sprintf( __( 'The query argument of %s must have a placeholder.' ), 'wpdb::prepare()' ), '3.9.0' );
+		}
+		
+		$args = func_get_args();
+		array_shift( $args );
+		// If args were passed as an array (as in vsprintf), move them up
+		if ( isset( $args[0] ) && is_array($args[0]) )
+			$args = $args[0];
+			$query = str_replace( "'%s'", '%s', $query ); // in case someone mistakenly already singlequoted it
+			$query = str_replace( '"%s"', '%s', $query ); // doublequote unquoting
+			$query = preg_replace( '|(?<!%)%f|' , '%F', $query ); // Force floats to be locale unaware
+			$query = preg_replace( '|(?<!%)%s|', "'%s'", $query ); // quote the strings, avoiding escaped strings like %%s
+			array_walk( $args, array( $this, 'escape_by_ref' ) );
+			return @vsprintf( $query, $args );
 	}
 	
 	public function esc_like( $text ) {
@@ -920,7 +942,13 @@ class wpdb {
 		return preg_replace( '/[^0-9.].*/', '', $server_info );
 	}
 	
-	public function has_cap( $db_cap ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	public function suppress_errors( $suppress = true ) {
+		$errors = $this->suppress_errors;
+		$this->suppress_errors = (bool) $suppress;
+		return $errors;
+	}
+	
+	public function has_cap( $db_cap ) {
 	$version = $this->db_version();
 	
 	switch ( strtolower( $db_cap ) ) {
@@ -1178,7 +1206,7 @@ class wpdb {
 	}
 	}
 	
-	public function flush() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	public function flush() {
 	$this->last_result = array();
 	$this->col_info    = null;
 	$this->last_query  = null;

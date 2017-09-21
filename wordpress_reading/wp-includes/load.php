@@ -155,4 +155,150 @@ function wp_get_server_protocol() {
 	return $protocol;
 }
 
+function wp_load_translations_early() {
+global $wp_locale;
+
+static $loaded = false;
+if ( $loaded )
+	return;
+	$loaded = true;
+	
+	if ( function_exists( 'did_action' ) && did_action( 'init' ) )
+		return;
+		
+		// We need $wp_local_package
+		require ABSPATH . WPINC . '/version.php';
+		
+		// Translation and localization
+		require_once ABSPATH . WPINC . '/pomo/mo.php';
+		require_once ABSPATH . WPINC . '/l10n.php';
+		require_once ABSPATH . WPINC . '/class-wp-locale.php';
+		require_once ABSPATH . WPINC . '/class-wp-locale-switcher.php';
+		
+		// General libraries
+		require_once ABSPATH . WPINC . '/plugin.php';
+		
+		$locales = $locations = array();
+		
+		while ( true ) {
+			if ( defined( 'WPLANG' ) ) {
+				if ( '' == WPLANG )
+					break;
+					$locales[] = WPLANG;
+			}
+			
+			if ( isset( $wp_local_package ) )
+				$locales[] = $wp_local_package;
+				
+				if ( ! $locales )
+					break;
+					
+					if ( defined( 'WP_LANG_DIR' ) && @is_dir( WP_LANG_DIR ) )
+						$locations[] = WP_LANG_DIR;
+						
+						if ( defined( 'WP_CONTENT_DIR' ) && @is_dir( WP_CONTENT_DIR . '/languages' ) )
+							$locations[] = WP_CONTENT_DIR . '/languages';
+							
+							if ( @is_dir( ABSPATH . 'wp-content/languages' ) )
+								$locations[] = ABSPATH . 'wp-content/languages';
+								
+								if ( @is_dir( ABSPATH . WPINC . '/languages' ) )
+									$locations[] = ABSPATH . WPINC . '/languages';
+									
+									if ( ! $locations )
+										break;
+										
+										$locations = array_unique( $locations );
+										
+										foreach ( $locales as $locale ) {
+											foreach ( $locations as $location ) {
+												if ( file_exists( $location . '/' . $locale . '.mo' ) ) {
+													load_textdomain( 'default', $location . '/' . $locale . '.mo' );
+													if ( defined( 'WP_SETUP_CONFIG' ) && file_exists( $location . '/admin-' . $locale . '.mo' ) )
+														load_textdomain( 'default', $location . '/admin-' . $locale . '.mo' );
+														break 2;
+												}
+											}
+										}
+										
+										break;
+		}
+		
+		$wp_locale = new WP_Locale();
+}
+
+function wp_using_ext_object_cache( $using = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	global $_wp_using_ext_object_cache;
+	$current_using = $_wp_using_ext_object_cache;
+	if ( null !== $using )
+		$_wp_using_ext_object_cache = $using;
+		return $current_using;
+}
+
+function wp_installing( $is_installing = null ) {
+	static $installing = null;
+	
+	// Support for the `WP_INSTALLING` constant, defined before WP is loaded.
+	if ( is_null( $installing ) ) {
+		$installing = defined( 'WP_INSTALLING' ) && WP_INSTALLING;
+	}
+	
+	if ( ! is_null( $is_installing ) ) {
+		$old_installing = $installing;
+		$installing = $is_installing;
+		return (bool) $old_installing;
+	}
+	
+	return (bool) $installing;
+}
+
+function wp_start_object_cache() {
+		global $wp_filter;
+		
+		$first_init = false;
+		if ( ! function_exists( 'wp_cache_init' ) ) {
+		if ( file_exists( WP_CONTENT_DIR . '/object-cache.php' ) ) {
+			require_once ( WP_CONTENT_DIR . '/object-cache.php' );
+			if ( function_exists( 'wp_cache_init' ) ) {
+			wp_using_ext_object_cache( true );
+			}
+			
+			// Re-initialize any hooks added manually by object-cache.php
+			if ( $wp_filter ) {
+				$wp_filter = WP_Hook::build_preinitialized_hooks( $wp_filter );
+			}
+		}
+		
+		$first_init = true;
+		} elseif ( ! wp_using_ext_object_cache() && file_exists( WP_CONTENT_DIR . '/object-cache.php' ) ) {
+			/*
+			 * Sometimes advanced-cache.php can load object-cache.php before
+			 * it is loaded here. This breaks the function_exists check above
+			 * and can result in `$_wp_using_ext_object_cache` being set
+			 * incorrectly. Double check if an external cache exists.
+			 */
+			wp_using_ext_object_cache( true );
+		}
+		
+		if ( ! wp_using_ext_object_cache() ) {
+			require_once ( ABSPATH . WPINC . '/cache.php' );
+		}
+		
+		/*
+		 * If cache supports reset, reset instead of init if already
+		 * initialized. Reset signals to the cache that global IDs
+		 * have changed and it may need to update keys and cleanup caches.
+		 */
+		if ( ! $first_init && function_exists( 'wp_cache_switch_to_blog' ) ) {
+		wp_cache_switch_to_blog( get_current_blog_id() );
+		} elseif ( function_exists( 'wp_cache_init' ) ) {
+		wp_cache_init();
+		}
+		
+		if ( function_exists( 'wp_cache_add_global_groups' ) ) {
+		wp_cache_add_global_groups( array( 'users', 'userlogins', 'usermeta', 'user_meta', 'useremail', 'userslugs', 'site-transient', 'site-options', 'site-lookup', 'blog-lookup', 'blog-details', 'site-details', 'rss', 'global-posts', 'blog-id-cache', 'networks', 'sites' ) );
+		wp_cache_add_non_persistent_groups( array( 'counts', 'plugins' ) );
+		}
+}
+
 ?>
