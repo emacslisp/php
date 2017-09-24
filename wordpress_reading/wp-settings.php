@@ -9,6 +9,8 @@ require_once( ABSPATH . WPINC . '/class-wp-locale.php' );
 
 require_once( ABSPATH . WPINC . '/functions.php' ); 
 
+require( ABSPATH . WPINC . '/formatting.php' );
+
 wp_initial_constants();
 
 wp_start_object_cache();
