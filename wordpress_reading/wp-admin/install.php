@@ -26,7 +26,6 @@ define( 'WPINC', 'wp-includes' );
  */
 define( 'WP_INSTALLING', true );
 
-nocache_headers();
 
 
 require_once( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
@@ -34,6 +33,8 @@ require_once( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
 require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
+
+nocache_headers();
 
 $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : 0;
 
