@@ -17,7 +17,7 @@ class _WP_Dependency {
 			$this->deps = array();
 	}
 
-	public function add_data( $name, $data ) {file_put_contents('/Users/ewu/output2.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	public function add_data( $name, $data ) {
 		if ( !is_scalar($name) )
 			return false;
 		$this->extra[$name] = $data;

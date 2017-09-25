@@ -697,6 +697,36 @@ class wpdb {
 		return false;
 	}
 	
+	public function get_row($query = null, $output = OBJECT, $y = 0) {
+		$this->func_call = "\$db->get_row(\"$query\",$output,$y)";
+		
+		if ($this->check_current_query && $this->check_safe_collation ( $query )) {
+			$this->check_current_query = false;
+		}
+		
+		if ($query) {
+			$this->query ( $query );
+		} else {
+			return null;
+		}
+		
+		if (! isset ( $this->last_result [$y] ))
+			return null;
+		
+		if ($output == OBJECT) {
+			return $this->last_result [$y] ? $this->last_result [$y] : null;
+		} elseif ($output == ARRAY_A) {
+			return $this->last_result [$y] ? get_object_vars ( $this->last_result [$y] ) : null;
+		} elseif ($output == ARRAY_N) {
+			return $this->last_result [$y] ? array_values ( get_object_vars ( $this->last_result [$y] ) ) : null;
+		} elseif (strtoupper ( $output ) === OBJECT) {
+			// Back compat for OBJECT being previously case insensitive.
+			return $this->last_result [$y] ? $this->last_result [$y] : null;
+		} else {
+			$this->print_error ( " \$db->get_row(string query, output type, int offset) -- Output type must be one of: OBJECT, ARRAY_A, ARRAY_N" );
+		}
+	}
+	
 	public function select( $db, $dbh = null ) {
 	if ( is_null($dbh) )
 		$dbh = $this->dbh;
@@ -849,6 +879,36 @@ class wpdb {
 					}
 				}
 			}
+	}
+	
+	public function set_prefix( $prefix, $set_table_names = true ) {
+	
+	if ( preg_match( '|[^a-z0-9_]|i', $prefix ) )
+		return new WP_Error('invalid_db_prefix', 'Invalid database prefix' );
+		
+		$old_prefix = is_multisite() ? '' : $prefix;
+		
+		if ( isset( $this->base_prefix ) )
+			$old_prefix = $this->base_prefix;
+			
+			$this->base_prefix = $prefix;
+			
+			if ( $set_table_names ) {
+				foreach ( $this->tables( 'global' ) as $table => $prefixed_table )
+					$this->$table = $prefixed_table;
+					
+					if ( is_multisite() && empty( $this->blogid ) )
+						return $old_prefix;
+						
+						$this->prefix = $this->get_blog_prefix();
+						
+						foreach ( $this->tables( 'blog' ) as $table => $prefixed_table )
+							$this->$table = $prefixed_table;
+							
+							foreach ( $this->tables( 'old' ) as $table => $prefixed_table )
+								$this->$table = $prefixed_table;
+			}
+			return $old_prefix;
 	}
 	
 	public function prepare( $query, $args ) {
