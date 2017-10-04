@@ -17,6 +17,25 @@ function wp_initial_constants() {
 	$current_limit     = @ini_get( 'memory_limit' );
 	$current_limit_int = wp_convert_hr_to_bytes( $current_limit );
 	
+	if ( !defined('WP_CONTENT_DIR') )
+		define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' ); // no trailing slash, full paths only - WP_CONTENT_URL is defined further down
+		                                                    
+	// Add define('WP_DEBUG', true); to wp-config.php to enable display of notices during development.
+	if (! defined ( 'WP_DEBUG' ))
+		define ( 'WP_DEBUG', false );
+	
+	// Add define('WP_DEBUG_DISPLAY', null); to wp-config.php use the globally configured setting for
+	// display_errors and not force errors to be displayed. Use false to force display_errors off.
+	if (! defined ( 'WP_DEBUG_DISPLAY' ))
+		define ( 'WP_DEBUG_DISPLAY', true );
+	
+	// Add define('WP_DEBUG_LOG', true); to enable error logging to wp-content/debug.log.
+	if (! defined ( 'WP_DEBUG_LOG' ))
+		define ( 'WP_DEBUG_LOG', false );
+	
+	if (! defined ( 'WP_CACHE' ))
+		define ( 'WP_CACHE', false );
+	
 	// Define memory limits.
 	if ( ! defined( 'WP_MEMORY_LIMIT' ) ) {
 		if ( false === wp_is_ini_value_changeable( 'memory_limit' ) ) {

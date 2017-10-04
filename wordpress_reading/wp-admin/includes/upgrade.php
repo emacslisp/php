@@ -1,5 +1,7 @@
 <?php
 
+require_once(ABSPATH . 'wp-admin/includes/admin.php');
+
 function wp_check_mysql_version() {
 	global $wpdb;
 	$result = $wpdb->check_database_version ();
