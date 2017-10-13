@@ -15,6 +15,17 @@ require( ABSPATH . WPINC . '/general-template.php' );
 require_once( ABSPATH . WPINC . '/plugin.php' );
 require( ABSPATH . WPINC . '/vars.php' );
 
+require( ABSPATH . WPINC . '/class-wp-user.php' );
+require( ABSPATH . WPINC . '/user.php' );
+
+// Initialize multisite if enabled.
+if ( is_multisite() ) {
+	require( ABSPATH . WPINC . '/ms-blogs.php' );
+	require( ABSPATH . WPINC . '/ms-settings.php' );
+} elseif ( ! defined( 'MULTISITE' ) ) {
+	define( 'MULTISITE', false );
+}
+
 wp_initial_constants();
 
 wp_start_object_cache();

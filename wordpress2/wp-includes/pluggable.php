@@ -2198,7 +2198,10 @@ function wp_rand( $min = 0, $max = 0 ) {file_put_contents('/Users/ewu/output.log
 			// wp_rand() can accept arguments in either order, PHP cannot.
 			$_max = max( $min, $_max );
 			$_min = min( $min, $_max );
-			$val = random_int( $_min, $_max );
+			//@note: random_int is for php 7
+			//$val = random_int( $_min, $_max );
+			$val = rand( $_min, $_max );
+			
 			if ( false !== $val ) {
 				return absint( $val );
 			} else {
