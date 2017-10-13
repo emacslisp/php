@@ -12,6 +12,10 @@ function _x($text) {
 	return $text;
 }
 
+function esc_attr_e( $text, $domain = 'default' ) {
+	return $text;
+}
+
 function is_rtl() {
 	global $wp_locale;
 	if ( ! ( $wp_locale instanceof WP_Locale ) ) {

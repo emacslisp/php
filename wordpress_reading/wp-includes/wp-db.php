@@ -881,6 +881,26 @@ class wpdb {
 			}
 	}
 	
+	public function get_var( $query = null, $x = 0, $y = 0 ) {
+		$this->func_call = "\$db->get_var(\"$query\", $x, $y)";
+		
+		if ( $this->check_current_query && $this->check_safe_collation( $query ) ) {
+			$this->check_current_query = false;
+		}
+		
+		if ( $query ) {
+			$this->query( $query );
+		}
+		
+		// Extract var out of cached results based x,y vals
+		if ( !empty( $this->last_result[$y] ) ) {
+			$values = array_values( get_object_vars( $this->last_result[$y] ) );
+		}
+		
+		// If there is a value return it else return null
+		return ( isset( $values[$x] ) && $values[$x] !== '' ) ? $values[$x] : null;
+	}
+	
 	public function set_prefix( $prefix, $set_table_names = true ) {
 	
 	if ( preg_match( '|[^a-z0-9_]|i', $prefix ) )

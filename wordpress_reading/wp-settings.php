@@ -13,6 +13,7 @@ require( ABSPATH . WPINC . '/formatting.php' );
 require( ABSPATH . WPINC . '/general-template.php' );
 
 require_once( ABSPATH . WPINC . '/plugin.php' );
+require( ABSPATH . WPINC . '/vars.php' );
 
 wp_initial_constants();
 
@@ -24,5 +25,7 @@ require_wp_db();
 
 $GLOBALS['table_prefix'] = $table_prefix;
 wp_set_wpdb_vars();
+
+require( ABSPATH . WPINC . '/pluggable.php' );
 
 ?>

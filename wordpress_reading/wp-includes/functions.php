@@ -72,6 +72,11 @@ if ( wp_cache_get( 'is_blog_installed' ) )
 					return false;
 }
 
+
+function reset_mbstring_encoding() {
+	mbstring_binary_safe_encoding( true );
+}
+
 function wp_guess_url() {
 	if ( defined('WP_SITEURL') && '' != WP_SITEURL ) {
 		$url = WP_SITEURL;
@@ -124,6 +129,28 @@ if ( is_object( $args ) )
 			return $r;
 }
 
+function mbstring_binary_safe_encoding( $reset = false ) {
+static $encodings = array();
+static $overloaded = null;
+
+if ( is_null( $overloaded ) )
+	$overloaded = function_exists( 'mb_internal_encoding' ) && ( ini_get( 'mbstring.func_overload' ) & 2 );
+	
+	if ( false === $overloaded )
+		return;
+		
+		if ( ! $reset ) {
+			$encoding = mb_internal_encoding();
+			array_push( $encodings, $encoding );
+			mb_internal_encoding( 'ISO-8859-1' );
+		}
+		
+		if ( $reset && $encodings ) {
+			$encoding = array_pop( $encodings );
+			mb_internal_encoding( $encoding );
+		}
+}
+
 
 function nocache_headers() {
 	$headers = wp_get_nocache_headers ();
@@ -146,6 +173,10 @@ function nocache_headers() {
 	
 	foreach ( $headers as $name => $field_value )
 		@header ( "{$name}: {$field_value}" );
+}
+
+function absint( $maybeint ) {
+	return abs( intval( $maybeint ) );
 }
 
 function wp_get_nocache_headers() {

@@ -1,5 +1,20 @@
 <?php
 
+function has_action($tag, $function_to_check = false) {
+	return has_filter($tag, $function_to_check);
+}
+
+
+function has_filter($tag, $function_to_check = false) {
+	global $wp_filter;
+	
+	if ( ! isset( $wp_filter[ $tag ] ) ) {
+		return false;
+	}
+	
+	return $wp_filter[ $tag ]->has_filter( $tag, $function_to_check );
+}
+
 
 function _wp_call_all_hook($args) {
 	global $wp_filter;

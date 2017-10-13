@@ -34,6 +34,21 @@ function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
 
 }
 
+function checked( $checked, $current = true, $echo = true ) {
+	return __checked_selected_helper( $checked, $current, $echo, 'checked' );
+}
+
+function __checked_selected_helper( $helper, $current, $echo, $type ) {
+if ( (string) $helper === (string) $current )
+	$result = " $type='$type'";
+	else
+		$result = '';
+		
+		if ( $echo )
+			echo $result;
+			
+			return $result;
+}
 
 function language_attributes( $doctype = 'html' ) {
 	echo get_language_attributes( $doctype );
