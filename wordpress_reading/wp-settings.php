@@ -39,4 +39,29 @@ wp_set_wpdb_vars();
 
 require( ABSPATH . WPINC . '/pluggable.php' );
 
+$GLOBALS['wp_rewrite'] = new WP_Rewrite();
+
+/**
+ * WordPress Object
+ * @global WP $wp
+ * @since 2.0.0
+ */
+$GLOBALS['wp'] = new WP();
+
+/**
+ * WordPress Widget Factory Object
+ * @global WP_Widget_Factory $wp_widget_factory
+ * @since 2.8.0
+ */
+$GLOBALS['wp_widget_factory'] = new WP_Widget_Factory();
+
+/**
+ * WordPress User Roles
+ * @global WP_Roles $wp_roles
+ * @since 2.0.0
+ */
+$GLOBALS['wp_roles'] = new WP_Roles();
+
+wp_templating_constants();
+
 ?>

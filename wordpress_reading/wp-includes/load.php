@@ -227,6 +227,15 @@ if ( $loaded )
 		$wp_locale = new WP_Locale();
 }
 
+function is_admin() {
+if ( isset( $GLOBALS['current_screen'] ) )
+	return $GLOBALS['current_screen']->in_admin();
+	elseif ( defined( 'WP_ADMIN' ) )
+	return WP_ADMIN;
+	
+	return false;
+}
+
 function wp_using_ext_object_cache( $using = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $_wp_using_ext_object_cache;
 	$current_using = $_wp_using_ext_object_cache;
@@ -330,6 +339,21 @@ if ( !empty( $wpdb->error ) )
 
 function is_wp_error( $thing ) {
 	return ( $thing instanceof WP_Error );
+}
+
+function is_ssl() {
+	if ( isset( $_SERVER['HTTPS'] ) ) {
+		if ( 'on' == strtolower( $_SERVER['HTTPS'] ) ) {
+			return true;
+		}
+		
+		if ( '1' == $_SERVER['HTTPS'] ) {
+			return true;
+		}
+	} elseif ( isset($_SERVER['SERVER_PORT'] ) && ( '443' == $_SERVER['SERVER_PORT'] ) ) {
+		return true;
+	}
+	return false;
 }
 
 ?>

@@ -65,4 +65,129 @@ function get_locale() {
 }
 
 
+function unload_textdomain( $domain ) {
+	global $l10n, $l10n_unloaded;
+	
+	$l10n_unloaded = (array) $l10n_unloaded;
+	
+	/**
+	 * Filters whether to override the text domain unloading.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param bool   $override Whether to override the text domain unloading. Default false.
+	 * @param string $domain   Text domain. Unique identifier for retrieving translated strings.
+	 */
+	$plugin_override = apply_filters( 'override_unload_textdomain', false, $domain );
+	
+	if ( $plugin_override ) {
+		$l10n_unloaded[ $domain ] = true;
+		
+		return true;
+	}
+	
+	/**
+	 * Fires before the text domain is unloaded.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string $domain Text domain. Unique identifier for retrieving translated strings.
+	 */
+	do_action( 'unload_textdomain', $domain );
+	
+	if ( isset( $l10n[$domain] ) ) {
+		unset( $l10n[$domain] );
+		
+		$l10n_unloaded[ $domain ] = true;
+		
+		return true;
+	}
+	
+	return false;
+}
+
+
+function load_default_textdomain( $locale = null ) {
+	if ( null === $locale ) {
+		$locale = is_admin() ? get_user_locale() : get_locale();
+	}
+	
+	// Unload previously loaded strings so we can switch translations.
+	unload_textdomain( 'default' );
+	
+	$return = load_textdomain( 'default', WP_LANG_DIR . "/$locale.mo" );
+	
+	if ( ( is_multisite() || ( defined( 'WP_INSTALLING_NETWORK' ) && WP_INSTALLING_NETWORK ) ) && ! file_exists(  WP_LANG_DIR . "/admin-$locale.mo" ) ) {
+		load_textdomain( 'default', WP_LANG_DIR . "/ms-$locale.mo" );
+		return $return;
+	}
+	
+	if ( is_admin() || wp_installing() || ( defined( 'WP_REPAIRING' ) && WP_REPAIRING ) ) {
+		load_textdomain( 'default', WP_LANG_DIR . "/admin-$locale.mo" );
+	}
+	
+	if ( is_network_admin() || ( defined( 'WP_INSTALLING_NETWORK' ) && WP_INSTALLING_NETWORK ) )
+		load_textdomain( 'default', WP_LANG_DIR . "/admin-network-$locale.mo" );
+		
+		return $return;
+}
+
+function load_textdomain( $domain, $mofile ) {
+	global $l10n, $l10n_unloaded;
+	
+	$l10n_unloaded = (array) $l10n_unloaded;
+	
+	/**
+	 * Filters whether to override the .mo file loading.
+	 *
+	 * @since 2.9.0
+	 *
+	 * @param bool   $override Whether to override the .mo file loading. Default false.
+	 * @param string $domain   Text domain. Unique identifier for retrieving translated strings.
+	 * @param string $mofile   Path to the MO file.
+	 */
+	$plugin_override = apply_filters( 'override_load_textdomain', false, $domain, $mofile );
+	
+	if ( true == $plugin_override ) {
+		unset( $l10n_unloaded[ $domain ] );
+		
+		return true;
+	}
+	
+	/**
+	 * Fires before the MO translation file is loaded.
+	 *
+	 * @since 2.9.0
+	 *
+	 * @param string $domain Text domain. Unique identifier for retrieving translated strings.
+	 * @param string $mofile Path to the .mo file.
+	 */
+	do_action( 'load_textdomain', $domain, $mofile );
+	
+	/**
+	 * Filters MO file path for loading translations for a specific text domain.
+	 *
+	 * @since 2.9.0
+	 *
+	 * @param string $mofile Path to the MO file.
+	 * @param string $domain Text domain. Unique identifier for retrieving translated strings.
+	 */
+	$mofile = apply_filters( 'load_textdomain_mofile', $mofile, $domain );
+	
+	if ( !is_readable( $mofile ) ) return false;
+	
+	$mo = new MO();
+	if ( !$mo->import_from_file( $mofile ) ) return false;
+	
+	if ( isset( $l10n[$domain] ) )
+		$mo->merge_with( $l10n[$domain] );
+		
+		unset( $l10n_unloaded[ $domain ] );
+		
+		$l10n[$domain] = &$mo;
+		
+		return true;
+}
+
+
 ?>

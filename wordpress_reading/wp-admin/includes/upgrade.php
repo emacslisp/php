@@ -45,7 +45,7 @@ if ( ! is_main_site() ) {
 return apply_filters( 'wp_should_upgrade_global_tables', $should_upgrade );
 }
 
-function dbDelta( $queries = '', $execute = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function dbDelta( $queries = '', $execute = true ) {
 global $wpdb;
 
 if ( in_array( $queries, array( '', 'all', 'blog', 'global', 'ms_global' ), true ) )
@@ -114,7 +114,7 @@ if ( in_array( $queries, array( '', 'all', 'blog', 'global', 'ms_global' ), true
 	$global_tables = $wpdb->tables( 'global' );
 	foreach ( $cqueries as $table => $qry ) {
 		// Upgrade global tables only for the main site. Don't upgrade at all if conditions are not optimal.
-		if ( in_array( $table, $global_tables ) && ! wp_should_upgrade_global_tables() ) {
+		if ( in_array( $table, $global_tables ) && false ) { //! wp_should_upgrade_global_tables() ) {
 			unset( $cqueries[ $table ], $for_update[ $table ] );
 			continue;
 		}
@@ -406,7 +406,7 @@ function make_db_current_silent( $tables = 'all' ) {
 	dbDelta( $tables );
 }
 
-function wp_install( $blog_title, $user_name, $user_email, $public, $deprecated = '', $user_password = '', $language = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function wp_install( $blog_title, $user_name, $user_email, $public, $deprecated = '', $user_password = '', $language = '' ) {
 if ( !empty( $deprecated ) )
 	_deprecated_argument( __FUNCTION__, '2.6.0' );
 	

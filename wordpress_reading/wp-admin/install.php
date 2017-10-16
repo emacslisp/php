@@ -313,12 +313,16 @@ switch($step) {
 		display_setup_form();
 		break;
 	case 2:
+		$loaded_language = 'en_US';
+		
+		//@note: we leave load_default_textdomain because it will needs lots of class and function to work.
+		/*
 		if ( ! empty( $language ) && load_default_textdomain( $language ) ) {
 			$loaded_language = $language;
 			$GLOBALS['wp_locale'] = new WP_Locale();
 		} else {
 			$loaded_language = 'en_US';
-		}
+		}*/
 
 		if ( ! empty( $wpdb->error ) )
 			wp_die( $wpdb->error->get_error_message() );

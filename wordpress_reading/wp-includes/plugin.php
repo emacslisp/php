@@ -1,5 +1,22 @@
 <?php
 
+global $wp_filter, $wp_actions, $wp_current_filter;
+
+if ( $wp_filter ) {
+	$wp_filter = WP_Hook::build_preinitialized_hooks( $wp_filter );
+} else {
+	$wp_filter = array();
+}
+
+if ( ! isset( $wp_actions ) )
+	$wp_actions = array();
+	
+if ( ! isset( $wp_current_filter ) )
+		$wp_current_filter = array();
+
+		
+
+
 function has_action($tag, $function_to_check = false) {
 	return has_filter($tag, $function_to_check);
 }
@@ -57,38 +74,75 @@ function _wp_call_all_hook($args) {
  * @param mixed  $var,... Additional variables passed to the functions hooked to `$tag`.
  * @return mixed The filtered value after all hooked functions are applied to it.
  */
-function apply_filters( $tag, $value ) {
+function apply_filters($tag, $value) {
 	global $wp_filter, $wp_current_filter;
 	
-	$args = array();
+	$args = array ();
 	
 	// Do 'all' actions first.
-	if ( isset($wp_filter['all']) ) {
-		$wp_current_filter[] = $tag;
-		$args = func_get_args();
-		_wp_call_all_hook($args);
+	if (isset ( $wp_filter ['all'] )) {
+		$wp_current_filter [] = $tag;
+		$args = func_get_args ();
+		_wp_call_all_hook ( $args );
 	}
 	
-	if ( !isset($wp_filter[$tag]) ) {
-		if ( isset($wp_filter['all']) )
-			array_pop($wp_current_filter);
-			return $value;
+	if (! isset ( $wp_filter [$tag] )) {
+		if (isset ( $wp_filter ['all'] ))
+			array_pop ( $wp_current_filter );
+		return $value;
 	}
 	
-	if ( !isset($wp_filter['all']) )
-		$wp_current_filter[] = $tag;
-		
-		if ( empty($args) )
-			$args = func_get_args();
-			
-			// don't pass the tag name to WP_Hook
-			array_shift( $args );
-			
-			$filtered = $wp_filter[ $tag ]->apply_filters( $value, $args );
-			
-			array_pop( $wp_current_filter );
-			
-			return $filtered;
+	if (! isset ( $wp_filter ['all'] ))
+		$wp_current_filter [] = $tag;
+	
+	if (empty ( $args ))
+		$args = func_get_args ();
+	
+	// don't pass the tag name to WP_Hook
+	array_shift ( $args );
+	
+	$filtered = $wp_filter [$tag]->apply_filters ( $value, $args );
+	
+	array_pop ( $wp_current_filter );
+	
+	return $filtered;
+}
+
+function do_action($tag, $arg = '') {
+	global $wp_filter, $wp_actions, $wp_current_filter;
+	
+	if (! isset ( $wp_actions [$tag] ))
+		$wp_actions [$tag] = 1;
+	else
+		++ $wp_actions [$tag];
+	
+	// Do 'all' actions first
+	if (isset ( $wp_filter ['all'] )) {
+		$wp_current_filter [] = $tag;
+		$all_args = func_get_args ();
+		_wp_call_all_hook ( $all_args );
+	}
+	
+	if (! isset ( $wp_filter [$tag] )) {
+		if (isset ( $wp_filter ['all'] ))
+			array_pop ( $wp_current_filter );
+		return;
+	}
+	
+	if (! isset ( $wp_filter ['all'] ))
+		$wp_current_filter [] = $tag;
+	
+	$args = array ();
+	if (is_array ( $arg ) && 1 == count ( $arg ) && isset ( $arg [0] ) && is_object ( $arg [0] )) // array(&$this)
+		$args [] = & $arg [0];
+	else
+		$args [] = $arg;
+	for($a = 2, $num = func_num_args (); $a < $num; $a ++)
+		$args [] = func_get_arg ( $a );
+	
+	$wp_filter [$tag]->do_action ( $args );
+	
+	array_pop ( $wp_current_filter );
 }
 
 ?>

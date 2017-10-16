@@ -901,6 +901,32 @@ class wpdb {
 		return ( isset( $values[$x] ) && $values[$x] !== '' ) ? $values[$x] : null;
 	}
 	
+	public function show_errors( $show = true ) {
+		$errors = $this->show_errors;
+		$this->show_errors = $show;
+		return $errors;
+	}
+	
+	public function check_database_version() {
+		global $wp_version, $required_mysql_version;
+		// Make sure the server has the required MySQL version
+		if ( version_compare($this->db_version(), $required_mysql_version, '<') ) {
+			/* translators: 1: WordPress version number, 2: Minimum required MySQL version number */
+			return new WP_Error('database_version', sprintf( __( '<strong>ERROR</strong>: WordPress %1$s requires MySQL %2$s or higher' ), $wp_version, $required_mysql_version ));
+		}
+	}
+	
+	public function get_charset_collate() {
+		$charset_collate = '';
+		
+		if (! empty ( $this->charset ))
+			$charset_collate = "DEFAULT CHARACTER SET $this->charset";
+		if (! empty ( $this->collate ))
+			$charset_collate .= " COLLATE $this->collate";
+		
+		return $charset_collate;
+	}
+	
 	public function set_prefix( $prefix, $set_table_names = true ) {
 	
 	if ( preg_match( '|[^a-z0-9_]|i', $prefix ) )

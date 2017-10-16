@@ -261,7 +261,7 @@ if ( is_numeric( $offset_or_tz ) )
 }
 
 
-function wp_get_db_schema( $scope = 'all', $blog_id = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function wp_get_db_schema( $scope = 'all', $blog_id = null ) {
 global $wpdb;
 
 $charset_collate = $wpdb->get_charset_collate();
