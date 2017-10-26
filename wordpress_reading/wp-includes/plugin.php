@@ -1,42 +1,36 @@
 <?php
 
+require( dirname( __FILE__ ) . '/class-wp-hook.php' );
+
 global $wp_filter, $wp_actions, $wp_current_filter;
 
-if ( $wp_filter ) {
-	$wp_filter = WP_Hook::build_preinitialized_hooks( $wp_filter );
+if ($wp_filter) {
+	$wp_filter = WP_Hook::build_preinitialized_hooks ( $wp_filter );
 } else {
-	$wp_filter = array();
+	$wp_filter = array ();
 }
 
-if ( ! isset( $wp_actions ) )
-	$wp_actions = array();
-	
-if ( ! isset( $wp_current_filter ) )
-		$wp_current_filter = array();
+if (! isset ( $wp_actions ))
+	$wp_actions = array ();
 
-		
-
-
+if (! isset ( $wp_current_filter ))
+	$wp_current_filter = array ();
 function has_action($tag, $function_to_check = false) {
-	return has_filter($tag, $function_to_check);
+	return has_filter ( $tag, $function_to_check );
 }
-
-
 function has_filter($tag, $function_to_check = false) {
 	global $wp_filter;
 	
-	if ( ! isset( $wp_filter[ $tag ] ) ) {
+	if (! isset ( $wp_filter [$tag] )) {
 		return false;
 	}
 	
-	return $wp_filter[ $tag ]->has_filter( $tag, $function_to_check );
+	return $wp_filter [$tag]->has_filter ( $tag, $function_to_check );
 }
-
-
 function _wp_call_all_hook($args) {
 	global $wp_filter;
 	
-	$wp_filter['all']->do_all_hook( $args );
+	$wp_filter ['all']->do_all_hook ( $args );
 }
 
 /**
@@ -49,29 +43,32 @@ function _wp_call_all_hook($args) {
  *
  * The function allows for additional arguments to be added and passed to hooks.
  *
- *     // Our filter callback function
- *     function example_callback( $string, $arg1, $arg2 ) {
- *         // (maybe) modify $string
- *         return $string;
- *     }
- *     add_filter( 'example_filter', 'example_callback', 10, 3 );
+ * // Our filter callback function
+ * function example_callback( $string, $arg1, $arg2 ) {
+ * // (maybe) modify $string
+ * return $string;
+ * }
+ * add_filter( 'example_filter', 'example_callback', 10, 3 );
  *
- *     /*
- *      * Apply the filters by calling the 'example_callback' function we
- *      * "hooked" to 'example_filter' using the add_filter() function above.
- *      * - 'example_filter' is the filter hook $tag
- *      * - 'filter me' is the value being filtered
- *      * - $arg1 and $arg2 are the additional arguments passed to the callback.
- *     $value = apply_filters( 'example_filter', 'filter me', $arg1, $arg2 );
+ * /*
+ * * Apply the filters by calling the 'example_callback' function we
+ * * "hooked" to 'example_filter' using the add_filter() function above.
+ * * - 'example_filter' is the filter hook $tag
+ * * - 'filter me' is the value being filtered
+ * * - $arg1 and $arg2 are the additional arguments passed to the callback.
+ * $value = apply_filters( 'example_filter', 'filter me', $arg1, $arg2 );
  *
  * @since 0.71
- *
- * @global array $wp_filter         Stores all of the filters.
+ *       
+ * @global array $wp_filter Stores all of the filters.
  * @global array $wp_current_filter Stores the list of current filters with the current one last.
- *
- * @param string $tag     The name of the filter hook.
- * @param mixed  $value   The value on which the filters hooked to `$tag` are applied on.
- * @param mixed  $var,... Additional variables passed to the functions hooked to `$tag`.
+ *        
+ * @param string $tag
+ *        	The name of the filter hook.
+ * @param mixed $value
+ *        	The value on which the filters hooked to `$tag` are applied on.
+ * @param mixed $var,...
+ *        	Additional variables passed to the functions hooked to `$tag`.
  * @return mixed The filtered value after all hooked functions are applied to it.
  */
 function apply_filters($tag, $value) {
@@ -107,7 +104,6 @@ function apply_filters($tag, $value) {
 	
 	return $filtered;
 }
-
 function do_action($tag, $arg = '') {
 	global $wp_filter, $wp_actions, $wp_current_filter;
 	
@@ -144,5 +140,55 @@ function do_action($tag, $arg = '') {
 	
 	array_pop ( $wp_current_filter );
 }
+function add_action($tag, $function_to_add, $priority = 10, $accepted_args = 1) {
+	return add_filter ( $tag, $function_to_add, $priority, $accepted_args );
+}
+function add_filter($tag, $function_to_add, $priority = 10, $accepted_args = 1) {
+	global $wp_filter;
+	if (! isset ( $wp_filter [$tag] )) {
+		$wp_filter [$tag] = new WP_Hook ();
+	}
+	$wp_filter [$tag]->add_filter ( $tag, $function_to_add, $priority, $accepted_args );
+	return true;
+}
+
+function _wp_filter_build_unique_id($tag, $function, $priority) {
+global $wp_filter;
+static $filter_id_count = 0;
+
+if ( is_string($function) )
+	return $function;
+	
+	if ( is_object($function) ) {
+	// Closures are currently implemented as objects
+	$function = array( $function, '' );
+	} else {
+		$function = (array) $function;
+	}
+	
+	if (is_object($function[0]) ) {
+	// Object Class Calling
+	if ( function_exists('spl_object_hash') ) {
+	return spl_object_hash($function[0]) . $function[1];
+	} else {
+		$obj_idx = get_class($function[0]).$function[1];
+		if ( !isset($function[0]->wp_filter_id) ) {
+		if ( false === $priority )
+			return false;
+			$obj_idx .= isset($wp_filter[$tag][$priority]) ? count((array)$wp_filter[$tag][$priority]) : $filter_id_count;
+			$function[0]->wp_filter_id = $filter_id_count;
+			++$filter_id_count;
+		} else {
+			$obj_idx .= $function[0]->wp_filter_id;
+		}
+		
+		return $obj_idx;
+	}
+	} elseif ( is_string( $function[0] ) ) {
+		
+	}
+	// Static Calling
+	return $function[0] . '::' . $function[1];
+	}
 
 ?>

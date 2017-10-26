@@ -18,6 +18,11 @@ require( ABSPATH . WPINC . '/vars.php' );
 require( ABSPATH . WPINC . '/class-wp-user.php' );
 require( ABSPATH . WPINC . '/user.php' );
 
+require( ABSPATH . WPINC . '/class-wp.php' );
+require( ABSPATH . WPINC . '/class-wp-rewrite.php' );
+require( ABSPATH . WPINC . '/class-wp-widget-factory.php' );
+require( ABSPATH . WPINC . '/class-wp-roles.php' );
+
 // Initialize multisite if enabled.
 if ( is_multisite() ) {
 	require( ABSPATH . WPINC . '/ms-blogs.php' );
@@ -37,9 +42,7 @@ require_wp_db();
 $GLOBALS['table_prefix'] = $table_prefix;
 wp_set_wpdb_vars();
 
-require( ABSPATH . WPINC . '/pluggable.php' );
 
-$GLOBALS['wp_rewrite'] = new WP_Rewrite();
 
 /**
  * WordPress Object
@@ -47,6 +50,8 @@ $GLOBALS['wp_rewrite'] = new WP_Rewrite();
  * @since 2.0.0
  */
 $GLOBALS['wp'] = new WP();
+
+$GLOBALS['wp_rewrite'] = new WP_Rewrite();
 
 /**
  * WordPress Widget Factory Object
@@ -62,6 +67,7 @@ $GLOBALS['wp_widget_factory'] = new WP_Widget_Factory();
  */
 $GLOBALS['wp_roles'] = new WP_Roles();
 
+require( ABSPATH . WPINC . '/pluggable.php' );
 wp_templating_constants();
 
 ?>

@@ -3021,7 +3021,7 @@ function wp_customize_support_script() {file_put_contents('/Users/ewu/output.log
 				var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
 
 		<?php	if ( $cross_domain ) : ?>
-				request = (function(){file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND); var xhr = new XMLHttpRequest(); return ('withCredentials' in xhr); })();
+				request = (function(){ var xhr = new XMLHttpRequest(); return ('withCredentials' in xhr); })();
 		<?php	else : ?>
 				request = true;
 		<?php	endif; ?>
