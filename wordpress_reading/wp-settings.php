@@ -23,8 +23,8 @@ require( ABSPATH . WPINC . '/class-wp.php' );
 require( ABSPATH . WPINC . '/class-wp-rewrite.php' );
 require( ABSPATH . WPINC . '/class-wp-widget-factory.php' );
 require( ABSPATH . WPINC . '/class-wp-roles.php' );
-
-
+require( ABSPATH . WPINC . '/class-wp-theme.php' );
+require( ABSPATH . WPINC . '/class-wp-error.php' );
 
 // Initialize multisite if enabled.
 if ( is_multisite() ) {

@@ -1,4 +1,9 @@
 <?php
+
+function wp_cache_add_non_persistent_groups( $groups ) {
+// Default cache doesn't persist so nothing to do here.
+}
+
 function wp_cache_get( $key, $group = '', $force = false, &$found = null ) {
 	global $wp_object_cache;
 

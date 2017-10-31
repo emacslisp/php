@@ -1,4 +1,23 @@
 <?php
+
+
+function wp_get_theme($stylesheet = null, $theme_root = null) {
+	global $wp_theme_directories;
+	
+	if (empty ( $stylesheet ))
+		$stylesheet = get_stylesheet ();
+	
+	if (empty ( $theme_root )) {
+		$theme_root = get_raw_theme_root ( $stylesheet );
+		if (false === $theme_root)
+			$theme_root = WP_CONTENT_DIR . '/themes';
+		elseif (! in_array ( $theme_root, ( array ) $wp_theme_directories ))
+			$theme_root = WP_CONTENT_DIR . $theme_root;
+	}
+	
+	return new WP_Theme ( $stylesheet, $theme_root );
+}
+
 function get_stylesheet() {
 /**
  * Filters the name of current stylesheet.
