@@ -18,10 +18,13 @@ require( ABSPATH . WPINC . '/vars.php' );
 require( ABSPATH . WPINC . '/class-wp-user.php' );
 require( ABSPATH . WPINC . '/user.php' );
 
+
 require( ABSPATH . WPINC . '/class-wp.php' );
 require( ABSPATH . WPINC . '/class-wp-rewrite.php' );
 require( ABSPATH . WPINC . '/class-wp-widget-factory.php' );
 require( ABSPATH . WPINC . '/class-wp-roles.php' );
+
+
 
 // Initialize multisite if enabled.
 if ( is_multisite() ) {
@@ -43,6 +46,7 @@ $GLOBALS['table_prefix'] = $table_prefix;
 wp_set_wpdb_vars();
 
 
+require( ABSPATH . WPINC . '/theme.php' );
 
 /**
  * WordPress Object

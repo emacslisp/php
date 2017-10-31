@@ -564,7 +564,7 @@ if ( $blog_id && $blog_id != $wpdb->blogid )
 }
 
 
-function populate_roles() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function populate_roles() {
 	populate_roles_160();
 	populate_roles_210();
 	populate_roles_230();
@@ -575,7 +575,7 @@ function populate_roles() {file_put_contents('/Users/ewu/output.log',print_r((ne
 	populate_roles_300();
 }
 
-function populate_roles_160() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function populate_roles_160() {
 // Add roles
 
 // Dummy gettext calls to get strings in the catalog.
@@ -680,7 +680,7 @@ $role->add_cap('level_0');
  *
  * @since 2.1.0
  */
-function populate_roles_210() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function populate_roles_210() {
 $roles = array('administrator', 'editor');
 foreach ($roles as $role) {
 	$role = get_role($role);
@@ -727,7 +727,7 @@ if ( ! empty($role) ) {
  *
  * @since 2.3.0
  */
-function populate_roles_230() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function populate_roles_230() {
 $role = get_role( 'administrator' );
 
 if ( !empty( $role ) ) {
@@ -740,7 +740,7 @@ if ( !empty( $role ) ) {
  *
  * @since 2.5.0
  */
-function populate_roles_250() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function populate_roles_250() {
 $role = get_role( 'administrator' );
 
 if ( !empty( $role ) ) {
@@ -753,7 +753,7 @@ if ( !empty( $role ) ) {
  *
  * @since 2.6.0
  */
-function populate_roles_260() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function populate_roles_260() {
 $role = get_role( 'administrator' );
 
 if ( !empty( $role ) ) {
@@ -767,7 +767,7 @@ if ( !empty( $role ) ) {
  *
  * @since 2.7.0
  */
-function populate_roles_270() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function populate_roles_270() {
 $role = get_role( 'administrator' );
 
 if ( !empty( $role ) ) {
@@ -781,7 +781,7 @@ if ( !empty( $role ) ) {
  *
  * @since 2.8.0
  */
-function populate_roles_280() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function populate_roles_280() {
 $role = get_role( 'administrator' );
 
 if ( !empty( $role ) ) {
@@ -794,7 +794,7 @@ if ( !empty( $role ) ) {
  *
  * @since 3.0.0
  */
-function populate_roles_300() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function populate_roles_300() {
 $role = get_role( 'administrator' );
 
 if ( !empty( $role ) ) {
