@@ -402,6 +402,26 @@ if ( in_array( $queries, array( '', 'all', 'blog', 'global', 'ms_global' ), true
 	return $for_update;
 }
 
+function __get_option($setting) {
+global $wpdb;
+	
+	if ($setting == 'home' && defined ( 'WP_HOME' ))
+		return untrailingslashit ( WP_HOME );
+	
+	if ($setting == 'siteurl' && defined ( 'WP_SITEURL' ))
+		return untrailingslashit ( WP_SITEURL );
+	
+	$option = $wpdb->get_var ( $wpdb->prepare ( "SELECT option_value FROM $wpdb->options WHERE option_name = %s", $setting ) );
+	
+	if ('home' == $setting && '' == $option)
+		return __get_option ( 'siteurl' );
+	
+	if ('siteurl' == $setting || 'home' == $setting || 'category_base' == $setting || 'tag_base' == $setting)
+		$option = untrailingslashit ( $option );
+	
+	return maybe_unserialize ( $option );
+}
+
 function make_db_current_silent( $tables = 'all' ) {
 	dbDelta( $tables );
 }

@@ -727,6 +727,23 @@ class wpdb {
 		}
 	}
 	
+	public function get_col( $query = null , $x = 0 ) {
+		if ( $this->check_current_query && $this->check_safe_collation( $query ) ) {
+			$this->check_current_query = false;
+		}
+		
+		if ( $query ) {
+			$this->query( $query );
+		}
+		
+		$new_array = array();
+		// Extract the column values
+		for ( $i = 0, $j = count( $this->last_result ); $i < $j; $i++ ) {
+			$new_array[$i] = $this->get_var( null, $x, $i );
+		}
+		return $new_array;
+	}
+	
 	public function select( $db, $dbh = null ) {
 	if ( is_null($dbh) )
 		$dbh = $this->dbh;
