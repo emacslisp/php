@@ -310,6 +310,20 @@ function wp_start_object_cache() {
 		}
 }
 
+function get_current_network_id() {
+if ( ! is_multisite() ) {
+	return 1;
+}
+
+$current_network = get_network();
+
+if ( ! isset( $current_network->id ) ) {
+	return get_main_network_id();
+}
+
+return absint( $current_network->id );
+}
+
 function wp_set_wpdb_vars() {
 global $wpdb, $table_prefix;
 if ( !empty( $wpdb->error ) )

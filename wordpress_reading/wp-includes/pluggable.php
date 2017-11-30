@@ -161,6 +161,32 @@ if (! function_exists ( 'get_user_by' )) :
 	}
 endif;
 
+if ( !function_exists('wp_hash_password') ) :
+/**
+ * Create a hash (encrypt) of a plain text password.
+ *
+ * For integration with other applications, this function can be overwritten to
+ * instead use the other package password checking algorithm.
+ *
+ * @since 2.5.0
+ *
+ * @global PasswordHash $wp_hasher PHPass object
+ *
+ * @param string $password Plain text user password to hash
+ * @return string The hash string of the password
+ */
+function wp_hash_password($password) {
+global $wp_hasher;
+
+if ( empty($wp_hasher) ) {
+	// By default, use the portable hash from phpass
+	$wp_hasher = new PasswordHash(8, true);
+}
+
+return $wp_hasher->HashPassword( trim( $password ) );
+}
+endif;
+
 if ( !function_exists('wp_set_auth_cookie') ) :
 /**
  * Log in a user by setting authentication cookies.

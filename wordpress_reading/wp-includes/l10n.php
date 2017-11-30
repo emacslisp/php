@@ -106,6 +106,31 @@ function unload_textdomain( $domain ) {
 	return false;
 }
 
+function get_available_languages( $dir = null ) {
+	$languages = array();
+	
+	$lang_files = glob( ( is_null( $dir ) ? WP_LANG_DIR : $dir ) . '/*.mo' );
+	if ( $lang_files ) {
+		foreach ( $lang_files as $lang_file ) {
+			$lang_file = basename( $lang_file, '.mo' );
+			if ( 0 !== strpos( $lang_file, 'continents-cities' ) && 0 !== strpos( $lang_file, 'ms-' ) &&
+					0 !== strpos( $lang_file, 'admin-' ) ) {
+						$languages[] = $lang_file;
+					}
+		}
+	}
+	
+	/**
+	 * Filters the list of available language codes.
+	 *
+	 * @since 4.7.0
+	 *
+	 * @param array  $languages An array of available language codes.
+	 * @param string $dir       The directory where the language files were found.
+	 */
+	return apply_filters( 'get_available_languages', $languages, $dir );
+}
+
 
 function load_default_textdomain( $locale = null ) {
 	if ( null === $locale ) {

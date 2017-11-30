@@ -6,6 +6,7 @@ require( ABSPATH . WPINC . '/default-constants.php' );
 require_once( ABSPATH . WPINC . '/l10n.php' );
 require_once( ABSPATH . WPINC . '/class-wp-locale.php' );
 //require_once( ABSPATH . WPINC . '/class-wp-locale-switcher.php' );
+require( ABSPATH . WPINC . '/kses.php' );
 
 require_once( ABSPATH . WPINC . '/functions.php' ); 
 
@@ -22,9 +23,13 @@ require( ABSPATH . WPINC . '/user.php' );
 require( ABSPATH . WPINC . '/class-wp.php' );
 require( ABSPATH . WPINC . '/class-wp-rewrite.php' );
 require( ABSPATH . WPINC . '/class-wp-widget-factory.php' );
+require( ABSPATH . WPINC . '/capabilities.php' );
+require( ABSPATH . WPINC . '/class-wp-role.php' );
 require( ABSPATH . WPINC . '/class-wp-roles.php' );
 require( ABSPATH . WPINC . '/class-wp-theme.php' );
 require( ABSPATH . WPINC . '/class-wp-error.php' );
+
+require( ABSPATH . WPINC . '/class-phpass.php' );
 
 // Initialize multisite if enabled.
 if ( is_multisite() ) {

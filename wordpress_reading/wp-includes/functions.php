@@ -68,6 +68,27 @@ function is_blog_installed() {
 	return false;
 }
 
+/**
+ * Serialize data, if needed.
+ *
+ * @since 2.0.5
+ *
+ * @param string|array|object $data Data that might be serialized.
+ * @return mixed A scalar data
+ */
+function maybe_serialize( $data ) {
+if ( is_array( $data ) || is_object( $data ) )
+	return serialize( $data );
+	
+	// Double serialization is required for backward compatibility.
+	// See https://core.trac.wordpress.org/ticket/12930
+	// Also the world will end. See WP 3.6.1.
+	if ( is_serialized( $data, false ) )
+		return serialize( $data );
+		
+		return $data;
+}
+
 function _cleanup_header_comment( $str ) {
 	return trim(preg_replace("/\s*(?:\*\/|\?>).*/", '', $str));
 }
@@ -140,6 +161,25 @@ function maybe_unserialize( $original ) {
 if ( is_serialized( $original ) ) // don't attempt to unserialize data that wasn't serialized going in
 	return @unserialize( $original );
 	return $original;
+}
+
+/**
+ * Determine whether a site is the main site of the current network.
+ *
+ * @since 3.0.0
+ *
+ * @param int $site_id Optional. Site ID to test. Defaults to current site.
+ * @return bool True if $site_id is the main site of the network, or if not
+ *              running Multisite.
+ */
+function is_main_site( $site_id = null ) {
+if ( ! is_multisite() )
+	return true;
+	
+	if ( ! $site_id )
+		$site_id = get_current_blog_id();
+		
+		return (int) $site_id === (int) get_network()->site_id;
 }
 
 function get_file_data($file, $default_headers, $context = '') {
@@ -222,6 +262,42 @@ function wp_guess_url() {
 	
 	return rtrim ( $url, '/' );
 }
+
+/**
+ * Retrieve a list of protocols to allow in HTML attributes.
+ *
+ * @since 3.3.0
+ * @since 4.3.0 Added 'webcal' to the protocols array.
+ * @since 4.7.0 Added 'urn' to the protocols array.
+ *
+ * @see wp_kses()
+ * @see esc_url()
+ *
+ * @staticvar array $protocols
+ *
+ * @return array Array of allowed protocols. Defaults to an array containing 'http', 'https',
+ *               'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet',
+ *               'mms', 'rtsp', 'svn', 'tel', 'fax', 'xmpp', 'webcal', and 'urn'.
+ */
+function wp_allowed_protocols() {
+static $protocols = array();
+
+if ( empty( $protocols ) ) {
+	$protocols = array( 'http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet', 'mms', 'rtsp', 'svn', 'tel', 'fax', 'xmpp', 'webcal', 'urn' );
+	
+	/**
+	 * Filters the list of protocols allowed in HTML attributes.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param array $protocols Array of allowed protocols e.g. 'http', 'ftp', 'tel', and more.
+	 */
+	$protocols = apply_filters( 'kses_allowed_protocols', $protocols );
+}
+
+return $protocols;
+}
+
 function wp_parse_args($args, $defaults = '') {
 	if (is_object ( $args ))
 		$r = get_object_vars ( $args );
@@ -293,6 +369,72 @@ function wp_get_nocache_headers() {
 	$headers ['Last-Modified'] = false;
 	return $headers;
 }
+
+/**
+ * Mark a function argument as deprecated and inform when it has been used.
+ *
+ * This function is to be used whenever a deprecated function argument is used.
+ * Before this function is called, the argument must be checked for whether it was
+ * used by comparing it to its default value or evaluating whether it is empty.
+ * For example:
+ *
+ *     if ( ! empty( $deprecated ) ) {
+ *         _deprecated_argument( __FUNCTION__, '3.0.0' );
+ *     }
+ *
+ *
+ * There is a hook deprecated_argument_run that will be called that can be used
+ * to get the backtrace up to what file and function used the deprecated
+ * argument.
+ *
+ * The current behavior is to trigger a user error if WP_DEBUG is true.
+ *
+ * @since 3.0.0
+ * @access private
+ *
+ * @param string $function The function that was called.
+ * @param string $version  The version of WordPress that deprecated the argument used.
+ * @param string $message  Optional. A message regarding the change. Default null.
+ */
+function _deprecated_argument( $function, $version, $message = null ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+
+/**
+ * Fires when a deprecated argument is called.
+ *
+ * @since 3.0.0
+ *
+ * @param string $function The function that was called.
+ * @param string $message  A message regarding the change.
+ * @param string $version  The version of WordPress that deprecated the argument used.
+ */
+do_action( 'deprecated_argument_run', $function, $message, $version );
+
+/**
+ * Filters whether to trigger an error for deprecated arguments.
+ *
+ * @since 3.0.0
+ *
+ * @param bool $trigger Whether to trigger the error for deprecated arguments. Default true.
+ */
+if ( WP_DEBUG && apply_filters( 'deprecated_argument_trigger_error', true ) ) {
+	if ( function_exists( '__' ) ) {
+	if ( ! is_null( $message ) ) {
+		/* translators: 1: PHP function name, 2: version number, 3: optional message regarding the change */
+		trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s! %3$s'), $function, $version, $message ) );
+	} else {
+		/* translators: 1: PHP function name, 2: version number */
+		trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s with no alternative available.'), $function, $version ) );
+	}
+	} else {
+		if ( ! is_null( $message ) ) {
+			trigger_error( sprintf( '%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s! %3$s', $function, $version, $message ) );
+		} else {
+			trigger_error( sprintf( '%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s with no alternative available.', $function, $version ) );
+		}
+	}
+}
+}
+
 function is_main_network($network_id = null) {
 	file_put_contents ( '/Users/ewu/output.log', print_r ( (new Exception ())->getTraceAsString (), true ) . PHP_EOL . PHP_EOL, FILE_APPEND );
 	if (! is_multisite ()) {

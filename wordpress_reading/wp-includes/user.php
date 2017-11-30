@@ -8,6 +8,21 @@ $userdata = compact('user_login', 'user_email', 'user_pass');
 return wp_insert_user($userdata);
 }
 
+/**
+ * Checks whether the given username exists.
+ *
+ * @since 2.0.0
+ *
+ * @param string $username Username.
+ * @return int|false The user's ID on success, and false on failure.
+ */
+function username_exists( $username ) {
+if ( $user = get_user_by( 'login', $username ) ) {
+	return $user->ID;
+}
+return false;
+}
+
 
 function wp_insert_user( $userdata ) {
 global $wpdb;
