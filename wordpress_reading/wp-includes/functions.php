@@ -68,6 +68,109 @@ function is_blog_installed() {
 	return false;
 }
 
+
+/**
+ * Load custom DB error or display WordPress DB error.
+ *
+ * If a file exists in the wp-content directory named db-error.php, then it will
+ * be loaded instead of displaying the WordPress DB error. If it is not found,
+ * then the WordPress DB error will be displayed instead.
+ *
+ * The WordPress DB error sets the HTTP status header to 500 to try to prevent
+ * search engines from caching the message. Custom DB messages should do the
+ * same.
+ *
+ * This function was backported to WordPress 2.3.2, but originally was added
+ * in WordPress 2.5.0.
+ *
+ * @since 2.3.2
+ *
+ * @global wpdb $wpdb WordPress database abstraction object.
+ */
+function dead_db() {
+global $wpdb;
+
+wp_load_translations_early();
+
+// Load custom DB error template, if present.
+if ( file_exists( WP_CONTENT_DIR . '/db-error.php' ) ) {
+	require_once( WP_CONTENT_DIR . '/db-error.php' );
+	die();
+}
+
+// If installing or in the admin, provide the verbose message.
+if ( wp_installing() || defined( 'WP_ADMIN' ) )
+	wp_die($wpdb->error);
+	
+	// Otherwise, be terse.
+	status_header( 500 );
+	nocache_headers();
+	header( 'Content-Type: text/html; charset=utf-8' );
+	?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"<?php if ( is_rtl() ) echo ' dir="rtl"'; ?>>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><?php _e( 'Database Error' ); ?></title>
+
+</head>
+<body>
+	<h1><?php _e( 'Error establishing a database connection' ); ?></h1>
+</body>
+</html>
+<?php
+	die();
+}
+
+
+function _doing_it_wrong( $function, $message, $version ) {
+
+/**
+ * Fires when the given function is being used incorrectly.
+ *
+ * @since 3.1.0
+ *
+ * @param string $function The function that was called.
+ * @param string $message  A message explaining what has been done incorrectly.
+ * @param string $version  The version of WordPress where the message was added.
+ */
+do_action( 'doing_it_wrong_run', $function, $message, $version );
+
+/**
+ * Filters whether to trigger an error for _doing_it_wrong() calls.
+ *
+ * @since 3.1.0
+ *
+ * @param bool $trigger Whether to trigger the error for _doing_it_wrong() calls. Default true.
+ */
+if ( WP_DEBUG && apply_filters( 'doing_it_wrong_trigger_error', true ) ) {
+	if ( function_exists( '__' ) ) {
+	if ( is_null( $version ) ) {
+		$version = '';
+	} else {
+		/* translators: %s: version number */
+		$version = sprintf( __( '(This message was added in version %s.)' ), $version );
+	}
+	/* translators: %s: Codex URL */
+	$message .= ' ' . sprintf( __( 'Please see <a href="%s">Debugging in WordPress</a> for more information.' ),
+			__( 'https://codex.wordpress.org/Debugging_in_WordPress' )
+			);
+	/* translators: Developer debugging message. 1: PHP function name, 2: Explanatory message, 3: Version information message */
+	trigger_error( sprintf( __( '%1$s was called <strong>incorrectly</strong>. %2$s %3$s' ), $function, $message, $version ) );
+	} else {
+		if ( is_null( $version ) ) {
+			$version = '';
+		} else {
+			$version = sprintf( '(This message was added in version %s.)', $version );
+		}
+		$message .= sprintf( ' Please see <a href="%s">Debugging in WordPress</a> for more information.',
+				'https://codex.wordpress.org/Debugging_in_WordPress'
+				);
+		trigger_error( sprintf( '%1$s was called <strong>incorrectly</strong>. %2$s %3$s', $function, $message, $version ) );
+	}
+}
+}
+
 function current_time( $type, $gmt = 0 ) {
 switch ( $type ) {
 	case 'mysql':
@@ -497,6 +600,33 @@ function is_main_network($network_id = null) {
 	$network_id = ( int ) $network_id;
 	
 	return ($network_id === get_main_network_id ());
+}
+
+function wp_cache_get_last_changed( $group ) {
+$last_changed = wp_cache_get( 'last_changed', $group );
+
+if ( ! $last_changed ) {
+	$last_changed = microtime();
+	wp_cache_set( 'last_changed', $last_changed, $group );
+}
+
+return $last_changed;
+}
+
+function wp_filter_object_list( $list, $args = array(), $operator = 'and', $field = false ) {
+if ( ! is_array( $list ) ) {
+	return array();
+}
+
+$util = new WP_List_Util( $list );
+
+$util->filter( $args, $operator );
+
+if ( $field ) {
+	$util->pluck( $field );
+}
+
+return $util->get_output();
 }
 
 /**

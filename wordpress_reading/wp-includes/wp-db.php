@@ -2268,6 +2268,86 @@ class wpdb {
 		
 		return $tables;
 	}
+	
+	function _real_escape( $string ) {
+		if ( $this->dbh ) {
+			if ( $this->use_mysqli ) {
+				return mysqli_real_escape_string( $this->dbh, $string );
+			} else {
+				return mysql_real_escape_string( $string, $this->dbh );
+			}
+		}
+		
+		$class = get_class( $this );
+		if ( function_exists( '__' ) ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		/* translators: %s: database access abstraction class, usually wpdb or a class extending wpdb */
+		_doing_it_wrong( $class, sprintf( __( '%s must set a database connection for use with escaping.' ), $class ), '3.6.0' );
+		} else {
+			_doing_it_wrong( $class, sprintf( '%s must set a database connection for use with escaping.', $class ), '3.6.0' );
+		}
+		return addslashes( $string );
+	}
+	
+	public function _escape( $data ) {
+	if ( is_array( $data ) ) {
+		foreach ( $data as $k => $v ) {
+			if ( is_array( $v ) ) {
+				$data[$k] = $this->_escape( $v );
+			} else {
+				$data[$k] = $this->_real_escape( $v );
+			}
+		}
+	} else {
+		$data = $this->_real_escape( $data );
+	}
+	
+	return $data;
+	}
+	
+	/**
+	 * Do not use, deprecated.
+	 *
+	 * Use esc_sql() or wpdb::prepare() instead.
+	 *
+	 * @since 0.71
+	 * @deprecated 3.6.0 Use wpdb::prepare()
+	 * @see wpdb::prepare()
+	 * @see esc_sql()
+	 *
+	 * @param mixed $data
+	 * @return mixed
+	 */
+	public function escape( $data ) {
+	if ( func_num_args() === 1 && function_exists( '_deprecated_function' ) )
+		_deprecated_function( __METHOD__, '3.6.0', 'wpdb::prepare() or esc_sql()' );
+		if ( is_array( $data ) ) {
+			foreach ( $data as $k => $v ) {
+				if ( is_array( $v ) )
+					$data[$k] = $this->escape( $v, 'recursive' );
+					else
+						$data[$k] = $this->_weak_escape( $v, 'internal' );
+			}
+		} else {
+			$data = $this->_weak_escape( $data, 'internal' );
+		}
+		
+		return $data;
+	}
+	
+	/**
+	 * Escapes content by reference for insertion into the database, for security
+	 *
+	 * @uses wpdb::_real_escape()
+	 *
+	 * @since 2.3.0
+	 *
+	 * @param string $string to escape
+	 */
+	public function escape_by_ref( &$string ) {
+		if ( ! is_float( $string ) )
+			$string = $this->_real_escape( $string );
+	}
+	
 	public function get_blog_prefix($blog_id = null) {
 		if (is_multisite ()) {
 			if (null === $blog_id)
