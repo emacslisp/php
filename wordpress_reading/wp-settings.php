@@ -19,8 +19,12 @@ require( ABSPATH . WPINC . '/vars.php' );
 require( ABSPATH . WPINC . '/class-wp-user.php' );
 require( ABSPATH . WPINC . '/user.php' );
 
+require( ABSPATH . WPINC . '/link-template.php' );
+
+require( ABSPATH . WPINC . '/post.php' );
 
 require( ABSPATH . WPINC . '/class-wp.php' );
+require( ABSPATH . WPINC . '/rewrite.php' );
 require( ABSPATH . WPINC . '/class-wp-rewrite.php' );
 require( ABSPATH . WPINC . '/class-wp-widget-factory.php' );
 require( ABSPATH . WPINC . '/capabilities.php' );

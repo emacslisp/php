@@ -68,6 +68,29 @@ function is_blog_installed() {
 	return false;
 }
 
+function current_time( $type, $gmt = 0 ) {
+switch ( $type ) {
+	case 'mysql':
+		return ( $gmt ) ? gmdate( 'Y-m-d H:i:s' ) : gmdate( 'Y-m-d H:i:s', ( time() + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) ) );
+	case 'timestamp':
+		return ( $gmt ) ? time() : time() + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS );
+	default:
+		return ( $gmt ) ? date( $type ) : date( $type, time() + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) );
+}
+}
+
+function force_ssl_admin( $force = null ) {
+static $forced = false;
+
+if ( !is_null( $force ) ) {
+	$old_forced = $forced;
+	$forced = $force;
+	return $old_forced;
+}
+
+return $forced;
+}
+
 /**
  * Serialize data, if needed.
  *
@@ -261,6 +284,32 @@ function wp_guess_url() {
 	}
 	
 	return rtrim ( $url, '/' );
+}
+
+function global_terms_enabled() {
+if ( ! is_multisite() )
+	return false;
+	
+	static $global_terms = null;
+	if ( is_null( $global_terms ) ) {
+		
+		/**
+		 * Filters whether global terms are enabled.
+		 *
+		 * Passing a non-null value to the filter will effectively short-circuit the function,
+		 * returning the value of the 'global_terms_enabled' site option instead.
+		 *
+		 * @since 3.0.0
+		 *
+		 * @param null $enabled Whether global terms are enabled.
+		 */
+		$filter = apply_filters( 'global_terms_enabled', null );
+		if ( ! is_null( $filter ) )
+			$global_terms = (bool) $filter;
+			else
+				$global_terms = (bool) get_site_option( 'global_terms_enabled', false );
+	}
+	return $global_terms;
 }
 
 /**

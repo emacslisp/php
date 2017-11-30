@@ -104,6 +104,16 @@ function apply_filters($tag, $value) {
 	
 	return $filtered;
 }
+
+function did_action($tag) {
+	global $wp_actions;
+	
+	if ( ! isset( $wp_actions[ $tag ] ) )
+		return 0;
+	
+	return $wp_actions[$tag];
+}
+
 function do_action($tag, $arg = '') {
 	global $wp_filter, $wp_actions, $wp_current_filter;
 	

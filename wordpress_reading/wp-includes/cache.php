@@ -1,12 +1,16 @@
 <?php
 
-	function wp_cache_add( $key, $data, $group = '', $expire = 0 ) {
-		global $wp_object_cache;
-	
-		return $wp_object_cache->add( $key, $data, $group, (int) $expire );
-	}
-	
+function wp_cache_add( $key, $data, $group = '', $expire = 0 ) {
+	global $wp_object_cache;
 
+	return $wp_object_cache->add( $key, $data, $group, (int) $expire );
+}
+	
+function wp_cache_delete( $key, $group = '' ) {
+	global $wp_object_cache;
+	
+	return $wp_object_cache->delete($key, $group);
+}
 
 function wp_cache_add_non_persistent_groups( $groups ) {
 // Default cache doesn't persist so nothing to do here.
@@ -97,6 +101,20 @@ class WP_Object_Cache {
 			return false;
 		
 		return $this->set ( $key, $data, $group, ( int ) $expire );
+	}
+	
+	public function delete( $key, $group = 'default', $deprecated = false ) {
+	if ( empty( $group ) )
+		$group = 'default';
+		
+		if ( $this->multisite && ! isset( $this->global_groups[ $group ] ) )
+			$key = $this->blog_prefix . $key;
+			
+			if ( ! $this->_exists( $key, $group ) )
+				return false;
+				
+				unset( $this->cache[$group][$key] );
+				return true;
 	}
 }
 ?>
