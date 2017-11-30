@@ -29,6 +29,7 @@ require( ABSPATH . WPINC . '/class-wp-roles.php' );
 require( ABSPATH . WPINC . '/class-wp-theme.php' );
 require( ABSPATH . WPINC . '/class-wp-error.php' );
 
+require( ABSPATH . WPINC . '/meta.php' );
 require( ABSPATH . WPINC . '/class-phpass.php' );
 
 // Initialize multisite if enabled.

@@ -8,6 +8,10 @@ $userdata = compact('user_login', 'user_email', 'user_pass');
 return wp_insert_user($userdata);
 }
 
+function get_user_meta($user_id, $key = '', $single = false) {
+	return get_metadata('user', $user_id, $key, $single);
+}
+
 /**
  * Checks whether the given username exists.
  *
@@ -23,6 +27,43 @@ if ( $user = get_user_by( 'login', $username ) ) {
 return false;
 }
 
+/**
+ * Update all user caches
+ *
+ * @since 3.0.0
+ *
+ * @param object|WP_User $user User object to be cached
+ * @return bool|null Returns false on failure.
+ */
+function update_user_caches( $user ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+if ( $user instanceof WP_User ) {
+	if ( ! $user->exists() ) {
+		return false;
+	}
+	
+	$user = $user->data;
+}
+
+wp_cache_add($user->ID, $user, 'users');
+wp_cache_add($user->user_login, $user->ID, 'userlogins');
+wp_cache_add($user->user_email, $user->ID, 'useremail');
+wp_cache_add($user->user_nicename, $user->ID, 'userslugs');
+}
+
+/**
+ * Checks whether the given email exists.
+ *
+ * @since 2.1.0
+ *
+ * @param string $email Email.
+ * @return int|false The user's ID on success, and false on failure.
+ */
+function email_exists( $email ) {
+if ( $user = get_user_by( 'email', $email) ) {
+	return $user->ID;
+}
+return false;
+}
 
 function wp_insert_user( $userdata ) {
 global $wpdb;
