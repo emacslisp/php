@@ -38,6 +38,9 @@ require( ABSPATH . WPINC . '/class-wp-error.php' );
 require( ABSPATH . WPINC . '/meta.php' );
 require( ABSPATH . WPINC . '/class-phpass.php' );
 
+require( ABSPATH . WPINC . '/class-wp-list-util.php' );
+require( ABSPATH . WPINC . '/class-http.php' );
+
 // Initialize multisite if enabled.
 if ( is_multisite() ) {
 	require( ABSPATH . WPINC . '/ms-blogs.php' );
