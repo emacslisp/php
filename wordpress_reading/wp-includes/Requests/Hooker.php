@@ -21,7 +21,7 @@ interface Requests_Hooker {
 	 * @param int $priority Priority number. <0 is executed earlier, >0 is executed later
 	 */
 	public function register($hook, $callback, $priority = 0);
-	
+
 	/**
 	 * Dispatch a message
 	 *
@@ -31,4 +31,3 @@ interface Requests_Hooker {
 	 */
 	public function dispatch($hook, $parameters = array());
 }
-?>
