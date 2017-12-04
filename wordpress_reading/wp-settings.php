@@ -39,7 +39,16 @@ require( ABSPATH . WPINC . '/meta.php' );
 require( ABSPATH . WPINC . '/class-phpass.php' );
 
 require( ABSPATH . WPINC . '/class-wp-list-util.php' );
+
 require( ABSPATH . WPINC . '/class-http.php' );
+require( ABSPATH . WPINC . '/class-wp-http-streams.php' );
+require( ABSPATH . WPINC . '/class-wp-http-curl.php' );
+require( ABSPATH . WPINC . '/class-wp-http-proxy.php' );
+require( ABSPATH . WPINC . '/class-wp-http-cookie.php' );
+require( ABSPATH . WPINC . '/class-wp-http-encoding.php' );
+require( ABSPATH . WPINC . '/class-wp-http-response.php' );
+require( ABSPATH . WPINC . '/class-wp-http-requests-response.php' );
+require( ABSPATH . WPINC . '/class-wp-http-requests-hooks.php' );
 
 // Initialize multisite if enabled.
 if ( is_multisite() ) {
