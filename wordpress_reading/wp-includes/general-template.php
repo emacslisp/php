@@ -54,6 +54,35 @@ function language_attributes( $doctype = 'html' ) {
 	echo get_language_attributes( $doctype );
 }
 
+
+
+/**
+ * Returns the URL that allows the user to retrieve the lost password
+ *
+ * @since 2.8.0
+ *
+ * @param string $redirect Path to redirect to on login.
+ * @return string Lost password URL.
+ */
+function wp_lostpassword_url( $redirect = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+$args = array( 'action' => 'lostpassword' );
+if ( !empty($redirect) ) {
+	$args['redirect_to'] = $redirect;
+}
+
+$lostpassword_url = add_query_arg( $args, network_site_url('wp-login.php', 'login') );
+
+/**
+ * Filters the Lost Password URL.
+ *
+ * @since 2.8.0
+ *
+ * @param string $lostpassword_url The lost password page URL.
+ * @param string $redirect         The path to redirect to on login.
+ */
+return apply_filters( 'lostpassword_url', $lostpassword_url, $redirect );
+}
+
 /**
  * Retrieves the login URL.
  *
@@ -103,6 +132,19 @@ function get_language_attributes( $doctype = 'html' ) {
 	$output = implode(' ', $attributes);
 		
 	return apply_filters( 'language_attributes', $output, $doctype );
+}
+
+/**
+ * Displays information about the current site.
+ *
+ * @since 0.71
+ *
+ * @see get_bloginfo() For possible `$show` values
+ *
+ * @param string $show Optional. Site information to display. Default empty.
+ */
+function bloginfo( $show = '' ) {
+	echo get_bloginfo( $show, 'display' );
 }
 
 function get_bloginfo( $show = '', $filter = 'raw' ) {

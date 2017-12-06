@@ -12,6 +12,10 @@ function _x($text) {
 	return $text;
 }
 
+function esc_html_e( $text, $domain = 'default' ) {
+	echo $text;
+}
+
 function esc_attr_e( $text, $domain = 'default' ) {
 	return $text;
 }

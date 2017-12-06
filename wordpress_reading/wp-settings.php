@@ -50,8 +50,12 @@ require( ABSPATH . WPINC . '/class-wp-http-response.php' );
 require( ABSPATH . WPINC . '/class-wp-http-requests-response.php' );
 require( ABSPATH . WPINC . '/class-wp-http-requests-hooks.php' );
 
+
 require( ABSPATH . WPINC . '/class-wp-session-tokens.php' );
 require( ABSPATH . WPINC . '/class-wp-user-meta-session-tokens.php' );
+
+
+require( ABSPATH . WPINC . '/script-loader.php' );
 
 // Initialize multisite if enabled.
 if ( is_multisite() ) {
