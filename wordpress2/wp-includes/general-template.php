@@ -328,7 +328,7 @@ function wp_logout_url($redirect = '') {file_put_contents('/Users/ewu/output.log
  *                             Default false.
  * @return string The login URL. Not HTML-encoded.
  */
-function wp_login_url($redirect = '', $force_reauth = false) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function wp_login_url($redirect = '', $force_reauth = false) {
 	$login_url = site_url('wp-login.php', 'login');
 
 	if ( !empty($redirect) )

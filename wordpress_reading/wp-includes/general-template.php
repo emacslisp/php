@@ -54,6 +54,38 @@ function language_attributes( $doctype = 'html' ) {
 	echo get_language_attributes( $doctype );
 }
 
+/**
+ * Retrieves the login URL.
+ *
+ * @since 2.7.0
+ *
+ * @param string $redirect     Path to redirect to on log in.
+ * @param bool   $force_reauth Whether to force reauthorization, even if a cookie is present.
+ *                             Default false.
+ * @return string The login URL. Not HTML-encoded.
+ */
+function wp_login_url($redirect = '', $force_reauth = false) {
+	$login_url = site_url('wp-login.php', 'login');
+	
+	if ( !empty($redirect) )
+		$login_url = add_query_arg('redirect_to', urlencode($redirect), $login_url);
+		
+		if ( $force_reauth )
+			$login_url = add_query_arg('reauth', '1', $login_url);
+			
+			/**
+			 * Filters the login URL.
+			 *
+			 * @since 2.8.0
+			 * @since 4.2.0 The `$force_reauth` parameter was added.
+			 *
+			 * @param string $login_url    The login URL. Not HTML-encoded.
+			 * @param string $redirect     The path to redirect to on login, if supplied.
+			 * @param bool   $force_reauth Whether to force reauthorization, even if a cookie is present.
+			 */
+			return apply_filters( 'login_url', $login_url, $redirect, $force_reauth );
+}
+
 function get_language_attributes( $doctype = 'html' ) {
 	$attributes = array();
 	

@@ -734,4 +734,45 @@ if ( !empty( $deprecated ) )
 		return array('url' => $guessurl, 'user_id' => $user_id, 'password' => $user_password, 'password_message' => $message);
 }
 
+
+if ( !function_exists('wp_new_blog_notification') ) :
+/**
+ * Notifies the site admin that the setup is complete.
+ *
+ * Sends an email with wp_mail to the new administrator that the site setup is complete,
+ * and provides them with a record of their login credentials.
+ *
+ * @since 2.1.0
+ *
+ * @param string $blog_title Site title.
+ * @param string $blog_url   Site url.
+ * @param int    $user_id    User ID.
+ * @param string $password   User's Password.
+ */
+function wp_new_blog_notification($blog_title, $blog_url, $user_id, $password) {
+	$user = new WP_User( $user_id );
+	$email = $user->user_email;
+	$name = $user->user_login;
+	$login_url = wp_login_url();
+	/* translators: New site notification email. 1: New site URL, 2: User login, 3: User password or password reset link, 4: Login URL */
+	$message = sprintf( __( "Your new WordPress site has been successfully set up at:
+			
+%1\$s
+			
+You can log in to the administrator account with the following information:
+			
+Username: %2\$s
+Password: %3\$s
+Log in here: %4\$s
+			
+We hope you enjoy your new site. Thanks!
+			
+--The WordPress Team
+https://wordpress.org/
+"), $blog_url, $name, $password, $login_url );
+	
+	@wp_mail($email, __('New WordPress Site'), $message);
+}
+endif;
+
 ?>

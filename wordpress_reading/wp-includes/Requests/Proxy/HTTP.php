@@ -2,14 +2,6 @@
 /**
  * HTTP Proxy connection interface
  *
- * @package Requests
- * @subpackage Proxy
- * @since 1.6
- */
-
-/**
- * HTTP Proxy connection interface
- *
  * Provides a handler for connection via an HTTP proxy
  *
  * @package Requests

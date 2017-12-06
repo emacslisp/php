@@ -4,12 +4,6 @@
  *
  * @package Requests
  */
-
-/**
- * Exception based on HTTP response
- *
- * @package Requests
- */
 class Requests_Exception_HTTP extends Requests_Exception {
 	/**
 	 * HTTP status code

@@ -370,7 +370,7 @@ if ( !function_exists('wp_new_blog_notification') ) :
  * @param int    $user_id    User ID.
  * @param string $password   User's Password.
  */
-function wp_new_blog_notification($blog_title, $blog_url, $user_id, $password) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function wp_new_blog_notification($blog_title, $blog_url, $user_id, $password) {
 	$user = new WP_User( $user_id );
 	$email = $user->user_email;
 	$name = $user->user_login;
