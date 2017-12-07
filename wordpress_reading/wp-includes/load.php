@@ -261,6 +261,58 @@ function wp_installing( $is_installing = null ) {
 	return (bool) $installing;
 }
 
+function get_current_blog_id() {
+	global $blog_id;
+	return absint($blog_id);
+}
+
+
+/**
+ * Whether the current request is for a site's admininstrative interface.
+ *
+ * e.g. `/wp-admin/`
+ *
+ * Does not check if the user is an administrator; current_user_can()
+ * for checking roles and capabilities.
+ *
+ * @since 3.1.0
+ *
+ * @global WP_Screen $current_screen
+ *
+ * @return bool True if inside WordPress blog administration pages.
+ */
+function is_blog_admin() {
+if ( isset( $GLOBALS['current_screen'] ) )
+	return $GLOBALS['current_screen']->in_admin( 'site' );
+	elseif ( defined( 'WP_BLOG_ADMIN' ) )
+	return WP_BLOG_ADMIN;
+	
+	return false;
+}
+
+/**
+ * Whether the current request is for the network administrative interface.
+ *
+ * e.g. `/wp-admin/network/`
+ *
+ * Does not check if the user is an administrator; current_user_can()
+ * for checking roles and capabilities.
+ *
+ * @since 3.1.0
+ *
+ * @global WP_Screen $current_screen
+ *
+ * @return bool True if inside WordPress network administration pages.
+ */
+function is_network_admin() {
+if ( isset( $GLOBALS['current_screen'] ) )
+	return $GLOBALS['current_screen']->in_admin( 'network' );
+	elseif ( defined( 'WP_NETWORK_ADMIN' ) )
+	return WP_NETWORK_ADMIN;
+	
+	return false;
+}
+
 function wp_start_object_cache() {
 		global $wp_filter;
 		

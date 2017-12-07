@@ -761,6 +761,15 @@ if ( null === $sep )
 	return implode($sep, $ret);
 }
 
+
+function wp( $query_vars = '' ) {
+global $wp, $wp_query, $wp_the_query;
+$wp->main( $query_vars );
+
+if ( !isset($wp_the_query) )
+	$wp_the_query = $wp_query;
+}
+
 /**
  * Build URL query based on an associative and, or indexed array.
  *
@@ -778,6 +787,72 @@ if ( null === $sep )
  */
 function build_query( $data ) {
 return _http_build_query( $data, null, '&', '', false );
+}
+
+
+/**
+ * Load the feed template from the use of an action hook.
+ *
+ * If the feed action does not have a hook, then the function will die with a
+ * message telling the visitor that the feed is not valid.
+ *
+ * It is better to only have one hook for each feed.
+ *
+ * @since 2.1.0
+ *
+ * @global WP_Query $wp_query Used to tell if the use a comment feed.
+ */
+function do_feed() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+global $wp_query;
+
+// Determine if we are looking at the main comment feed
+$is_main_comments_feed = ( $wp_query->is_comment_feed() && ! $wp_query->is_singular() );
+
+/*
+ * Check the queried object for the existence of posts if it is not a feed for an archive,
+ * search result, or main comments. By checking for the absense of posts we can prevent rendering the feed
+ * templates at invalid endpoints. e.g.) /wp-content/plugins/feed/
+ */
+if ( ! $wp_query->have_posts() && ! ( $wp_query->is_archive() || $wp_query->is_search() || $is_main_comments_feed ) ) {
+	wp_die( __( 'ERROR: This is not a valid feed.' ), '', array( 'response' => 404 ) );
+}
+
+$feed = get_query_var( 'feed' );
+
+// Remove the pad, if present.
+$feed = preg_replace( '/^_+/', '', $feed );
+
+if ( $feed == '' || $feed == 'feed' )
+	$feed = get_default_feed();
+	
+	if ( ! has_action( "do_feed_{$feed}" ) ) {
+		wp_die( __( 'ERROR: This is not a valid feed template.' ), '', array( 'response' => 404 ) );
+	}
+	
+	/**
+	 * Fires once the given feed is loaded.
+	 *
+	 * The dynamic portion of the hook name, `$feed`, refers to the feed template name.
+	 * Possible values include: 'rdf', 'rss', 'rss2', and 'atom'.
+	 *
+	 * @since 2.1.0
+	 * @since 4.4.0 The `$feed` parameter was added.
+	 *
+	 * @param bool   $is_comment_feed Whether the feed is a comment feed.
+	 * @param string $feed            The feed name.
+	 */
+	do_action( "do_feed_{$feed}", $wp_query->is_comment_feed, $feed );
+}
+
+/**
+ * Send a HTTP header to limit rendering of pages to same origin iframes.
+ *
+ * @since 3.1.3
+ *
+ * @see https://developer.mozilla.org/en/the_x-frame-options_response_header
+ */
+function send_frame_options_header() {
+	@header( 'X-Frame-Options: SAMEORIGIN' );
 }
 
 

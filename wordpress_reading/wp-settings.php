@@ -36,6 +36,7 @@ require( ABSPATH . WPINC . '/class-wp-theme.php' );
 require( ABSPATH . WPINC . '/class-wp-error.php' );
 
 require( ABSPATH . WPINC . '/meta.php' );
+require( ABSPATH . WPINC . '/class-wp-meta-query.php' );
 require( ABSPATH . WPINC . '/class-phpass.php' );
 
 require( ABSPATH . WPINC . '/class-wp-list-util.php' );
@@ -54,8 +55,16 @@ require( ABSPATH . WPINC . '/class-wp-http-requests-hooks.php' );
 require( ABSPATH . WPINC . '/class-wp-session-tokens.php' );
 require( ABSPATH . WPINC . '/class-wp-user-meta-session-tokens.php' );
 
-
 require( ABSPATH . WPINC . '/script-loader.php' );
+require( ABSPATH . WPINC . '/class-wp-query.php' );
+require( ABSPATH . WPINC . '/query.php' );
+
+require( ABSPATH . WPINC . '/taxonomy.php' );
+require( ABSPATH . WPINC . '/class-wp-taxonomy.php' );
+require( ABSPATH . WPINC . '/class-wp-tax-query.php' );
+
+require( ABSPATH . WPINC . '/date.php' );
+
 
 // Initialize multisite if enabled.
 if ( is_multisite() ) {
@@ -64,6 +73,8 @@ if ( is_multisite() ) {
 } elseif ( ! defined( 'MULTISITE' ) ) {
 	define( 'MULTISITE', false );
 }
+
+require( ABSPATH . WPINC . '/default-filters.php' );
 
 wp_initial_constants();
 
@@ -104,5 +115,20 @@ $GLOBALS['wp_roles'] = new WP_Roles();
 
 require( ABSPATH . WPINC . '/pluggable.php' );
 wp_templating_constants();
+
+/**
+ * WordPress Query object
+ * @global WP_Query $wp_the_query
+ * @since 2.0.0
+ */
+$GLOBALS['wp_the_query'] = new WP_Query();
+
+/**
+ * Holds the reference to @see $wp_the_query
+ * Use this global for WordPress queries
+ * @global WP_Query $wp_query
+ * @since 1.5.0
+ */
+$GLOBALS['wp_query'] = $GLOBALS['wp_the_query'];
 
 ?>
