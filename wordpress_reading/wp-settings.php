@@ -65,6 +65,13 @@ require( ABSPATH . WPINC . '/class-wp-tax-query.php' );
 
 require( ABSPATH . WPINC . '/date.php' );
 
+require( ABSPATH . WPINC . '/template.php' );
+
+require( ABSPATH . WPINC . '/post-template.php' );
+require( ABSPATH . WPINC . '/admin-bar.php' );
+
+require( ABSPATH . WPINC . '/post-thumbnail-template.php' );
+
 
 // Initialize multisite if enabled.
 if ( is_multisite() ) {

@@ -770,6 +770,225 @@ if ( !isset($wp_the_query) )
 	$wp_the_query = $wp_query;
 }
 
+
+
+
+
+/**
+ * Convert given date string into a different format.
+ *
+ * $format should be either a PHP date format string, e.g. 'U' for a Unix
+ * timestamp, or 'G' for a Unix timestamp assuming that $date is GMT.
+ *
+ * If $translate is true then the given date and format string will
+ * be passed to date_i18n() for translation.
+ *
+ * @since 0.71
+ *
+ * @param string $format    Format of the date to return.
+ * @param string $date      Date string to convert.
+ * @param bool   $translate Whether the return date should be translated. Default true.
+ * @return string|int|bool Formatted date string or Unix timestamp. False if $date is empty.
+ */
+function mysql2date( $format, $date, $translate = true ) {
+if ( empty( $date ) )
+	return false;
+	
+	if ( 'G' == $format )
+		return strtotime( $date . ' +0000' );
+		
+		$i = strtotime( $date );
+		
+		if ( 'U' == $format )
+			return $i;
+			
+			if ( $translate )
+				return date_i18n( $format, $i );
+				else
+					return date( $format, $i );
+}
+
+
+
+/**
+ * Encode a variable into JSON, with some sanity checks.
+ *
+ * @since 4.1.0
+ *
+ * @param mixed $data    Variable (usually an array or object) to encode as JSON.
+ * @param int   $options Optional. Options to be passed to json_encode(). Default 0.
+ * @param int   $depth   Optional. Maximum depth to walk through $data. Must be
+ *                       greater than 0. Default 512.
+ * @return string|false The JSON encoded string, or false if it cannot be encoded.
+ */
+function wp_json_encode( $data, $options = 0, $depth = 512 ) {
+/*
+ * json_encode() has had extra params added over the years.
+ * $options was added in 5.3, and $depth in 5.5.
+ * We need to make sure we call it with the correct arguments.
+ */
+if ( version_compare( PHP_VERSION, '5.5', '>=' ) ) {
+	$args = array( $data, $options, $depth );
+} elseif ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+	$args = array( $data, $options );
+} else {
+	$args = array( $data );
+}
+
+// Prepare the data for JSON serialization.
+$args[0] = _wp_json_prepare_data( $data );
+
+$json = @call_user_func_array( 'json_encode', $args );
+
+// If json_encode() was successful, no need to do more sanity checking.
+// ... unless we're in an old version of PHP, and json_encode() returned
+// a string containing 'null'. Then we need to do more sanity checking.
+if ( false !== $json && ( version_compare( PHP_VERSION, '5.5', '>=' ) || false === strpos( $json, 'null' ) ) )  {
+	return $json;
+}
+
+try {
+	$args[0] = _wp_json_sanity_check( $data, $depth );
+} catch ( Exception $e ) {
+	return false;
+}
+
+return call_user_func_array( 'json_encode', $args );
+}
+
+
+/**
+ * Prepares response data to be serialized to JSON.
+ *
+ * This supports the JsonSerializable interface for PHP 5.2-5.3 as well.
+ *
+ * @ignore
+ * @since 4.4.0
+ * @access private
+ *
+ * @param mixed $data Native representation.
+ * @return bool|int|float|null|string|array Data ready for `json_encode()`.
+ */
+function _wp_json_prepare_data( $data ) {
+if ( ! defined( 'WP_JSON_SERIALIZE_COMPATIBLE' ) || WP_JSON_SERIALIZE_COMPATIBLE === false ) {
+	return $data;
+}
+
+switch ( gettype( $data ) ) {
+	case 'boolean':
+	case 'integer':
+	case 'double':
+	case 'string':
+	case 'NULL':
+		// These values can be passed through.
+		return $data;
+		
+	case 'array':
+		// Arrays must be mapped in case they also return objects.
+		return array_map( '_wp_json_prepare_data', $data );
+		
+	case 'object':
+		// If this is an incomplete object (__PHP_Incomplete_Class), bail.
+		if ( ! is_object( $data ) ) {
+			return null;
+		}
+		
+		if ( $data instanceof JsonSerializable ) {
+			$data = $data->jsonSerialize();
+		} else {
+			$data = get_object_vars( $data );
+		}
+		
+		// Now, pass the array (or whatever was returned from jsonSerialize through).
+		return _wp_json_prepare_data( $data );
+		
+	default:
+		return null;
+}
+}
+
+
+/**
+ * Retrieve the date in localized format, based on timestamp.
+ *
+ * If the locale specifies the locale month and weekday, then the locale will
+ * take over the format for the date. If it isn't, then the date format string
+ * will be used instead.
+ *
+ * @since 0.71
+ *
+ * @global WP_Locale $wp_locale
+ *
+ * @param string   $dateformatstring Format to display the date.
+ * @param bool|int $unixtimestamp    Optional. Unix timestamp. Default false.
+ * @param bool     $gmt              Optional. Whether to use GMT timezone. Default false.
+ *
+ * @return string The date, translated if locale specifies it.
+ */
+function date_i18n( $dateformatstring, $unixtimestamp = false, $gmt = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+global $wp_locale;
+$i = $unixtimestamp;
+
+if ( false === $i ) {
+	$i = current_time( 'timestamp', $gmt );
+}
+
+/*
+ * Store original value for language with untypical grammars.
+ * See https://core.trac.wordpress.org/ticket/9396
+ */
+$req_format = $dateformatstring;
+
+if ( ( !empty( $wp_locale->month ) ) && ( !empty( $wp_locale->weekday ) ) ) {
+	$datemonth = $wp_locale->get_month( date( 'm', $i ) );
+	$datemonth_abbrev = $wp_locale->get_month_abbrev( $datemonth );
+	$dateweekday = $wp_locale->get_weekday( date( 'w', $i ) );
+	$dateweekday_abbrev = $wp_locale->get_weekday_abbrev( $dateweekday );
+	$datemeridiem = $wp_locale->get_meridiem( date( 'a', $i ) );
+	$datemeridiem_capital = $wp_locale->get_meridiem( date( 'A', $i ) );
+	$dateformatstring = ' '.$dateformatstring;
+	$dateformatstring = preg_replace( "/([^\\\])D/", "\\1" . backslashit( $dateweekday_abbrev ), $dateformatstring );
+	$dateformatstring = preg_replace( "/([^\\\])F/", "\\1" . backslashit( $datemonth ), $dateformatstring );
+	$dateformatstring = preg_replace( "/([^\\\])l/", "\\1" . backslashit( $dateweekday ), $dateformatstring );
+	$dateformatstring = preg_replace( "/([^\\\])M/", "\\1" . backslashit( $datemonth_abbrev ), $dateformatstring );
+	$dateformatstring = preg_replace( "/([^\\\])a/", "\\1" . backslashit( $datemeridiem ), $dateformatstring );
+	$dateformatstring = preg_replace( "/([^\\\])A/", "\\1" . backslashit( $datemeridiem_capital ), $dateformatstring );
+	
+	$dateformatstring = substr( $dateformatstring, 1, strlen( $dateformatstring ) -1 );
+}
+$timezone_formats = array( 'P', 'I', 'O', 'T', 'Z', 'e' );
+$timezone_formats_re = implode( '|', $timezone_formats );
+if ( preg_match( "/$timezone_formats_re/", $dateformatstring ) ) {
+	$timezone_string = get_option( 'timezone_string' );
+	if ( $timezone_string ) {
+		$timezone_object = timezone_open( $timezone_string );
+		$date_object = date_create( null, $timezone_object );
+		foreach ( $timezone_formats as $timezone_format ) {
+			if ( false !== strpos( $dateformatstring, $timezone_format ) ) {
+				$formatted = date_format( $date_object, $timezone_format );
+				$dateformatstring = ' '.$dateformatstring;
+				$dateformatstring = preg_replace( "/([^\\\])$timezone_format/", "\\1" . backslashit( $formatted ), $dateformatstring );
+				$dateformatstring = substr( $dateformatstring, 1, strlen( $dateformatstring ) -1 );
+			}
+		}
+	}
+}
+$j = @date( $dateformatstring, $i );
+
+/**
+ * Filters the date formatted based on the locale.
+ *
+ * @since 2.8.0
+ *
+ * @param string $j          Formatted date string.
+ * @param string $req_format Format to display the date.
+ * @param int    $i          Unix timestamp.
+ * @param bool   $gmt        Whether to convert to GMT for time. Default false.
+ */
+$j = apply_filters( 'date_i18n', $j, $req_format, $i, $gmt );
+return $j;
+}
+
 /**
  * Build URL query based on an associative and, or indexed array.
  *
@@ -1000,6 +1219,29 @@ if ( $field ) {
 }
 
 return $util->get_output();
+}
+
+/**
+ * Retrieve ids that are not already present in the cache.
+ *
+ * @since 3.4.0
+ * @access private
+ *
+ * @param array  $object_ids ID list.
+ * @param string $cache_key  The cache bucket to check against.
+ *
+ * @return array List of ids not present in the cache.
+ */
+function _get_non_cached_ids( $object_ids, $cache_key ) {
+$clean = array();
+foreach ( $object_ids as $id ) {
+	$id = (int) $id;
+	if ( !wp_cache_get( $id, $cache_key ) ) {
+		$clean[] = $id;
+	}
+}
+
+return $clean;
 }
 
 /**
