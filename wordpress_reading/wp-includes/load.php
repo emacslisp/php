@@ -258,6 +258,9 @@ function wp_installing( $is_installing = null ) {
 		return (bool) $old_installing;
 	}
 	
+	echo $installing;
+	echo "<br/>";
+	
 	return (bool) $installing;
 }
 

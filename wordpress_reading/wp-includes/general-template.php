@@ -2,7 +2,7 @@
 
 function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
 	// For backward compatibility
-	/*$handle = 0 === strpos( $file, 'css/' ) ? substr( $file, 4 ) : $file;
+	$handle = 0 === strpos( $file, 'css/' ) ? substr( $file, 4 ) : $file;
 	
 	if ( wp_styles()->query( $handle ) ) {
 		if ( $force_echo || did_action( 'wp_print_styles' ) ) // we already printed the style queue. Print this one immediately
@@ -10,7 +10,7 @@ function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
 			else // Add to style queue
 				wp_enqueue_style( $handle );
 				return;
-	}*/
+	}
 	
 	/**
 	 * Filters the stylesheet link to the specified CSS file.
@@ -25,12 +25,12 @@ function wp_admin_css( $file = 'wp-admin', $force_echo = false ) {
 	 */
 	echo apply_filters( 'wp_admin_css', "<link rel='stylesheet' href='" . esc_url( wp_admin_css_uri( $file ) ) . "' type='text/css' />\n", $file );
 	
-	/*
+	
 	 if ( function_exists( 'is_rtl' ) && is_rtl() ) {
 		
 		echo apply_filters( 'wp_admin_css', "<link rel='stylesheet' href='" . esc_url( wp_admin_css_uri( "$file-rtl" ) ) . "' type='text/css' />\n", "$file-rtl" );
 	}
-	*/
+	
 
 }
 
