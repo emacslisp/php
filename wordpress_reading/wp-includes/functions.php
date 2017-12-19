@@ -399,6 +399,28 @@ if ( ! is_multisite() )
 		return (int) $site_id === (int) get_network()->site_id;
 }
 
+/**
+ * Retrieve the WordPress home page URL.
+ *
+ * If the constant named 'WP_HOME' exists, then it will be used and returned
+ * by the function. This can be used to counter the redirection on your local
+ * development environment.
+ *
+ * @since 2.2.0
+ * @access private
+ *
+ * @see WP_HOME
+ *
+ * @param string $url URL for the home location.
+ * @return string Homepage location.
+ */
+function _config_wp_home( $url = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+if ( defined( 'WP_HOME' ) )
+	return untrailingslashit( WP_HOME );
+	return $url;
+}
+
+
 function get_file_data($file, $default_headers, $context = '') {
 	// We don't need to write to the file, so just open for reading.
 	$fp = fopen ( $file, 'r' );

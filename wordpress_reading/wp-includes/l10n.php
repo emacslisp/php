@@ -17,7 +17,7 @@ function esc_html_e( $text, $domain = 'default' ) {
 }
 
 function esc_attr_e( $text, $domain = 'default' ) {
-	return $text;
+	echo $text;
 }
 
 function is_rtl() {

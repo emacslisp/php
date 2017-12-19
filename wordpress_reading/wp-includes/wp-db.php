@@ -577,6 +577,18 @@ class wpdb {
 		
 		$this->db_connect ();
 	}
+	
+	/**
+	 * PHP5 style destructor and will run when database object is destroyed.
+	 *
+	 * @see wpdb::__construct()
+	 * @since 2.0.8
+	 * @return true
+	 */
+	public function __destruct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	return true;
+	}
+	
 	public function db_connect($allow_bail = true) {
 		
 		$this->is_mysql = true;
