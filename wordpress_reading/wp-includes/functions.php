@@ -334,6 +334,53 @@ if ( is_serialized( $original ) ) // don't attempt to unserialize data that wasn
 }
 
 /**
+ * Retrieve a canonical form of the provided charset appropriate for passing to PHP
+ * functions such as htmlspecialchars() and charset html attributes.
+ *
+ * @since 3.6.0
+ * @access private
+ *
+ * @see https://core.trac.wordpress.org/ticket/23688
+ *
+ * @param string $charset A charset name.
+ * @return string The canonical form of the charset.
+ */
+function _canonical_charset( $charset ) {
+if ( 'utf-8' === strtolower( $charset ) || 'utf8' === strtolower( $charset) ) {
+	
+	return 'UTF-8';
+}
+
+if ( 'iso-8859-1' === strtolower( $charset ) || 'iso8859-1' === strtolower( $charset ) ) {
+	
+	return 'ISO-8859-1';
+}
+
+return $charset;
+}
+
+/**
+ * Retrieve the WordPress site URL.
+ *
+ * If the constant named 'WP_SITEURL' is defined, then the value in that
+ * constant will always be returned. This can be used for debugging a site
+ * on your localhost while not having to change the database to your URL.
+ *
+ * @since 2.2.0
+ * @access private
+ *
+ * @see WP_SITEURL
+ *
+ * @param string $url URL to set the WordPress site location.
+ * @return string The WordPress Site URL.
+ */
+function _config_wp_siteurl( $url = '' ) {
+if ( defined( 'WP_SITEURL' ) )
+	return untrailingslashit( WP_SITEURL );
+	return $url;
+}
+
+/**
  * Determine whether a site is the main site of the current network.
  *
  * @since 3.0.0

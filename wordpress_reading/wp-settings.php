@@ -71,6 +71,7 @@ require( ABSPATH . WPINC . '/post-template.php' );
 require( ABSPATH . WPINC . '/admin-bar.php' );
 
 require( ABSPATH . WPINC . '/post-thumbnail-template.php' );
+require( ABSPATH . WPINC . '/rest-api.php' );
 
 
 // Initialize multisite if enabled.
