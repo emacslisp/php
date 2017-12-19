@@ -18,14 +18,6 @@ define( 'WP_INSTALLING', true );
 
 define( 'WPINC', 'wp-includes' );
 
-/**
- * We are installing WordPress.
- *
- * @since 1.5.1
- * @var bool
- */
-define( 'WP_INSTALLING', true );
-
 
 
 require_once( dirname( dirname( __FILE__ ) ) . '/wp-load.php' );

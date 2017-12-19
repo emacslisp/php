@@ -14,11 +14,13 @@ function is_blog_installed() {
 	if (! wp_installing ()) {
 		$alloptions = wp_load_alloptions ();
 	}
+	
 	// If siteurl is not set to autoload, check it specifically
-	if (isset ( $alloptions ) && ! isset ( $alloptions ['siteurl'] ))
+	if (! isset ( $alloptions ['siteurl'] ))
 		$installed = $wpdb->get_var ( "SELECT option_value FROM $wpdb->options WHERE option_name = 'siteurl'" );
 	else
 		$installed = $alloptions ['siteurl'];
+		
 	$wpdb->suppress_errors ( $suppress );
 	
 	$installed = ! empty ( $installed );
@@ -192,6 +194,48 @@ if ( !is_null( $force ) ) {
 }
 
 return $forced;
+}
+
+
+function wp_die( $message = '', $title = '', $args = array() ) {
+
+if ( is_int( $args ) ) {
+	$args = array( 'response' => $args );
+} elseif ( is_int( $title ) ) {
+	$args  = array( 'response' => $title );
+	$title = '';
+}
+
+if ( wp_doing_ajax() ) {
+	/**
+	 * Filters the callback for killing WordPress execution for Ajax requests.
+	 *
+	 * @since 3.4.0
+	 *
+	 * @param callable $function Callback function name.
+	 */
+	$function = apply_filters( 'wp_die_ajax_handler', '_ajax_wp_die_handler' );
+} elseif ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) {
+	/**
+	 * Filters the callback for killing WordPress execution for XML-RPC requests.
+	 *
+	 * @since 3.4.0
+	 *
+	 * @param callable $function Callback function name.
+	 */
+	$function = apply_filters( 'wp_die_xmlrpc_handler', '_xmlrpc_wp_die_handler' );
+} else {
+	/**
+	 * Filters the callback for killing WordPress execution for all non-Ajax, non-XML-RPC requests.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param callable $function Callback function name.
+	 */
+	$function = apply_filters( 'wp_die_handler', '_default_wp_die_handler' );
+}
+
+call_user_func( $function, $message, $title, $args );
 }
 
 /**

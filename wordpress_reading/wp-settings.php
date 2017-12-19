@@ -83,17 +83,19 @@ if ( is_multisite() ) {
 
 require( ABSPATH . WPINC . '/default-filters.php' );
 
+global $wpdb;
+require_wp_db();
+$GLOBALS['table_prefix'] = $table_prefix;
+wp_set_wpdb_vars();
+
 wp_initial_constants();
 
 wp_start_object_cache();
 
+//check wordpress is installed or not.
+wp_not_installed();
+
 // Include the wpdb class and, if present, a db.php database drop-in.
-global $wpdb;
-require_wp_db();
-
-$GLOBALS['table_prefix'] = $table_prefix;
-wp_set_wpdb_vars();
-
 
 require( ABSPATH . WPINC . '/theme.php' );
 

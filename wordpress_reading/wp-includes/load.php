@@ -155,6 +155,28 @@ function wp_get_server_protocol() {
 	return $protocol;
 }
 
+function wp_not_installed() {
+if ( is_multisite() ) {
+	if ( ! is_blog_installed() && ! wp_installing() ) {
+		nocache_headers();
+		
+		wp_die( __( 'The site you have requested is not installed properly. Please contact the system administrator.' ) );
+	}
+} elseif ( ! is_blog_installed() && ! wp_installing() ) {
+	nocache_headers();
+	
+	require( ABSPATH . WPINC . '/kses.php' );
+	require( ABSPATH . WPINC . '/pluggable.php' );
+	require( ABSPATH . WPINC . '/formatting.php' );
+	
+	$link = wp_guess_url() . '/wp-admin/install.php';
+	
+	wp_redirect( $link );
+	die();
+}
+}
+
+
 function wp_load_translations_early() {
 global $wp_locale;
 
@@ -269,6 +291,17 @@ function get_current_blog_id() {
 	return absint($blog_id);
 }
 
+
+function wp_doing_ajax() {
+/**
+ * Filters whether the current request is a WordPress Ajax request.
+ *
+ * @since 4.7.0
+ *
+ * @param bool $wp_doing_ajax Whether the current request is a WordPress Ajax request.
+ */
+return apply_filters( 'wp_doing_ajax', defined( 'DOING_AJAX' ) && DOING_AJAX );
+}
 
 /**
  * Whether the current request is for a site's admininstrative interface.

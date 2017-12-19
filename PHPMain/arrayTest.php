@@ -1,5 +1,6 @@
 <?php
 
+phpinfo();
 // @example: wordpress core - simulate add_doaction and apply_doaction
 function test() {
 	echo 'hello world xxxx !!!!';

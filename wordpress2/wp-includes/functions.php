@@ -1375,11 +1375,17 @@ function is_blog_installed() {file_put_contents('/Users/ewu/output.log',print_r(
 	if ( ! wp_installing() ) {
 		$alloptions = wp_load_alloptions();
 	}
+	
+	echo "++++++++ " . $alloptions. " ------------- ". $alloptions['siteurl'] ;
+	echo "<br/>";
 	// If siteurl is not set to autoload, check it specifically
 	if ( !isset( $alloptions['siteurl'] ) )
 		$installed = $wpdb->get_var( "SELECT option_value FROM $wpdb->options WHERE option_name = 'siteurl'" );
 	else
 		$installed = $alloptions['siteurl'];
+	
+	echo " ------------- ".$installed ."+++++++++++++++";
+		
 	$wpdb->suppress_errors( $suppress );
 
 	$installed = !empty( $installed );

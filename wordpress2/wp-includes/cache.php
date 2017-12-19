@@ -26,6 +26,10 @@
  */
 function wp_cache_add( $key, $data, $group = '', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
 	global $wp_object_cache;
+	
+	echo $key;
+	echo $data;
+	echo "</br>";
 
 	return $wp_object_cache->add( $key, $data, $group, (int) $expire );
 }
@@ -412,6 +416,10 @@ class WP_Object_Cache {
 	 * @return bool False if cache key and group already exist, true on success
 	 */
 	public function add( $key, $data, $group = 'default', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+	
+	    echo $key;
+	    echo "</br>";
+	
 		if ( wp_suspend_cache_addition() )
 			return false;
 
@@ -437,6 +445,8 @@ class WP_Object_Cache {
 	 * @param array $groups List of groups that are global.
 	 */
 	public function add_global_groups( $groups ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		echo "add_global_groups";
+	
 		$groups = (array) $groups;
 
 		$groups = array_fill_keys( $groups, true );
@@ -455,6 +465,8 @@ class WP_Object_Cache {
 	 * @return false|int False on failure, the item's new value on success.
 	 */
 	public function decr( $key, $offset = 1, $group = 'default' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		echo "=========== decr";
+		
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -491,6 +503,8 @@ class WP_Object_Cache {
 	 * @return bool False if the contents weren't deleted and true on success.
 	 */
 	public function delete( $key, $group = 'default', $deprecated = false ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		echo "=========== delete";
+		
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -608,6 +622,8 @@ class WP_Object_Cache {
 	 * @return bool False if not exists, true if contents were replaced.
 	 */
 	public function replace( $key, $data, $group = 'default', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		echo "============= replace";
+		
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -662,6 +678,12 @@ class WP_Object_Cache {
 	 * @return true Always returns true.
 	 */
 	public function set( $key, $data, $group = 'default', $expire = 0 ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+		echo "========= set";
+		echo "<br/>" . $key;
+		
+		echo ((new Exception)->getTraceAsString()). PHP_EOL;
+				
+		
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -731,7 +753,8 @@ class WP_Object_Cache {
 	 * @since 2.0.8
 	 */
 	public function __construct() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
-		$this->multisite = is_multisite();
+	echo "============ __construct";
+	$this->multisite = is_multisite();
 		$this->blog_prefix =  $this->multisite ? get_current_blog_id() . ':' : '';
 
 
