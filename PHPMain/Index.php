@@ -3,7 +3,7 @@
 //@example: php constant using string
 define("CONSTANT", "Hello world.");
 
-echo CONSTANT;
+echo CONSTANT . "<br/>";
 
 $x = 1;
 
