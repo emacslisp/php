@@ -16,7 +16,7 @@
  *
  * @staticvar bool $loaded
  */
-function wp_load_translations_early() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+function wp_load_translations_early() {
 global $wp_locale;
 
 static $loaded = false;
@@ -87,4 +87,4 @@ if ( $loaded )
 		
 		$wp_locale = new WP_Locale();
 }
-%>
+?>

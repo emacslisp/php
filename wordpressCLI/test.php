@@ -1,7 +1,9 @@
 <?php
+require( './wp-load.php' );
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'wordpress1234');
+define('DB_NAME', 'wordpress');
 
 /** MySQL database username */
 define('DB_USER', 'root');
@@ -10,7 +12,7 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', '123456');
 
 /** MySQL hostname */
-define('DB_HOST', '127.0.0.1:3307');
+define('DB_HOST', '127.0.0.1:3306');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -28,7 +30,6 @@ global $wpdb;
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/wordpressCLI/' );
 }
-define( 'WPINC', 'wp-includes' );
 
 require_once( ABSPATH . WPINC . '/wp-db.php' );
 if ( file_exists( WP_CONTENT_DIR . '/db.php' ) )
@@ -40,5 +41,5 @@ if ( file_exists( WP_CONTENT_DIR . '/db.php' ) )
 	
 	$wpdb = new wpdb( DB_USER, DB_PASSWORD, DB_NAME, DB_HOST );
 
-
+	$wpdb->db_version();
 ?>
