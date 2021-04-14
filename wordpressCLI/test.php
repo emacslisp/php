@@ -22,10 +22,6 @@ define('DB_COLLATE', '');
 
 $table_prefix  = 'wp_';
 
-echo $table_prefix;
-
-echo DB_NAME;
-
 global $wpdb;
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', dirname( dirname( __FILE__ ) ) . '/wordpressCLI/' );
@@ -41,5 +37,5 @@ if ( file_exists( WP_CONTENT_DIR . '/db.php' ) )
 	
 	$wpdb = new wpdb( DB_USER, DB_PASSWORD, DB_NAME, DB_HOST );
 
-	$wpdb->db_version();
+	echo $wpdb->db_version();
 ?>
