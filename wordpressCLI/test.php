@@ -38,4 +38,11 @@ if ( file_exists( WP_CONTENT_DIR . '/db.php' ) )
 	$wpdb = new wpdb( DB_USER, DB_PASSWORD, DB_NAME, DB_HOST );
 
 	echo $wpdb->db_version();
+	
+	echo "CREATE TABLE $wpdb->termmeta (";
+	print_r($wpdb->tables);
+	echo "-----------";
+	print_r($wpdb->termmeta);
+	
+	wp_get_db_schema(‘all’);
 ?>
