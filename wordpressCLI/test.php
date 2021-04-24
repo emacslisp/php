@@ -28,6 +28,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once( ABSPATH . WPINC . '/wp-db.php' );
+
+
 if ( file_exists( WP_CONTENT_DIR . '/db.php' ) )
 	require_once( WP_CONTENT_DIR . '/db.php' );
 	
@@ -37,10 +39,13 @@ if ( file_exists( WP_CONTENT_DIR . '/db.php' ) )
 	
 	$wpdb = new wpdb( DB_USER, DB_PASSWORD, DB_NAME, DB_HOST );
 
+	wp_set_wpdb_vars();
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+	
 	echo $wpdb->db_version();
 	echo $wpdb->check_database_version();
 	
-	// wp_get_db_schema(‘all’);
+	echo wp_get_db_schema('all');
 	
 	echo "CREATE TABLE $wpdb->termmeta (";
 	print_r($wpdb->tables);
