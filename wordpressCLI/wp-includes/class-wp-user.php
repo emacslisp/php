@@ -117,7 +117,7 @@ class WP_User {
      * @param string $name Optional. User's username
      * @param int $blog_id Optional Site ID, defaults to current site.
      */
-    public function __construct( $id = 0, $name = '', $blog_id = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function __construct( $id = 0, $name = '', $blog_id = '' ) {
     if ( ! isset( self::$back_compat_keys ) ) {
         $prefix = $GLOBALS['wpdb']->prefix;
         self::$back_compat_keys = array(
@@ -162,7 +162,7 @@ class WP_User {
      * @param object $data    User DB row object.
      * @param int    $blog_id Optional. The site ID to initialize for.
      */
-    public function init( $data, $blog_id = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function init( $data, $blog_id = '' ) {
     $this->data = $data;
     $this->ID = (int) $data->ID;
     
@@ -183,7 +183,7 @@ class WP_User {
      * @param string|int $value The field value
      * @return object|false Raw user object
      */
-    public static function get_data_by( $field, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public static function get_data_by( $field, $value ) {
     global $wpdb;
     
     // 'ID' is an alias of 'id'.
@@ -253,7 +253,7 @@ class WP_User {
      * @param array    $arguments Arguments to pass when calling.
      * @return mixed|false Return value of the callback, false otherwise.
      */
-    public function __call( $name, $arguments ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function __call( $name, $arguments ) {
     if ( '_init_caps' === $name ) {
         return call_user_func_array( array( $this, $name ), $arguments );
     }
@@ -269,7 +269,7 @@ class WP_User {
      * @param string $key User meta key to check if set.
      * @return bool Whether the given user meta key is set.
      */
-    public function __isset( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function __isset( $key ) {
     if ( 'id' == $key ) {
         _deprecated_argument( 'WP_User->id', '2.1.0',
             sprintf(
@@ -299,7 +299,7 @@ class WP_User {
      * @param string $key User meta key to retrieve.
      * @return mixed Value of the given user meta key (if set). If `$key` is 'id', the user ID.
      */
-    public function __get( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function __get( $key ) {
     if ( 'id' == $key ) {
         _deprecated_argument( 'WP_User->id', '2.1.0',
             sprintf(
@@ -338,7 +338,7 @@ class WP_User {
      * @param string $key   User meta key.
      * @param mixed  $value User meta value.
      */
-    public function __set( $key, $value ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function __set( $key, $value ) {
     if ( 'id' == $key ) {
         _deprecated_argument( 'WP_User->id', '2.1.0',
             sprintf(
@@ -362,7 +362,7 @@ class WP_User {
      *
      * @param string $key User meta key to unset.
      */
-    public function __unset( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function __unset( $key ) {
     if ( 'id' == $key ) {
         _deprecated_argument( 'WP_User->id', '2.1.0',
             sprintf(
@@ -390,7 +390,7 @@ class WP_User {
      *
      * @return bool True if user exists in the database, false if not.
      */
-    public function exists() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function exists() {
     return ! empty( $this->ID );
     }
     
@@ -404,7 +404,7 @@ class WP_User {
      * @param string $key Property
      * @return mixed
      */
-    public function get( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function get( $key ) {
     return $this->__get( $key );
     }
     
@@ -418,7 +418,7 @@ class WP_User {
      * @param string $key Property
      * @return bool
      */
-    public function has_prop( $key ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function has_prop( $key ) {
     return $this->__isset( $key );
     }
     
@@ -429,7 +429,7 @@ class WP_User {
      *
      * @return array Array representation.
      */
-    public function to_array() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function to_array() {
     return get_object_vars( $this->data );
     }
     
@@ -448,7 +448,7 @@ class WP_User {
      *
      * @param string $cap_key Optional capability key
      */
-    protected function _init_caps( $cap_key = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    protected function _init_caps( $cap_key = '' ) {
     global $wpdb;
     
     if ( empty($cap_key) )
@@ -477,7 +477,7 @@ class WP_User {
      *
      * @return array List of all capabilities for the user.
      */
-    public function get_role_caps() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function get_role_caps() {
     $wp_roles = wp_roles();
     
     //Filter out caps that are not role names and assign to $this->roles
@@ -505,7 +505,7 @@ class WP_User {
      *
      * @param string $role Role name.
      */
-    public function add_role( $role ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function add_role( $role ) {
     if ( empty( $role ) ) {
         return;
     }
@@ -534,7 +534,7 @@ class WP_User {
      *
      * @param string $role Role name.
      */
-    public function remove_role( $role ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function remove_role( $role ) {
     if ( !in_array($role, $this->roles) )
         return;
         unset( $this->caps[$role] );
@@ -565,7 +565,7 @@ class WP_User {
      *
      * @param string $role Role name.
      */
-    public function set_role( $role ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function set_role( $role ) {
     if ( 1 == count( $this->roles ) && $role == current( $this->roles ) )
         return;
         
@@ -615,7 +615,7 @@ class WP_User {
      * @param string $item Level capability name.
      * @return int Max Level.
      */
-    public function level_reduction( $max, $item ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function level_reduction( $max, $item ) {
     if ( preg_match( '/^level_(10|[0-9])$/i', $item, $matches ) ) {
         $level = intval( $matches[1] );
         return max( $max, $level );
@@ -636,7 +636,7 @@ class WP_User {
      *
      * @global wpdb $wpdb WordPress database abstraction object.
      */
-    public function update_user_level_from_caps() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function update_user_level_from_caps() {
     global $wpdb;
     $this->user_level = array_reduce( array_keys( $this->allcaps ), array( $this, 'level_reduction' ), 0 );
     update_user_meta( $this->ID, $wpdb->get_blog_prefix() . 'user_level', $this->user_level );
@@ -651,7 +651,7 @@ class WP_User {
      * @param string $cap Capability name.
      * @param bool $grant Whether to grant capability to user.
      */
-    public function add_cap( $cap, $grant = true ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function add_cap( $cap, $grant = true ) {
     $this->caps[$cap] = $grant;
     update_user_meta( $this->ID, $this->cap_key, $this->caps );
     $this->get_role_caps();
@@ -666,7 +666,7 @@ class WP_User {
      *
      * @param string $cap Capability name.
      */
-    public function remove_cap( $cap ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function remove_cap( $cap ) {
     if ( ! isset( $this->caps[ $cap ] ) ) {
         return;
     }
@@ -684,7 +684,7 @@ class WP_User {
      *
      * @global wpdb $wpdb WordPress database abstraction object.
      */
-    public function remove_all_caps() {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function remove_all_caps() {
     global $wpdb;
     $this->caps = array();
     delete_user_meta( $this->ID, $this->cap_key );
@@ -712,7 +712,7 @@ class WP_User {
      * @return bool Whether the current user has the given capability. If `$cap` is a meta cap and `$object_id` is
      *              passed, whether the current user has the given meta capability for the given object.
      */
-    public function has_cap( $cap ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function has_cap( $cap ) {
     if ( is_numeric( $cap ) ) {
         _deprecated_argument( __FUNCTION__, '2.0.0', __('Usage of user levels by plugins and themes is deprecated. Use roles and capabilities instead.') );
         $cap = $this->translate_level_to_cap( $cap );
@@ -765,7 +765,7 @@ class WP_User {
      * @param int $level Level number, 1 to 10.
      * @return string
      */
-    public function translate_level_to_cap( $level ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function translate_level_to_cap( $level ) {
     return 'level_' . $level;
     }
     
@@ -778,7 +778,7 @@ class WP_User {
      *
      * @param int $blog_id Optional. Site ID, defaults to current site.
      */
-    public function for_blog( $blog_id = '' ) {file_put_contents('/Users/ewu/output.log',print_r((new Exception)->getTraceAsString(),true). PHP_EOL . PHP_EOL,FILE_APPEND);
+    public function for_blog( $blog_id = '' ) {
     global $wpdb;
     if ( ! empty( $blog_id ) )
         $cap_key = $wpdb->get_blog_prefix( $blog_id ) . 'capabilities';
